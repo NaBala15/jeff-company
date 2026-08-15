@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeff Company — Criação de sites, automação de WhatsApp e Google Meu Negócio</title>
+  <meta name="description" content="Criação de sites que transformam visitantes em clientes, automação de WhatsApp e configuração do Google Meu Negócio para pequenas e médias empresas. Orçamento sem compromisso.">
+  <meta name="theme-color" content="#0A0B09">
+
+  <!-- ====================================================================
+       ATENÇÃO: quando o site for publicado, troque TODOS os endereços
+       https://jeffcompany.com.br abaixo pelo endereço real.
+       Se ficar errado, o link compartilhado no WhatsApp mostra a imagem
+       errada (ou nenhuma).
+       ==================================================================== -->
+  <link rel="canonical" href="https://jeffcompany.com.br/">
+
+  <!-- Como o link aparece quando alguém compartilha no WhatsApp, Instagram
+       ou LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Jeff Company">
+  <meta property="og:title" content="Jeff Company — Sites que transformam visitantes em clientes">
+  <meta property="og:description" content="Criação de sites, automação de WhatsApp e Google Meu Negócio para empresas que precisam ser encontradas.">
+  <meta property="og:url" content="https://jeffcompany.com.br/">
+  <meta property="og:image" content="https://jeffcompany.com.br/assets/img/og-jeff-company.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+  <!-- ====================================================================
+       Dados estruturados: é assim que o Google entende que existe uma
+       empresa aqui, e não só um site. Isso ajuda a aparecer na busca local
+       e conversa com o seu perfil do Google Meu Negócio.
+       PREENCHA: telefone, endereço (ou área atendida) e redes sociais.
+       ==================================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Jeff Company",
+    "description": "Criação de sites, automação de WhatsApp e configuração de Google Meu Negócio para pequenas e médias empresas.",
+    "url": "https://jeffcompany.com.br/",
+    "image": "https://jeffcompany.com.br/assets/img/og-jeff-company.jpg",
+    "email": "contato@jeffcompany.com.br",
+    "telephone": "+5511999999999",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "areaServed": { "@type": "Country", "name": "Brasil" },
+    "sameAs": [
+      "https://github.com/NaBala15",
+      "https://instagram.com/"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de sites e landing pages" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automação e robô de WhatsApp" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Configuração de Google Meu Negócio" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutenção de sites" } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- As perguntas do site podem aparecer direto no resultado do Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quanto custa um site?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Depende do tamanho. Uma landing page de uma seção só é bem mais barata que um site institucional com portfólio e blog. Na conversa inicial informamos a faixa de valor e a proposta por escrito chega em até 24h, sem compromisso." }
+      },
+      {
+        "@type": "Question",
+        "name": "Em quanto tempo o site fica pronto?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Landing page: cerca de 5 a 7 dias. Site institucional completo: de 2 a 3 semanas. O prazo entra na proposta com data definida." }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso ter domínio e hospedagem antes?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Não. Orientamos o registro do domínio no seu próprio nome e cuidamos da configuração técnica. A hospedagem costuma sair de graça ou por poucos reais por mês." }
+      },
+      {
+        "@type": "Question",
+        "name": "Consigo trocar textos e fotos depois?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sim. Na entrega ensinamos como alterar o que muda com frequência: preços, horários, fotos e telefone. Também existe plano de manutenção." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ======================================================================
+     CABEÇALHO
+     ====================================================================== -->
+<header class="hdr" id="topo">
+  <div class="hdr-inner">
+    <a class="logo" href="#topo" aria-label="Jeff Company — início">
+      <span class="logo-mark" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </span>
+      <span class="logo-txt">Jeff<span>Company</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+
+    <a class="btn btn-primary btn-sm hdr-cta" href="#contato">
+      Falar no WhatsApp
+    </a>
+
+    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Menu mobile -->
+  <div class="menu-mobile" id="menu-mobile" hidden>
+    <a href="#servicos">Serviços</a>
+    <a href="#trabalhos">Trabalhos</a>
+    <a href="#processo">Como funciona</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a class="btn btn-primary" href="#contato">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ====================================================================
+       HERO — a pergunta e a resposta arrastável
+       ==================================================================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+
+      <div class="hero-txt">
+        <span class="eyebrow">Jeff Company · Presença digital</span>
+        <h1>
+          Seu cliente te procura no Google.
+          <em>O que ele encontra?</em>
+        </h1>
+        <p class="lead">
+          Criamos sites que transformam visitantes em clientes, automações de
+          WhatsApp que respondem por você e perfis no Google Meu Negócio que
+          fazem seu negócio aparecer na busca.
+        </p>
+        <div class="hero-acoes">
+          <a class="btn btn-primary" href="#contato">Quero meu site</a>
+          <a class="btn btn-ghost" href="#trabalhos">Ver trabalhos</a>
+        </div>
+        <p class="hero-nota">
+          Resposta em até 24h · Orçamento sem compromisso
+        </p>
+      </div>
+
+      <!-- ---- Comparador antes / depois ---------------------------------
+           Arraste a alça: à esquerda o site que a maioria dos negócios tem
+           hoje, à direita o que entregamos. -->
+      <figure class="ba" id="comparador" style="--pos: 50%">
+        <figcaption class="sr-only">
+          Comparação entre um site desatualizado e um site feito pela Jeff Company.
+          Use as setas do teclado para mover a divisão.
+        </figcaption>
+
+        <div class="ba-frame">
+          <!-- barra do navegador -->
+          <div class="ba-bar">
+            <span class="ba-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="ba-url">pizzariadobeto.com.br</span>
+          </div>
+
+          <div class="ba-view">
+
+            <!-- DEPOIS (camada de baixo, ocupa tudo) -->
+            <div class="ba-layer sh-depois" aria-hidden="true">
+              <div class="sh-nav">
+                <span class="sh-logo">BETO</span>
+                <span class="sh-chip">Pedir agora</span>
+              </div>
+              <div class="sh-hero">
+                <div class="sh-pizza"></div>
+                <div class="sh-copy">
+                  <span class="sh-eyebrow">Desde 1998 no bairro</span>
+                  <strong>A pizza que <br>todo mundo conhece</strong>
+                  <span class="sh-cta">Pedir no WhatsApp</span>
+                </div>
+              </div>
+              <div class="sh-tags">
+                <span>Entrega em 30 min</span><span>Aberto até 23h</span><span>4,9 ★ no Google</span>
+              </div>
+            </div>
+
+            <!-- ANTES (camada de cima, recortada pela alça) -->
+            <div class="ba-layer ba-clip sh-antes" aria-hidden="true">
+              <div class="old-banner">PIZZARIA DO BETO</div>
+              <div class="old-body">
+                <p class="old-welcome">Bem vindo ao nosso site!!!</p>
+                <div class="old-blink">-= EM CONSTRUÇÃO =-</div>
+                <div class="old-pizza"></div>
+                <table class="old-table">
+                  <tr><td>Segunda</td><td>Fechado</td></tr>
+                  <tr><td>Terça a Domingo</td><td>18h - 23h</td></tr>
+                </table>
+                <p class="old-fone">Tel: (11) 3xxx-xxxx</p>
+                <p class="old-counter">Visitantes: 0 0 0 2 4 7</p>
+              </div>
+            </div>
+
+            <!-- alça -->
+            <div class="ba-handle" aria-hidden="true">
+              <span class="ba-knob"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 4 12l5 6M15 6l5 6-5 6"/></svg></span>
+            </div>
+
+            <!-- controle real: acessível por teclado, invisível por cima -->
+            <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1"
+                   aria-label="Arraste para comparar o site antigo com o site novo">
+          </div>
+        </div>
+        <p class="ba-hint">
+          <span class="ba-lado">O site de hoje</span>
+          <span class="ba-puxe">Arraste para comparar</span>
+          <span class="ba-lado ba-lado-d">O que entregamos</span>
+        </p>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       FAIXA — para quem trabalhamos
+       ==================================================================== -->
+  <section class="faixa" aria-label="Segmentos atendidos">
+    <div class="faixa-rot">Feito para negócios que dependem de ser encontrados</div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-run">
+        <span>Clínicas e consultórios</span><i></i>
+        <span>Restaurantes e delivery</span><i></i>
+        <span>Estética e beleza</span><i></i>
+        <span>Advocacia</span><i></i>
+        <span>Oficinas e autopeças</span><i></i>
+        <span>Academias</span><i></i>
+        <span>Prestadores de serviço</span><i></i>
+        <span>Comércio local</span><i></i>
+      </div>
+      <div class="marquee-run">
+        <span>Clínicas e consultórios</span><i></i>
+        <span>Restaurantes e delivery</span><i></i>
+        <span>Estética e beleza</span><i></i>
+        <span>Advocacia</span><i></i>
+        <span>Oficinas e autopeças</span><i></i>
+        <span>Academias</span><i></i>
+        <span>Prestadores de serviço</span><i></i>
+        <span>Comércio local</span><i></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       SERVIÇOS
+       ==================================================================== -->
+  <section class="section" id="servicos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Serviços</span>
+        <h2>Quatro coisas. Todas voltadas para você ser encontrado e responder rápido.</h2>
+        <p class="lead">
+          Não fazemos tudo para todo mundo. Fazemos o que resolve o problema de
+          quem depende de aparecer na busca e fechar no WhatsApp.
+        </p>
+      </div>
+
+      <div class="serv-grid">
+
+        <article class="card serv serv-destaque reveal">
+          <span class="serv-selo">Principal</span>
+          <h3>Criação de sites e páginas</h3>
+          <p>
+            Site institucional, página de vendas ou landing page. Escrito à mão,
+            linha por linha — sem tema pronto e sem construtor. O resultado abre
+            rápido no celular do seu cliente, que é onde ele vai te ver.
+          </p>
+          <ul class="serv-lista">
+            <li>Layout exclusivo, feito para o seu negócio</li>
+            <li>Funciona no celular, tablet e computador</li>
+            <li>Botão de WhatsApp em todas as seções</li>
+            <li>Preparado para aparecer no Google</li>
+          </ul>
+          <div class="serv-tags">
+            <span class="tag">Site institucional</span>
+            <span class="tag">Landing page</span>
+            <span class="tag">Página de vendas</span>
+          </div>
+        </article>
+
+        <article class="card serv reveal">
+          <h3>Automação e robô de WhatsApp</h3>
+          <p>
+            Seu WhatsApp responde sozinho fora do horário, pergunta o que
+            precisa saber e organiza quem chegou. Você abre o celular de manhã
+            com a conversa já encaminhada.
+          </p>
+          <div class="serv-tags">
+            <span class="tag">Atendimento 24h</span>
+            <span class="tag">Agendamento</span>
+          </div>
+        </article>
+
+        <article class="card serv reveal">
+          <h3>Google Meu Negócio</h3>
+          <p>
+            Perfil configurado do jeito certo: categoria, endereço, horário,
+            fotos e avaliações. É o que coloca você no mapa quando alguém
+            busca o seu serviço ali perto.
+          </p>
+          <div class="serv-tags">
+            <span class="tag">Ficha completa</span>
+            <span class="tag">Aparecer no mapa</span>
+          </div>
+        </article>
+
+        <article class="card serv reveal">
+          <h3>Manutenção e melhorias</h3>
+          <p>
+            Site no ar não é site esquecido. Troca de textos e fotos, correções
+            e acompanhamento da velocidade — para a página não envelhecer seis
+            meses depois de entregue.
+          </p>
+          <div class="serv-tags">
+            <span class="tag">Atualizações</span>
+            <span class="tag">Velocidade</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       COMO FUNCIONA — aqui a numeração faz sentido: é uma sequência real
+       ==================================================================== -->
+  <section class="section secao-processo" id="processo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Do primeiro "oi" até o site no ar</h2>
+        <p class="lead">
+          Três etapas. Você sabe exatamente onde está e o que vem depois.
+        </p>
+      </div>
+
+      <ol class="passos">
+        <li class="passo reveal">
+          <span class="passo-num">01</span>
+          <div>
+            <h3>Conversa</h3>
+            <p>
+              Vinte minutos no WhatsApp ou em chamada. Eu entendo o que você
+              vende, para quem, e o que precisa acontecer quando alguém chega
+              na sua página. Sem custo.
+            </p>
+          </div>
+        </li>
+        <li class="passo reveal">
+          <span class="passo-num">02</span>
+          <div>
+            <h3>Proposta e primeira versão</h3>
+            <p>
+              Você recebe escopo, prazo e valor por escrito. Aprovando, eu monto
+              a primeira versão e te mostro funcionando antes do pagamento
+              final.
+            </p>
+          </div>
+        </li>
+        <li class="passo reveal">
+          <span class="passo-num">03</span>
+          <div>
+            <h3>No ar e ajustado</h3>
+            <p>
+              Publico, configuro o domínio, ligo a medição de visitas e te
+              ensino a usar. Duas rodadas de ajuste já estão incluídas.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       TRABALHOS
+       ==================================================================== -->
+  <section class="section" id="trabalhos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Trabalhos</span>
+        <h2>O que já está no ar</h2>
+        <p class="lead">
+          Cada projeto abaixo pode ser aberto e testado agora. Sem imagem de
+          catálogo: são páginas reais, publicadas.
+        </p>
+      </div>
+
+      <div class="cases">
+
+        <!-- ---- Case 1 -------------------------------------------------- -->
+        <article class="case reveal">
+          <div class="case-visual">
+            <div class="case-janela">
+              <span class="case-barra"><i></i><i></i><i></i></span>
+              <img src="assets/img/cases/bibi.webp" width="1200" height="800" loading="lazy"
+                   alt="Página da BiBi Cartomante: fundo escuro com estrelas, cartas de tarot e botão de agendamento.">
+            </div>
+          </div>
+
+          <div class="case-txt">
+            <span class="case-selo">Cliente</span>
+            <h3>BiBi Cartomante</h3>
+            <p class="case-seg">Tarot e Baralho Cigano · São Paulo</p>
+
+            <dl class="case-dl">
+              <dt>O problema</dt>
+              <dd>
+                Atendia só pelo Instagram e pelo TikTok. Quem chegava pelo perfil
+                não encontrava os tipos de consulta nem sabia como agendar.
+              </dd>
+              <dt>O que foi feito</dt>
+              <dd>
+                Página única com os nove tipos de consulta organizados, os
+                depoimentos reais de clientes em uma roda de cartas que abre em
+                tela cheia, e agendamento direto no WhatsApp de qualquer ponto
+                da página.
+              </dd>
+            </dl>
+
+            <ul class="case-nums">
+              <li><strong>9</strong><span>consultas organizadas</span></li>
+              <li><strong>24</strong><span>depoimentos reais publicados</span></li>
+              <li><strong>1</strong><span>clique até o WhatsApp</span></li>
+            </ul>
+
+            <!-- TROQUE pelo endereço do site no ar, se já estiver publicado -->
+            <a class="case-link" href="https://github.com/NaBala15/bibi-cartomante" target="_blank" rel="noopener">
+              Ver projeto
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ---- Case 2 -------------------------------------------------- -->
+        <article class="case case-inverso reveal">
+          <div class="case-visual">
+            <div class="case-janela">
+              <span class="case-barra"><i></i><i></i><i></i></span>
+              <img src="assets/img/cases/devclub.webp" width="1200" height="800" loading="lazy"
+                   alt="Página DevClub Dentro da Mente: cérebro formado por partículas coloridas sobre fundo escuro.">
+            </div>
+          </div>
+
+          <div class="case-txt">
+            <span class="case-selo">Concurso</span>
+            <h3>DevClub — Dentro da Mente</h3>
+            <p class="case-seg">Página institucional · Vaga full stack</p>
+
+            <dl class="case-dl">
+              <dt>O problema</dt>
+              <dd>
+                Concurso para uma vaga de desenvolvedor, avaliado em impacto
+                visual, animação e qualidade de código. Era preciso se destacar
+                entre centenas de páginas concorrentes.
+              </dd>
+              <dt>O que foi feito</dt>
+              <dd>
+                Abertura em 3D com um cérebro formado por partículas, sala de
+                mentoria recriada inteira em código, e um diploma que sai de
+                dentro de uma carta lacrada quando o visitante quebra o lacre.
+              </dd>
+            </dl>
+
+            <ul class="case-nums">
+              <li><strong>40 mil</strong><span>partículas a 60 quadros</span></li>
+              <li><strong>0</strong><span>bibliotecas de animação</span></li>
+              <li><strong>-87%</strong><span>no peso das imagens</span></li>
+            </ul>
+
+            <a class="case-link" href="https://pagina-devclub-v2.vercel.app/" target="_blank" rel="noopener">
+              Abrir a página
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ---- Case 3 -------------------------------------------------- -->
+        <article class="case reveal">
+          <div class="case-visual">
+            <div class="case-janela">
+              <span class="case-barra"><i></i><i></i><i></i></span>
+              <img src="assets/img/cases/clinica.webp" width="1200" height="800" loading="lazy"
+                   alt="Página conceito de uma clínica odontológica, com agendamento pelo WhatsApp.">
+            </div>
+          </div>
+
+          <div class="case-txt">
+            <span class="case-selo case-selo-conceito">Projeto conceito</span>
+            <h3>Clínica Norvi</h3>
+            <p class="case-seg">Odontologia · Modelo demonstrativo</p>
+
+            <dl class="case-dl">
+              <dt>Por que existe</dt>
+              <dd>
+                Uma clínica fictícia, criada para mostrar como fica uma página
+                de captação no ramo da saúde: apresentação dos tratamentos,
+                equipe, convênios e agendamento sem formulário longo.
+              </dd>
+              <dt>O que demonstra</dt>
+              <dd>
+                O caminho completo que um paciente percorre — da busca no Google
+                até a mensagem no WhatsApp com o tratamento já escolhido.
+              </dd>
+            </dl>
+
+            <ul class="case-nums">
+              <li><strong>&lt;1s</strong><span>para abrir no celular</span></li>
+              <li><strong>100%</strong><span>escrito à mão</span></li>
+              <li><strong>3</strong><span>caminhos até o contato</span></li>
+            </ul>
+
+            <a class="case-link" href="demo/clinica-norvi/" target="_blank" rel="noopener">
+              Ver demonstração
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       POR QUE A JEFF COMPANY
+       ==================================================================== -->
+  <section class="section secao-dif">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Por que a Jeff Company</span>
+        <h2>Três diferenças que você sente no primeiro mês</h2>
+      </div>
+
+      <div class="dif-grid">
+        <article class="dif reveal">
+          <h3>Feito à mão, não arrastado num editor</h3>
+          <p>
+            Construtor de site gera páginas pesadas cheias de código que ninguém
+            usa. Aqui o código é escrito do zero: menos peso, mais velocidade —
+            e velocidade é nota no Google.
+          </p>
+        </article>
+        <article class="dif reveal">
+          <h3>Você fala comigo, não com um atendente</h3>
+          <p>
+            A mesma pessoa faz o orçamento, escreve o código e responde depois
+            da entrega. Sem ticket, sem "vou passar para o setor responsável".
+          </p>
+        </article>
+        <article class="dif reveal">
+          <h3>Preço fechado antes de começar</h3>
+          <p>
+            Valor e escopo aprovados por escrito. Não aparece cobrança no meio
+            do caminho nem taxa de "ajuste extra" no que já estava combinado.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       DÚVIDAS
+       ==================================================================== -->
+  <section class="section" id="duvidas">
+    <div class="wrap faq-wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>As perguntas que todo mundo faz</h2>
+      </div>
+
+      <div class="faq reveal">
+
+        <details class="faq-item">
+          <summary>Quanto custa um site?</summary>
+          <div class="faq-corpo">
+            <p>
+              Depende do tamanho. Uma landing page de uma seção só é bem mais
+              barata que um site institucional com portfólio e blog. Na conversa
+              inicial eu te passo a faixa de valor na hora — e a proposta por
+              escrito em até 24h, sem compromisso.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Em quanto tempo fica pronto?</summary>
+          <div class="faq-corpo">
+            <p>
+              Landing page: cerca de 5 a 7 dias. Site institucional completo:
+              de 2 a 3 semanas. O prazo entra na proposta com data, e o que
+              costuma atrasar é o material (fotos e textos) — por isso eu peço
+              logo no começo.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Preciso ter domínio e hospedagem?</summary>
+          <div class="faq-corpo">
+            <p>
+              Não precisa ter nada antes de falar comigo. Eu te oriento a
+              registrar o domínio no seu próprio nome — isso é importante,
+              o endereço tem que ser seu, não meu — e cuido da configuração
+              técnica. A hospedagem dos sites que eu faço costuma sair de graça
+              ou por poucos reais por mês.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Eu consigo trocar textos e fotos depois?</summary>
+          <div class="faq-corpo">
+            <p>
+              Sim. Na entrega eu te mostro como mexer no que muda com
+              frequência: preços, horários, fotos e telefone. E se você preferir
+              não mexer, existe o plano de manutenção, em que eu faço isso
+              para você.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>E se eu não gostar do resultado?</summary>
+          <div class="faq-corpo">
+            <p>
+              Você vê a primeira versão funcionando antes do pagamento final, e
+              tem duas rodadas de ajuste incluídas. Ninguém paga o valor
+              completo por algo que ainda não aprovou.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Vocês fazem loja virtual?</summary>
+          <div class="faq-corpo">
+            <p>
+              Faço catálogo de produtos com pedido pelo WhatsApp, que funciona
+              muito bem para comércio local. Loja com carrinho e pagamento
+              online é um projeto maior — dá para fazer, mas vale conversar
+              antes se é isso mesmo que o seu negócio precisa agora.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       CONTATO
+       ==================================================================== -->
+  <section class="section secao-contato" id="contato">
+    <div class="wrap contato-grid">
+
+      <div class="contato-txt reveal">
+        <span class="eyebrow">Contato</span>
+        <h2>Vamos conversar sobre o seu negócio</h2>
+        <p class="lead">
+          Me conta o que você faz e o que está travando hoje. Respondo em até
+          24h com uma ideia do caminho e da faixa de investimento — sem
+          compromisso e sem enrolação.
+        </p>
+
+        <div class="contato-atalhos">
+          <!-- ==========================================================
+               TROQUE PELO SEU NÚMERO: formato 55 + DDD + número
+               Exemplo para (11) 91234-5678  ->  5511912345678
+               ========================================================== -->
+          <a class="btn btn-primary"
+             href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Jeff%20Company%20e%20quero%20um%20or%C3%A7amento."
+             target="_blank" rel="noopener">
+            Chamar no WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="mailto:contato@jeffcompany.com.br">
+            contato@jeffcompany.com.br
+          </a>
+        </div>
+
+        <p class="hero-nota">Atendimento de segunda a sábado, 9h às 19h</p>
+      </div>
+
+      <!-- ============================================================
+           Formulário: hoje ele só valida. Para receber de verdade,
+           troque o action pelo seu endereço do Formspree (grátis).
+           Passo a passo no arquivo GUIA.md.
+           ============================================================ -->
+      <form class="form card reveal" id="form-contato"
+            action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
+        <div class="campo">
+          <label for="f-nome">Seu nome</label>
+          <input id="f-nome" name="nome" type="text" required autocomplete="name" placeholder="Como devo te chamar">
+        </div>
+        <div class="campo">
+          <label for="f-zap">WhatsApp</label>
+          <input id="f-zap" name="whatsapp" type="tel" required autocomplete="tel" placeholder="(00) 00000-0000">
+        </div>
+        <div class="campo">
+          <label for="f-neg">Qual é o seu negócio</label>
+          <input id="f-neg" name="negocio" type="text" required placeholder="Ex: clínica odontológica em Santo André">
+        </div>
+        <div class="campo">
+          <label for="f-msg">O que você precisa</label>
+          <textarea id="f-msg" name="mensagem" rows="4" required placeholder="Ex: não tenho site, só Instagram, e quero receber pedidos pelo WhatsApp"></textarea>
+        </div>
+        <button class="btn btn-primary form-enviar" type="submit">Enviar mensagem</button>
+        <p class="form-aviso" role="status"></p>
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================================================================
+     RODAPÉ
+     ====================================================================== -->
+<footer class="rodape">
+  <div class="wrap rodape-grid">
+
+    <div class="rodape-marca">
+      <a class="logo" href="#topo">
+        <span class="logo-mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="logo-txt">Jeff<span>Company</span></span>
+      </a>
+      <p>Sites, automação e presença no Google para negócios que precisam ser encontrados.</p>
+    </div>
+
+    <nav class="rodape-nav" aria-label="Rodapé">
+      <span class="rodape-tit">Navegar</span>
+      <a href="#servicos">Serviços</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+
+    <div class="rodape-contato">
+      <span class="rodape-tit">Falar comigo</span>
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:contato@jeffcompany.com.br">E-mail</a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+
+  </div>
+
+  <div class="wrap rodape-base">
+    <span>© <span id="ano">2026</span> Jeff Company. Todos os direitos reservados.</span>
+    <span>Desenvolvido por <strong>JeffDev</strong> ✦</span>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

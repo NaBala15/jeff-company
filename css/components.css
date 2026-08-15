@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Componentes — cabeçalho, botões, cartões, faixa
+   Nota de desempenho: nada aqui usa backdrop-filter, box-shadow animado ou
+   filtros. Só transform e opacity se movem. Isso é o que mantém a página
+   fluida em celular simples e PC antigo.
+   ========================================================================== */
+
+/* ---- Cabeçalho ----------------------------------------------------------- */
+
+.hdr {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  background: rgba(10, 11, 9, 0.88);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+/* .is-stuck é adicionado pelo JS depois dos primeiros pixels de rolagem */
+.hdr.is-stuck {
+  background: rgba(10, 11, 9, 0.96);
+  border-bottom-color: var(--line);
+}
+
+.hdr-inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 0.85rem var(--pad-x);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-lg);
+}
+
+/* Logo: quatro quadrados que formam um bloco — a marca é "quem monta as
+   peças da presença digital". No hover as peças se encaixam. */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  gap: 3px;
+}
+
+.logo-mark span {
+  background: var(--lime);
+  border-radius: 2px;
+  transition: transform 0.35s var(--ease), opacity 0.35s var(--ease);
+}
+
+.logo-mark span:nth-child(2) { opacity: 0.55; }
+.logo-mark span:nth-child(3) { opacity: 0.75; }
+.logo-mark span:nth-child(4) { opacity: 0.35; }
+
+.logo:hover .logo-mark span { opacity: 1; transform: scale(0.86); }
+
+.logo-txt {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 108;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.logo-txt span { color: var(--muted); font-weight: 400; }
+
+/* ---- Navegação ----------------------------------------------------------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin-left: auto;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+.nav a {
+  position: relative;
+  padding-block: 0.35rem;
+  transition: color 0.2s var(--ease);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 1px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+.nav a:hover { color: var(--text); }
+.nav a:hover::after { transform: scaleX(1); }
+
+/* ---- Botões -------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.25s var(--ease), background-color 0.25s var(--ease),
+              border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.btn-primary {
+  background: var(--lime);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.btn-primary:hover { background: #D6FF5C; transform: translateY(-2px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.btn-ghost:hover { border-color: var(--lime); color: var(--lime); transform: translateY(-2px); }
+
+.btn-sm { padding: 0.65rem 1.15rem; font-size: var(--fs-label); }
+
+.btn:active { transform: translateY(0); }
+
+/* ---- Menu mobile --------------------------------------------------------- */
+
+.burger {
+  display: none;
+  width: 40px; height: 40px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 0;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.burger span {
+  display: block;
+  width: 17px; height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease);
+}
+
+.burger[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
+.burger[aria-expanded="true"] span:last-child  { transform: translateY(-3.25px) rotate(-45deg); }
+
+.menu-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem var(--pad-x) 1.5rem;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.menu-mobile[hidden] { display: none; }
+
+.menu-mobile a {
+  padding: 0.9rem 0;
+  font-size: 1.05rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.menu-mobile .btn { margin-top: 1rem; border-bottom: 0; justify-content: center; }
+
+/* ---- Faixa de segmentos -------------------------------------------------- */
+
+.faixa {
+  border-block: 1px solid var(--line);
+  padding-block: 2.25rem;
+  overflow: hidden;
+}
+
+.faixa-rot {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 1.5rem;
+  padding-inline: var(--pad-x);
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  /* uma única animação de transform: a mais barata que existe */
+  animation: desliza 42s linear infinite;
+}
+
+.marquee-run {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  padding-right: 2.25rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--wide);
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  font-weight: 400;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.marquee-run i {
+  width: 5px; height: 5px;
+  background: var(--lime);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@keyframes desliza {
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee { animation: none; }
+}
+
+/* ---- Cartão genérico ----------------------------------------------------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--gap-lg);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.card:hover { border-color: var(--line-soft); transform: translateY(-3px); }
+
+/* ---- Etiqueta pequena ---------------------------------------------------- */
+
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--muted);
+}
+
+/* ---- Aparição na rolagem -------------------------------------------------
+   O JS troca .reveal por .is-in quando o elemento entra na tela.
+   Só opacity + transform: não força recálculo de layout. */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---- Responsivo do cabeçalho -------------------------------------------- */
+
+@media (max-width: 900px) {
+  .nav, .hdr-cta { display: none; }
+  .burger { display: flex; margin-left: auto; }
+}

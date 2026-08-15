@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; box-sizing:border-box; }
+  body {
+    width:1200px; height:630px; overflow:hidden;
+    background:#0A0B09; color:#E8ECE0;
+    font-family:'Inter',sans-serif;
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding:64px 72px;
+    position:relative;
+  }
+  body::before{
+    content:''; position:absolute; top:-40%; right:-10%;
+    width:820px; height:820px; border-radius:50%;
+    background:radial-gradient(circle, rgba(199,245,63,.20) 0%, transparent 62%);
+  }
+  .topo{ display:flex; align-items:center; gap:16px; position:relative; }
+  .mark{ width:44px; height:44px; display:grid; grid-template:repeat(2,1fr)/repeat(2,1fr); gap:6px; }
+  .mark span{ background:#C7F53F; border-radius:4px; }
+  .mark span:nth-child(2){ opacity:.55 } .mark span:nth-child(3){ opacity:.75 } .mark span:nth-child(4){ opacity:.35 }
+  .nome{ font-family:'Archivo'; font-variation-settings:'wdth' 108; font-weight:600; font-size:34px; letter-spacing:-.02em; }
+  .nome i{ color:#8B9280; font-style:normal; font-weight:400; }
+  h1{
+    font-family:'Archivo'; font-variation-settings:'wdth' 112; font-weight:500;
+    font-size:82px; line-height:1.02; letter-spacing:-.025em; max-width:16ch;
+    position:relative;
+  }
+  h1 em{ font-style:normal; color:#C7F53F; display:block; }
+  .pe{ display:flex; align-items:center; justify-content:space-between; position:relative; }
+  .servicos{ display:flex; gap:14px; }
+  .servicos span{
+    font-family:'JetBrains Mono'; font-size:17px; color:#8B9280;
+    border:1px solid #262A20; border-radius:999px; padding:10px 20px;
+  }
+  .site{ font-family:'JetBrains Mono'; font-size:19px; color:#C7F53F; letter-spacing:.04em; }
+</style>
+</head>
+<body>
+  <div class="topo">
+    <span class="mark"><span></span><span></span><span></span><span></span></span>
+    <span class="nome">Jeff<i>Company</i></span>
+  </div>
+
+  <h1>Seu cliente te procura no Google. <em>O que ele encontra?</em></h1>
+
+  <div class="pe">
+    <div class="servicos">
+      <span>Sites</span><span>WhatsApp</span><span>Google Meu Negócio</span>
+    </div>
+    <span class="site">jeffcompany.com.br</span>
+  </div>
+</body>
+</html>

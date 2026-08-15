@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Norvi — Odontologia | Projeto conceito Jeff Company</title>
+<meta name="description" content="Projeto conceito de site para clínica odontológica, criado pela Jeff Company para demonstração.">
+<!-- Página de exemplo: não deve aparecer em buscas -->
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Clínica Norvi — projeto conceito
+   Arquivo único de propósito: a página abre em uma requisição só.
+   ========================================================================== */
+
+:root {
+  --petroleo:  #0E3B43;
+  --petroleo-2:#0A2C32;
+  --menta:     #2FBFA0;
+  --menta-cl:  #E4F5F0;
+  --areia:     #F7F5F0;
+  --branco:    #FFFFFF;
+  --texto:     #12211F;
+  --suave:     #5C6B69;
+  --borda:     #E2DED6;
+
+  --serif: 'Fraunces', Georgia, serif;
+  --sans:  'Inter', system-ui, sans-serif;
+
+  --pad: clamp(1.25rem, 5vw, 3rem);
+  --maxw: 1180px;
+  --r: 16px;
+  --r-lg: 28px;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+body {
+  background: var(--areia);
+  color: var(--texto);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--menta); outline-offset: 3px; border-radius: 4px; }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+.sec { padding-block: clamp(4rem, 8vw, 7rem); }
+
+.rotulo {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--menta);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .9rem 1.7rem;
+  border-radius: 999px;
+  font-size: .95rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .25s var(--ease), background-color .25s var(--ease);
+}
+.btn-p { background: var(--petroleo); color: #fff; }
+.btn-p:hover { background: var(--petroleo-2); transform: translateY(-2px); }
+.btn-m { background: var(--menta); color: #06211C; }
+.btn-m:hover { transform: translateY(-2px); }
+.btn-v { border-color: var(--borda); color: var(--texto); }
+.btn-v:hover { border-color: var(--petroleo); transform: translateY(-2px); }
+
+/* ---- Aviso de projeto conceito ------------------------------------------ */
+.aviso {
+  background: #12211F;
+  color: #E9EDEC;
+  font-size: .78rem;
+  text-align: center;
+  padding: .6rem var(--pad);
+}
+.aviso a { color: var(--menta); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- Cabeçalho ----------------------------------------------------------- */
+.topo {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(247, 245, 240, .95);
+  border-bottom: 1px solid var(--borda);
+}
+.topo-in { display: flex; align-items: center; gap: 2rem; padding-block: 1rem; }
+.marca { font-family: var(--serif); font-size: 1.4rem; letter-spacing: -.02em; }
+.marca b { color: var(--menta); font-weight: 400; }
+.menu { display: flex; gap: 1.75rem; margin-left: auto; font-size: .9rem; color: var(--suave); }
+.menu a:hover { color: var(--petroleo); }
+
+/* ---- Hero ---------------------------------------------------------------- */
+.hero { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(4rem, 8vw, 6rem); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.hero h1 { font-size: clamp(2.5rem, 5.4vw, 4.2rem); margin-block: 1rem 1.25rem; }
+.hero h1 em { font-style: italic; color: var(--menta); }
+.hero p.lead { font-size: 1.1rem; color: var(--suave); max-width: 46ch; }
+.hero-acoes { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 2rem; font-size: .85rem; color: var(--suave); }
+.hero-chips span { display: flex; align-items: center; gap: .45rem; }
+.hero-chips i {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--menta); flex-shrink: 0;
+}
+
+/* Cartão de agendamento: mostra o caminho que o paciente percorre */
+.agenda {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--r-lg);
+  padding: 1.75rem;
+  box-shadow: 0 24px 60px -30px rgba(14, 59, 67, .35);
+}
+.agenda-tit { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+.agenda-tit strong { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; }
+.agenda-tit span { font-size: .75rem; color: var(--menta); font-weight: 600; }
+.agenda-lbl { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); margin-bottom: .6rem; display: block; }
+.agenda-ops { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.35rem; }
+.agenda-ops button {
+  font: inherit; font-size: .85rem;
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  border: 1px solid var(--borda);
+  background: var(--branco);
+  color: var(--suave);
+  cursor: pointer;
+  transition: all .2s var(--ease);
+}
+.agenda-ops button:hover { border-color: var(--menta); color: var(--texto); }
+.agenda-ops button[aria-pressed="true"] {
+  background: var(--menta-cl); border-color: var(--menta); color: var(--petroleo); font-weight: 500;
+}
+.agenda .btn { width: 100%; }
+.agenda-nota { font-size: .75rem; color: var(--suave); text-align: center; margin-top: .75rem; }
+
+/* ---- Faixa de números ---------------------------------------------------- */
+.numeros { background: var(--petroleo); color: #EAF2F1; }
+.numeros-in { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding-block: 3rem; }
+.numeros b { font-family: var(--serif); font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 400; display: block; color: var(--menta); }
+.numeros span { font-size: .82rem; opacity: .8; }
+
+/* ---- Tratamentos --------------------------------------------------------- */
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.25rem; }
+.cab { max-width: 54ch; margin-bottom: 3rem; }
+.cab h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); margin-block: .75rem 1rem; }
+.cab p { color: var(--suave); }
+
+.trat {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--r);
+  padding: 1.75rem;
+  transition: transform .3s var(--ease), border-color .3s var(--ease);
+}
+.trat:hover { transform: translateY(-4px); border-color: var(--menta); }
+.trat-ico {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background: var(--menta-cl);
+  display: grid; place-items: center;
+  color: var(--petroleo);
+  margin-bottom: 1.1rem;
+}
+.trat h3 { font-size: 1.2rem; margin-bottom: .5rem; }
+.trat p { font-size: .9rem; color: var(--suave); }
+
+/* ---- Equipe -------------------------------------------------------------- */
+.equipe { background: var(--branco); border-block: 1px solid var(--borda); }
+.pessoa { text-align: center; }
+.pessoa-foto {
+  width: 100%; aspect-ratio: 3/3.4;
+  border-radius: var(--r);
+  display: grid; place-items: center;
+  font-family: var(--serif); font-size: 3rem; color: var(--branco);
+  margin-bottom: 1rem;
+}
+.pessoa:nth-child(1) .pessoa-foto { background: linear-gradient(160deg, #17565F, #0B2F35); }
+.pessoa:nth-child(2) .pessoa-foto { background: linear-gradient(160deg, #2FBFA0, #14766B); }
+.pessoa:nth-child(3) .pessoa-foto { background: linear-gradient(160deg, #3D6E78, #16414A); }
+.pessoa h3 { font-size: 1.15rem; }
+.pessoa p { font-size: .85rem; color: var(--suave); }
+
+/* ---- Depoimentos --------------------------------------------------------- */
+.depo {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--r);
+  padding: 1.75rem;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.depo-estrelas { color: #E9A93B; letter-spacing: .1em; font-size: .9rem; }
+.depo p { font-size: .95rem; }
+.depo footer { font-size: .82rem; color: var(--suave); margin-top: auto; }
+
+/* ---- Convênios ----------------------------------------------------------- */
+.conv { display: flex; flex-wrap: wrap; gap: .75rem; }
+.conv span {
+  border: 1px solid var(--borda);
+  background: var(--branco);
+  border-radius: 999px;
+  padding: .55rem 1.15rem;
+  font-size: .88rem;
+  color: var(--suave);
+}
+
+/* ---- Contato ------------------------------------------------------------- */
+.contato { background: var(--petroleo); color: #EAF2F1; }
+.contato h2 { color: var(--branco); }
+.contato-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(2rem,5vw,4rem); align-items: center; }
+.contato p { color: #B9CBC9; }
+.contato-lista { display: grid; gap: 1rem; margin-top: 2rem; }
+.contato-lista div { display: flex; gap: .85rem; align-items: flex-start; }
+.contato-lista strong { display: block; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--menta); font-weight: 600; }
+.contato-lista span { font-size: .95rem; }
+.mapa {
+  border-radius: var(--r-lg);
+  aspect-ratio: 4/3.2;
+  background:
+    linear-gradient(0deg, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 100% 34px,
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 34px 100%,
+    linear-gradient(150deg, #12454E, #0A2C32);
+  border: 1px solid rgba(255,255,255,.12);
+  position: relative;
+  display: grid; place-items: center;
+}
+.mapa-pino {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--menta);
+  display: grid; place-items: center;
+  color: #06211C;
+  box-shadow: 0 0 0 12px rgba(47,191,160,.18);
+}
+.mapa-rot { position: absolute; bottom: 1.25rem; font-size: .8rem; color: #B9CBC9; }
+
+/* ---- Rodapé -------------------------------------------------------------- */
+.pe { background: var(--petroleo-2); color: #9FB4B2; font-size: .85rem; }
+.pe-in { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; padding-block: 1.75rem; }
+.pe b { color: var(--menta); font-weight: 500; }
+
+/* ---- Responsivo ---------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero-grid, .contato-grid { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .numeros-in { grid-template-columns: 1fr 1fr; }
+  .menu { display: none; }
+}
+@media (max-width: 560px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="aviso">
+  Projeto conceito · A Clínica Norvi não existe. Página criada pela
+  <a href="../../index.html">Jeff Company</a> para demonstrar um site de captação na área da saúde.
+</div>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <span class="marca">Norvi<b>.</b></span>
+    <nav class="menu">
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#convenios">Convênios</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-m" href="#contato">Agendar</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="rotulo">Odontologia integrada · Santo André</span>
+        <h1>Sorrir sem <em>pensar duas vezes</em>.</h1>
+        <p class="lead">
+          Avaliação com diagnóstico por imagem, plano de tratamento explicado
+          em linguagem que você entende e preço fechado antes de começar.
+        </p>
+        <div class="hero-acoes">
+          <a class="btn btn-p" href="#contato">Agendar avaliação</a>
+          <a class="btn btn-v" href="#tratamentos">Ver tratamentos</a>
+        </div>
+        <div class="hero-chips">
+          <span><i></i>Atende convênios</span>
+          <span><i></i>Aberto aos sábados</span>
+          <span><i></i>Estacionamento no local</span>
+        </div>
+      </div>
+
+      <!-- O cartão mostra, já na primeira tela, como é agendar -->
+      <div class="agenda">
+        <div class="agenda-tit">
+          <strong>Agendar avaliação</strong>
+          <span>2 min</span>
+        </div>
+
+        <span class="agenda-lbl">O que você precisa</span>
+        <div class="agenda-ops" role="group" aria-label="Tipo de atendimento">
+          <button type="button" aria-pressed="true">Limpeza</button>
+          <button type="button" aria-pressed="false">Clareamento</button>
+          <button type="button" aria-pressed="false">Implante</button>
+          <button type="button" aria-pressed="false">Aparelho</button>
+          <button type="button" aria-pressed="false">Dor de dente</button>
+        </div>
+
+        <span class="agenda-lbl">Melhor horário</span>
+        <div class="agenda-ops" role="group" aria-label="Período">
+          <button type="button" aria-pressed="false">Manhã</button>
+          <button type="button" aria-pressed="true">Tarde</button>
+          <button type="button" aria-pressed="false">Sábado</button>
+        </div>
+
+        <a class="btn btn-m" href="#contato" id="btn-agendar">Continuar no WhatsApp</a>
+        <p class="agenda-nota">Sem cadastro. A conversa já chega com sua escolha.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="numeros">
+    <div class="wrap numeros-in">
+      <div><b>18</b><span>anos de clínica</span></div>
+      <div><b>6</b><span>especialidades</span></div>
+      <div><b>4,9</b><span>de avaliação no Google</span></div>
+      <div><b>Sáb</b><span>atendimento até 14h</span></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="tratamentos">
+    <div class="cab">
+      <span class="rotulo">Tratamentos</span>
+      <h2>O que fazemos aqui dentro</h2>
+      <p>Cada tratamento começa pela avaliação. Você sai sabendo o que precisa, quanto custa e em quantas sessões.</p>
+    </div>
+
+    <div class="grid-3">
+      <article class="trat">
+        <div class="trat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5c-2-2-6-2-7 1s1 8 2 10 2 2 3 0 1-3 2-3 1 1 2 3 2 2 3 0 3-7 2-10-5-3-7-1Z"/></svg></div>
+        <h3>Limpeza e prevenção</h3>
+        <p>Profilaxia, aplicação de flúor e orientação de higiene. É a consulta que evita as caras.</p>
+      </article>
+      <article class="trat">
+        <div class="trat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m12 3 2.2 4.8 5.3.6-4 3.6 1.1 5.2L12 14.6 7.4 17.2l1.1-5.2-4-3.6 5.3-.6Z"/></svg></div>
+        <h3>Clareamento</h3>
+        <p>Feito na clínica ou com moldeira em casa, com acompanhamento para não sensibilizar o dente.</p>
+      </article>
+      <article class="trat">
+        <div class="trat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M8 7h8M9 21h6"/></svg></div>
+        <h3>Implantes</h3>
+        <p>Substituição do dente perdido com raiz de titânio. Planejamento por tomografia antes de qualquer corte.</p>
+      </article>
+      <article class="trat">
+        <div class="trat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h16M6 9v6M10 9v6M14 9v6M18 9v6M4 15h16"/></svg></div>
+        <h3>Aparelho ortodôntico</h3>
+        <p>Fixo tradicional, estético ou alinhador transparente. Manutenção mensal com valor fixo.</p>
+      </article>
+      <article class="trat">
+        <div class="trat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg></div>
+        <h3>Odontopediatria</h3>
+        <p>Primeira consulta sem trauma, com tempo para a criança conhecer o consultório antes de sentar na cadeira.</p>
+      </article>
+      <article class="trat">
+        <div class="trat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5M5 22V12h14v10M9 22v-4h6v4"/></svg></div>
+        <h3>Urgência</h3>
+        <p>Dor aguda, dente quebrado ou restauração que caiu. Encaixe no mesmo dia sempre que houver vaga.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec equipe" id="equipe">
+    <div class="wrap">
+      <div class="cab">
+        <span class="rotulo">Equipe</span>
+        <h2>Quem vai te atender</h2>
+        <p>Todos com registro ativo no Conselho Regional de Odontologia.</p>
+      </div>
+      <div class="grid-3">
+        <article class="pessoa">
+          <div class="pessoa-foto">MA</div>
+          <h3>Dra. Marina Aoki</h3>
+          <p>Implantodontia · CRO-SP 00000</p>
+        </article>
+        <article class="pessoa">
+          <div class="pessoa-foto">RC</div>
+          <h3>Dr. Rafael Coelho</h3>
+          <p>Ortodontia · CRO-SP 00000</p>
+        </article>
+        <article class="pessoa">
+          <div class="pessoa-foto">BS</div>
+          <h3>Dra. Bruna Serrano</h3>
+          <p>Odontopediatria · CRO-SP 00000</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap">
+    <div class="cab">
+      <span class="rotulo">Pacientes</span>
+      <h2>O que dizem depois da consulta</h2>
+    </div>
+    <div class="grid-3">
+      <article class="depo">
+        <span class="depo-estrelas" aria-label="5 de 5">★★★★★</span>
+        <p>"Chegaram no orçamento antes de encostar em mim. Nunca tinha acontecido em clínica nenhuma."</p>
+        <footer>Camila R. · Limpeza e restauração</footer>
+      </article>
+      <article class="depo">
+        <span class="depo-estrelas" aria-label="5 de 5">★★★★★</span>
+        <p>"Levei meu filho de 5 anos com medo de dentista. Saiu pedindo para voltar."</p>
+        <footer>Douglas M. · Odontopediatria</footer>
+      </article>
+      <article class="depo">
+        <span class="depo-estrelas" aria-label="5 de 5">★★★★★</span>
+        <p>"Implante feito há dois anos, revisão em dia. Explicaram cada etapa com a tomografia na tela."</p>
+        <footer>Sônia L. · Implante unitário</footer>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="convenios">
+    <div class="cab">
+      <span class="rotulo">Convênios</span>
+      <h2>Planos atendidos</h2>
+      <p>Não achou o seu? Chame no WhatsApp que a gente confere na hora.</p>
+    </div>
+    <div class="conv">
+      <span>Amil Dental</span><span>Bradesco Dental</span><span>SulAmérica Odonto</span>
+      <span>Porto Seguro</span><span>Odontoprev</span><span>Unimed Odonto</span>
+      <span>MetLife</span><span>Particular</span>
+    </div>
+  </section>
+
+  <section class="sec contato" id="contato">
+    <div class="wrap contato-grid">
+      <div>
+        <span class="rotulo">Contato</span>
+        <h2>Vamos marcar sua avaliação</h2>
+        <p>Manda uma mensagem com o horário que funciona para você. A gente confirma na hora.</p>
+
+        <div class="contato-lista">
+          <div><div><strong>WhatsApp</strong><span>(11) 90000-0000</span></div></div>
+          <div><div><strong>Endereço</strong><span>Rua Exemplo, 100 — Centro, Santo André/SP</span></div></div>
+          <div><div><strong>Horário</strong><span>Seg a sex, 8h às 19h · Sáb, 8h às 14h</span></div></div>
+        </div>
+
+        <div class="hero-acoes">
+          <a class="btn btn-m" href="#" onclick="return false">Chamar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="mapa">
+        <span class="mapa-pino">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-5.4-7-10a7 7 0 1 1 14 0c0 4.6-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+        </span>
+        <span class="mapa-rot">Mapa ilustrativo · endereço fictício</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pe">
+  <div class="wrap pe-in">
+    <span>© 2026 Clínica Norvi — projeto conceito, clínica fictícia.</span>
+    <span>Criado por <b>Jeff Company</b></span>
+  </div>
+</footer>
+
+<script>
+/* Os botões do cartão de agendamento funcionam de verdade: a escolha vai
+   junto na mensagem do WhatsApp. É o argumento da demonstração — mostrar
+   que o site já entrega a conversa começada. */
+(function () {
+  'use strict';
+
+  document.querySelectorAll('.agenda-ops').forEach(function (grupo) {
+    grupo.addEventListener('click', function (e) {
+      var alvo = e.target.closest('button');
+      if (!alvo) return;
+      grupo.querySelectorAll('button').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b === alvo));
+      });
+      atualiza();
+    });
+  });
+
+  var botao = document.getElementById('btn-agendar');
+
+  function escolhido(indice) {
+    var grupos = document.querySelectorAll('.agenda-ops');
+    var ativo = grupos[indice].querySelector('[aria-pressed="true"]');
+    return ativo ? ativo.textContent.trim() : '';
+  }
+
+  function atualiza() {
+    var texto = 'Olá! Quero agendar ' + escolhido(0).toLowerCase() +
+                ', de preferência no período da ' + escolhido(1).toLowerCase() + '.';
+    /* Numa clínica real, aqui entraria o número dela. Como esta página é
+       uma demonstração, o link só rola até a seção de contato. */
+    botao.setAttribute('data-mensagem', texto);
+    botao.setAttribute('title', texto);
+  }
+
+  atualiza();
+})();
+</script>
+</body>
+</html>

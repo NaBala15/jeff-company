@@ -1,0 +1,10 @@
+# Jeff Company
+# Troque o endereço abaixo pelo domínio real depois de publicar.
+
+User-agent: *
+Allow: /
+
+# A demonstração da clínica não deve concorrer com o site nas buscas
+Disallow: /demo/
+
+Sitemap: https://jeffcompany.com.br/sitemap.xml

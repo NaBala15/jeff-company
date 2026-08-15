@@ -1,0 +1,9 @@
+# Atalhos e arquivos do Windows / OneDrive
+*.url
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

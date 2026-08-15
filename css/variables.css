@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Jeff Company — Design System
+   Todas as decisões visuais moram aqui. Mudou uma cor? Muda em um lugar só.
+   ========================================================================== */
+
+:root {
+  /* ---- Cores ----------------------------------------------------------
+     Regra da paleta: o lima é ACENTO, nunca cor de texto corrido.
+     Ele aparece em no máximo 3 lugares por tela. Se estiver em toda parte,
+     deixa de chamar atenção e vira ruído. */
+  --bg:          #0A0B09;   /* preto com um toque de verde */
+  --surface:     #12140F;   /* cartões */
+  --surface-2:   #191C15;   /* cartões sobre cartões, campos de formulário */
+  --line:        #262A20;   /* bordas */
+  --line-soft:   rgba(199, 245, 63, 0.14);
+
+  --text:        #E8ECE0;   /* texto principal */
+  --muted:       #8B9280;   /* texto de apoio */
+  --faint:       #5C6154;   /* legendas, metadados */
+
+  --lime:        #C7F53F;   /* acento — botão principal, números, alça */
+  --lime-dim:    #96BC2E;
+  --lime-glow:   rgba(199, 245, 63, 0.22);
+  --ink:         #0A0B09;   /* texto sobre lima */
+
+  --danger:      #FF6B4A;   /* usado só no lado "antes" do comparador */
+
+  /* ---- Tipografia -----------------------------------------------------
+     Archivo (títulos, levemente EXPANDIDA — dá presença sem precisar
+     de negrito), Inter (leitura), JetBrains Mono (rótulos e números).
+     O mono é usado de propósito em tudo que é etiqueta: quem faz sites
+     trabalha com código, e a página inteira lembra isso discretamente. */
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  --wide: 'wdth' 112;       /* largura extra dos títulos */
+
+  /* Escala fluida: cresce com a tela, sem media query */
+  --fs-hero:   clamp(2.35rem, 4.7vw, 4.15rem);
+  --fs-h2:     clamp(2rem, 4vw, 3.25rem);
+  --fs-h3:     clamp(1.25rem, 1.8vw, 1.6rem);
+  --fs-lead:   clamp(1.05rem, 1.35vw, 1.25rem);
+  --fs-body:   1rem;
+  --fs-small:  0.875rem;
+  --fs-label:  0.75rem;
+
+  /* ---- Espaçamento ----------------------------------------------------- */
+  --gap-xs: 0.5rem;
+  --gap-sm: 1rem;
+  --gap:    1.5rem;
+  --gap-lg: 2.5rem;
+  --gap-xl: 4rem;
+  --section-y: clamp(5rem, 10vw, 9rem);
+
+  /* ---- Formas ---------------------------------------------------------- */
+  --r-sm: 8px;
+  --r:    14px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  --maxw: 1240px;
+  --pad-x: clamp(1.25rem, 5vw, 3rem);
+
+  /* ---- Movimento ------------------------------------------------------- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.5s;
+}
+
+/* Quem pediu menos movimento no sistema, recebe menos movimento. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0.01ms; }
+}
