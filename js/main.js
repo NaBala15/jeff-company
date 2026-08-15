@@ -140,6 +140,16 @@
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.1 });
 
     alvos.forEach(function (el) { obs.observe(el); });
+
+    /* Rede de segurança: se por qualquer motivo o observador não disparar —
+       aba aberta em segundo plano, navegador antigo, alguma extensão — o
+       conteúdo aparece assim mesmo depois de 4 segundos. Uma animação que
+       falha não pode custar a página inteira. */
+    setTimeout(function () {
+      document.querySelectorAll('.reveal:not(.is-in)').forEach(function (el) {
+        el.classList.add('is-in');
+      });
+    }, 4000);
   })();
 
   /* ---------------------------------------------------------------------

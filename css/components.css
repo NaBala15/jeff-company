@@ -268,18 +268,22 @@
 
 /* ---- Aparição na rolagem -------------------------------------------------
    O JS troca .reveal por .is-in quando o elemento entra na tela.
-   Só opacity + transform: não força recálculo de layout. */
+   Só opacity + transform: não força recálculo de layout.
 
-.reveal {
+   Repare no ".js" à frente: sem JavaScript nada disso vale e a página
+   aparece inteira. Esconder conteúdo esperando um script rodar é o jeito
+   mais fácil de entregar uma página em branco para alguém. */
+
+.js .reveal {
   opacity: 0;
   transform: translate3d(0, 18px, 0);
   transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
 
-.reveal.is-in { opacity: 1; transform: none; }
+.js .reveal.is-in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ---- Responsivo do cabeçalho -------------------------------------------- */
