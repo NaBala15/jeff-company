@@ -19,15 +19,17 @@ que muitos negócios locais ainda têm; à direita, o que a Jeff Company entrega
 As duas maquetes são **construídas em CSS** — layout, tipografia e cores são
 código, não captura de tela, então escalam nitidamente em qualquer tamanho.
 
-A única imagem das maquetes é a foto da pizza (40 KB), porque comida precisa
-parecer comida: um desenho em CSS não dá vontade de pedir.
+A única imagem das maquetes é a foto da pizza (68 KB), porque comida precisa
+parecer comida: um desenho em CSS não dá vontade de pedir. Ela ocupa a direita
+do quadro e se dissolve no fundo escuro por um degradê, para o texto continuar
+legível por cima sem precisar de caixa nem sombra atrás.
 
-> **Antes de publicar, troque a foto.** O arquivo atual
-> (`assets/img/pizza-depois.webp`) foi recortado de uma imagem do Freepik, cuja
-> licença gratuita exige atribuição. Baixe uma foto de pizza no
-> [Unsplash](https://unsplash.com) ou no [Pexels](https://pexels.com) — as duas
-> liberam uso comercial sem atribuição — recorte em quadrado e salve com o
-> mesmo nome. Nada mais precisa mudar.
+**Origem da foto:** [Unsplash](https://unsplash.com), de Farhad Ibrahimzade —
+uso comercial livre, sem atribuição obrigatória. Para trocar, recorte uma nova
+em proporção aproximada de 1,2:1, exporte com 760 px de largura em `.webp` e
+salve como `assets/img/pizza-depois.webp`. Se mudar as dimensões, atualize
+também os atributos `width` e `height` da tag no `index.html` — eles existem
+para o layout não pular enquanto a imagem carrega.
 
 A maquete do cliente usa **laranja, não o lima da marca**. Isso é proposital:
 ela representa a marca do cliente, não a nossa. Portfólio em que tudo tem a

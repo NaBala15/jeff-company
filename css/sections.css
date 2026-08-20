@@ -300,6 +300,11 @@
   /* Cabe inteira na metade esquerda do quadro: com o comparador parado no
      meio, nenhuma palavra fica cortada atravessando a divisória. */
   max-width: 48cqi;
+  /* Posicionado, mas SEM z-index de proposito: z-index aqui criaria um
+     contexto de empilhamento que sobe acima da camada "antes" inteira, e o
+     texto da pizzaria vazaria por cima do site antigo. Basta vir depois da
+     foto no HTML. */
+  position: relative;
 }
 
 .sh-eyebrow {
@@ -381,14 +386,38 @@
   font-weight: 500;
 }
 
-/* A foto passa da borda de propósito: é o que dá sensação de página
-   grande dentro de um quadro pequeno. */
+/* A foto ocupa a direita inteira e sangra pelas bordas: é o que dá
+   sensação de página grande dentro de um quadro pequeno. O degradê por
+   cima dissolve a foto no fundo escuro, para o texto continuar legível
+   sem precisar de caixa nem sombra atrás. */
 .sh-foto {
-  width: 40cqi;
-  height: auto;
-  flex-shrink: 0;
-  margin-right: -7cqi;
-  align-self: center;
+  position: absolute;
+  top: -1cqi;
+  right: -4cqi;
+  bottom: -3.4cqi;
+  width: 54cqi;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sh-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 46% center;
+}
+
+.sh-foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--pz-fundo) 0%,
+    rgba(23, 18, 15, 0.82) 20%,
+    rgba(23, 18, 15, 0.25) 46%,
+    transparent 62%
+  );
 }
 
 /* ---- Maquete ANTES: o site que a maioria tem hoje ------------------------
@@ -493,7 +522,7 @@
   .sh-entrega  { font-size: 2.2cqi; padding: 1.4cqi 2.4cqi; }
   .sh-entrega b{ font-size: 2.9cqi; }
   .sh-cta      { font-size: 2.6cqi; padding: 2cqi 3.6cqi; }
-  .sh-foto     { width: 42cqi; margin-right: -14cqi; }
+  .sh-foto     { width: 58cqi; }
   .sh-hero     { gap: 1cqi; }
   .sh-copy     { gap: 2.4cqi; }
 
