@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerador de contratos — Jeff Company</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Gerador de contratos
+   Lê um dos arquivos .md da pasta contratos/, encontra sozinho todos os
+   campos escritos entre « », monta um formulário para eles e devolve o
+   documento pronto para imprimir ou salvar em PDF.
+
+   Como os campos são descobertos na hora, você pode editar os .md à vontade:
+   o formulário acompanha sem precisar mexer aqui.
+   ========================================================================== */
+
+:root{
+  --bg:#0A0B09; --surface:#12140F; --surface-2:#191C15; --line:#262A20;
+  --text:#E8ECE0; --muted:#8B9280; --faint:#5C6154; --lime:#C7F53F; --ink:#0A0B09;
+  --papel:#FFFFFF; --papel-txt:#15181A; --papel-linha:#D8DCD2;
+  --sans:'Inter',system-ui,sans-serif; --display:'Archivo',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}*{margin:0}
+body{
+  background:var(--bg); color:var(--text); font-family:var(--sans);
+  display:grid; grid-template-columns:400px minmax(0,1fr); min-height:100vh;
+}
+:focus-visible{outline:2px solid var(--lime); outline-offset:2px; border-radius:4px}
+
+/* ---- Painel de controle ---- */
+.painel{
+  background:var(--surface); border-right:1px solid var(--line);
+  padding:1.5rem; overflow-y:auto; max-height:100vh; position:sticky; top:0;
+}
+.marca{display:flex;align-items:center;gap:.6rem;margin-bottom:.35rem}
+.marca-ico{width:20px;height:20px;display:grid;grid-template:repeat(2,1fr)/repeat(2,1fr);gap:3px}
+.marca-ico span{background:var(--lime);border-radius:2px}
+.marca-ico span:nth-child(2){opacity:.55}.marca-ico span:nth-child(3){opacity:.75}.marca-ico span:nth-child(4){opacity:.35}
+.marca b{font-family:var(--display);font-variation-settings:'wdth' 108;font-weight:600;font-size:1rem}
+.marca b i{color:var(--muted);font-style:normal;font-weight:400}
+.painel > p.sub{color:var(--faint);font-size:.78rem;font-family:var(--mono);margin-bottom:1.5rem}
+
+.grupo{margin-bottom:1.35rem}
+.grupo > label, .rotulo{
+  display:block; font-family:var(--mono); font-size:.68rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:.45rem;
+}
+select,input[type=text],textarea{
+  width:100%; background:var(--surface-2); color:var(--text);
+  border:1px solid var(--line); border-radius:9px; padding:.6rem .75rem;
+  font:inherit; font-size:.9rem; transition:border-color .2s;
+}
+select:focus,input:focus,textarea:focus{outline:none;border-color:var(--lime)}
+textarea{resize:vertical;min-height:64px}
+
+.campo{margin-bottom:.85rem}
+.campo label{
+  display:block; font-size:.75rem; color:var(--muted); margin-bottom:.3rem;
+  font-family:var(--mono); letter-spacing:.02em;
+}
+.campo.preenchido label{color:var(--lime)}
+
+.acoes{display:flex;flex-direction:column;gap:.5rem;margin:1.25rem 0}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  padding:.75rem 1.1rem;border-radius:999px;border:1px solid transparent;
+  font-family:var(--mono);font-size:.8rem;cursor:pointer;
+  transition:transform .2s,background-color .2s,border-color .2s;
+}
+.btn-p{background:var(--lime);color:var(--ink);font-weight:500}
+.btn-p:hover{background:#D6FF5C;transform:translateY(-1px)}
+.btn-v{background:transparent;color:var(--text);border-color:var(--line)}
+.btn-v:hover{border-color:var(--lime);color:var(--lime)}
+
+.aviso{
+  font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  line-height:1.55;border-top:1px solid var(--line);padding-top:1rem;margin-top:1rem;
+}
+.aviso b{color:var(--lime);font-weight:500}
+.contador{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:.75rem}
+.contador b{color:var(--lime);font-weight:500}
+
+/* ---- Folha ---- */
+.area{padding:2rem;overflow-y:auto;max-height:100vh}
+.folha{
+  background:var(--papel); color:var(--papel-txt);
+  max-width:820px; margin:0 auto; padding:64px 72px;
+  border-radius:4px; box-shadow:0 20px 60px -30px rgba(0,0,0,.8);
+  font-size:15px; line-height:1.65;
+}
+.folha h1{
+  font-family:var(--display);font-variation-settings:'wdth' 108;font-weight:600;
+  font-size:1.6rem;line-height:1.2;margin-bottom:.4rem;letter-spacing:-.01em;
+}
+.folha h2{
+  font-family:var(--display);font-variation-settings:'wdth' 104;font-weight:600;
+  font-size:1.05rem;margin:1.9rem 0 .7rem;padding-bottom:.35rem;
+  border-bottom:1px solid var(--papel-linha);
+}
+.folha h3{font-size:.95rem;font-weight:600;margin:1.2rem 0 .45rem}
+.folha p{margin:.65rem 0}
+.folha ul{margin:.6rem 0 .6rem 1.3rem;padding:0}
+.folha li{margin:.28rem 0}
+.folha li.check{list-style:none;margin-left:-1.3rem}
+.folha li.check::before{
+  content:'';display:inline-block;width:12px;height:12px;margin-right:.55rem;
+  border:1.5px solid #6B7280;border-radius:2px;vertical-align:-1px;
+}
+.folha hr{border:0;border-top:1px solid var(--papel-linha);margin:1.6rem 0}
+.folha blockquote{
+  margin:.9rem 0;padding:.7rem 1rem;background:#F4F6F1;
+  border-left:3px solid var(--lime);border-radius:0 6px 6px 0;font-size:.92em;
+}
+.folha blockquote p{margin:.3rem 0}
+.folha table{width:100%;border-collapse:collapse;margin:.9rem 0;font-size:.9em}
+.folha th,.folha td{border:1px solid var(--papel-linha);padding:.5rem .7rem;text-align:left;vertical-align:top}
+.folha th{background:#F4F6F1;font-weight:600}
+.folha table.assinaturas td{border:0;padding:1rem .5rem;text-align:center;width:50%}
+.folha code{font-family:var(--mono);font-size:.88em;background:#F0F2ED;padding:.1em .35em;border-radius:3px}
+.folha strong{font-weight:600}
+
+/* Espaço deixado em branco de propósito, para preencher à mão */
+.abranco{display:inline-block;min-width:90px;border-bottom:1px solid #B9BEB2;vertical-align:-2px}
+
+/* Campo ainda não preenchido: fica marcado para você não enviar com buraco */
+.vazio{
+  background:#FFF3C4;color:#7A5B00;padding:0 .3em;border-radius:3px;
+  font-family:var(--mono);font-size:.85em;
+}
+
+/* ---- Impressão: só o documento ---- */
+@media print{
+  @page{size:A4;margin:18mm 16mm}
+  body{display:block;background:#fff}
+  .painel{display:none!important}
+  .area{padding:0;max-height:none;overflow:visible}
+  .folha{
+    max-width:none;margin:0;padding:0;box-shadow:none;border-radius:0;
+    font-size:10.5pt;line-height:1.5;
+  }
+  .folha h1{font-size:16pt}.folha h2{font-size:11.5pt;margin-top:14pt}
+  .folha h2,.folha h3{break-after:avoid}
+  .folha table,.folha blockquote{break-inside:avoid}
+  .vazio{background:none;color:inherit;border-bottom:1px solid #999}
+}
+
+@media (max-width:900px){
+  body{grid-template-columns:1fr}
+  .painel{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line)}
+  .area{padding:1rem}
+  .folha{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+
+<aside class="painel">
+  <div class="marca">
+    <span class="marca-ico" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <b>Jeff<i>Company</i></b>
+  </div>
+  <p class="sub">Gerador de contratos</p>
+
+  <div class="grupo">
+    <label for="doc">Documento</label>
+    <select id="doc">
+      <option value="../contratos/01-contrato-projeto.md">1 — Contrato de projeto</option>
+      <option value="../contratos/02-termo-entrega.md">2 — Termo de entrega e quitação</option>
+      <option value="../contratos/03-termo-cancelamento.md">3 — Termo de cancelamento</option>
+      <option value="../contratos/04-contrato-assinatura.md">4 — Contrato de assinatura</option>
+      <option value="../contratos/POLITICA.md">Política e regras</option>
+    </select>
+  </div>
+
+  <div class="grupo" id="area-arquivo" hidden>
+    <span class="rotulo">Abrir do computador</span>
+    <input type="file" id="arquivo" accept=".md,.txt">
+  </div>
+
+  <div class="acoes">
+    <button class="btn btn-p" id="imprimir">Imprimir / salvar PDF</button>
+    <button class="btn btn-v" id="limpar">Limpar campos deste documento</button>
+  </div>
+
+  <p class="contador" id="contador"></p>
+
+  <div id="campos"></div>
+
+  <p class="aviso">
+    Os dados que você digita ficam salvos <b>só neste computador</b>, no próprio
+    navegador. Nada é enviado para lugar nenhum.<br><br>
+    Para salvar em PDF: clique em imprimir e escolha <b>“Salvar como PDF”</b> no
+    destino.
+  </p>
+</aside>
+
+<main class="area">
+  <article class="folha" id="folha">
+    <p style="color:#6B7280">Carregando documento…</p>
+  </article>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var elDoc = document.getElementById('doc');
+  var elCampos = document.getElementById('campos');
+  var elFolha = document.getElementById('folha');
+  var elContador = document.getElementById('contador');
+  var elArquivo = document.getElementById('arquivo');
+  var elAreaArquivo = document.getElementById('area-arquivo');
+
+  var ABRE = '«';    // «
+  var FECHA = '»';   // »
+  var RE_CAMPO = ABRE + '([^' + FECHA + ']*)' + FECHA;
+
+  var textoOriginal = '';
+  var valores = {};
+
+  /* ------------------------------------------------------------------
+     Memória: guarda o que você digitou, por nome de campo. Assim os seus
+     dados (nome, CPF, Pix, cidade) já vêm preenchidos no próximo contrato
+     — só os dados do cliente mudam.
+     ------------------------------------------------------------------ */
+  function carregarMemoria() {
+    try { return JSON.parse(localStorage.getItem('jc-contratos') || '{}'); }
+    catch (e) { return {}; }
+  }
+  function salvarMemoria() {
+    try { localStorage.setItem('jc-contratos', JSON.stringify(valores)); }
+    catch (e) { /* navegador sem armazenamento: segue sem memória */ }
+  }
+
+  /* ------------------------------------------------------------------
+     Um campo pode atravessar duas linhas do arquivo .md, porque o texto é
+     quebrado em 80 colunas. Essas linhas são juntadas ANTES de qualquer
+     coisa: se a junção acontecesse só na hora de desenhar, o campo teria um
+     nome no formulário (com a quebra) e outro no documento (sem), e os dois
+     nunca se encontrariam.
+     ------------------------------------------------------------------ */
+  function juntarCamposQuebrados(md) {
+    var linhas = [];
+    md.split(/\r?\n/).forEach(function (l) {
+      var ant = linhas[linhas.length - 1];
+      if (ant !== undefined && ant.lastIndexOf(ABRE) > ant.lastIndexOf(FECHA))
+        linhas[linhas.length - 1] = ant + ' ' + l.trim();
+      else
+        linhas.push(l);
+    });
+    return linhas.join('\n');
+  }
+
+  /* ------------------------------------------------------------------
+     Conversor de Markdown para HTML — só o que estes documentos usam.
+     ------------------------------------------------------------------ */
+  function escapar(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function inline(s) {
+    return escapar(s)
+      .replace(/&lt;br&gt;/g, '<br>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(new RegExp(RE_CAMPO, 'g'), function (_, nome) {
+        /* Campo sem nome é espaço deixado em branco de propósito numa
+           tabela, e não uma pendência. */
+        if (!nome) return '<span class="abranco"></span>';
+        var v = valores[nome];
+        return v ? '<strong>' + escapar(v) + '</strong>'
+                 : '<span class="vazio">' + escapar(nome) + '</span>';
+      });
+  }
+
+  function paraHtml(md) {
+    var linhas = md.split(/\r?\n/);
+    var out = [];
+    var buffer = [];       // parágrafo em construção
+    var lista = null;      // itens de lista em construção
+    var citacao = null;    // linhas de bloco citado
+    var tabela = null;     // linhas de tabela
+
+    function fechaParagrafo() {
+      if (buffer.length) { out.push('<p>' + inline(buffer.join(' ')) + '</p>'); buffer = []; }
+    }
+    function fechaLista() {
+      if (lista) { out.push('<ul>' + lista.join('') + '</ul>'); lista = null; }
+    }
+    function fechaCitacao() {
+      if (citacao) { out.push('<blockquote><p>' + inline(citacao.join(' ')) + '</p></blockquote>'); citacao = null; }
+    }
+    function fechaTabela() {
+      if (!tabela) return;
+      /* Descarta o separador |---|---| . O traço é obrigatório no teste:
+         sem ele, a linha "|  |  |" do bloco de assinaturas também casaria e
+         o cabeçalho vazio desapareceria. */
+      var corpo = tabela.filter(function (l) {
+        return !(/^\|[\s:|-]+\|$/.test(l) && l.indexOf('-') !== -1);
+      });
+      var cabecalho = corpo.shift();
+      var semCabecalho = /^\|(\s*\|)+$/.test(cabecalho);
+
+      function celulas(linha, tag) {
+        return linha.replace(/^\||\|$/g, '').split('|')
+          .map(function (c) { return '<' + tag + '>' + inline(c.trim()) + '</' + tag + '>'; })
+          .join('');
+      }
+
+      var html = '<table' + (semCabecalho ? ' class="assinaturas"' : '') + '>';
+      if (!semCabecalho) html += '<thead><tr>' + celulas(cabecalho, 'th') + '</tr></thead>';
+      /* Cabeçalho vazio não vira linha: geraria uma faixa em branco no topo
+         do bloco de assinaturas. */
+      html += '<tbody>';
+      corpo.forEach(function (l) { html += '<tr>' + celulas(l, 'td') + '</tr>'; });
+      out.push(html + '</tbody></table>');
+      tabela = null;
+    }
+    function fechaTudo() { fechaParagrafo(); fechaLista(); fechaCitacao(); fechaTabela(); }
+
+    linhas.forEach(function (linha) {
+      var t = linha.trim();
+
+      if (/^\|.*\|$/.test(t)) {
+        fechaParagrafo(); fechaLista(); fechaCitacao();
+        tabela = tabela || []; tabela.push(t); return;
+      }
+      if (tabela) fechaTabela();
+
+      if (t === '') { fechaTudo(); return; }
+
+      if (/^(---|___|\*\*\*)$/.test(t)) { fechaTudo(); out.push('<hr>'); return; }
+
+      var h = t.match(/^(#{1,4})\s+(.*)$/);
+      if (h) {
+        fechaTudo();
+        var n = Math.min(h[1].length, 3);
+        out.push('<h' + n + '>' + inline(h[2]) + '</h' + n + '>');
+        return;
+      }
+
+      if (t.charAt(0) === '>') {
+        fechaParagrafo(); fechaLista();
+        citacao = citacao || []; citacao.push(t.slice(1).trim()); return;
+      }
+      if (citacao) fechaCitacao();
+
+      var chk = t.match(/^[-*]\s+\[( |x|X)\]\s+(.*)$/);
+      if (chk) {
+        fechaParagrafo();
+        lista = lista || []; lista.push('<li class="check">' + inline(chk[2]) + '</li>'); return;
+      }
+
+      var item = t.match(/^[-*]\s+(.*)$/);
+      if (item) {
+        fechaParagrafo();
+        lista = lista || []; lista.push('<li>' + inline(item[1]) + '</li>'); return;
+      }
+      if (lista) fechaLista();
+
+      buffer.push(t);
+    });
+
+    fechaTudo();
+    return out.join('\n');
+  }
+
+  /* ------------------------------------------------------------------
+     Campos: descobertos no próprio texto, procurando por « »
+     ------------------------------------------------------------------ */
+  function acharCampos(md) {
+    var achados = [], vistos = {}, re = new RegExp(RE_CAMPO, 'g'), m;
+    while ((m = re.exec(md)) !== null) {
+      var nome = m[1];
+      if (!nome || vistos[nome]) continue;
+      vistos[nome] = true;
+      achados.push(nome);
+    }
+    return achados;
+  }
+
+  function montarFormulario(campos) {
+    elCampos.innerHTML = '';
+    campos.forEach(function (nome, indice) {
+      var div = document.createElement('div');
+      div.className = 'campo';
+
+      var lab = document.createElement('label');
+      lab.textContent = nome;
+      lab.setAttribute('for', 'c-' + indice);
+
+      var longo = nome.length > 42 || /LISTE|DESCREVA|OUTR|MATERIAL|EX:/i.test(nome);
+      var input = document.createElement(longo ? 'textarea' : 'input');
+      if (!longo) input.type = 'text';
+      input.id = 'c-' + indice;
+      input.value = valores[nome] || '';
+      input.placeholder = nome;
+
+      input.addEventListener('input', function () {
+        var v = input.value.trim();
+        if (v) { valores[nome] = v; div.classList.add('preenchido'); }
+        else { delete valores[nome]; div.classList.remove('preenchido'); }
+        salvarMemoria();
+        render();
+      });
+      if (input.value) div.classList.add('preenchido');
+
+      div.appendChild(lab);
+      div.appendChild(input);
+      elCampos.appendChild(div);
+    });
+  }
+
+  function render() {
+    elFolha.innerHTML = paraHtml(textoOriginal);
+    var campos = acharCampos(textoOriginal);
+    var faltam = campos.filter(function (nome) { return !valores[nome]; }).length;
+    elContador.innerHTML = faltam === 0
+      ? '<b>Tudo preenchido.</b> Pronto para imprimir.'
+      : 'Faltam <b>' + faltam + '</b> de ' + campos.length +
+        ' campos — os que faltam aparecem marcados em amarelo no documento.';
+  }
+
+  function usarTexto(md) {
+    textoOriginal = juntarCamposQuebrados(md);
+    montarFormulario(acharCampos(textoOriginal));
+    render();
+  }
+
+  /* ------------------------------------------------------------------
+     Carregamento do documento
+     ------------------------------------------------------------------ */
+  function carregar(caminho) {
+    fetch(caminho)
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(usarTexto)
+      .catch(function () {
+        /* Acontece ao abrir com duplo clique (endereço file://): o navegador
+           bloqueia a leitura de arquivos vizinhos. Aí você escolhe o arquivo
+           na mão, ou abre pelo servidor local. */
+        elAreaArquivo.hidden = false;
+        elCampos.innerHTML = '';
+        elContador.textContent = '';
+        elFolha.innerHTML =
+          '<h1>Escolha o arquivo do contrato</h1>' +
+          '<p>O navegador não deixa esta página ler os arquivos da pasta quando ' +
+          'ela é aberta com duplo clique. Duas saídas:</p>' +
+          '<p><strong>1.</strong> Use o botão <em>Abrir do computador</em>, que ' +
+          'apareceu no painel à esquerda, e escolha o arquivo <code>.md</code> ' +
+          'dentro da pasta <code>contratos</code>.</p>' +
+          '<p><strong>2.</strong> Ou abra a pasta do projeto no terminal, rode ' +
+          '<code>python -m http.server 5180</code> e acesse ' +
+          '<code>http://localhost:5180/ferramentas/gerar-contrato.html</code>. ' +
+          'Aí a lista de documentos funciona sozinha.</p>';
+      });
+  }
+
+  elDoc.addEventListener('change', function () { carregar(elDoc.value); });
+
+  elArquivo.addEventListener('change', function () {
+    var f = elArquivo.files[0];
+    if (!f) return;
+    var leitor = new FileReader();
+    leitor.onload = function () { usarTexto(String(leitor.result)); };
+    leitor.readAsText(f, 'UTF-8');
+  });
+
+  document.getElementById('imprimir').addEventListener('click', function () {
+    var faltam = elFolha.querySelectorAll('.vazio').length;
+    if (faltam && !confirm('Ainda faltam ' + faltam + ' campos. Imprimir mesmo assim?')) return;
+    window.print();
+  });
+
+  document.getElementById('limpar').addEventListener('click', function () {
+    if (!confirm('Apagar o que foi digitado? Os dados salvos de outros contratos continuam.')) return;
+    acharCampos(textoOriginal).forEach(function (nome) { delete valores[nome]; });
+    salvarMemoria();
+    montarFormulario(acharCampos(textoOriginal));
+    render();
+  });
+
+  valores = carregarMemoria();
+  carregar(elDoc.value);
+})();
+</script>
+</body>
+</html>
