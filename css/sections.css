@@ -188,92 +188,207 @@
   .ba-puxe { order: -1; width: 100%; text-align: center; margin-bottom: 0.35rem; }
 }
 
-/* ---- Maquete DEPOIS: o site que entregamos ------------------------------- */
+/* ---- Maquete DEPOIS: o site que entregamos -------------------------------
+   Repare que esta maquete NÃO usa o lima da Jeff Company. Ela tem cor
+   própria — laranja quente sobre carvão — porque representa a marca do
+   CLIENTE, não a nossa. Um portfólio em que tudo tem a mesma cor parece
+   um template só; marcas distintas provam que o trabalho é sob medida.
+   -------------------------------------------------------------------------- */
 
 .sh-depois {
-  background: #101310;
+  /* laranja da pizzaria, isolado nesta maquete */
+  --pz-laranja: #F5951F;
+  --pz-verde: #4FAF52;
+  --pz-fundo: #17120F;
+
+  background:
+    radial-gradient(70% 90% at 82% 45%, rgba(245, 149, 31, 0.16), transparent 70%),
+    var(--pz-fundo);
   display: flex;
   flex-direction: column;
-  padding: 4cqi;
-  gap: 3.5cqi;
+  padding: 3.4cqi 4cqi;
+  gap: 2cqi;
   font-family: var(--font-body);
+  overflow: hidden;
 }
 
-.sh-nav { display: flex; align-items: center; justify-content: space-between; }
+/* ---- Barra de navegação da pizzaria ---- */
 
-.sh-logo {
-  font-family: var(--font-display);
-  font-variation-settings: 'wdth' 115;
-  font-weight: 700;
-  font-size: 3.4cqi;
-  letter-spacing: 0.14em;
-  color: #F1F4EA;
+.sh-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2cqi;
+  padding-bottom: 2.4cqi;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.sh-chip {
-  font-family: var(--font-mono);
-  font-size: 2cqi;
-  padding: 1cqi 2.2cqi;
-  border: 1px solid rgba(199, 245, 63, 0.35);
-  border-radius: 999px;
-  color: var(--lime);
-}
+.sh-marca { display: flex; align-items: center; gap: 1.6cqi; }
 
-.sh-hero { display: flex; align-items: center; gap: 4cqi; flex: 1; }
-
-/* Pizza desenhada em CSS — nenhuma imagem para baixar */
-.sh-pizza {
-  width: 32cqi;
+/* Selo redondo com a inicial — o logo que a pizzaria não tem ainda */
+.sh-selo {
+  width: 6.4cqi;
   aspect-ratio: 1;
-  flex-shrink: 0;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 38% 34%, #E8B45C 0 4.2cqi, transparent 4.4cqi),
-    radial-gradient(circle at 66% 30%, #C0442E 0 2.6cqi, transparent 2.8cqi),
-    radial-gradient(circle at 32% 66%, #C0442E 0 2.4cqi, transparent 2.6cqi),
-    radial-gradient(circle at 63% 64%, #C0442E 0 2.9cqi, transparent 3.1cqi),
-    radial-gradient(circle at 48% 48%, #C0442E 0 2.2cqi, transparent 2.4cqi),
-    radial-gradient(circle at 50% 50%, #F0C97A 0 68%, #D9A44B 68% 82%, #B87333 82% 100%);
+  border: 0.4cqi solid var(--pz-laranja);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 700;
+  font-size: 3.2cqi;
+  color: var(--pz-laranja);
+  flex-shrink: 0;
 }
 
-.sh-copy { display: flex; flex-direction: column; gap: 2.2cqi; align-items: flex-start; }
+.sh-nome {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 108;
+  font-size: 1.9cqi;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.sh-nome b { color: #FFF; font-weight: 700; letter-spacing: 0.04em; }
+
+.sh-menu { display: flex; gap: 2.6cqi; }
+
+.sh-menu i {
+  font-style: normal;
+  font-size: 1.9cqi;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.sh-menu .sh-ativo {
+  color: #17120F;
+  background: var(--pz-laranja);
+  border-radius: 999px;
+  padding: 0.7cqi 2cqi;
+  margin: -0.7cqi 0;
+  font-weight: 600;
+}
+
+.sh-redes { display: flex; gap: 1.2cqi; }
+
+.sh-redes b {
+  width: 3.4cqi;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* ---- Corpo: texto à esquerda, foto sangrando pela direita ---- */
+
+.sh-hero {
+  display: flex;
+  align-items: center;
+  gap: 2cqi;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.sh-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8cqi;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+  /* Cabe inteira na metade esquerda do quadro: com o comparador parado no
+     meio, nenhuma palavra fica cortada atravessando a divisória. */
+  max-width: 48cqi;
+}
 
 .sh-eyebrow {
   font-family: var(--font-mono);
-  font-size: 1.9cqi;
-  letter-spacing: 0.14em;
+  font-size: 1.7cqi;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--lime);
+  color: var(--pz-laranja);
 }
 
-.sh-copy strong {
+.sh-titulo {
   font-family: var(--font-display);
-  font-variation-settings: var(--wide);
+  font-variation-settings: 'wdth' 105;
+  font-weight: 700;
+  font-size: 5.4cqi;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #FFF;
+}
+
+/* Selo de promoção: o número grande é o que o olho pega primeiro, e a
+   explicação vem embaixo — igual à referência, e mantém o bloco estreito */
+.sh-promo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6cqi;
+}
+
+.sh-promo b {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 108;
+  font-weight: 700;
+  font-size: 6.2cqi;
+  line-height: 1;
+  color: var(--pz-laranja);
+}
+
+.sh-promo i {
+  font-style: normal;
+  font-size: 1.7cqi;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(245, 149, 31, 0.55);
+  border-radius: 0.6cqi;
+  padding: 0.6cqi 1.4cqi;
+}
+
+.sh-acoes { display: flex; align-items: center; gap: 1.6cqi; flex-wrap: wrap; }
+
+/* Verde para o telefone: é o código de cor que todo mundo já lê como
+   "fala comigo agora" */
+.sh-entrega {
+  background: var(--pz-verde);
+  color: #06210A;
+  border-radius: 1.2cqi;
+  padding: 1cqi 2cqi;
+  font-size: 1.6cqi;
+  line-height: 1.25;
   font-weight: 500;
-  font-size: 5cqi;
-  line-height: 1.06;
-  letter-spacing: -0.02em;
-  color: #F1F4EA;
+}
+
+.sh-entrega b {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 2.1cqi;
+  font-weight: 500;
 }
 
 .sh-cta {
   font-family: var(--font-mono);
-  font-size: 2.1cqi;
+  font-size: 1.9cqi;
   padding: 1.6cqi 3cqi;
   border-radius: 999px;
-  background: var(--lime);
-  color: var(--ink);
+  background: var(--pz-laranja);
+  color: #17120F;
+  font-weight: 500;
 }
 
-.sh-tags { display: flex; gap: 2cqi; flex-wrap: wrap; }
-
-.sh-tags span {
-  font-family: var(--font-mono);
-  font-size: 1.85cqi;
-  padding: 1.1cqi 2.2cqi;
-  border-radius: 999px;
-  border: 1px solid #242820;
-  color: #8B9280;
+/* A foto passa da borda de propósito: é o que dá sensação de página
+   grande dentro de um quadro pequeno. */
+.sh-foto {
+  width: 40cqi;
+  height: auto;
+  flex-shrink: 0;
+  margin-right: -7cqi;
+  align-self: center;
 }
 
 /* ---- Maquete ANTES: o site que a maioria tem hoje ------------------------
@@ -362,17 +477,25 @@
    -------------------------------------------------------------------------- */
 
 @container (max-width: 430px) {
-  .sh-tags,
+  /* Some o que vira sujeira em miniatura: o menu do meio, as redes e o
+     selo de promoção. Fica o essencial — marca, título, telefone, botão. */
+  .sh-menu,
+  .sh-redes,
+  .sh-promo,
   .old-table,
   .old-fone { display: none; }
 
-  .sh-logo   { font-size: 4.6cqi; }
-  .sh-chip   { font-size: 2.8cqi; }
-  .sh-eyebrow{ font-size: 2.7cqi; }
-  .sh-copy strong { font-size: 6.6cqi; }
-  .sh-cta    { font-size: 3cqi; padding: 2.2cqi 4cqi; }
-  .sh-pizza  { width: 37cqi; }
-  .sh-hero   { gap: 3cqi; }
+  .sh-nav      { padding-bottom: 2cqi; }
+  .sh-selo     { width: 8cqi; font-size: 4cqi; border-width: 0.5cqi; }
+  .sh-nome     { font-size: 2.6cqi; }
+  .sh-eyebrow  { font-size: 2.5cqi; }
+  .sh-titulo   { font-size: 7.4cqi; }
+  .sh-entrega  { font-size: 2.2cqi; padding: 1.4cqi 2.4cqi; }
+  .sh-entrega b{ font-size: 2.9cqi; }
+  .sh-cta      { font-size: 2.6cqi; padding: 2cqi 3.6cqi; }
+  .sh-foto     { width: 42cqi; margin-right: -14cqi; }
+  .sh-hero     { gap: 1cqi; }
+  .sh-copy     { gap: 2.4cqi; }
 
   .old-banner  { font-size: 6cqi; }
   .old-welcome { font-size: 4.4cqi; }

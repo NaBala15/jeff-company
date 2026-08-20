@@ -16,8 +16,22 @@ biblioteca, sem construtor.
 
 Um comparador arrastável no topo da página: à esquerda, o site desatualizado
 que muitos negócios locais ainda têm; à direita, o que a Jeff Company entrega.
-As duas maquetes são **construídas em CSS**, não são imagens — escalam em
-qualquer tela e não custam nenhum download.
+As duas maquetes são **construídas em CSS** — layout, tipografia e cores são
+código, não captura de tela, então escalam nitidamente em qualquer tamanho.
+
+A única imagem das maquetes é a foto da pizza (40 KB), porque comida precisa
+parecer comida: um desenho em CSS não dá vontade de pedir.
+
+> **Antes de publicar, troque a foto.** O arquivo atual
+> (`assets/img/pizza-depois.webp`) foi recortado de uma imagem do Freepik, cuja
+> licença gratuita exige atribuição. Baixe uma foto de pizza no
+> [Unsplash](https://unsplash.com) ou no [Pexels](https://pexels.com) — as duas
+> liberam uso comercial sem atribuição — recorte em quadrado e salve com o
+> mesmo nome. Nada mais precisa mudar.
+
+A maquete do cliente usa **laranja, não o lima da marca**. Isso é proposital:
+ela representa a marca do cliente, não a nossa. Portfólio em que tudo tem a
+mesma cor parece template; marcas distintas mostram trabalho sob medida.
 
 O controle é um `<input type="range">` invisível por cima. Com isso, mouse,
 toque e teclado já funcionam sem código extra, e leitor de tela entende o que
