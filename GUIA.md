@@ -329,6 +329,23 @@ tiver a captura, o quadro mostra um aviso discreto no lugar — não quebra.
 abra no navegador e tire um print de 1200×630. Salve em
 `assets/img/og-jeff-company.jpg`.
 
+**"Alterei o site e nada mudou" — leia isto antes de se desesperar.**
+
+Na maioria das vezes o arquivo está certo e o problema é o **cache do
+navegador**: ele guardou o CSS antigo e continua usando. Duas coisas resolvem:
+
+1. **Para conferir na hora:** aperte `Ctrl + Shift + R` (ou `Ctrl + F5`). Isso
+   ignora o cache e baixa tudo de novo.
+2. **Para resolver de vez:** no `index.html`, os arquivos de css e js terminam
+   com `?v=2026-08-20`. Sempre que você mexer em algum deles, **troque essa
+   data** nas cinco linhas. O navegador passa a enxergar outro arquivo e baixa
+   a versão nova sozinho.
+
+O passo 2 é o que importa de verdade nos sites dos seus clientes. Sem ele, você
+troca o preço no site da pizzaria, manda para o dono conferir, e ele jura que
+não mudou nada — porque o navegador dele está mostrando a versão guardada. Você
+perde a tarde tentando explicar, e ele fica achando que você não entregou.
+
 **Ver o site no seu computador antes de publicar:** abra o terminal na pasta e
 rode:
 

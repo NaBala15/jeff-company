@@ -40,10 +40,21 @@
        conteúdo nunca piscar. -->
   <script>document.documentElement.className += ' js';</script>
 
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/sections.css">
+  <!-- ====================================================================
+       O ?v= no fim de cada arquivo e o numero da versao.
+
+       O navegador guarda CSS e JS por muito tempo. Sem isso, quem ja
+       visitou o site continua vendo a versao ANTIGA depois que voce
+       atualiza - e voce fica achando que a alteracao nao funcionou.
+
+       REGRA: mudou qualquer arquivo de css/ ou js/, troque a data nas 5
+       linhas abaixo. O navegador entende que e outro arquivo e baixa de
+       novo. Vale o mesmo para os sites dos seus clientes.
+       ==================================================================== -->
+  <link rel="stylesheet" href="css/variables.css?v=2026-08-20">
+  <link rel="stylesheet" href="css/base.css?v=2026-08-20">
+  <link rel="stylesheet" href="css/components.css?v=2026-08-20">
+  <link rel="stylesheet" href="css/sections.css?v=2026-08-20">
 
   <!-- ====================================================================
        Dados estruturados: é assim que o Google entende que existe uma
@@ -823,6 +834,6 @@
   </div>
 </footer>
 
-<script src="js/main.js" defer></script>
+<script src="js/main.js?v=2026-08-20" defer></script>
 </body>
 </html>
