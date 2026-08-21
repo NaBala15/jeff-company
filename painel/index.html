@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel — Jeff Company</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0B09">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/painel.css?v=1">
+</head>
+<body>
+
+<!-- ======================================================================
+     Faixa de protótipo — sai quando o painel for ligado no banco de verdade
+     ====================================================================== -->
+<div class="proto">
+  <strong>Protótipo</strong> · dados de exemplo, nada é real. As alterações
+  ficam salvas só neste navegador.
+  <button type="button" id="btn-recomecar">Recomeçar do zero</button>
+</div>
+
+<header class="topo">
+  <div class="topo-marca">
+    <span class="marca-ico" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="marca-txt">Jeff<b>Company</b><i>painel</i></span>
+  </div>
+
+  <label class="busca">
+    <span class="sr-only">Buscar cliente</span>
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input type="search" id="busca" placeholder="Buscar por nome, negócio ou site" autocomplete="off">
+  </label>
+
+  <button class="btn btn-p" type="button" id="btn-novo">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+    Novo cliente
+  </button>
+</header>
+
+<main class="conteudo">
+
+  <!-- ---- Resumo ---------------------------------------------------- -->
+  <section class="resumo" aria-label="Resumo">
+    <article class="kpi">
+      <span class="kpi-rot">Recebimento mensal</span>
+      <strong class="kpi-num" id="kpi-mrr">—</strong>
+      <span class="kpi-pe" id="kpi-mrr-pe">—</span>
+    </article>
+    <article class="kpi">
+      <span class="kpi-rot">Clientes ativos</span>
+      <strong class="kpi-num" id="kpi-ativos">—</strong>
+      <span class="kpi-pe" id="kpi-ativos-pe">—</span>
+    </article>
+    <article class="kpi kpi-aviso">
+      <span class="kpi-rot">Vencendo em 7 dias</span>
+      <strong class="kpi-num" id="kpi-vencendo">—</strong>
+      <span class="kpi-pe">cobre antes de virar atraso</span>
+    </article>
+    <article class="kpi kpi-critico">
+      <span class="kpi-rot">Em atraso</span>
+      <strong class="kpi-num" id="kpi-atrasados">—</strong>
+      <span class="kpi-pe" id="kpi-atrasados-pe">—</span>
+    </article>
+  </section>
+
+  <!-- ---- Filtros --------------------------------------------------- -->
+  <div class="filtros" role="group" aria-label="Filtrar por situação">
+    <button type="button" class="filtro is-on" data-filtro="todos">Todos <span></span></button>
+    <button type="button" class="filtro" data-filtro="atrasado">Em atraso <span></span></button>
+    <button type="button" class="filtro" data-filtro="vencendo">Vencendo <span></span></button>
+    <button type="button" class="filtro" data-filtro="ativo">Em dia <span></span></button>
+    <button type="button" class="filtro" data-filtro="suspenso">Suspensos <span></span></button>
+  </div>
+
+  <!-- ---- Lista ----------------------------------------------------- -->
+  <section class="lista" id="lista" aria-label="Clientes"></section>
+
+  <p class="vazio" id="vazio" hidden>Nenhum cliente nesta situação.</p>
+
+</main>
+
+<!-- ======================================================================
+     Ficha do cliente
+     ====================================================================== -->
+<div class="veu" id="veu" hidden></div>
+
+<aside class="ficha" id="ficha" hidden aria-label="Ficha do cliente">
+  <div class="ficha-topo">
+    <div>
+      <span class="ficha-rot" id="f-ramo">—</span>
+      <h2 id="f-negocio">—</h2>
+      <p id="f-nome">—</p>
+    </div>
+    <button class="fechar" type="button" id="btn-fechar" aria-label="Fechar ficha">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <div class="ficha-corpo">
+
+    <!-- situação da assinatura -->
+    <div class="bloco" id="f-situacao"></div>
+
+    <!-- interruptor do site -->
+    <div class="bloco bloco-switch">
+      <div>
+        <span class="bloco-rot">Site no ar</span>
+        <p class="bloco-txt" id="f-switch-txt">—</p>
+      </div>
+      <button type="button" class="switch" id="f-switch" role="switch" aria-checked="true">
+        <span></span>
+      </button>
+    </div>
+
+    <!-- dados do site -->
+    <div class="bloco">
+      <span class="bloco-rot">Site</span>
+      <dl class="dados">
+        <div><dt>Endereço</dt><dd id="f-endereco">—</dd></div>
+        <div><dt>Tipo</dt><dd id="f-tipo">—</dd></div>
+        <div><dt>Hospedagem</dt><dd id="f-hospedagem">—</dd></div>
+        <div><dt>No ar desde</dt><dd id="f-publicado">—</dd></div>
+      </dl>
+    </div>
+
+    <!-- contato -->
+    <div class="bloco">
+      <span class="bloco-rot">Contato</span>
+      <dl class="dados">
+        <div><dt>WhatsApp</dt><dd id="f-whats">—</dd></div>
+        <div><dt>E-mail</dt><dd id="f-email">—</dd></div>
+        <div><dt>Cidade</dt><dd id="f-cidade">—</dd></div>
+      </dl>
+    </div>
+
+    <!-- plano -->
+    <div class="bloco">
+      <span class="bloco-rot">Plano</span>
+      <dl class="dados">
+        <div><dt>Contratado</dt><dd id="f-plano">—</dd></div>
+        <div><dt>Valor</dt><dd id="f-valor">—</dd></div>
+        <div><dt>Vence todo dia</dt><dd id="f-diavenc">—</dd></div>
+        <div><dt>Cliente desde</dt><dd id="f-inicio">—</dd></div>
+      </dl>
+    </div>
+
+    <!-- pagamentos -->
+    <div class="bloco">
+      <span class="bloco-rot">Últimos pagamentos</span>
+      <ul class="pagamentos" id="f-pagamentos"></ul>
+    </div>
+
+    <!-- anotação -->
+    <div class="bloco" id="f-bloco-nota">
+      <span class="bloco-rot">Anotação</span>
+      <p class="bloco-txt" id="f-nota">—</p>
+    </div>
+
+  </div>
+
+  <div class="ficha-pe">
+    <a class="btn btn-p" id="f-cobrar" href="#" target="_blank" rel="noopener">
+      Cobrar no WhatsApp
+    </a>
+    <button class="btn btn-v" type="button" id="f-baixa">Registrar pagamento</button>
+  </div>
+</aside>
+
+<!-- avisos rápidos -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/dados-exemplo.js?v=1"></script>
+<script src="js/painel.js?v=1"></script>
+</body>
+</html>
