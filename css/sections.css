@@ -686,23 +686,21 @@
 
 .case-inverso .case-visual { order: 2; }
 
+/* Sem barra falsa de navegador: as capturas já mostram a página inteira,
+   e a barra só somava um vazio no topo de cada card. A imagem preenche o
+   quadro arredondado de ponta a ponta. */
 .case-janela {
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
   overflow: hidden;
   background: var(--surface-2);
-  /* enquanto a captura não existe, o próprio quadro já parece um site */
+  /* enquanto a captura não existe, o quadro ainda tem alguma presença */
   background-image: linear-gradient(140deg, rgba(199, 245, 63, 0.08), transparent 60%);
+  line-height: 0;              /* mata o vão que a linha de texto deixaria */
+  transition: border-color 0.3s var(--ease);
 }
 
-.case-barra {
-  display: flex;
-  gap: 5px;
-  padding: 0.6rem 0.8rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.case-barra i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.case:hover .case-janela { border-color: var(--line-soft); }
 
 .case-janela img {
   width: 100%;

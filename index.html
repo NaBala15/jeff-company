@@ -38,7 +38,18 @@
        o conteúdo quando esta classe existe — sem JavaScript, a página aparece
        inteira e legível. Precisa ficar aqui no topo, antes do CSS, para o
        conteúdo nunca piscar. -->
-  <script>document.documentElement.className += ' js';</script>
+  <script>
+    document.documentElement.className += ' js';
+    /* Rede de segurança no PRÓPRIO html, e não dentro do main.js: se o
+       main.js não carregar (rede ruim, erro 404, bloqueador), a classe .js
+       acima já teria escondido tudo e a página ficaria em branco da segunda
+       seção para baixo. Este temporizador devolve o conteúdo em 4s
+       independente do que aconteça com o script externo. */
+    setTimeout(function () {
+      var ocultos = document.querySelectorAll('.reveal:not(.is-in)');
+      for (var i = 0; i < ocultos.length; i++) ocultos[i].classList.add('is-in');
+    }, 4000);
+  </script>
 
   <!-- ====================================================================
        O ?v= no fim de cada arquivo e o numero da versao.
@@ -51,10 +62,10 @@
        linhas abaixo. O navegador entende que e outro arquivo e baixa de
        novo. Vale o mesmo para os sites dos seus clientes.
        ==================================================================== -->
-  <link rel="stylesheet" href="css/variables.css?v=2026-08-20">
-  <link rel="stylesheet" href="css/base.css?v=2026-08-20">
-  <link rel="stylesheet" href="css/components.css?v=2026-08-20">
-  <link rel="stylesheet" href="css/sections.css?v=2026-08-20">
+  <link rel="stylesheet" href="css/variables.css?v=2026-08-20c">
+  <link rel="stylesheet" href="css/base.css?v=2026-08-20c">
+  <link rel="stylesheet" href="css/components.css?v=2026-08-20c">
+  <link rel="stylesheet" href="css/sections.css?v=2026-08-20c">
 
   <!-- ====================================================================
        Dados estruturados: é assim que o Google entende que existe uma
@@ -476,8 +487,7 @@
         <article class="case reveal">
           <div class="case-visual">
             <div class="case-janela">
-              <span class="case-barra"><i></i><i></i><i></i></span>
-              <img src="assets/img/cases/bibi.webp" width="1200" height="800" loading="lazy"
+              <img src="assets/img/cases/bibi.webp" width="1200" height="750" loading="lazy"
                    alt="Página da BiBi Cartomante: fundo escuro com estrelas, cartas de tarot e botão de agendamento.">
             </div>
           </div>
@@ -520,9 +530,8 @@
         <article class="case case-inverso reveal">
           <div class="case-visual">
             <div class="case-janela">
-              <span class="case-barra"><i></i><i></i><i></i></span>
-              <img src="assets/img/cases/devclub.webp" width="1200" height="800" loading="lazy"
-                   alt="Página DevClub Dentro da Mente: cérebro formado por partículas coloridas sobre fundo escuro.">
+              <img src="assets/img/cases/devclub.webp" width="1200" height="750" loading="lazy"
+                   alt="Página do DevClub: campo de estrelas escuro com o título &quot;Ideias viram código, pessoas viram devs&quot;.">
             </div>
           </div>
 
@@ -563,8 +572,7 @@
         <article class="case reveal">
           <div class="case-visual">
             <div class="case-janela">
-              <span class="case-barra"><i></i><i></i><i></i></span>
-              <img src="assets/img/cases/clinica.webp" width="1200" height="800" loading="lazy"
+              <img src="assets/img/cases/clinica.webp" width="1200" height="750" loading="lazy"
                    alt="Página conceito de uma clínica odontológica, com agendamento pelo WhatsApp.">
             </div>
           </div>
@@ -834,6 +842,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=2026-08-20" defer></script>
+<script src="js/main.js?v=2026-08-20c" defer></script>
 </body>
 </html>
