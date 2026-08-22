@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Começar meu site — Jeff Company</title>
+<meta name="description" content="Comece seu site agora: escolha o modelo, mande as informações e sua página fica pronta rápido.">
+<meta name="theme-color" content="#0A0B09">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/pedido.css?v=2">
+</head>
+<body>
+
+<header class="topo">
+  <a class="marca" href="../index.html">
+    <span class="marca-ico" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="marca-txt">Jeff<b>Company</b></span>
+  </a>
+  <a class="voltar" href="../index.html">Voltar ao site</a>
+</header>
+
+<!-- barra de progresso: some no passo da escolha -->
+<div class="progresso" id="progresso" hidden>
+  <div class="progresso-barra"><i id="progresso-i"></i></div>
+  <span class="progresso-txt" id="progresso-txt"></span>
+</div>
+
+<main class="palco">
+
+  <!-- ====================================================================
+       PASSO 0 — como prefere fazer
+       ==================================================================== -->
+  <section class="passo is-on" data-passo="0">
+    <span class="eyebrow">Vamos começar</span>
+    <h1>Como você prefere<br>me passar as informações?</h1>
+    <p class="lead">
+      Os dois caminhos chegam no mesmo lugar. Escolha o que for mais confortável
+      para você.
+    </p>
+
+    <div class="caminhos">
+      <a class="caminho" id="caminho-zap" href="#" target="_blank" rel="noopener">
+        <span class="caminho-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.7-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l1 2.3c.1.2.1.4 0 .6l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1c.3.1.4.2.5.3.1.2.1.6 0 1.3Z"/></svg>
+        </span>
+        <strong>Falar no WhatsApp</strong>
+        <p>Você me manda as informações conversando, e vai mandando as fotos ali mesmo.</p>
+        <span class="caminho-pe">Resposta em até 24h</span>
+      </a>
+
+      <button class="caminho caminho-destaque" type="button" id="caminho-form">
+        <span class="caminho-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+        </span>
+        <strong>Preencher aqui, agora</strong>
+        <p>Cerca de 4 minutos. Você escolhe o modelo da página e já deixa tudo pronto.</p>
+        <span class="caminho-pe">Mais rápido para eu entregar</span>
+      </button>
+    </div>
+
+    <p class="nota-rodape">
+      Não precisa ter logo nem fotos profissionais para começar. A gente resolve isso no caminho.
+    </p>
+  </section>
+
+  <!-- ====================================================================
+       PASSO 1 — você e seu negócio
+       ==================================================================== -->
+  <section class="passo" data-passo="1">
+    <span class="eyebrow">Passo 1 de 5</span>
+    <h2>Quem é você e qual é o negócio</h2>
+
+    <div class="campos">
+      <label class="campo">
+        <span>Seu nome <i>*</i></span>
+        <input type="text" id="c-nome" autocomplete="name" placeholder="Como devo te chamar">
+      </label>
+
+      <label class="campo">
+        <span>Seu WhatsApp <i>*</i></span>
+        <input type="tel" id="c-whats" autocomplete="tel" inputmode="numeric" placeholder="(11) 99999-9999">
+      </label>
+
+      <label class="campo">
+        <span>Nome do negócio <i>*</i></span>
+        <input type="text" id="c-negocio" placeholder="Do jeito exato que quer que apareça no site">
+      </label>
+
+      <label class="campo">
+        <span>O que você faz <i>*</i></span>
+        <input type="text" id="c-ramo" list="lista-ramos" autocomplete="off"
+               placeholder="Ex: cabeleireiro, dentista, pizzaria">
+        <datalist id="lista-ramos"></datalist>
+        <small class="dica" id="dica-ramo"></small>
+      </label>
+
+      <label class="campo campo-largo">
+        <span>Cidade e bairro que atende</span>
+        <input type="text" id="c-cidade" placeholder="Ex: Santo André, bairro Centro">
+      </label>
+    </div>
+
+    <div class="acoes">
+      <button class="btn btn-v" type="button" data-ir="0">Voltar</button>
+      <button class="btn btn-p" type="button" data-ir="2">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PASSO 2 — que tipo de página
+       ==================================================================== -->
+  <section class="passo" data-passo="2">
+    <span class="eyebrow">Passo 2 de 5</span>
+    <h2>Que tipo de página você quer?</h2>
+    <p class="lead">Dá para trocar de ideia depois. Isso só me ajuda a te orientar melhor.</p>
+
+    <div class="planos">
+      <button class="plano" type="button" data-plano="assinatura">
+        <span class="plano-selo">Mais acessível</span>
+        <strong>Página pronta</strong>
+        <span class="plano-preco">R$ 50<i>/mês</i></span>
+        <ul>
+          <li>Modelo pronto com a sua cara: seu nome, suas cores, suas fotos</li>
+          <li>Endereço incluso, hospedagem inclusa</li>
+          <li>Fica pronta no mesmo dia, em geral</li>
+          <li>2 alterações por mês inclusas</li>
+          <li>Sem taxa para começar</li>
+        </ul>
+        <span class="plano-marca" aria-hidden="true"></span>
+      </button>
+
+      <button class="plano" type="button" data-plano="personalizada">
+        <span class="plano-selo">Sob medida</span>
+        <strong>Página personalizada</strong>
+        <span class="plano-preco">A combinar</span>
+        <ul>
+          <li>Layout exclusivo, desenhado só para o seu negócio</li>
+          <li>Quantas seções o seu negócio precisar</li>
+          <li>A página é sua, sem mensalidade obrigatória</li>
+          <li>Prazo de 5 a 15 dias, conforme o tamanho</li>
+          <li>Orçamento por escrito em até 24h</li>
+        </ul>
+        <span class="plano-marca" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="acoes">
+      <button class="btn btn-v" type="button" data-ir="1">Voltar</button>
+      <button class="btn btn-p" type="button" data-ir="3">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PASSO 3 — escolha do modelo (só na assinatura)
+       ==================================================================== -->
+  <section class="passo" data-passo="3">
+    <span class="eyebrow">Passo 3 de 5</span>
+    <h2 id="t-modelo">Escolha o modelo da sua página</h2>
+    <p class="lead" id="s-modelo">
+      Cinco formatos. Todos ficam com o seu nome, suas cores e suas fotos —
+      o que muda é a organização da página.
+    </p>
+
+    <div class="modelos" id="modelos"></div>
+
+    <div class="acoes">
+      <button class="btn btn-v" type="button" data-ir="2">Voltar</button>
+      <button class="btn btn-p" type="button" data-ir="4">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PASSO 4 — conteúdo e materiais
+       ==================================================================== -->
+  <section class="passo" data-passo="4">
+    <span class="eyebrow">Passo 4 de 5</span>
+    <h2>O que vai na página</h2>
+    <p class="lead">
+      Preencha o que souber agora. O que faltar a gente completa pelo WhatsApp —
+      não precisa travar aqui.
+    </p>
+
+    <div class="campos">
+      <label class="campo campo-largo">
+        <span>Seus principais serviços ou produtos</span>
+        <textarea id="c-servicos" rows="3" placeholder="Um por linha. Ex:&#10;Corte masculino&#10;Barba&#10;Coloração"></textarea>
+      </label>
+
+      <label class="campo">
+        <span>Horário de funcionamento</span>
+        <input type="text" id="c-horario" placeholder="Ex: seg a sex 9h-19h, sáb 9h-14h">
+      </label>
+
+      <label class="campo">
+        <span>Endereço</span>
+        <input type="text" id="c-endereco" placeholder="Ou escreva: atendo em domicílio">
+      </label>
+
+      <label class="campo">
+        <span>Instagram</span>
+        <input type="text" id="c-instagram" placeholder="@seuperfil">
+      </label>
+
+      <label class="campo">
+        <span>Mostrar preço no site?</span>
+        <select id="c-preco">
+          <option value="">Escolher…</option>
+          <option>Sim, mostrar os preços</option>
+          <option>Só "a partir de"</option>
+          <option>Não mostrar preço</option>
+        </select>
+      </label>
+
+      <label class="campo campo-largo">
+        <span>A frase que você quer em destaque no topo</span>
+        <input type="text" id="c-frase" placeholder="Ex: A pizza que o bairro inteiro conhece">
+      </label>
+
+      <label class="campo campo-largo">
+        <span>Mais alguma coisa que você quer na página?</span>
+        <textarea id="c-extras" rows="3" placeholder="Cardápio, mapa, depoimentos, formulário, galeria de fotos…"></textarea>
+      </label>
+    </div>
+
+    <div class="materiais">
+      <span class="materiais-rot">O que você já tem em mãos</span>
+      <p class="materiais-sub">
+        Marque o que existe. Você manda os arquivos pelo WhatsApp no fim —
+        é mais fácil que anexar aqui.
+      </p>
+      <div class="checks" id="checks">
+        <label><input type="checkbox" value="Logo"><span>Logo</span></label>
+        <label><input type="checkbox" value="Fotos do trabalho ou do local"><span>Fotos do trabalho ou do local</span></label>
+        <label><input type="checkbox" value="Foto minha"><span>Foto minha</span></label>
+        <label><input type="checkbox" value="Textos prontos"><span>Textos prontos</span></label>
+        <label><input type="checkbox" value="Depoimentos de clientes"><span>Depoimentos de clientes</span></label>
+        <label><input type="checkbox" value="Domínio próprio"><span>Já tenho domínio próprio</span></label>
+        <label><input type="checkbox" value="Google Meu Negócio"><span>Já tenho Google Meu Negócio</span></label>
+        <label><input type="checkbox" value="Não tenho quase nada"><span>Não tenho quase nada</span></label>
+      </div>
+    </div>
+
+    <div class="acoes">
+      <button class="btn btn-v" type="button" id="voltar-4">Voltar</button>
+      <button class="btn btn-p" type="button" data-ir="5">Ver o resumo</button>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PASSO 5 — resumo e envio
+       ==================================================================== -->
+  <section class="passo" data-passo="5">
+    <span class="eyebrow">Passo 5 de 5</span>
+    <h2>Confira e envie</h2>
+    <p class="lead">
+      Vou receber tudo isso de uma vez. Depois de enviar, é só mandar as fotos e
+      o logo na mesma conversa.
+    </p>
+
+    <div class="resumo" id="resumo"></div>
+
+    <div class="envio">
+      <a class="btn btn-p btn-grande" id="btn-enviar" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.7-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l1 2.3c.1.2.1.4 0 .6l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1c.3.1.4.2.5.3.1.2.1.6 0 1.3Z"/></svg>
+        Enviar pelo WhatsApp
+      </a>
+      <button class="btn btn-v" type="button" id="btn-copiar">Copiar o texto</button>
+    </div>
+
+    <p class="nota-rodape" id="aviso-falta"></p>
+
+    <div class="acoes">
+      <button class="btn btn-v" type="button" data-ir="4">Voltar e corrigir</button>
+    </div>
+  </section>
+
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/modelos.js?v=2"></script>
+<script src="js/pedido.js?v=2"></script>
+</body>
+</html>
