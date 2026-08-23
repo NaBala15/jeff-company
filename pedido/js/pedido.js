@@ -19,7 +19,7 @@
   /* ==========  TROQUE AQUI  ==========
      Formato: 55 + DDD + número, tudo junto.
      Para (11) 91234-5678 escreva 5511912345678 */
-  var SEU_WHATSAPP = '5511999999999';
+  var SEU_WHATSAPP = '5511997097050';
 
   var TOTAL_PASSOS = 5;
   var passoAtual = 0;

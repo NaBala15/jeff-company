@@ -12,13 +12,13 @@ o site funciona, mas ninguém consegue falar com você.
 
 | O quê | Onde está | Trocar por |
 |---|---|---|
-| Número do WhatsApp | `index.html` — procure por `5511999999999` (aparece 3 vezes) | `55` + DDD + número, tudo junto e sem símbolos. Ex: `5511912345678` |
+| ~~Número do WhatsApp~~ | ✅ Preenchido em 23/08: (11) 99709-7050 | — |
 | E-mail | `index.html` — procure por `contato@jeffcompany.com.br` | Seu e-mail (veja a Parte 4) |
 | Instagram | `index.html` — no rodapé, `https://instagram.com/` | O endereço do seu perfil |
 | Endereço do site | `index.html` — procure por `jeffcompany.com.br` | O domínio real, depois da Parte 3 |
 | Envio do formulário | `index.html` — procure por `SEU_CODIGO_AQUI` | O código do Formspree (Parte 5) |
 | Cidade e estado | `index.html` — no bloco de dados do Google, `São Paulo` / `SP` | A sua cidade |
-| Link da BiBi | `index.html` — no case da BiBi | O endereço do site dela no ar, se já estiver publicado |
+| ~~Link da BiBi~~ | ✅ Preenchido em 23/08: bibi-cartomante.vercel.app | — |
 
 **Dica para achar rápido:** abra o `index.html` no editor e aperte `Ctrl + F`.
 
