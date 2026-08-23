@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Meu Negócio — o que é e como funciona | Jeff Company</title>
+<meta name="description" content="Veja a diferença: como seu negócio aparece na busca do Google com e sem o perfil configurado.">
+<meta name="theme-color" content="#0A0B09">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/servico.css?v=1">
+<style>h1 em { font-style: normal; color: var(--lima); }</style>
+
+<style>
+/* ==========================================================================
+   Demonstração: a busca do Google, com e sem perfil
+
+   O melhor argumento deste serviço não é uma explicação — é o cliente ver a
+   própria ausência. O interruptor mostra a mesma busca nos dois estados, e a
+   diferença fala sozinha.
+   ========================================================================== */
+
+.palco-google {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.tela-g {
+  background: #FFFFFF;
+  border: 8px solid #1B1F18;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px -35px rgba(0, 0, 0, .95);
+  color: #202124;
+  font-size: .8rem;
+  height: 560px;
+  display: flex; flex-direction: column;
+}
+
+.g-busca {
+  display: flex; align-items: center; gap: .55rem;
+  padding: .7rem .85rem;
+  border-bottom: 1px solid #E4E6E9;
+  flex-shrink: 0;
+}
+.g-busca .lupa { color: #5F6368; flex-shrink: 0; }
+.g-busca .termo { flex: 1; color: #202124; font-size: .82rem; }
+
+/* mapinha: faixas e pinos, sem imagem nenhuma */
+.g-mapa {
+  height: 92px; flex-shrink: 0; position: relative;
+  background:
+    linear-gradient(0deg, #E8EAED 1px, transparent 1px) 0 0 / 100% 22px,
+    linear-gradient(90deg, #E8EAED 1px, transparent 1px) 0 0 / 30px 100%,
+    #F1F3F4;
+}
+.g-pino {
+  position: absolute; width: 13px; height: 13px; border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg); background: #C5221F;
+}
+.g-pino.meu { background: #1A73E8; width: 17px; height: 17px; box-shadow: 0 0 0 5px rgba(26,115,232,.22); }
+
+.g-lista { flex: 1; overflow-y: auto; }
+
+.g-item {
+  padding: .8rem .85rem;
+  border-bottom: 1px solid #E8EAED;
+  display: flex; gap: .7rem;
+}
+.g-item.destaque { background: #F8FBFF; border-left: 3px solid #1A73E8; }
+
+.g-foto {
+  width: 58px; height: 58px; border-radius: 8px; flex-shrink: 0;
+  background: linear-gradient(140deg, #C9CDD2, #9AA0A6);
+  display: grid; place-items: center;
+  color: #FFF; font-size: .6rem; text-align: center; line-height: 1.2;
+}
+.g-foto.cheia { background: linear-gradient(140deg, #7A5C3E, #3C2C1C); }
+.g-foto.vazia { background: #E8EAED; color: #9AA0A6; }
+
+.g-info { min-width: 0; flex: 1; }
+.g-nome { font-size: .85rem; font-weight: 500; color: #1A0DAB; margin-bottom: .1rem; }
+.g-item.destaque .g-nome { color: #1A73E8; font-weight: 600; }
+.g-nota { display: flex; align-items: center; gap: .25rem; font-size: .72rem; color: #5F6368; }
+.g-nota .estrelas { color: #E8A33D; letter-spacing: -.05em; }
+.g-meta { font-size: .72rem; color: #5F6368; margin-top: .12rem; }
+.g-aberto { color: #188038; font-weight: 500; }
+.g-fechado { color: #C5221F; font-weight: 500; }
+
+.g-botoes { display: flex; gap: .3rem; margin-top: .5rem; flex-wrap: wrap; }
+.g-botoes span {
+  border: 1px solid #DADCE0; border-radius: 999px;
+  padding: .22rem .6rem; font-size: .68rem; color: #1A73E8;
+}
+
+/* o aviso de ausência, que é o ponto da versão "antes" */
+.g-ausente {
+  margin: .85rem;
+  border: 1px dashed #D93025;
+  background: #FCE8E6;
+  border-radius: 8px;
+  padding: .8rem;
+  color: #B3261E;
+  font-size: .76rem;
+  line-height: 1.5;
+}
+.g-ausente b { display: block; margin-bottom: .2rem; }
+
+/* ---- Interruptor antes/depois ---- */
+
+.chave {
+  display: inline-flex; background: var(--surface-2);
+  border: 1px solid var(--line); border-radius: 999px; padding: 4px; gap: 4px;
+}
+.chave button {
+  border: 0; background: none; cursor: pointer;
+  border-radius: 999px; padding: .5rem 1.15rem;
+  font-family: var(--mono); font-size: .76rem; color: var(--muted);
+  transition: background-color .25s var(--ease), color .25s var(--ease);
+}
+.chave button.is-on { background: var(--lima); color: var(--ink); font-weight: 500; }
+
+.explica { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.legenda {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 1.35rem;
+}
+.legenda-rot {
+  font-family: var(--mono); font-size: .68rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--lima); display: block; margin-bottom: .5rem;
+}
+.legenda h3 { margin-bottom: .5rem; }
+.legenda p { color: var(--muted); font-size: .92rem; }
+
+.ganhos { display: grid; gap: .55rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.ganho { display: flex; align-items: baseline; gap: .7rem; font-size: .84rem; }
+.ganho b {
+  font-family: var(--mono); color: var(--lima);
+  font-size: .74rem; min-width: 74px; flex-shrink: 0;
+}
+.ganho span { color: var(--muted); }
+
+@media (max-width: 800px) {
+  .palco-google { grid-template-columns: 1fr; }
+  .tela-g { max-width: 350px; margin-inline: auto; height: 520px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <a class="marca" href="../../index.html">
+    <span class="marca-ico" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="marca-txt">Jeff<b>Company</b></span>
+  </a>
+  <div class="topo-acoes">
+    <a class="topo-link" href="../../index.html#servicos">Todos os serviços</a>
+    <a class="btn btn-p btn-sm" href="../../pedido/">Quero esse serviço</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <span class="eyebrow">Serviço · Google Meu Negócio</span>
+    <h1>Existir no Google <em>quando procuram perto</em></h1>
+
+    <div class="traducao">
+      <span class="traducao-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      </span>
+      <p>
+        <b>Em uma frase:</b> é a ficha do seu negócio dentro do Google — a que
+        aparece com foto, nota, horário e botão de rota quando alguém pesquisa
+        "barbearia perto de mim". Sem ela, você não está no mapa.
+      </p>
+    </div>
+
+    <p class="lead">
+      É de graça, mas ninguém cria sozinho. E preenchido pela metade funciona
+      quase como não ter: o Google mostra primeiro quem tem ficha completa.
+    </p>
+  </section>
+
+  <!-- ====================================================================
+       DEMONSTRAÇÃO
+       ==================================================================== -->
+  <section class="secao wrap">
+    <div class="demo-cabeca">
+      <div>
+        <span class="demo-rot">Veja a diferença</span>
+        <h2>A mesma busca, nos dois estados</h2>
+      </div>
+      <span class="aviso-demo">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/></svg>
+        Simulação de uma busca
+      </span>
+    </div>
+
+    <div class="palco-google">
+
+      <div class="tela-g">
+        <div class="g-busca">
+          <span class="lupa" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          </span>
+          <span class="termo">barbearia perto de mim</span>
+        </div>
+
+        <div class="g-mapa" id="g-mapa" aria-hidden="true"></div>
+        <div class="g-lista" id="g-lista"></div>
+      </div>
+
+      <div class="explica">
+        <div class="chave" id="g-chave" role="group" aria-label="Alternar entre sem perfil e com perfil">
+          <button type="button" data-estado="antes" class="is-on">Sem perfil</button>
+          <button type="button" data-estado="depois">Com perfil configurado</button>
+        </div>
+
+        <div class="legenda">
+          <span class="legenda-rot" id="g-rot">O que está acontecendo</span>
+          <h3 id="g-titulo">—</h3>
+          <p id="g-texto">—</p>
+          <div class="ganhos" id="g-ganhos"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       O QUE ENTRA NA FICHA
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">O que a gente configura</span>
+    <h2>Tudo que faz o Google confiar em você</h2>
+    <p class="lead">
+      O Google mostra primeiro quem parece mais confiável para ele. Confiança,
+      para o Google, é ficha completa e mexida com frequência.
+    </p>
+
+    <div class="grade grade-3" style="margin-top:2.25rem">
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s-7-5.4-7-10a7 7 0 1 1 14 0c0 4.6-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></span>
+        <h3>Categoria e endereço certos</h3>
+        <p>É o que decide em quais buscas você aparece. Categoria errada tira você de todas as certas.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m3 17 5-4 4 3 3-2 6 5"/></svg></span>
+        <h3>Fotos que fazem entrar</h3>
+        <p>Perfil com foto recebe muito mais clique de rota. Colocamos fachada, interior, equipe e trabalhos.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <h3>Horário que bate com a realidade</h3>
+        <p>Inclusive feriado. Cliente que chega e encontra fechado deixa avaliação ruim — e ela fica lá para sempre.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m12 3 2.4 5.3 5.6.6-4.2 3.9 1.2 5.5L12 15.6 7 18.3l1.2-5.5L4 8.9l5.6-.6Z"/></svg></span>
+        <h3>Avaliações organizadas</h3>
+        <p>Ensino você a pedir avaliação na hora certa e a responder — inclusive as ruins, que é onde mais gente lê.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg></span>
+        <h3>Serviços e preços listados</h3>
+        <p>A pessoa vê o que você faz sem sair do Google. Menos gente perguntando o óbvio no WhatsApp.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M5 10l7-7 7 7"/></svg></span>
+        <h3>Ligação com o seu site</h3>
+        <p>O perfil aponta para o site e o site aponta para o perfil. Um reforça o outro na busca.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PARA QUEM
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Para quem faz mais diferença</span>
+    <h2>Se o cliente vai até você, isso vale ouro</h2>
+    <p class="lead" style="margin-bottom:1.75rem">
+      Todo negócio com endereço fixo, ou que atende uma região, ganha com isso.
+      Quem atende o Brasil inteiro ganha menos.
+    </p>
+    <div class="para-quem">
+      <span>Barbearia e salão</span><span>Restaurante</span><span>Clínica</span>
+      <span>Pet shop</span><span>Oficina</span><span>Academia</span>
+      <span>Loja de bairro</span><span>Padaria</span><span>Estética</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       COMO FUNCIONA
+       ==================================================================== -->
+  <section class="secao wrap estreito">
+    <span class="eyebrow">Como a gente faz</span>
+    <h2>Do zero ao perfil no ar</h2>
+
+    <ol class="passos" style="margin-top:2rem">
+      <li>
+        <div>
+          <h3>Vejo o que já existe</h3>
+          <p>Às vezes o Google já criou uma ficha sozinho, com dados errados. Nesse caso a gente reivindica em vez de criar outra.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Crio no seu nome, com o seu acesso</h3>
+          <p>A conta é sua, sempre. Eu entro como gerente. Perfil no nome do prestador é armadilha que você não vai querer.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Preencho tudo e subo as fotos</h3>
+          <p>Categoria, serviços, horário, área atendida, descrição e o álbum de fotos organizado.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Passamos pela verificação</h3>
+          <p>O Google confirma que o negócio existe — por carta, telefone ou vídeo. Quem decide o prazo é ele, não eu.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Te ensino a manter vivo</h3>
+          <p>Perfil parado perde posição. Deixo você sabendo o que postar e com que frequência, em 15 minutos.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ====================================================================
+       PERGUNTAS
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Dúvidas</span>
+    <h2>O que todo mundo pergunta</h2>
+
+    <div class="faq" style="margin-top:2rem">
+      <details>
+        <summary>Se é de graça, por que pagar alguém para fazer?</summary>
+        <p>
+          Criar é de graça. O trabalho é escolher a categoria certa, preencher
+          tudo sem erro, tratar as fotos, passar pela verificação e ligar com o
+          seu site. É o mesmo motivo de contratar quem monta um móvel que veio
+          na caixa: a peça é sua, o serviço é a montagem.
+        </p>
+      </details>
+
+      <details>
+        <summary>Em quanto tempo eu apareço?</summary>
+        <p>
+          O perfil fica pronto em poucos dias, mas quem decide o prazo da
+          verificação é o Google — pode levar de dias a algumas semanas, e às
+          vezes ele pede uma segunda comprovação. Depois de verificado, aparecer
+          bem posicionado é um trabalho contínuo, não um botão.
+        </p>
+      </details>
+
+      <details>
+        <summary>Vocês garantem que eu fico em primeiro lugar?</summary>
+        <p>
+          Não, e desconfie de quem garantir. Quem ordena os resultados é o
+          Google, com critérios que ele não divulga e muda quando quer. O que
+          dá para garantir é ficha completa, correta e bem cuidada — que é o
+          que está sob nosso controle.
+        </p>
+      </details>
+
+      <details>
+        <summary>Não tenho endereço fixo, atendo em domicílio. Serve?</summary>
+        <p>
+          Serve, e é até melhor configurar direito: dá para marcar "atendo os
+          clientes no endereço deles" e definir a região. Assim você aparece nas
+          buscas da área sem expor onde você mora.
+        </p>
+      </details>
+
+      <details>
+        <summary>E se eu já tiver um perfil bagunçado?</summary>
+        <p>
+          A gente arruma o que existe em vez de criar outro. Dois perfis do mesmo
+          negócio competem entre si e atrapalham os dois — quando encontro
+          duplicado, o certo é unificar.
+        </p>
+      </details>
+
+      <details>
+        <summary>Quanto custa?</summary>
+        <p>
+          Depende de criar do zero ou arrumar o que existe, e de quantas fotos e
+          serviços entram. Te passo a faixa na conversa inicial, e a proposta por
+          escrito chega em até 24h, sem compromisso.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="secao wrap fim">
+    <h2>Quer saber como você aparece hoje?</h2>
+    <p class="lead">
+      Me manda o nome do seu negócio e a cidade. Eu procuro no Google e te mostro
+      exatamente o que a pessoa vê — inclusive se não vê nada.
+    </p>
+    <div class="fim-acoes">
+      <a class="btn btn-p" href="../../pedido/">Pedir um orçamento</a>
+      <a class="btn btn-v" href="../manutencao/">Ver o próximo serviço</a>
+    </div>
+    <p class="preco-nota">Orçamento sem compromisso · Resposta em até 24h</p>
+  </section>
+
+  <section class="secao wrap">
+    <span class="eyebrow">Outros serviços</span>
+    <h2 style="margin-bottom:1.75rem">Veja também</h2>
+    <div class="outros">
+      <a class="outro" href="../sites/"><span>Serviço</span><strong>Criação de sites</strong></a>
+      <a class="outro" href="../whatsapp/"><span>Serviço</span><strong>Robô de WhatsApp</strong></a>
+      <a class="outro" href="../manutencao/"><span>Serviço</span><strong>Manutenção</strong></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pe">
+  <span>© <span id="ano">2026</span> Jeff Company</span>
+  <span>Desenvolvido por <b>JeffDev</b> ✦</span>
+</footer>
+
+<script src="js/busca.js?v=1"></script>
+</body>
+</html>

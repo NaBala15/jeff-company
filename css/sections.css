@@ -626,6 +626,29 @@
 
 .serv-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.5rem; }
 
+/* O convite para a página do serviço. Fica depois das etiquetas porque a
+   pessoa primeiro entende do que se trata, e só então decide se quer se
+   aprofundar. */
+.serv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--lime);
+  align-self: flex-start;
+  transition: border-color 0.25s var(--ease), gap 0.25s var(--ease);
+}
+
+.serv-link:hover { border-bottom-color: var(--lime); gap: 0.7rem; }
+
+/* No cartão de destaque o link fica na coluna do texto, não atravessando
+   a lista de itens. */
+.serv-destaque .serv-link { grid-column: 1; }
+
 @media (max-width: 900px) {
   .serv-grid { grid-template-columns: 1fr; }
   .serv-destaque { grid-template-columns: 1fr; }

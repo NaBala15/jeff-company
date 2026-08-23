@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criação de sites — os tipos e para que serve cada um | Jeff Company</title>
+<meta name="description" content="Landing page, site institucional ou catálogo com pedido no WhatsApp: veja a diferença entre eles e descubra qual o seu negócio precisa.">
+<meta name="theme-color" content="#0A0B09">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/servico.css?v=1">
+<style>h1 em { font-style: normal; color: var(--lima); }</style>
+
+<style>
+/* ==========================================================================
+   Demonstração: os três tipos de página, lado a lado
+
+   "Que tipo de site eu preciso?" é a dúvida que trava a decisão de quem
+   nunca contratou. Aqui a pessoa vê a estrutura de cada um se montando na
+   tela, com o que entra em cada bloco.
+   ========================================================================== */
+
+.palco-site {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.janela {
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.janela-barra {
+  display: flex; align-items: center; gap: .7rem;
+  padding: .6rem .9rem;
+  background: var(--surface-3);
+  border-bottom: 1px solid var(--line);
+}
+.janela-barra i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.janela-url {
+  font-family: var(--mono); font-size: .68rem; color: var(--faint);
+}
+
+/* a maquete: blocos que representam as seções da página */
+.maquete {
+  background: #101310;
+  padding: 1.1rem;
+  display: flex; flex-direction: column; gap: .55rem;
+  min-height: 400px;
+}
+
+.bloco-pg {
+  border-radius: 8px;
+  padding: .8rem .9rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; gap: .7rem;
+  animation: entra .35s var(--ease) backwards;
+}
+@keyframes entra { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.bloco-pg.hero { background: linear-gradient(120deg, rgba(199,245,63,.1), transparent 65%), var(--surface-2); border-color: var(--line-lima); min-height: 96px; }
+.bloco-pg.cta  { background: var(--lima); border-color: var(--lima); }
+.bloco-pg.cta .bloco-nome { color: var(--ink); }
+.bloco-pg.cta .bloco-desc { color: rgba(10,11,9,.7); }
+
+.bloco-num {
+  font-family: var(--mono); font-size: .66rem; color: var(--faint);
+  min-width: 20px; flex-shrink: 0;
+}
+.bloco-txt { min-width: 0; }
+/* block nos dois: como spans inline, o nome e a descrição saíam colados
+   ("TopoSua frase principal") */
+.bloco-nome {
+  display: block;
+  font-family: var(--display); font-variation-settings: 'wdth' 106;
+  font-weight: 600; font-size: .92rem;
+}
+.bloco-desc { display: block; font-size: .76rem; color: var(--muted); }
+
+.tipos { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+.tipo {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: .55rem 1.1rem;
+  font-size: .82rem; color: var(--muted); cursor: pointer;
+  transition: border-color .2s var(--ease), color .2s var(--ease);
+}
+.tipo:hover { border-color: var(--muted); color: var(--text); }
+.tipo.is-on { background: var(--lima); border-color: var(--lima); color: var(--ink); font-weight: 500; }
+
+.ficha-tipo {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 1.35rem;
+}
+.ficha-rot {
+  font-family: var(--mono); font-size: .68rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--lima); display: block; margin-bottom: .5rem;
+}
+.ficha-tipo h3 { margin-bottom: .5rem; }
+.ficha-tipo p { color: var(--muted); font-size: .92rem; }
+
+.dados-tipo { display: grid; gap: .5rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.dado { display: flex; justify-content: space-between; gap: 1rem; font-size: .82rem; }
+.dado b { font-family: var(--mono); font-size: .72rem; color: var(--faint); font-weight: 400; }
+.dado span { text-align: right; }
+.dado span.destaque { color: var(--lima); font-family: var(--mono); font-size: .78rem; }
+
+@media (max-width: 860px) {
+  .palco-site { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <a class="marca" href="../../index.html">
+    <span class="marca-ico" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="marca-txt">Jeff<b>Company</b></span>
+  </a>
+  <div class="topo-acoes">
+    <a class="topo-link" href="../../index.html#servicos">Todos os serviços</a>
+    <a class="btn btn-p btn-sm" href="../../pedido/">Quero esse serviço</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <span class="eyebrow">Serviço · Criação de sites e páginas</span>
+    <h1>Uma página que <em>faz o telefone tocar</em></h1>
+
+    <div class="traducao">
+      <span class="traducao-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      </span>
+      <p>
+        <b>Em uma frase:</b> é o seu endereço próprio na internet, que trabalha
+        24 horas mostrando o que você faz e levando a pessoa direto para o seu
+        WhatsApp — sem depender do algoritmo de rede social nenhuma.
+      </p>
+    </div>
+
+    <p class="lead">
+      Site não é cartão de visita bonito. É o lugar onde a pessoa decide se vai
+      te chamar ou chamar o concorrente. Tudo aqui é feito com esse objetivo.
+    </p>
+  </section>
+
+  <!-- ====================================================================
+       DEMONSTRAÇÃO
+       ==================================================================== -->
+  <section class="secao wrap">
+    <div class="demo-cabeca">
+      <div>
+        <span class="demo-rot">Entenda a diferença</span>
+        <h2>Que tipo de página o seu negócio precisa</h2>
+      </div>
+      <span class="aviso-demo">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/></svg>
+        Estrutura, não o visual final
+      </span>
+    </div>
+
+    <div class="tipos" id="s-tipos"></div>
+
+    <div class="palco-site">
+      <div class="janela">
+        <div class="janela-barra">
+          <i></i><i></i><i></i>
+          <span class="janela-url" id="s-url">seunegocio.com.br</span>
+        </div>
+        <div class="maquete" id="s-maquete"></div>
+      </div>
+
+      <div class="ficha-tipo">
+        <span class="ficha-rot" id="s-rot">O que é</span>
+        <h3 id="s-titulo">—</h3>
+        <p id="s-texto">—</p>
+        <div class="dados-tipo" id="s-dados"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       O QUE TODA PÁGINA LEVA
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Vem em todas</span>
+    <h2>O que toda página que eu faço já tem</h2>
+    <p class="lead">
+      Não importa o tamanho: estas coisas não são extra, são o mínimo para a
+      página funcionar.
+    </p>
+
+    <div class="grade grade-3" style="margin-top:2.25rem">
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <h3>Funciona no celular</h3>
+        <p>É onde a maioria vai te ver. A página é pensada primeiro para a tela pequena, não adaptada depois.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+        <h3>Abre rápido</h3>
+        <p>Escrita à mão, sem construtor. Página pesada perde visita antes de aparecer — e velocidade é nota no Google.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.7-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l1 2.3c.1.2.1.4 0 .6l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1c.3.1.4.2.5.3.1.2.1.6 0 1.3Z"/></svg></span>
+        <h3>Botão de WhatsApp em tudo</h3>
+        <p>Em toda seção, e sempre visível. O caminho do interesse até a conversa nunca é maior que um toque.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+        <h3>Preparada para o Google</h3>
+        <p>Título, descrição e dados do negócio no formato que o Google entende — e ligada ao seu Google Meu Negócio.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+        <h3>Texto que vende</h3>
+        <p>Escrevo junto com você. A maioria dos sites falha no texto, não no desenho.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v12M8 11l4 4 4-4M4 19h16"/></svg></span>
+        <h3>Endereço e publicação</h3>
+        <p>Configuro o domínio, publico e testo. Você não precisa entender nada de técnico.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       COMO FUNCIONA
+       ==================================================================== -->
+  <section class="secao wrap estreito">
+    <span class="eyebrow">Como a gente faz</span>
+    <h2>Do primeiro papo até no ar</h2>
+
+    <ol class="passos" style="margin-top:2rem">
+      <li>
+        <div>
+          <h3>Conversa de 20 minutos</h3>
+          <p>Entendo o que você vende, para quem, e o que precisa acontecer quando alguém chega na página. Sem custo.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Você manda o material</h3>
+          <p>Logo, fotos e informações. Tenho uma lista pronta para você não precisar adivinhar o que mandar.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Te mostro funcionando</h3>
+          <p>Você abre no seu celular e navega antes de qualquer pagamento final. Duas rodadas de ajuste inclusas.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Publico e te ensino</h3>
+          <p>Configuro o domínio, ligo a medição de visitas e mostro como trocar preço, horário e foto sozinho.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ====================================================================
+       PERGUNTAS
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Dúvidas</span>
+    <h2>O que todo mundo pergunta</h2>
+
+    <div class="faq" style="margin-top:2rem">
+      <details>
+        <summary>Eu já tenho Instagram. Preciso de site?</summary>
+        <p>
+          O Instagram é alugado: quem decide quem vê seu post é o algoritmo, e a
+          conta pode ser bloqueada sem aviso. O site é seu. Além disso, quem
+          procura no Google não vê seu Instagram — vê quem tem site. Os dois
+          juntos funcionam melhor que qualquer um sozinho.
+        </p>
+      </details>
+
+      <details>
+        <summary>Qual a diferença para o site de R$ 50 por mês?</summary>
+        <p>
+          A página de assinatura parte de um modelo pronto que eu adapto com seu
+          nome, suas cores e suas fotos — fica pronta rápido e sai muito barato.
+          A página personalizada é desenhada do zero para o seu negócio, tem
+          quantas seções você precisar e é sua, sem mensalidade obrigatória.
+        </p>
+      </details>
+
+      <details>
+        <summary>Quanto tempo demora?</summary>
+        <p>
+          Página de assinatura: em geral no mesmo dia, depois que o material
+          chega. Landing page personalizada: de 5 a 7 dias. Site institucional
+          completo: de 2 a 3 semanas. O que costuma atrasar é o material, por
+          isso peço tudo logo no começo.
+        </p>
+      </details>
+
+      <details>
+        <summary>Consigo mexer depois sem chamar você?</summary>
+        <p>
+          Sim. Na entrega mostro como trocar o que muda com frequência: preço,
+          horário, foto e telefone. E se preferir não mexer, o plano de
+          manutenção existe justamente para isso.
+        </p>
+      </details>
+
+      <details>
+        <summary>Preciso comprar domínio e hospedagem antes?</summary>
+        <p>
+          Não precisa ter nada. Eu te oriento a registrar o domínio no seu
+          próprio nome — o endereço tem que ser seu, não meu — e cuido de toda a
+          parte técnica.
+        </p>
+      </details>
+
+      <details>
+        <summary>E se eu não gostar?</summary>
+        <p>
+          Você vê a primeira versão funcionando antes do pagamento final, e tem
+          duas rodadas de ajuste inclusas. Ninguém paga o valor cheio por algo
+          que ainda não aprovou.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="secao wrap fim">
+    <h2>Qual desses o seu negócio precisa?</h2>
+    <p class="lead">
+      Me conta o que você faz que eu te digo qual formato resolve — inclusive se
+      a resposta for o mais barato dos três.
+    </p>
+    <div class="fim-acoes">
+      <a class="btn btn-p" href="../../pedido/">Começar minha página</a>
+      <a class="btn btn-v" href="../whatsapp/">Ver o próximo serviço</a>
+    </div>
+    <p class="preco-nota">
+      Página pronta por <b>R$ 50/mês</b> · Personalizada sob orçamento, sem compromisso
+    </p>
+  </section>
+
+  <section class="secao wrap">
+    <span class="eyebrow">Outros serviços</span>
+    <h2 style="margin-bottom:1.75rem">Veja também</h2>
+    <div class="outros">
+      <a class="outro" href="../whatsapp/"><span>Serviço</span><strong>Robô de WhatsApp</strong></a>
+      <a class="outro" href="../google-meu-negocio/"><span>Serviço</span><strong>Google Meu Negócio</strong></a>
+      <a class="outro" href="../manutencao/"><span>Serviço</span><strong>Manutenção</strong></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pe">
+  <span>© <span id="ano">2026</span> Jeff Company</span>
+  <span>Desenvolvido por <b>JeffDev</b> ✦</span>
+</footer>
+
+<script src="js/tipos.js?v=2"></script>
+</body>
+</html>

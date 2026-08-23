@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robô de WhatsApp — o que é e como funciona | Jeff Company</title>
+<meta name="description" content="Veja funcionando: um atendente automático no seu WhatsApp que responde fora do horário, tira dúvidas comuns e já agenda o cliente.">
+<meta name="theme-color" content="#0A0B09">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/servico.css?v=1">
+<style>h1 em { font-style: normal; color: var(--lima); }</style>
+
+<style>
+/* ==========================================================================
+   Demonstração: a conversa que acontece sozinha
+
+   É a peça central da página. Quem não sabe o que é "robô de WhatsApp"
+   entende em quinze segundos vendo uma conversa acontecer — nenhum parágrafo
+   explica isso tão rápido.
+   ========================================================================== */
+
+.palco-zap {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+/* ---- Celular ---- */
+
+.fone {
+  background: #0B0F0C;
+  border: 8px solid #1B1F18;
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px -35px rgba(0, 0, 0, .95);
+  display: flex; flex-direction: column;
+  height: 560px;
+}
+
+.fone-topo {
+  background: #1F2C24;
+  display: flex; align-items: center; gap: .65rem;
+  padding: .75rem .9rem;
+  flex-shrink: 0;
+}
+.fone-foto {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: linear-gradient(140deg, #3A5245, #1B2A22);
+  display: grid; place-items: center;
+  font-family: var(--display); font-weight: 700; font-size: .85rem;
+  color: var(--zap); flex-shrink: 0;
+}
+.fone-nome { display: flex; flex-direction: column; min-width: 0; }
+.fone-nome b { font-size: .88rem; font-weight: 500; }
+.fone-nome span { font-size: .68rem; color: #86A093; }
+
+/* fundo de conversa: a textura discreta do WhatsApp, feita com gradientes */
+.fone-tela {
+  flex: 1;
+  overflow-y: auto;
+  padding: .9rem .8rem;
+  display: flex; flex-direction: column; gap: .45rem;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.012) 0 2px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,.012) 0 2px, transparent 2px),
+    #0D1410;
+  background-size: 42px 42px, 58px 58px, auto;
+  scrollbar-width: thin;
+}
+
+.bolha {
+  max-width: 82%;
+  padding: .5rem .7rem;
+  border-radius: 10px;
+  font-size: .82rem;
+  line-height: 1.45;
+  position: relative;
+  animation: surge .3s var(--ease);
+  white-space: pre-line;
+}
+@keyframes surge { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.bolha.cliente { align-self: flex-start; background: #1F2620; border-top-left-radius: 3px; }
+.bolha.robo    { align-self: flex-end;   background: #124D33; border-top-right-radius: 3px; }
+
+.bolha .hora {
+  display: block; text-align: right;
+  font-size: .58rem; color: rgba(255,255,255,.42); margin-top: .2rem;
+}
+.bolha.robo .hora::after { content: ' ✓✓'; color: #7FD4FF; }
+
+/* etiqueta discreta de quem falou: o ponto todo da demonstração é a pessoa
+   perceber que UM DOS LADOS não é gente */
+.bolha .quem {
+  display: block;
+  font-family: var(--mono); font-size: .55rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: .2rem; opacity: .65;
+}
+.bolha.robo .quem { color: var(--lima); }
+.bolha.cliente .quem { color: #86A093; }
+
+/* botões de resposta rápida, como o WhatsApp mostra */
+.opcoes { display: flex; flex-wrap: wrap; gap: .3rem; align-self: flex-end; max-width: 82%; }
+.opcoes span {
+  border: 1px solid #2A6B4C; color: #6FD9A0;
+  border-radius: 999px; padding: .28rem .7rem; font-size: .72rem;
+}
+
+.digitando { align-self: flex-end; display: flex; gap: 3px; padding: .6rem .8rem; background: #124D33; border-radius: 10px; border-top-right-radius: 3px; }
+.digitando i { width: 5px; height: 5px; border-radius: 50%; background: #7FD4FF; animation: pulo 1.2s infinite; }
+.digitando i:nth-child(2) { animation-delay: .18s; }
+.digitando i:nth-child(3) { animation-delay: .36s; }
+@keyframes pulo { 0%, 60%, 100% { opacity: .3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+
+.fone-pe {
+  background: #1A2019; padding: .55rem .8rem; flex-shrink: 0;
+  font-size: .74rem; color: #5C6B60;
+  display: flex; align-items: center; gap: .5rem;
+}
+.fone-pe span { flex: 1; background: #232B21; border-radius: 999px; padding: .4rem .8rem; }
+
+/* ---- Painel ao lado ---- */
+
+.explica { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.cenarios { display: flex; flex-wrap: wrap; gap: .5rem; }
+.cenario {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: .55rem 1.1rem;
+  font-size: .82rem; color: var(--muted); cursor: pointer;
+  transition: border-color .2s var(--ease), color .2s var(--ease);
+}
+.cenario:hover { border-color: var(--muted); color: var(--text); }
+.cenario.is-on { background: var(--lima); border-color: var(--lima); color: var(--ink); font-weight: 500; }
+
+.legenda {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 1.35rem;
+}
+.legenda-rot {
+  font-family: var(--mono); font-size: .68rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--lima); display: block; margin-bottom: .5rem;
+}
+.legenda h3 { margin-bottom: .5rem; }
+.legenda p { color: var(--muted); font-size: .92rem; }
+
+.marcador {
+  display: flex; align-items: center; gap: .6rem;
+  font-family: var(--mono); font-size: .74rem; color: var(--faint);
+  margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line);
+}
+.marcador i {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--zap); flex-shrink: 0;
+  animation: respira 2s infinite;
+}
+@keyframes respira { 50% { opacity: .3; } }
+
+.demo-controles { display: flex; gap: .5rem; }
+
+@media (max-width: 800px) {
+  .palco-zap { grid-template-columns: 1fr; }
+  .fone { max-width: 340px; margin-inline: auto; height: 500px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <a class="marca" href="../../index.html">
+    <span class="marca-ico" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="marca-txt">Jeff<b>Company</b></span>
+  </a>
+  <div class="topo-acoes">
+    <a class="topo-link" href="../../index.html#servicos">Todos os serviços</a>
+    <a class="btn btn-p btn-sm" href="../../pedido/">Quero esse serviço</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ====================================================================
+       O QUE É
+       ==================================================================== -->
+  <section class="hero wrap">
+    <span class="eyebrow">Serviço · Automação de WhatsApp</span>
+    <h1>Seu WhatsApp respondendo <em>enquanto você dorme</em></h1>
+
+    <div class="traducao">
+      <span class="traducao-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      </span>
+      <p>
+        <b>Em uma frase:</b> é um atendente que trabalha sozinho no seu WhatsApp.
+        Ele responde na hora, tira as dúvidas que todo mundo faz e já deixa o
+        cliente agendado — inclusive às 23h, quando você está descansando.
+      </p>
+    </div>
+
+    <p class="lead">
+      A maioria das pessoas desiste se não recebe resposta em alguns minutos.
+      Não é impaciência: é que ela já está falando com outros três concorrentes
+      na mesma hora.
+    </p>
+  </section>
+
+  <!-- ====================================================================
+       DEMONSTRAÇÃO
+       ==================================================================== -->
+  <section class="secao wrap">
+    <div class="demo-cabeca">
+      <div>
+        <span class="demo-rot">Veja funcionando</span>
+        <h2>Uma conversa acontecendo agora</h2>
+      </div>
+      <span class="aviso-demo">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/></svg>
+        Demonstração, não é conversa real
+      </span>
+    </div>
+
+    <div class="palco-zap">
+
+      <div class="fone">
+        <div class="fone-topo">
+          <span class="fone-foto" id="z-inicial">B</span>
+          <span class="fone-nome">
+            <b id="z-nome">Barbearia Dom Marcos</b>
+            <span id="z-status">online</span>
+          </span>
+        </div>
+        <div class="fone-tela" id="z-tela"></div>
+        <div class="fone-pe">
+          <span>Mensagem</span>
+        </div>
+      </div>
+
+      <div class="explica">
+        <div>
+          <span class="demo-rot" style="display:block;margin-bottom:.6rem">Escolha a situação</span>
+          <div class="cenarios" id="z-cenarios"></div>
+        </div>
+
+        <div class="legenda">
+          <span class="legenda-rot" id="z-leg-rot">O que está acontecendo</span>
+          <h3 id="z-leg-titulo">—</h3>
+          <p id="z-leg-texto">—</p>
+          <div class="marcador"><i></i><span id="z-marcador">—</span></div>
+        </div>
+
+        <div class="demo-controles">
+          <button class="btn btn-v btn-sm" type="button" id="z-repetir">Ver de novo</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       O QUE DÁ PARA FAZER
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Do que ele é capaz</span>
+    <h2>O que dá para colocar no automático</h2>
+    <p class="lead">
+      Não é para substituir você. É para o robô cuidar do que se repete, e
+      sobrar seu tempo para o que só você resolve.
+    </p>
+
+    <div class="grade grade-3" style="margin-top:2.25rem">
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <h3>Responder fora do horário</h3>
+        <p>Mensagem que chega de madrugada ou no domingo não fica sem resposta até segunda.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M9 15l2 2 4-4"/></svg></span>
+        <h3>Agendar sozinho</h3>
+        <p>Mostra os horários livres, marca o cliente e manda o lembrete antes da hora.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg></span>
+        <h3>Filtrar quem chega</h3>
+        <p>Pergunta o que a pessoa precisa antes de você entrar. Você já pega a conversa sabendo do que se trata.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v12M8 11l4 4 4-4M4 19h16"/></svg></span>
+        <h3>Mandar cardápio e tabela</h3>
+        <p>Envia o cardápio, a lista de serviços ou o catálogo na hora que pedirem.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s-7-5.4-7-10a7 7 0 1 1 14 0c0 4.6-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></span>
+        <h3>Responder o de sempre</h3>
+        <p>Endereço, horário, formas de pagamento, se tem estacionamento, se faz entrega. As mesmas cinco perguntas, todo dia.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h3>Passar para você na hora certa</h3>
+        <p>Quando a conversa sai do roteiro, ele avisa que você vai assumir — e você entra sem começar do zero.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PARA QUEM
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Para quem funciona melhor</span>
+    <h2>Se o seu negócio vive de mensagem, é para você</h2>
+    <p class="lead" style="margin-bottom:1.75rem">
+      Quanto mais repetida é a pergunta que você responde, mais o robô te devolve tempo.
+    </p>
+
+    <div class="para-quem">
+      <span>Barbearia e salão</span><span>Clínica e consultório</span>
+      <span>Restaurante e delivery</span><span>Estética</span>
+      <span>Academia</span><span>Pet shop</span>
+      <span>Oficina mecânica</span><span>Loja com entrega</span>
+      <span>Prestador de serviço</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       COMO FUNCIONA
+       ==================================================================== -->
+  <section class="secao wrap estreito">
+    <span class="eyebrow">Como a gente monta</span>
+    <h2>Do primeiro papo até o robô no ar</h2>
+
+    <ol class="passos" style="margin-top:2rem">
+      <li>
+        <div>
+          <h3>Eu escuto suas conversas de sempre</h3>
+          <p>Você me mostra as perguntas que mais recebe. Elas viram o roteiro — o robô fala do jeito que você já fala.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Monto o fluxo e te mostro</h3>
+          <p>Você testa conversando com ele antes de entrar no ar, e me diz o que soou estranho.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Ligamos em um número separado</h3>
+          <p>Recomendo um número só para isso, não o seu pessoal. Assim seu WhatsApp de sempre continua intocado.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Ajustamos com o uso</h3>
+          <p>Nas primeiras semanas aparecem perguntas que ninguém previu. A gente vai ensinando o robô a responder.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ====================================================================
+       PERGUNTAS
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Dúvidas</span>
+    <h2>O que todo mundo pergunta</h2>
+
+    <div class="faq" style="margin-top:2rem">
+      <details>
+        <summary>Meu cliente vai perceber que é robô?</summary>
+        <p>
+          Vai — e tudo bem. O robô se apresenta como atendimento automático logo
+          na primeira mensagem. Fingir que é gente dá errado: a pessoa descobre
+          na terceira frase e se sente enganada. O que ela valoriza é ser
+          respondida na hora, não achar que falou com você.
+        </p>
+      </details>
+
+      <details>
+        <summary>Ele responde tudo? E se perguntarem algo fora do roteiro?</summary>
+        <p>
+          Não responde tudo, e não deve mesmo. Quando a conversa sai do previsto,
+          ele avisa que uma pessoa vai continuar dali e te sinaliza. Robô que
+          tenta responder o que não sabe inventa resposta errada, e aí o
+          prejuízo é seu.
+        </p>
+      </details>
+
+      <details>
+        <summary>Posso usar para disparar mensagem para minha lista de clientes?</summary>
+        <p>
+          Não faço esse serviço. Disparo em massa para quem não pediu é o
+          caminho mais rápido para o número ser bloqueado, além de esbarrar na
+          lei de proteção de dados. O robô aqui responde quem procurou você —
+          não sai atrás de ninguém.
+        </p>
+      </details>
+
+      <details>
+        <summary>Existe risco para o meu número?</summary>
+        <p>
+          O WhatsApp é serviço de terceiro e pode restringir números que usam
+          automação, a critério dele. Por isso duas recomendações que eu faço
+          sempre: usar um número separado do seu principal, e nunca usar para
+          disparo em massa. Se você quiser o caminho com menor risco, existe a
+          via oficial da Meta, que tem custo por conversa — te explico as duas
+          opções na conversa, com os prós e contras de cada uma.
+        </p>
+      </details>
+
+      <details>
+        <summary>Preciso ter site para contratar?</summary>
+        <p>
+          Não. O robô funciona sozinho. Mas os dois juntos rendem mais: o site
+          traz a pessoa e o robô atende na hora que ela chega.
+        </p>
+      </details>
+
+      <details>
+        <summary>Quanto custa?</summary>
+        <p>
+          Depende de quantas perguntas o robô vai cobrir e se ele precisa
+          consultar agenda ou catálogo. Na conversa inicial eu te passo a faixa,
+          e a proposta por escrito chega em até 24h, sem compromisso.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       CHAMADA FINAL
+       ==================================================================== -->
+  <section class="secao wrap fim">
+    <h2>Quer ver quanto tempo isso te devolve?</h2>
+    <p class="lead">
+      Me conta quais perguntas você mais responde no WhatsApp. Em geral são cinco,
+      e são as cinco que o robô assume no primeiro dia.
+    </p>
+    <div class="fim-acoes">
+      <a class="btn btn-p" href="../../pedido/">Pedir um orçamento</a>
+      <a class="btn btn-v" href="../google-meu-negocio/">Ver o próximo serviço</a>
+    </div>
+    <p class="preco-nota">Orçamento sem compromisso · Resposta em até 24h</p>
+  </section>
+
+  <!-- ====================================================================
+       OUTROS SERVIÇOS
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Outros serviços</span>
+    <h2 style="margin-bottom:1.75rem">Veja também</h2>
+    <div class="outros">
+      <a class="outro" href="../sites/"><span>Serviço</span><strong>Criação de sites</strong></a>
+      <a class="outro" href="../google-meu-negocio/"><span>Serviço</span><strong>Google Meu Negócio</strong></a>
+      <a class="outro" href="../manutencao/"><span>Serviço</span><strong>Manutenção</strong></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pe">
+  <span>© <span id="ano">2026</span> Jeff Company</span>
+  <span>Desenvolvido por <b>JeffDev</b> ✦</span>
+</footer>
+
+<script src="js/conversa.js?v=2"></script>
+</body>
+</html>

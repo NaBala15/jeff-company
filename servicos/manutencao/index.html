@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manutenção de site — como funciona | Jeff Company</title>
+<meta name="description" content="Veja o caminho de um pedido de alteração: você manda no WhatsApp e a mudança entra no ar. Site no ar não é site esquecido.">
+<meta name="theme-color" content="#0A0B09">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/servico.css?v=1">
+<style>h1 em { font-style: normal; color: var(--lima); }</style>
+
+<style>
+/* ==========================================================================
+   Demonstração: o caminho de um pedido de alteração
+
+   "Manutenção" soa a coisa nenhuma quando o site já está pronto. A demonstração
+   mostra o que ela é na prática: você manda uma mensagem, e a mudança aparece
+   no site — com o relógio andando ao lado, porque o valor aqui é o prazo.
+   ========================================================================== */
+
+.palco-man {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: start;
+}
+
+/* ---- Linha do tempo ---- */
+
+.linha { display: grid; gap: 0; position: relative; }
+.etapa {
+  display: flex; gap: .85rem;
+  padding-bottom: 1.35rem;
+  position: relative;
+  opacity: .3;
+  transition: opacity .4s var(--ease);
+}
+.etapa.is-on { opacity: 1; }
+.etapa:not(:last-child)::before {
+  content: ''; position: absolute;
+  left: 15px; top: 32px; bottom: 0; width: 1px;
+  background: var(--line);
+}
+.etapa.is-on:not(:last-child)::before { background: var(--line-lima); }
+
+.etapa-bola {
+  width: 31px; height: 31px; border-radius: 50%; flex-shrink: 0;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: .68rem; color: var(--faint);
+  z-index: 1;
+}
+.etapa.is-on .etapa-bola { border-color: var(--lima); color: var(--lima); }
+
+.etapa-txt { min-width: 0; padding-top: .2rem; }
+.etapa-hora {
+  font-family: var(--mono); font-size: .68rem; color: var(--lima);
+  display: block; margin-bottom: .1rem;
+}
+.etapa-nome {
+  font-family: var(--display); font-variation-settings: 'wdth' 106;
+  font-weight: 600; font-size: .95rem; display: block;
+}
+.etapa-desc { font-size: .8rem; color: var(--muted); }
+
+/* ---- O site mudando ---- */
+
+.janela {
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  overflow: hidden; background: var(--surface-2);
+}
+.janela-barra {
+  display: flex; align-items: center; gap: .7rem;
+  padding: .6rem .9rem; background: var(--surface-3);
+  border-bottom: 1px solid var(--line);
+}
+.janela-barra i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.janela-url { font-family: var(--mono); font-size: .68rem; color: var(--faint); }
+
+.site-falso {
+  background: #101310; padding: 1.5rem;
+  min-height: 300px;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.sf-topo { display: flex; align-items: center; justify-content: space-between; }
+.sf-marca {
+  font-family: var(--display); font-variation-settings: 'wdth' 112;
+  font-weight: 700; font-size: 1.1rem; letter-spacing: .1em;
+}
+.sf-chip {
+  font-family: var(--mono); font-size: .68rem;
+  border: 1px solid var(--line-lima); color: var(--lima);
+  border-radius: 999px; padding: .3rem .8rem;
+}
+
+.sf-lista { display: grid; gap: .5rem; }
+.sf-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1rem; padding: .7rem .9rem;
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: .88rem;
+  transition: border-color .4s var(--ease), background-color .4s var(--ease);
+}
+.sf-item b { font-family: var(--mono); font-size: .85rem; font-weight: 500; }
+
+/* o item que acabou de mudar acende, e o valor antigo fica riscado ao lado */
+.sf-item.mudou {
+  border-color: var(--lima);
+  background: rgba(199, 245, 63, .07);
+}
+.sf-antigo {
+  text-decoration: line-through;
+  color: var(--faint);
+  font-size: .76rem;
+  margin-right: .5rem;
+  font-family: var(--mono);
+}
+
+.sf-rodape {
+  margin-top: auto; padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: .76rem; color: var(--faint);
+  display: flex; justify-content: space-between; gap: 1rem;
+}
+
+.man-controles { display: flex; gap: .5rem; margin-top: 1.25rem; flex-wrap: wrap; }
+
+/* ---- Comparativo do plano ---- */
+
+.plano-box {
+  background: var(--surface); border: 1px solid var(--line-lima);
+  border-radius: var(--r-lg); padding: 1.75rem;
+  display: grid; gap: 1.25rem;
+}
+.plano-valor {
+  font-family: var(--display); font-variation-settings: 'wdth' 108;
+  font-weight: 700; font-size: 2.6rem; color: var(--lima); line-height: 1;
+}
+.plano-valor i { font-style: normal; font-size: .9rem; color: var(--muted); font-weight: 400; }
+
+.duas-colunas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.coluna-rot {
+  font-family: var(--mono); font-size: .68rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  display: block; margin-bottom: .75rem;
+}
+.rot-sim { color: var(--lima); }
+.rot-nao { color: var(--faint); }
+
+.lista-x { list-style: none; padding: 0; display: grid; gap: .6rem; }
+.lista-x li { position: relative; padding-left: 1.6rem; color: var(--muted); font-size: .9rem; }
+.lista-x li::before {
+  content: ''; position: absolute; left: 2px; top: .42em;
+  width: 10px; height: 10px;
+  background:
+    linear-gradient(45deg, transparent 44%, var(--faint) 44% 56%, transparent 56%),
+    linear-gradient(-45deg, transparent 44%, var(--faint) 44% 56%, transparent 56%);
+}
+
+@media (max-width: 860px) {
+  .palco-man { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <a class="marca" href="../../index.html">
+    <span class="marca-ico" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="marca-txt">Jeff<b>Company</b></span>
+  </a>
+  <div class="topo-acoes">
+    <a class="topo-link" href="../../index.html#servicos">Todos os serviços</a>
+    <a class="btn btn-p btn-sm" href="../../pedido/">Quero esse serviço</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <span class="eyebrow">Serviço · Manutenção e melhorias</span>
+    <h1>Site no ar <em>não é site esquecido</em></h1>
+
+    <div class="traducao">
+      <span class="traducao-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      </span>
+      <p>
+        <b>Em uma frase:</b> você manda uma mensagem pedindo a mudança e ela
+        entra no ar — sem você aprender nada de técnico, sem abrir orçamento
+        toda vez que muda um preço.
+      </p>
+    </div>
+
+    <p class="lead">
+      O site que envelhece é o que mais afasta cliente: preço desatualizado,
+      horário errado, promoção do ano passado ainda na página. Não é falta de
+      cuidado do dono — é falta de um lugar simples para pedir a troca.
+    </p>
+  </section>
+
+  <!-- ====================================================================
+       DEMONSTRAÇÃO
+       ==================================================================== -->
+  <section class="secao wrap">
+    <div class="demo-cabeca">
+      <div>
+        <span class="demo-rot">Veja funcionando</span>
+        <h2>O caminho de um pedido de alteração</h2>
+      </div>
+      <span class="aviso-demo">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/></svg>
+        Demonstração de um pedido comum
+      </span>
+    </div>
+
+    <div class="palco-man">
+
+      <div>
+        <div class="linha" id="m-linha"></div>
+        <div class="man-controles">
+          <button class="btn btn-v btn-sm" type="button" id="m-repetir">Ver de novo</button>
+        </div>
+      </div>
+
+      <div class="janela">
+        <div class="janela-barra">
+          <i></i><i></i><i></i>
+          <span class="janela-url">barbeariadommarcos.com.br</span>
+        </div>
+        <div class="site-falso">
+          <div class="sf-topo">
+            <span class="sf-marca">DOM MARCOS</span>
+            <span class="sf-chip">Agendar</span>
+          </div>
+          <div class="sf-lista" id="m-lista"></div>
+          <div class="sf-rodape">
+            <span id="m-horario">Ter a sáb · 9h às 20h</span>
+            <span id="m-atualizado">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       O QUE ENTRA E O QUE NÃO ENTRA
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">O plano mensal</span>
+    <h2>O que está incluso, e o que não está</h2>
+    <p class="lead">
+      Prefiro deixar claro dos dois lados. Plano que promete tudo acaba
+      entregando mal alguma coisa.
+    </p>
+
+    <div class="plano-box" style="margin-top:2.25rem">
+      <div>
+        <span class="plano-valor">R$ 50<i> / mês</i></span>
+      </div>
+
+      <div class="duas-colunas">
+        <div>
+          <span class="coluna-rot rot-sim">Está incluso</span>
+          <ul class="lista-check">
+            <li><b>Hospedagem</b> e o site no ar</li>
+            <li><b>2 alterações simples por mês</b>, não acumulativas</li>
+            <li>Troca de textos, preços e horários</li>
+            <li>Troca de fotos</li>
+            <li>Correção de qualquer coisa quebrada</li>
+            <li>Acompanhamento da velocidade</li>
+            <li>Certificado de segurança renovado</li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="coluna-rot rot-nao">Não está incluso</span>
+          <ul class="lista-x">
+            <li>Criar páginas novas</li>
+            <li>Mudar o layout ou a estrutura</li>
+            <li>Funcionalidade nova</li>
+            <li>Produção de fotos e textos</li>
+            <li>Gestão de redes sociais</li>
+            <li>O custo anual do domínio</li>
+          </ul>
+          <p style="margin-top:1rem;font-size:.84rem;color:var(--faint)">
+            Nada disso é proibido — é orçado à parte, e você aprova antes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       POR QUE IMPORTA
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Por que isso importa</span>
+    <h2>O que acontece com site abandonado</h2>
+
+    <div class="grade grade-3" style="margin-top:2.25rem">
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <h3>Horário errado vira nota ruim</h3>
+        <p>A pessoa vai até a sua porta e encontra fechado. A avaliação de uma estrela fica lá para sempre.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M17 7H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <h3>Preço velho gera atrito</h3>
+        <p>Ela chega esperando pagar o do site. Ou você perde dinheiro, ou começa o atendimento discutindo.</p>
+      </article>
+
+      <article class="cartao">
+        <span class="cartao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+        <h3>O Google percebe o abandono</h3>
+        <p>Site que nunca muda perde posição para o do concorrente, que é atualizado toda semana.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PERGUNTAS
+       ==================================================================== -->
+  <section class="secao wrap">
+    <span class="eyebrow">Dúvidas</span>
+    <h2>O que todo mundo pergunta</h2>
+
+    <div class="faq" style="margin-top:2rem">
+      <details>
+        <summary>O site já está pronto. Por que eu pagaria todo mês?</summary>
+        <p>
+          Porque o site continua ocupando hospedagem, o certificado de segurança
+          precisa ser renovado e o conteúdo envelhece. A mensalidade cobre isso
+          mais as duas alterações. Se você preferir cuidar por conta própria, é
+          seu direito: eu te entrego os arquivos e explico como publicar.
+        </p>
+      </details>
+
+      <details>
+        <summary>O que conta como "alteração simples"?</summary>
+        <p>
+          Trocar um texto que já existe, uma foto, um preço, um horário ou um
+          telefone. Criar uma página nova, mudar o layout ou acrescentar
+          funcionalidade é outra coisa — nesses casos eu te passo o valor antes
+          e você decide.
+        </p>
+      </details>
+
+      <details>
+        <summary>E se eu precisar de mais de duas alterações no mês?</summary>
+        <p>
+          Dá para fazer. Combino o valor da alteração extra antes de executar.
+          Se virar rotina, a gente conversa sobre um plano maior — sai mais
+          barato que pagar avulso todo mês.
+        </p>
+      </details>
+
+      <details>
+        <summary>Quanto tempo demora para a mudança entrar no ar?</summary>
+        <p>
+          Pedidos simples costumam ficar prontos no mesmo dia. O compromisso que
+          eu assumo por escrito é de até 5 dias úteis — prometer "na hora" para
+          todo mundo seria promessa que eu não conseguiria cumprir sempre.
+        </p>
+      </details>
+
+      <details>
+        <summary>É obrigatório contratar?</summary>
+        <p>
+          Não, e o primeiro mês é gratuito. Depois você decide. Se não quiser,
+          recebe os arquivos do site para hospedar onde preferir.
+        </p>
+      </details>
+
+      <details>
+        <summary>Posso cancelar quando quiser?</summary>
+        <p>
+          Pode, avisando com 30 dias. Sem multa e sem burocracia. Ao encerrar,
+          você escolhe receber os arquivos ou contratar só a hospedagem.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="secao wrap fim">
+    <h2>Seu site está atualizado hoje?</h2>
+    <p class="lead">
+      Se o preço, o horário ou as fotos do seu site estão diferentes da
+      realidade, é disso que a manutenção cuida.
+    </p>
+    <div class="fim-acoes">
+      <a class="btn btn-p" href="../../pedido/">Falar sobre manutenção</a>
+      <a class="btn btn-v" href="../sites/">Ver o próximo serviço</a>
+    </div>
+    <p class="preco-nota"><b>R$ 50/mês</b> · Primeiro mês gratuito · Cancela quando quiser</p>
+  </section>
+
+  <section class="secao wrap">
+    <span class="eyebrow">Outros serviços</span>
+    <h2 style="margin-bottom:1.75rem">Veja também</h2>
+    <div class="outros">
+      <a class="outro" href="../sites/"><span>Serviço</span><strong>Criação de sites</strong></a>
+      <a class="outro" href="../whatsapp/"><span>Serviço</span><strong>Robô de WhatsApp</strong></a>
+      <a class="outro" href="../google-meu-negocio/"><span>Serviço</span><strong>Google Meu Negócio</strong></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pe">
+  <span>© <span id="ano">2026</span> Jeff Company</span>
+  <span>Desenvolvido por <b>JeffDev</b> ✦</span>
+</footer>
+
+<script src="js/pedido-alteracao.js?v=1"></script>
+</body>
+</html>
