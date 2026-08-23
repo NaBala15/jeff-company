@@ -573,6 +573,91 @@
 
 .serv { display: flex; flex-direction: column; gap: var(--gap-sm); }
 
+/* ==========================================================================
+   Visual dos cartões de serviço
+
+   Regra que vale para os quatro: a imagem ENTRA PELO DEGRADÊ e some antes de
+   chegar no texto. Ela existe para a pessoa reconhecer o serviço de longe, e
+   é justamente por sumir que não disputa a leitura com o que importa.
+   ========================================================================== */
+
+/* ---- Vitrine do cartão de sites ---- */
+
+.serv-vitrine {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.75rem;
+  /* sangra nas bordas do cartão para parecer que continua além dele */
+  margin: calc(var(--gap-lg) * -1) calc(var(--gap-lg) * -1) 0;
+  padding: var(--gap-lg) var(--gap-lg) 0;
+  overflow: hidden;
+  position: relative;
+  pointer-events: none;
+}
+
+.serv-vitrine img {
+  width: 100%;
+  max-width: 210px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  /* dissolve para baixo: em cima a captura aparece, embaixo vira o cartão */
+  mask-image: linear-gradient(180deg, #000 30%, transparent 92%);
+  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 92%);
+  opacity: 0.85;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+/* a do meio recua um pouco: em fila reta as três parecem um banner */
+.serv-vitrine img:nth-child(2) { transform: translateY(10px); }
+
+.serv-destaque:hover .serv-vitrine img { opacity: 1; }
+.serv-destaque:hover .serv-vitrine img:nth-child(2) { transform: translateY(4px); }
+
+/* ---- Marca d'água dos outros três ---- */
+
+.serv { position: relative; overflow: hidden; }
+
+.serv-marca {
+  position: absolute;
+  top: -26px;
+  right: -30px;
+  width: 148px;
+  height: 148px;
+  pointer-events: none;
+  /* A máscara dissolve cedo e a opacidade é baixa de propósito: a marca é
+     para ser reconhecida pelo canto do olho, não lida. Na primeira versão
+     ela ficou sólida e disputava com o título. */
+  mask-image: radial-gradient(circle at 70% 26%, #000 6%, transparent 62%);
+  -webkit-mask-image: radial-gradient(circle at 70% 26%, #000 6%, transparent 62%);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.serv-marca svg { width: 100%; height: 100%; }
+
+/* Cada uma com a opacidade que o desenho pede: o verde do WhatsApp e o
+   vermelho do Maps são fortes e precisam de menos; o traço fino da
+   ferramenta some se abaixar demais. */
+.serv-marca-zap        { color: #25D366; opacity: 0.085; }
+.serv-marca-maps       { opacity: 0.1; }
+.serv-marca-ferramenta { color: var(--lime); opacity: 0.075; }
+
+.serv:hover .serv-marca { opacity: 0.17; transform: scale(1.05); }
+.serv:hover .serv-marca-maps { opacity: 0.2; }
+
+/* O texto precisa passar por cima da marca d'água */
+.serv h3, .serv p, .serv-tags, .serv-link, .serv-selo, .serv-lista {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  /* Em coluna única a vitrine encolheria demais e viraria borrão.
+     Fica só a primeira, maior. */
+  .serv-vitrine img:nth-child(n + 2) { display: none; }
+  .serv-vitrine img { max-width: 260px; }
+  .serv-marca { width: 104px; height: 104px; }
+}
+
 /* O primeiro cartão é o carro-chefe: ocupa a largura toda da primeira fila
    e usa duas colunas por dentro. É onde o olho cai primeiro. */
 .serv-destaque {
@@ -588,9 +673,16 @@
 }
 
 .serv-destaque h3 { font-size: clamp(1.5rem, 2.4vw, 2.1rem); }
-.serv-destaque > h3, .serv-destaque > p { grid-column: 1; }
-.serv-destaque .serv-lista { grid-column: 2; grid-row: 1 / span 2; }
-.serv-destaque .serv-tags { grid-column: 1 / -1; }
+
+/* As linhas do cartão destaque são declaradas, e não deixadas ao acaso da
+   ordem do HTML: a lista tinha grid-row 1 e empurrava a vitrine para baixo
+   dela, jogando as capturas para o meio do cartão. */
+.serv-destaque .serv-vitrine { grid-column: 1 / -1; grid-row: 1; }
+.serv-destaque .serv-selo    { grid-column: 1 / -1; grid-row: 2; }
+.serv-destaque > h3          { grid-column: 1; grid-row: 3; }
+.serv-destaque > p           { grid-column: 1; grid-row: 4; }
+.serv-destaque .serv-lista   { grid-column: 2; grid-row: 3 / span 2; }
+.serv-destaque .serv-tags    { grid-column: 1 / -1; }
 
 .serv-selo {
   grid-column: 1 / -1;
