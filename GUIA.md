@@ -12,7 +12,7 @@ o site funciona, mas ninguém consegue falar com você.
 
 | O quê | Onde está | Trocar por |
 |---|---|---|
-| ~~Número do WhatsApp~~ | ✅ Preenchido em 23/08: (11) 99709-7050 | — |
+| ~~Número do WhatsApp~~ | ✅ Preenchido em 23/08: (11) 99709-7050 — aparece em `index.html` (3x), `pedido/js/pedido.js` e nas 3 páginas de `servicos/` (2x cada) | — |
 | E-mail | `index.html` — procure por `contato@jeffcompany.com.br` | Seu e-mail (veja a Parte 4) |
 | Instagram | `index.html` — no rodapé, `https://instagram.com/` | O endereço do seu perfil |
 | Endereço do site | `index.html` — procure por `jeffcompany.com.br` | O domínio real, depois da Parte 3 |
