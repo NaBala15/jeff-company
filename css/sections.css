@@ -863,6 +863,16 @@
   border: 1px solid var(--line);
 }
 
+/* Três rótulos, três pesos visuais, porque não valem a mesma coisa para quem
+   está avaliando: cliente pagante em lima cheio, projeto próprio publicado em
+   lima vazado, e projeto conceito apagado. Nivelar os três seria vender o
+   conceito como se fosse cliente. */
+.case-selo-proprio {
+  background: transparent;
+  color: var(--lime);
+  border: 1px solid var(--lime);
+}
+
 .case-txt h3 { font-size: clamp(1.5rem, 2.6vw, 2.15rem); }
 
 .case-seg {
