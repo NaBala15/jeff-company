@@ -619,16 +619,16 @@
 
 .serv-marca {
   position: absolute;
-  top: -26px;
-  right: -30px;
-  width: 148px;
-  height: 148px;
+  top: -8px;
+  right: -14px;
+  width: 132px;
+  height: 132px;
   pointer-events: none;
-  /* A máscara dissolve cedo e a opacidade é baixa de propósito: a marca é
-     para ser reconhecida pelo canto do olho, não lida. Na primeira versão
-     ela ficou sólida e disputava com o título. */
-  mask-image: radial-gradient(circle at 70% 26%, #000 6%, transparent 62%);
-  -webkit-mask-image: radial-gradient(circle at 70% 26%, #000 6%, transparent 62%);
+  /* A máscara mantém o miolo do desenho visível e dissolve só a borda. Uma
+     versão anterior dissolvia cedo demais e o ícone sumia. O texto passa por
+     cima com z-index, então força visual aqui não custa legibilidade. */
+  mask-image: radial-gradient(circle at 65% 30%, #000 25%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle at 65% 30%, #000 25%, transparent 72%);
   transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
 }
 
@@ -637,12 +637,16 @@
 /* Cada uma com a opacidade que o desenho pede: o verde do WhatsApp e o
    vermelho do Maps são fortes e precisam de menos; o traço fino da
    ferramenta some se abaixar demais. */
-.serv-marca-zap        { color: #25D366; opacity: 0.085; }
-.serv-marca-maps       { opacity: 0.1; }
-.serv-marca-ferramenta { color: var(--lime); opacity: 0.075; }
+/* Cada uma com a opacidade que o desenho pede. O vermelho do Maps aguenta
+   mais que o verde do WhatsApp, e o lima da engrenagem é o mais claro dos
+   três — por isso o menor número não significa o mais apagado na tela. */
+.serv-marca-zap        { color: #25D366; opacity: 0.17; }
+.serv-marca-maps       { opacity: 0.2; }
+.serv-marca-ferramenta { color: var(--lime); opacity: 0.13; }
 
-.serv:hover .serv-marca { opacity: 0.17; transform: scale(1.05); }
-.serv:hover .serv-marca-maps { opacity: 0.2; }
+.serv:hover .serv-marca { opacity: 0.32; transform: scale(1.04); }
+.serv:hover .serv-marca-maps { opacity: 0.36; }
+.serv:hover .serv-marca-ferramenta { opacity: 0.24; }
 
 /* O texto precisa passar por cima da marca d'água */
 .serv h3, .serv p, .serv-tags, .serv-link, .serv-selo, .serv-lista {
