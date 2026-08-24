@@ -76,6 +76,7 @@ js/
 assets/img/cases/          capturas dos projetos (1200×750, .webp)
 demo/clinica-norvi/        projeto conceito do portfólio
 ferramentas/gerar-og.html  gerador da imagem de compartilhamento
+ferramentas/conferir-modelos.js  confere os modelos da vitrine
 GUIA.md                    o que falta preencher, publicação, preços, MEI
 ```
 
@@ -88,6 +89,26 @@ python -m http.server 5180
 ```
 
 Depois abra `http://localhost:5180`.
+
+---
+
+## Conferir os modelos antes de publicar
+
+```bash
+node ferramentas/conferir-modelos.js
+```
+
+Passa por todos os modelos da vitrine e avisa o que saiu do padrão: `noindex`
+esquecido, tarja `?demo=1` faltando, WhatsApp fora do formato, link de menu
+apontando para seção que não existe, arquivo vindo de fora da página, imagem
+sem `alt`, página que existe mas não está registrada no `pedido/js/modelos.js`,
+e captura que ficou para trás depois de a página mudar.
+
+Sai com erro se achar problema, então dá para rodar antes de cada push.
+
+Existe porque cada modelo é uma cópia independente: com dois ramos dá para
+conferir no olho, com nove não dá — e a falha é silenciosa. Você conserta um
+bug num modelo, esquece dos outros, e só descobre quando um cliente reclama.
 
 ---
 
