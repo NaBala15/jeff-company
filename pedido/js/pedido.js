@@ -133,18 +133,8 @@
       b.classList.add('is-on');
       pedido.plano = b.dataset.plano;
 
-      /* o passo 3 muda de sentido conforme o plano */
-      var t = document.getElementById('t-modelo');
-      var s = document.getElementById('s-modelo');
-      if (pedido.plano === 'personalizada') {
-        t.textContent = 'Tem algum formato que te agrada?';
-        s.textContent = 'Sua página será desenhada do zero. Se algum destes formatos ' +
-                        'te agrada como ponto de partida, escolha — se não, pule.';
-      } else {
-        t.textContent = 'Escolha o modelo da sua página';
-        s.textContent = 'Cinco formatos. Todos ficam com o seu nome, suas cores e suas ' +
-                        'fotos — o que muda é a organização da página.';
-      }
+      /* o preço só aparece nos cartões quando o plano é a assinatura */
+      montarModelos();
     });
   });
 
@@ -173,21 +163,46 @@
       agenda:
       '<span class="barra"></span><span class="topo2"><span></span><span></span></span>' +
       '<span class="lista"><span></span><span></span><span></span></span><span class="cta"></span>',
-      confianca:
-      '<span class="barra"></span><span class="bloco"><span></span><span></span></span>' +
-      '<span class="rodape"></span>',
-      urgencia:
-      '<span class="fone"></span><span class="sub"></span><span class="sub2"></span>',
-      portfolio:
-      '<span class="barra"></span>' +
-      '<span class="grade"><span></span><span></span><span></span><span></span><span></span><span></span></span>'
+      /* A miniatura do completo mostra a página MAIOR: mesma barra, foto de
+         topo, grade de galeria e ainda sobra bloco embaixo. A diferença de
+         tamanho tem que entrar pelos olhos, senão os R$ 10 não se explicam. */
+      completa:
+      '<span class="barra"></span><span class="foto"></span>' +
+      '<span class="grade"><span></span><span></span><span></span></span>' +
+      '<span class="linhas"><span></span><span></span></span><span class="cta"></span>'
     };
     return '<span class="mini mini-' + tipo + '">' + (m[tipo] || '') + '</span>';
   }
 
+  /* Mensalidade do modelo escolhido. Sem modelo escolhido ainda, vale a base. */
+  function mensalidade() {
+    var m = pedido.modelo ? acharModelo(pedido.modelo) : null;
+    return (m && m.mensalidade) || window.MENSALIDADE_BASE;
+  }
+
+  /* A prévia de uma página de verdade. Uma imagem estática e leve, e não a
+     página embutida: três páginas dentro de janelas fariam o celular do
+     visitante carregar quatro sites de uma vez para escolher um. */
+  function previa(pagina) {
+    return '<img class="modelo-foto" src="' +
+             window.BASE_PREVIAS + pagina.imagem + '"' +
+           ' width="640" height="480" loading="lazy" decoding="async"' +
+           ' alt="Pr\u00e9via da p\u00e1gina: ' + pagina.bom_para.toLowerCase() + '">';
+  }
+
   function montarModelos() {
     var alvo = document.getElementById('modelos');
-    var sugerido = window.sugerirModelo(campoRamo.value);
+    var ramo = campoRamo.value;
+    var sugerido = window.sugerirModelo(ramo);
+
+    /* O ramo digitado tem páginas prontas? Se tiver, os cartões mostram a
+       captura da página de verdade daquele ofício. Se não tiver, seguem com
+       a miniatura desenhada — nunca com a página de outro ramo. */
+    var conjunto = window.conjuntoDoRamo(ramo);
+
+    /* Na página personalizada o valor é orçamento, então mostrar mensalidade
+       no cartão só confundiria. O preço é coisa da assinatura. */
+    var mostrarPreco = pedido.plano !== 'personalizada';
 
     /* o sugerido vai para a frente da fila */
     var lista = window.MODELOS.slice();
@@ -198,22 +213,47 @@
     }
 
     alvo.innerHTML = '';
+    alvo.classList.toggle('tem-fotos', !!conjunto);
+
     lista.forEach(function (m) {
+      var pagina = conjunto ? conjunto.paginas[m.id] : null;
+
+      /* O cartão é um botão, e link dentro de botão não funciona nem é HTML
+         válido. Por isso a caixa: o botão escolhe, o link embaixo abre a
+         página. São dois gestos diferentes e ficam separados. */
+      var caixa = document.createElement('div');
+      caixa.className = 'modelo-caixa';
+
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'modelo' + (pedido.modelo === m.id ? ' is-on' : '');
       b.dataset.modelo = m.id;
       b.innerHTML =
         (m.id === sugerido ? '<span class="modelo-rec">Recomendado</span>' : '') +
-        miniatura(m.esqueleto) +
+        (m.selo && mostrarPreco ? '<span class="modelo-selo"></span>' : '') +
+        (pagina ? previa(pagina) : miniatura(m.esqueleto)) +
         '<span class="modelo-txt">' +
-          '<span class="modelo-nome"></span>' +
+          '<span class="modelo-topo">' +
+            '<span class="modelo-nome"></span>' +
+            (mostrarPreco ? '<span class="modelo-preco"></span>' : '') +
+          '</span>' +
           '<span class="modelo-resumo"></span>' +
           '<span class="modelo-bom"></span>' +
         '</span>';
+
       b.querySelector('.modelo-nome').textContent = m.nome;
-      b.querySelector('.modelo-resumo').textContent = m.resumo;
-      b.querySelector('.modelo-bom').textContent = m.bom_para;
+      b.querySelector('.modelo-resumo').textContent = pagina ? pagina.resumo : m.resumo;
+      b.querySelector('.modelo-bom').textContent = pagina ? pagina.bom_para : m.bom_para;
+      if (m.selo && mostrarPreco) b.querySelector('.modelo-selo').textContent = m.selo;
+
+      /* O valor fica no cartão, não só no resumo do fim. Quem escolhe o
+         premium tem que ver os R$ 60 na hora de clicar, não depois. */
+      if (mostrarPreco) {
+        b.querySelector('.modelo-preco').textContent = 'R$ ' + m.mensalidade + '/m\u00eas';
+        if (m.mensalidade > window.MENSALIDADE_BASE) {
+          b.querySelector('.modelo-preco').classList.add('is-mais');
+        }
+      }
 
       b.addEventListener('click', function () {
         alvo.querySelectorAll('.modelo').forEach(function (o) { o.classList.remove('is-on'); });
@@ -221,8 +261,63 @@
         pedido.modelo = m.id;
       });
 
-      alvo.appendChild(b);
+      caixa.appendChild(b);
+
+      /* Link para ver a página inteira, em outra aba. Abrir na mesma aba
+         faria a pessoa perder o formulário que já começou a preencher. */
+      if (pagina) {
+        var a = document.createElement('a');
+        a.className = 'modelo-link';
+        a.href = window.BASE_MODELOS + pagina.link + '?demo=1';
+        a.target = '_blank';
+        /* nofollow: o robots.txt pede para não rastrear /modelos/, mas um
+           link seguido daqui ainda poderia pôr a página fictícia no Google */
+        a.rel = 'noopener nofollow';
+        a.innerHTML = 'Ver a p\u00e1gina inteira' +
+          '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"' +
+          ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<path d="M7 17 17 7M9 7h8v8"/></svg>';
+        caixa.appendChild(a);
+      }
+
+      alvo.appendChild(caixa);
     });
+
+    /* Aviso honesto para quem é de um ramo que ainda não tem página pronta:
+       o desenho mostra o formato, não a página final. */
+    var aviso = document.getElementById('modelo-aviso');
+    if (aviso) {
+      aviso.hidden = !!conjunto || !ramo.trim();
+    }
+
+    textoDoPasso3(conjunto);
+  }
+
+  /* O título e a linha de apoio do passo 3 dependem de duas coisas: o plano
+     escolhido e o ramo ter páginas prontas.
+
+     Ficam aqui, e não dentro do clique do plano, porque quem chega por
+     /pedido/?ramo=...#passo-3 nunca clica em plano nenhum — e mesmo assim
+     tem que ler o texto certo. */
+  function textoDoPasso3(conjunto) {
+    var t = document.getElementById('t-modelo');
+    var s = document.getElementById('s-modelo');
+    if (!t || !s) return;
+
+    if (pedido.plano === 'personalizada') {
+      t.textContent = 'Tem algum formato que te agrada?';
+      s.textContent = 'Sua página será desenhada do zero. Se algum destes formatos ' +
+                      'te agrada como ponto de partida, escolha — se não, pule.';
+      return;
+    }
+
+    t.textContent = 'Escolha o modelo da sua página';
+    s.textContent = conjunto
+      ? 'Estas são páginas de verdade, feitas para o seu ramo. Todas ficam com ' +
+        'o seu nome, suas cores e suas fotos — clique em "ver a página inteira" ' +
+        'para conhecer cada uma por dentro.'
+      : 'Três modelos prontos. Todos ficam com o seu nome, suas cores e suas ' +
+        'fotos — o que muda é o tamanho e a organização da página.';
   }
 
   /* ---------------------------------------------------------------------
@@ -230,6 +325,22 @@
      --------------------------------------------------------------------- */
 
   function valor(id) { return (document.getElementById(id).value || '').trim(); }
+
+  /* No cartão a vaga se chama só "Simples 1" — de propósito, porque para quem
+     está comprando o que importa é o tamanho e o preço.
+
+     Na mensagem que chega para mim vai também o nome da página de verdade.
+     Com nove ramos × três páginas, "Simples 1" sozinho me obrigaria a cruzar
+     com o ramo toda vez para saber qual arquivo abrir. */
+  function nomeDoModeloEscolhido(m) {
+    if (!m) return '';
+
+    var conjunto = window.conjuntoDoRamo(campoRamo.value);
+    var pagina = conjunto && conjunto.paginas[m.id];
+    if (pagina) return m.nome + ' — ' + pagina.titulo;
+
+    return m.selo ? m.nome + ' (' + m.selo + ')' : m.nome;
+  }
 
   function coletar() {
     pedido.materiais = [];
@@ -245,10 +356,10 @@
       ['Negócio',         valor('c-negocio')],
       ['Ramo',            valor('c-ramo')],
       ['Cidade',          valor('c-cidade')],
-      ['Tipo de página',  pedido.plano === 'assinatura' ? 'Página pronta — assinatura de R$ 50/mês'
+      ['Tipo de página',  pedido.plano === 'assinatura' ? 'Página pronta — assinatura de R$ ' + mensalidade() + '/mês'
                         : pedido.plano === 'personalizada' ? 'Página personalizada — orçamento'
                         : ''],
-      ['Modelo escolhido', m ? m.nome : ''],
+      ['Modelo escolhido', nomeDoModeloEscolhido(m)],
       ['Serviços',        valor('c-servicos')],
       ['Horário',         valor('c-horario')],
       ['Endereço',        valor('c-endereco')],
@@ -358,7 +469,25 @@
      Link direto para um passo: #passo-3 abre já nos modelos.
      Serve para mandar "dá uma olhada nos modelos" pelo WhatsApp sem obrigar
      a pessoa a preencher tudo antes de ver.
+
+     O ramo pode vir junto no endereço:
+
+         /pedido/?ramo=encanador#passo-3
+
+     Agora que os modelos mudam por ramo, isso deixou de ser luxo: sem o ramo
+     a pessoa cai nas miniaturas genéricas; com o ramo, ela abre direto nas
+     páginas do ofício dela. É o link para responder "e no meu caso, como
+     fica?" sem escrever nada.
+
+     O valor entra por .value, nunca por innerHTML — endereço é coisa que
+     qualquer um escreve, e não vira HTML aqui dentro.
      --------------------------------------------------------------------- */
+  var ramoDoLink = (location.search.match(/[?&]ramo=([^&]*)/) || [])[1];
+  if (ramoDoLink) {
+    campoRamo.value = decodeURIComponent(ramoDoLink.replace(/\+/g, ' ')).slice(0, 60);
+    campoRamo.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
   var pedidoDeInicio = (location.hash.match(/^#passo-([0-5])$/) || [])[1];
   if (pedidoDeInicio) {
     var n = Number(pedidoDeInicio);

@@ -263,6 +263,13 @@ h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
   line-height: 1.1; margin-bottom: .4rem;
 }
 .plano-preco i { font-style: normal; font-size: .85rem; color: var(--muted); font-weight: 400; }
+/* "a partir de" precisa ser visível, mas não pode competir com o número */
+.plano-preco em {
+  display: block; font-style: normal;
+  font-family: var(--mono); font-size: .66rem; font-weight: 400;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: .1rem;
+}
 
 .plano ul { list-style: none; padding: 0; display: grid; gap: .45rem; }
 .plano li {
@@ -313,6 +320,70 @@ h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
 .modelo:hover { border-color: var(--line-lima); transform: translateY(-3px); }
 .modelo.is-on { border-color: var(--lima); background: var(--surface-2); }
 
+/* --------------------------------------------------------------------------
+   Cartão com foto da página de verdade
+
+   A caixa existe porque o cartão é um <button> e link dentro de botão não
+   funciona. O botão escolhe o modelo; o link embaixo abre a página.
+   -------------------------------------------------------------------------- */
+
+.modelo-caixa {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+.modelo-caixa .modelo { flex: 1; }
+
+/* Mesma proporção da miniatura desenhada (4/3), para os cartões não mudarem
+   de altura quando o ramo passa a ter páginas prontas. */
+.modelo-foto {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #14170F;
+  display: block;
+}
+.modelo.is-on .modelo-foto { border-color: var(--line-lima); }
+
+.modelo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .38rem;
+  padding: .5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm, 8px);
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.modelo-link:hover,
+.modelo-link:focus-visible {
+  color: var(--lima);
+  border-color: var(--line-lima);
+}
+.modelo-link svg { flex: none; }
+
+/* Aviso de ramo sem página pronta ainda */
+.modelo-aviso {
+  margin: -.6rem 0 1.4rem;
+  padding: .8rem .95rem;
+  border-left: 2px solid var(--line-lima);
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+  font-size: .84rem;
+  color: var(--muted);
+}
+.modelo-aviso b { color: var(--text); font-weight: 600; }
+.modelo-aviso[hidden] { display: none; }
+
 .modelo-rec {
   position: absolute; top: -9px; left: 12px;
   background: var(--lima); color: var(--ink);
@@ -321,7 +392,27 @@ h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
   padding: .15rem .55rem; border-radius: 999px;
 }
 
+/* Selo do modelo pago à parte. Fica na direita para não brigar com o
+   "Recomendado", que mora na esquerda — os dois podem aparecer juntos. */
+.modelo-selo {
+  position: absolute; top: -9px; right: 12px;
+  background: var(--surface-2); color: var(--lima);
+  border: 1px solid var(--lima);
+  font-family: var(--mono); font-size: .62rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .15rem .55rem; border-radius: 999px;
+}
+
 .modelo-txt { padding: 0 .5rem; display: flex; flex-direction: column; gap: .3rem; }
+.modelo-topo {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: .5rem; flex-wrap: wrap;
+}
+.modelo-preco {
+  font-family: var(--mono); font-size: .72rem;
+  color: var(--muted); white-space: nowrap;
+}
+.modelo-preco.is-mais { color: var(--lima); }
 .modelo-nome {
   font-family: var(--display);
   font-variation-settings: 'wdth' 106;
@@ -363,21 +454,17 @@ h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
 .mini-agenda .lista span { background: #21251C; border-radius: 3px; }
 .mini-agenda .cta { height: 10px; background: var(--lima); border-radius: 5px; }
 
-.mini-confianca { background: #F2F2EE; border-color: #D8DCD2; }
-.mini-confianca .barra { background: #C9CEC0; }
-.mini-confianca .bloco { flex: 1; display: flex; gap: 5px; }
-.mini-confianca .bloco span { flex: 1; background: #DDE0D6; border-radius: 4px; }
-.mini-confianca .bloco span:first-child { flex: .6; background: #7C8470; }
-.mini-confianca .rodape { height: 8px; background: #7C8470; border-radius: 4px; }
-
-.mini-urgencia { justify-content: center; align-items: center; gap: 7px; }
-.mini-urgencia .fone { width: 78%; height: 22px; background: var(--lima); border-radius: 5px; }
-.mini-urgencia .sub { width: 55%; height: 6px; background: #2C3123; border-radius: 3px; }
-.mini-urgencia .sub2 { width: 40%; height: 6px; background: #21251C; border-radius: 3px; }
-
-.mini-portfolio .grade { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-.mini-portfolio .grade span { background: #2C3123; border-radius: 3px; }
-.mini-portfolio .grade span:nth-child(2n) { background: #3A4030; }
+/* A miniatura do modelo Completa tem mais blocos que as outras duas de
+   propósito: é a página maior, e isso precisa aparecer antes de ler o preço.
+   A borda em lima separa ela das simples sem precisar de texto. */
+.mini-completa { border-color: var(--line-lima); gap: 4px; }
+.mini-completa .foto { flex: 1.1; background: linear-gradient(135deg, #3E4A2A, #22281A); border-radius: 5px; }
+.mini-completa .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; height: 16px; }
+.mini-completa .grade span { background: #2C3123; border-radius: 3px; }
+.mini-completa .grade span:nth-child(2n) { background: #3A4030; }
+.mini-completa .linhas { display: grid; gap: 3px; flex: .5; }
+.mini-completa .linhas span { background: #21251C; border-radius: 3px; }
+.mini-completa .cta { height: 9px; background: var(--lima); border-radius: 5px; flex-shrink: 0; }
 
 /* ---- Materiais ----------------------------------------------------------- */
 

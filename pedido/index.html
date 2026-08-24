@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Começar meu site — Jeff Company</title>
 <meta name="description" content="Comece seu site agora: escolha o modelo, mande as informações e sua página fica pronta rápido.">
+<!-- Endereço oficial desta página e prévia de compartilhamento.
+     Sem isso, o link mandado no WhatsApp aparece sem imagem nem descrição. -->
+<link rel="canonical" href="https://jeffcompany.com.br/pedido/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Jeff Company">
+<meta property="og:title" content="Começar meu site — Jeff Company">
+<meta property="og:description" content="Comece seu site agora: escolha o modelo, mande as informações e sua página fica pronta rápido.">
+<meta property="og:url" content="https://jeffcompany.com.br/pedido/">
+<meta property="og:image" content="https://jeffcompany.com.br/assets/img/og-jeff-company.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
 <meta name="theme-color" content="#0A0B09">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
@@ -123,13 +137,16 @@
       <button class="plano" type="button" data-plano="assinatura">
         <span class="plano-selo">Mais acessível</span>
         <strong>Página pronta</strong>
-        <span class="plano-preco">R$ 50<i>/mês</i></span>
+        <!-- "a partir de" porque o modelo Completa sai por R$ 60. O valor
+             cheio aparece no cartão do modelo, no passo 3, antes de escolher. -->
+        <span class="plano-preco"><em>a partir de</em> R$ 50<i>/mês</i></span>
         <ul>
           <li>Modelo pronto com a sua cara: seu nome, suas cores, suas fotos</li>
           <li>Endereço incluso, hospedagem inclusa</li>
           <li>Fica pronta no mesmo dia, em geral</li>
           <li>2 alterações por mês inclusas</li>
           <li>Sem taxa para começar</li>
+          <li>Modelo <b>Completa</b>, com galeria e depoimentos, por R$ 60/mês</li>
         </ul>
         <span class="plano-marca" aria-hidden="true"></span>
       </button>
@@ -162,11 +179,19 @@
     <span class="eyebrow">Passo 3 de 5</span>
     <h2 id="t-modelo">Escolha o modelo da sua página</h2>
     <p class="lead" id="s-modelo">
-      Cinco formatos. Todos ficam com o seu nome, suas cores e suas fotos —
-      o que muda é a organização da página.
+      Três modelos prontos. Todos ficam com o seu nome, suas cores e suas fotos —
+      o que muda é o tamanho e a organização da página.
     </p>
 
     <div class="modelos" id="modelos"></div>
+
+    <!-- Aparece só quando o ramo digitado ainda não tem páginas prontas.
+         O JavaScript liga e desliga; nasce desligado. -->
+    <p class="modelo-aviso" id="modelo-aviso" hidden>
+      As miniaturas acima mostram o <b>formato</b> de cada modelo. As páginas
+      prontas do seu ramo estão sendo finalizadas — quando a sua ficar pronta,
+      você aprova antes de ir para o ar.
+    </p>
 
     <div class="acoes">
       <button class="btn btn-v" type="button" data-ir="2">Voltar</button>
