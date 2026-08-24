@@ -210,17 +210,24 @@ aposentadoria e ganha direito a auxílio-doença.
 ## Parte 7 — Google Meu Negócio da própria Jeff Company
 
 Você vende esse serviço. Ter o seu próprio configurado é a sua melhor
-demonstração — e ainda te traz cliente da sua região.
+demonstração — e ainda traz cliente da sua região.
 
-1. Entre em [google.com/business](https://www.google.com/business)
-2. Nome: **Jeff Company**
-3. Categoria principal: **Web designer** ou **Serviço de design de sites**
-4. Como você não atende no endereço, marque **"Atendo clientes no endereço deles"**
-   e defina a área (sua cidade e região). Assim seu endereço residencial não
-   aparece publicamente
-5. Preencha: horário, telefone, link do site, descrição e serviços
-6. O Google envia um código de verificação (carta, telefone ou vídeo)
-7. **Poste alguma coisa toda semana.** Perfil parado cai no ranking
+**O passo a passo completo, com os seus dados já preenchidos, está em
+[`GOOGLE-MEU-NEGOCIO.md`](GOOGLE-MEU-NEGOCIO.md).**
+
+Antes de abrir o cadastro, leia a primeira seção daquele arquivo. Resumo do
+que importa:
+
+- **Negócio só remoto não é elegível.** A regra do Google exige local físico
+  que o cliente visita, ou deslocamento até o cliente. Se hoje você faz tudo
+  por WhatsApp, a saída é passar a visitar cliente de verdade — não é mentir
+  no cadastro.
+- **Nunca invente endereço.** Suspensão por endereço falso pega a conta Google
+  inteira e é difícil de reverter.
+- **O nome é só `Jeff Company`.** Escrever "Jeff Company — Criação de Sites em
+  São Paulo" para aparecer mais é motivo de suspensão.
+- Trabalhando de casa, marque que **não** há local para visita e defina a
+  área de atendimento. O endereço fica oculto do público.
 
 ---
 
