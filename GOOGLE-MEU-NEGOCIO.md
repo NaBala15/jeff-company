@@ -72,13 +72,20 @@ casa é essa: esconder o endereço residencial.
 Liste as regiões onde você realmente atende. Sugestão para começar:
 
 ```
-São Paulo - SP
-Santo André - SP
-São Bernardo do Campo - SP
-São Caetano do Sul - SP
-Diadema - SP
-Guarulhos - SP
+Carapicuíba - SP
+Osasco - SP
+Barueri - SP
+Jandira - SP
+Itapevi - SP
+Cotia - SP
+São Paulo - SP (zona oeste)
 ```
+
+> **Corrigido em 24/08:** a primeira versão desta lista trazia Santo André,
+> São Bernardo e Diadema. O CNPJ da Jeff Company tem sede em **Carapicuíba**,
+> e o ABC fica no extremo oposto da região metropolitana — uma hora e meia de
+> carro atravessando São Paulo inteira. Área de atendimento que você não
+> alcança de verdade é promessa que você vai quebrar.
 
 O limite prático é o que dá para chegar em cerca de 2 horas. Não ponha o
 Brasil inteiro: área enorme e vaga faz o Google entender que você não é local
@@ -121,8 +128,9 @@ cria e abandona.
 Copie e ajuste:
 
 ```
-A Jeff Company cria sites para pequenos negócios de São Paulo e do ABC que
-precisam ser encontrados no Google e receber cliente pelo WhatsApp.
+A Jeff Company cria sites para pequenos negócios de Carapicuíba, Osasco,
+Barueri e região que precisam ser encontrados no Google e receber cliente
+pelo WhatsApp.
 
 Trabalhamos com site pronto por assinatura a partir de R$ 50 por mês, sem
 taxa de criação, e com projetos sob medida para quem precisa de algo maior.
@@ -151,14 +159,16 @@ Cadastre um por um, com preço quando houver:
 
 O perfil com foto recebe muito mais clique que o sem. Suba pelo menos:
 
-- **Logo** — quadrada, 720×720
-- **Capa** — 1024×576
-- **Trabalhos** — capturas dos seus sites: BiBi Cartomante, AURA PACK,
-  DevClub, e as páginas de modelo
-- **Você trabalhando** — uma foto sua real. Prestador de serviço vende
-  confiança, e rosto vende mais que logo
+**As fotos já estão prontas** em `google-meu-negocio/fotos/`, convertidas
+para JPG e PNG — o Google **não aceita WebP**, que é o formato usado no site.
+Suba na ordem numerada e leia o `LEIA-ME.md` de lá.
 
-As capturas de tela dos cases você já tem em `assets/img/cases/`.
+Resumo: logo, capa e os três trabalhos **reais** (BiBi Cartomante, AURA PACK,
+DevClub). Os projetos fictícios ficaram numa pasta `opcional/` — no Google
+não existe etiqueta de "conceito", então quem vê assume que é cliente seu.
+
+Falta uma: **você trabalhando**, tirada com o celular. Prestador de serviço
+vende confiança, e rosto vende mais que captura de tela.
 
 ### Horário
 

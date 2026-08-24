@@ -8,8 +8,9 @@ Contrato nº «000/2026»
 ## Partes
 
 **CONTRATADO — Jeff Company**
-«SEU NOME COMPLETO», «nacionalidade», «estado civil», «profissão», inscrito no
-CPF/CNPJ sob o nº «SEU CPF OU CNPJ», com endereço em «SEU ENDEREÇO COMPLETO»,
+**58.064.996 JEFFERSON LIMA DE MELO**, empresário individual inscrito no CNPJ sob
+o nº 58.064.996/0001-89, com sede em «SEU ENDEREÇO COMPLETO», neste ato
+representado por Jefferson Lima de Melo, inscrito no CPF sob o nº «SEU CPF»,
 e-mail «SEU E-MAIL», telefone «SEU WHATSAPP», doravante denominado **CRIADOR**.
 
 **CONTRATANTE**
@@ -284,7 +285,7 @@ E por estarem justas e contratadas, as partes assinam o presente instrumento.
 
 |  |  |
 |---|---|
-| <br><br>_______________________________<br>**«SEU NOME COMPLETO»**<br>Jeff Company — CRIADOR<br>«SEU CPF OU CNPJ» | <br><br>_______________________________<br>**«NOME DO CLIENTE»**<br>CONTRATANTE<br>«CPF OU CNPJ DO CLIENTE» |
+| <br><br>_______________________________<br>**58.064.996 JEFFERSON LIMA DE MELO**<br>Jeff Company — CRIADOR<br>CNPJ 58.064.996/0001-89 | <br><br>_______________________________<br>**«NOME DO CLIENTE»**<br>CONTRATANTE<br>«CPF OU CNPJ DO CLIENTE» |
 
 <br>
 

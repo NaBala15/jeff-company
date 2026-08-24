@@ -7,7 +7,7 @@ Referente ao Contrato nº «000/2026», firmado em «DATA DO CONTRATO»
 
 ## Partes
 
-**CRIADOR:** «SEU NOME COMPLETO» — Jeff Company — CPF/CNPJ nº «SEU CPF OU CNPJ»
+**CRIADOR:** 58.064.996 JEFFERSON LIMA DE MELO — Jeff Company — CPF/CNPJ nº CNPJ 58.064.996/0001-89
 
 **CONTRATANTE:** «NOME DO CLIENTE» — CPF/CNPJ nº «CPF OU CNPJ DO CLIENTE»
 
@@ -116,4 +116,4 @@ E por estarem de acordo, as partes assinam o presente termo.
 
 |  |  |
 |---|---|
-| <br><br>_______________________________<br>**«SEU NOME COMPLETO»**<br>Jeff Company — CRIADOR | <br><br>_______________________________<br>**«NOME DO CLIENTE»**<br>CONTRATANTE |
+| <br><br>_______________________________<br>**58.064.996 JEFFERSON LIMA DE MELO**<br>Jeff Company — CRIADOR | <br><br>_______________________________<br>**«NOME DO CLIENTE»**<br>CONTRATANTE |
