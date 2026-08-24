@@ -36,7 +36,7 @@ contrato acima referido, disponível no endereço:
 | Serviço | Onde | Em nome de |
 |---|---|---|
 | Domínio | «registro.br» | CONTRATANTE |
-| Hospedagem | «Vercel» | «CRIADOR / CONTRATANTE» |
+| Hospedagem | «Cloudflare Pages» | «CRIADOR / CONTRATANTE» |
 | Formulário | «Formspree» | «CRIADOR / CONTRATANTE» |
 | «Outro» | «» | «» |
 

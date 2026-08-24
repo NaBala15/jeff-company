@@ -57,7 +57,10 @@ descobre pelo WhatsApp deles.
 
 ## O que isso significa no seu bolso
 
-Com a mensalidade em **R$ 50**:
+A conta abaixo usa **R$ 50**, que é o piso: é o preço dos modelos Agenda e
+Vitrine. Quem escolhe o modelo **Completa** paga R$ 60, então o cenário real
+tende a ficar acima desta tabela. Calcular pelo piso é de propósito — se o
+negócio fecha no pior caso, fecha em qualquer caso.
 
 | Clientes | Receita | Vercel Pro | Sobra | Cloudflare | Sobra |
 |---|---|---|---|---|---|

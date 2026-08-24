@@ -150,7 +150,7 @@ apenas a configuração técnica.
 R$ «40,00», é de responsabilidade do CONTRATANTE e não está incluído no valor
 da cláusula 5.
 
-**7.4** A hospedagem do PROJETO será prestada em **«Vercel / Netlify / outro»** e
+**7.4** A hospedagem do PROJETO será prestada em **«Cloudflare Pages / outro»** e
 está incluída na mensalidade de manutenção da cláusula 8. Encerrada a
 manutenção, o CONTRATANTE poderá (a) receber os arquivos para hospedar por
 conta própria, ou (b) contratar apenas a hospedagem, em valor a ser informado.

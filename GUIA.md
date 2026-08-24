@@ -13,11 +13,12 @@ o site funciona, mas ninguém consegue falar com você.
 | O quê | Onde está | Trocar por |
 |---|---|---|
 | ~~Número do WhatsApp~~ | ✅ Preenchido em 23/08: (11) 99709-7050 — aparece em `index.html` (3x), `pedido/js/pedido.js` e nas 3 páginas de `servicos/` (2x cada) | — |
-| E-mail | `index.html` — procure por `contato@jeffcompany.com.br` | Seu e-mail (veja a Parte 4) |
-| Instagram | `index.html` — no rodapé, `https://instagram.com/` | O endereço do seu perfil |
-| Endereço do site | `index.html` — procure por `jeffcompany.com.br` | O domínio real, depois da Parte 3 |
-| Envio do formulário | `index.html` — procure por `SEU_CODIGO_AQUI` | O código do Formspree (Parte 5) |
-| Cidade e estado | `index.html` — no bloco de dados do Google, `São Paulo` / `SP` | A sua cidade |
+| ~~Instagram~~ | ✅ Preenchido em 24/08: instagram.com/jeff_dev015 | — |
+| ~~Domínio~~ | ✅ Registrado em 24/08: **jeffcompany.com.br** (registro.br, no CNPJ) | — |
+| ~~Envio do formulário~~ | ✅ Preenchido em 24/08: Formspree `xbgrewzy` | — |
+| ~~CNPJ~~ | ✅ Preenchido em 24/08: 58.064.996/0001-89 — rodapé, dados do Google e gerador de contratos | — |
+| **E-mail** | ainda não existe: `contato@jeffcompany.com.br` | Criar o redirecionamento (Parte 4) |
+| Cidade e estado | `index.html` — no bloco de dados do Google, `São Paulo` / `SP` | A sua cidade, se não for essa |
 | ~~Link da BiBi~~ | ✅ Preenchido em 23/08: bibi-cartomante.vercel.app | — |
 
 **Dica para achar rápido:** abra o `index.html` no editor e aperte `Ctrl + F`.
@@ -27,7 +28,11 @@ o site funciona, mas ninguém consegue falar com você.
 ## Parte 2 — Publicar o site (grátis)
 
 Você precisa de duas contas, as duas gratuitas: **GitHub** (guarda o código) e
-**Vercel** (deixa o site no ar).
+**Cloudflare Pages** (deixa o site no ar). As duas você já tem.
+
+> **Por que Cloudflare e não Vercel:** o plano gratuito da Vercel **proíbe uso
+> comercial**, e site de cliente pago se encaixa na proibição. O detalhe está
+> no `HOSPEDAGEM.md`.
 
 ### 2.1 Criar o repositório
 
@@ -62,8 +67,12 @@ A partir daí, todo `git push` atualiza o site sozinho.
 
 ## Parte 3 — Domínio próprio
 
-O endereço `.vercel.app` funciona, mas passa a impressão de amador para quem
+O endereço `.pages.dev` funciona, mas passa a impressão de amador para quem
 vai te pagar. Um domínio `.com.br` resolve isso.
+
+> ✅ **Já feito em 24/08/2026:** `jeffcompany.com.br` registrado no registro.br,
+> no CNPJ 58.064.996/0001-89, com validade até 24/08/2027. **Anote a renovação
+> no calendário** — domínio que vence derruba o site e o e-mail no mesmo dia.
 
 **Onde:** [registro.br](https://registro.br) — é o órgão oficial do Brasil,
 não é revendedor, e sai mais barato.
@@ -74,12 +83,17 @@ não é revendedor, e sai mais barato.
 
 **Sugestões de nome:** `jeffcompany.com.br`, `jeffcompany.dev.br`
 
-### Ligando o domínio na Vercel
+### Ligando o domínio na Cloudflare
 
-1. Na Vercel: *Settings* → *Domains* → digite seu domínio → *Add*
-2. A Vercel vai mostrar os registros de DNS
-3. No registro.br: *Painel* → seu domínio → *Editar zona DNS* → cole os registros
-4. Leva de 15 minutos a algumas horas para funcionar
+1. Na Cloudflare: *Add a site* → digite `jeffcompany.com.br` → plano **Free**
+2. A Cloudflare mostra dois servidores de nome (algo como `xxx.ns.cloudflare.com`)
+3. No registro.br: *Painel* → seu domínio → *Alterar servidores DNS* → cole os dois
+4. Leva de 15 minutos a algumas horas para propagar
+5. Depois, em *Workers & Pages* → seu projeto → *Custom domains* → *Set up a domain*
+
+Mudar o servidor DNS no registro.br entrega a **zona inteira** para a
+Cloudflare. É isso que você quer: domínio, site e e-mail passam a ser
+configurados num painel só.
 
 > **Regra de ouro:** o domínio dos SEUS CLIENTES sempre fica no nome DELES,
 > com o CPF/CNPJ deles. Nunca registre no seu nome. Se um dia vocês se
@@ -93,13 +107,57 @@ não é revendedor, e sai mais barato.
 
 `jeffdev2010@gmail.com` numa proposta de R$ 2.000 derruba a proposta.
 
-**Opção grátis (comece por aqui):** o registro.br oferece redirecionamento de
-e-mail. Você cria `contato@jeffcompany.com.br` e tudo cai no seu Gmail de
-sempre. Para responder com o endereço profissional, configure no Gmail:
-*Configurações* → *Contas e importação* → *Enviar e-mail como*.
+Criar `contato@jeffcompany.com.br` são **duas coisas diferentes**, e quase todo
+mundo só descobre isso no meio do caminho:
 
-**Opção paga:** Google Workspace, cerca de R$ 30 por mês. Só vale quando você
-já tiver faturamento constante.
+1. **Receber** no endereço novo — fácil e grátis.
+2. **Responder** a partir dele — precisa de um servidor de saída, que o
+   encaminhamento grátis não fornece.
+
+### Passo 0 — levar o DNS para a Cloudflare (obrigatório)
+
+O Email Routing **só funciona se o domínio usar o DNS da Cloudflare**. Isso é
+o mesmo passo da Parte 3, então faça uma vez e serve para o site também.
+
+Para conferir em que pé você está, veja os servidores de nome do domínio. Se
+aparecer `a.auto.dns.br` e `b.auto.dns.br`, ainda está no DNS automático do
+registro.br e o passo não foi feito.
+
+### Passo 1 — receber (grátis, uns 10 minutos)
+
+1. No painel da Cloudflare: **Compute** → **Email Service** → **Email Routing**
+2. **Onboard Domain** → escolha `jeffcompany.com.br`
+3. Revise os registros DNS que ela vai criar sozinha → **Done**
+4. Em *Destination addresses*, cadastre o seu Gmail e **confirme o e-mail que
+   a Cloudflare manda** — sem confirmar, nada é entregue
+5. Em *Routing rules*, crie `contato@jeffcompany.com.br` → seu Gmail
+
+Os registros MX levam de 5 a 15 minutos para valer. Depois disso, tudo que
+chegar em `contato@` cai na sua caixa de sempre.
+
+### Passo 2 — responder como `contato@`
+
+O Email Routing **só recebe e encaminha**. Ele não dá servidor de saída, então
+se você responder pelo Gmail o cliente vê o seu endereço pessoal. Duas saídas:
+
+| | **Zoho Mail (plano Free)** | **Gmail + relé de envio** |
+|---|---|---|
+| O que é | Caixa de verdade em `contato@` | Continua tudo no seu Gmail |
+| Custo | Grátis, até 5 usuários | Grátis nos planos iniciais |
+| Como usa | Webmail e app do Zoho | Gmail: *Configurações* → *Contas e importação* → *Enviar e-mail como* |
+| Pega | **Não tem IMAP/POP no grátis** — só pelo site e pelo app deles | Depende de um terceiro serviço, com limite de envios |
+| Atenção | Substitui a Cloudflare no e-mail: o MX aponta para o Zoho, não dá para usar os dois | Mantém a Cloudflare recebendo |
+
+**A recomendação:** faça o Passo 1 hoje e pare por aí. O endereço passa a
+existir, o site deixa de mentir e nada se perde. O Passo 2 só importa no dia
+em que você for mandar uma proposta — e aí você decide com calma.
+
+**Regra que vale para sempre:** confira a caixa de spam na primeira semana.
+Domínio recém-registrado não tem histórico, e provedor desconfia de novato.
+
+**Opção paga:** Google Workspace, cerca de R$ 30 por mês por usuário. Resolve
+receber e enviar de uma vez, com o Gmail que você já sabe usar. Só vale quando
+o faturamento estiver constante.
 
 ---
 
@@ -112,7 +170,9 @@ Para receber de verdade:
    50 mensagens por mês, mais que suficiente no começo)
 2. *New Form* → dê um nome → copie o endereço que aparece, algo como
    `https://formspree.io/f/xyzabcd`
-3. No `index.html`, procure por `SEU_CODIGO_AQUI` e troque a linha inteira do
+3. ✅ **Já feito em 24/08:** o formulário aponta para `xbgrewzy`.
+   Para trocar no futuro, procure `formspree.io/f/` no `index.html`.
+   *(instrução original, se precisar refazer:)* procure por `SEU_CODIGO_AQUI` e troque a linha inteira do
    `action` por esse endereço
 4. Envie um teste. A primeira mensagem pede confirmação no seu e-mail
 
@@ -233,7 +293,7 @@ Duas rodadas de ajuste e 30 dias de suporte para correções.
 
 Proposta válida por 15 dias.
 Jeff Company · CNPJ XX.XXX.XXX/0001-XX
-contato@jeffcompany.com.br · (XX) XXXXX-XXXX
+contato@jeffcompany.com.br · (11) 99709-7050
 ```
 
 A seção **"O que NÃO está incluído"** é a mais importante do documento. É ela

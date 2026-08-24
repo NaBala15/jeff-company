@@ -1,6 +1,10 @@
 # O que pedir ao cliente — página de assinatura
 
-Lista padrão para a **página pronta de R$ 50/mês**. Serve para dois usos:
+Lista padrão para a **página pronta, a partir de R$ 50/mês**. Vale igual para os
+três modelos — Agenda e Vitrine (R$ 50) e Completa (R$ 60). O modelo Completa
+pede alguns itens a mais, marcados como **[Completa]** na lista.
+
+Serve para dois usos:
 
 - **Para você:** conferir se recebeu tudo antes de começar. Faltando item da
   parte obrigatória, o prazo não corre (cláusula 8.3 da Política).
@@ -47,6 +51,8 @@ Lista padrão para a **página pronta de R$ 50/mês**. Serve para dois usos:
       tiver: foto do letreiro, print do Instagram, o que existir
 - [ ] **5 a 10 fotos boas** — do local, dos produtos, da equipe, de trabalhos
       já feitos. Tiradas na horizontal e com boa luz, quando possível
+      &middot; **[Completa]** peça de **12 a 20**: a galeria ocupa uma seção
+      inteira e com poucas fotos ela fica pobre
 - [ ] **Foto sua**, se for autônomo *(cabeleireiro, dentista, advogado — nesses
       casos a pessoa É a marca, e a foto aumenta muito o contato)*
 - [ ] **Cores da marca**, se já tiver
@@ -64,7 +70,11 @@ gente troca.
       faz diferente
 - [ ] **Três diferenciais**: o que você tem que o concorrente da esquina não tem
 - [ ] **Depoimentos de clientes** — print de WhatsApp serve, e funciona melhor
-      que texto digitado
+      que texto digitado &middot; **[Completa]** aqui é obrigatório: são **3 a 6**,
+      com nome de quem falou, porque a seção de depoimentos é do modelo
+- [ ] **[Completa] 4 a 6 perguntas frequentes** — as dúvidas que o cliente manda
+      antes de fechar (preço, prazo, forma de pagamento, estacionamento), com a
+      resposta que você daria no WhatsApp
 
 *Não sabe escrever? Manda em áudio no WhatsApp que eu transformo em texto.*
 
@@ -91,6 +101,9 @@ gente troca.
 # COPIE DAQUI 👇
 
 *Cole no WhatsApp e mande para o cliente. Ele responde na mesma mensagem.*
+
+*Se ele escolheu o modelo **Completa**, cole também o bloco extra logo abaixo —
+sem ele a galeria, os depoimentos e as perguntas frequentes ficam vazios.*
 
 ```
 Oi! Para eu começar sua página hoje mesmo, preciso destas informações.
@@ -128,6 +141,22 @@ Pode responder tudo numa mensagem só, ou mandar em áudio se preferir 👇
 
 Não tem algum item? Sem problema, é só me dizer que a gente resolve.
 Assim que chegar tudo, sua página fica pronta rápido 🚀
+```
+
+### Bloco extra — só para o modelo Completa
+
+*Cole logo depois do bloco de cima, quando o cliente escolheu a Completa.*
+
+```
+Como sua página é o modelo Completa, ela tem galeria, depoimentos e
+perguntas frequentes. Para essas partes eu preciso de mais três coisas 👇
+
+21. De 12 a 20 fotos (a galeria é uma seção inteira, com poucas fotos ela
+    fica vazia)
+22. De 3 a 6 depoimentos de clientes, com o primeiro nome de quem falou —
+    print de WhatsApp serve
+23. De 4 a 6 perguntas que seus clientes mais fazem antes de fechar, com a
+    resposta que você daria (preço, prazo, pagamento, estacionamento...)
 ```
 
 ---
