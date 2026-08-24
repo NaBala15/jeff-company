@@ -4,7 +4,19 @@
 User-agent: *
 Allow: /
 
-# A demonstração da clínica não deve concorrer com o site nas buscas
+# Nada abaixo daqui deve concorrer com o site nas buscas:
+
+# demonstração de clínica — negócio fictício
 Disallow: /demo/
+
+# modelos de página — negócios fictícios, com nome, endereço e telefone
+# inventados. Indexados, apareceriam no Google como empresas de verdade.
+Disallow: /modelos/
+
+# ferramentas internas (gerador de contrato e de imagem de compartilhamento)
+Disallow: /ferramentas/
+
+# protótipo do painel de clientes
+Disallow: /painel/
 
 Sitemap: https://jeffcompany.com.br/sitemap.xml

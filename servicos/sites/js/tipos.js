@@ -24,7 +24,7 @@
         ['Tamanho', '1 página'],
         ['Melhor para', 'Um serviço principal'],
         ['Prazo', '5 a 7 dias'],
-        ['Também existe como', 'assinatura de R$ 50/mês']
+        ['Também existe como', 'assinatura a partir de R$ 50/mês']
       ],
       blocos: [
         ['Topo', 'Sua frase principal e o botão de WhatsApp', 'hero'],
