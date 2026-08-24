@@ -71,7 +71,9 @@ formulário. Você preenche, confere na tela e clica em **Imprimir / salvar PDF*
 
 - Campos que ainda faltam ficam **marcados em amarelo** no documento, para você
   não enviar contrato com buraco
-- Seus dados (nome, CPF, Pix, cidade) ficam **salvos no navegador** — no próximo
+- Seus dados fixos (razão social, CNPJ, WhatsApp, e-mail, cidade) já vêm
+  preenchidos. Endereço e chave Pix ficam em `ferramentas/meus-dados.local.js`,
+  que **não vai para o GitHub**. O que você digitar fica **salvo no navegador** — no próximo
   contrato só os dados do cliente mudam
 - Se você editar qualquer arquivo `.md`, o formulário acompanha sozinho
 

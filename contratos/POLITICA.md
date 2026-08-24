@@ -13,7 +13,7 @@ inseparável deles.
 
 Para os fins deste documento e de todos os contratos a ele vinculados:
 
-- **CRIADOR** designa a Jeff Company, na pessoa de «SEU NOME COMPLETO», CPF/CNPJ nº «SEU CPF OU CNPJ».
+- **CRIADOR** designa a Jeff Company — 58.064.996 JEFFERSON LIMA DE MELO, empresário individual inscrito no CNPJ nº 58.064.996/0001-89.
 - **CONTRATANTE** designa a pessoa física ou jurídica que contrata os serviços.
 - **PROJETO** designa o site, página ou serviço digital objeto da contratação.
 - **ENTREGA** designa o momento em que o PROJETO é disponibilizado ao CONTRATANTE
