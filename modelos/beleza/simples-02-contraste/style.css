@@ -1,0 +1,456 @@
+/* ==================================================================
+   SIMPLES 02 — MODERNO / CONTRASTE
+   Estúdio Malva — nail design e manicure
+   ------------------------------------------------------------------
+   PARA TROCAR A IDENTIDADE VISUAL, EDITE APENAS O BLOCO :root ABAIXO.
+   ==================================================================
+
+   ------------------------------------------------------------------
+   COMO SUBSTITUIR OS PLACEHOLDERS DE IMAGEM POR FOTOS REAIS
+   ------------------------------------------------------------------
+   Todo bloco de foto usa a classe .foto (gradiente + rótulo de texto).
+
+   OPÇÃO A — manter a <div> e usar background-image:
+     1. Crie uma pasta "fotos" dentro da pasta deste modelo.
+     2. No HTML, acrescente uma classe própria: class="foto foto--alta foto-1"
+     3. Aqui no CSS, no fim do arquivo:
+          .foto-1 {
+            background-image: url('fotos/nail-art.jpg');
+            background-size: cover;
+            background-position: center;
+          }
+          .foto-1 .foto__rotulo { display: none; }
+
+   OPÇÃO B — trocar a <div> por uma <img> de verdade (melhor para o Google):
+          <img class="foto foto--alta" src="fotos/nail-art.jpg"
+               alt="Nail art feita no Estúdio Malva">
+     Apague o <span class="foto__rotulo"> e SEMPRE preencha o alt.
+   ------------------------------------------------------------------ */
+
+:root {
+  /* ---------- CORES ---------- */
+  --preto:       #141216;   /* fundo principal                     */
+  --grafite:     #1F1B24;   /* cartões e blocos                    */
+  --grafite-2:   #2A2431;   /* hover                               */
+  --creme:       #F7F3FA;   /* seções claras                       */
+  --malva:       #B57BFF;   /* cor principal                       */
+  --malva-forte: #9450F0;   /* hover                               */
+  --malva-claro: #E9D5FF;   /* fundos suaves                       */
+  --texto:       #EDE9F2;   /* texto sobre fundo escuro            */
+  --texto-suave: #9C93A8;   /* texto secundário                    */
+  --linha:       #322B3A;   /* bordas no escuro                    */
+  --linha-clara: #E2D9EC;   /* bordas no claro                     */
+  --zap:         #25D366;   /* verde do WhatsApp                   */
+
+  /* ---------- TIPOGRAFIA ---------- */
+  --fonte-titulo: "Arial Narrow", "Segoe UI", -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  --fonte-texto:  "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --fonte-num:    "Consolas", "SFMono-Regular", Menlo, monospace;
+
+  /* ---------- RAIOS ---------- */
+  --r-pequeno: 4px;
+  --r-medio:   8px;
+  --r-pilula:  999px;
+
+  /* ---------- OUTROS ---------- */
+  --largura: 1180px;
+  --sombra:  0 16px 40px rgba(0, 0, 0, .35);
+  --transicao: .22s ease;
+}
+
+/* ========================== BASE / RESET ========================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--preto);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: 16px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700; line-height: 1.02;
+  letter-spacing: -.02em; text-transform: uppercase;
+  margin: 0 0 .5em;
+}
+p { margin: 0 0 1em; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+a { color: var(--malva); }
+address { font-style: normal; }
+
+.container { width: 100%; max-width: var(--largura); margin: 0 auto; padding: 0 20px; }
+
+.pular {
+  position: absolute; left: -9999px; top: 0; z-index: 999;
+  background: var(--malva); color: var(--preto); padding: 12px 18px; font-weight: 700;
+}
+.pular:focus { left: 10px; top: 10px; }
+:focus-visible { outline: 3px solid var(--malva); outline-offset: 3px; }
+
+.icone { width: 20px; height: 20px; fill: currentColor; flex: none; }
+
+.etiqueta {
+  font-family: var(--fonte-num); font-size: 12px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--malva); margin-bottom: 18px;
+}
+
+/* ============================ BOTÕES ============================= */
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 13px 26px; border: 2px solid transparent; border-radius: var(--r-pilula);
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  cursor: pointer; transition: var(--transicao);
+}
+.botao--grande { padding: 16px 32px; font-size: 16px; }
+.botao--malva { background: var(--malva); color: var(--preto); }
+.botao--malva:hover, .botao--malva:focus { background: var(--malva-forte); color: #fff; transform: translateY(-2px); }
+.botao--fantasma { background: transparent; color: var(--texto); border-color: var(--linha); }
+.botao--fantasma:hover, .botao--fantasma:focus { border-color: var(--malva); color: var(--malva); }
+
+/* =========================== CABEÇALHO =========================== */
+.topo {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(20, 18, 22, .94);
+  border-bottom: 1px solid var(--linha);
+}
+.topo__interno {
+  max-width: var(--largura); margin: 0 auto; padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+
+.marca {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--fonte-titulo); font-size: 22px; font-weight: 700;
+  letter-spacing: .02em; text-transform: uppercase;
+  color: var(--texto); text-decoration: none;
+}
+.marca__ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--malva); flex: none; }
+
+.hamburguer {
+  display: inline-flex; flex-direction: column; justify-content: center; gap: 6px;
+  width: 44px; height: 44px; padding: 0 11px;
+  background: transparent; border: 1px solid var(--linha); border-radius: var(--r-pequeno); cursor: pointer;
+}
+.hamburguer span { display: block; width: 100%; height: 2px; background: var(--texto); transition: var(--transicao); }
+.hamburguer[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+.hamburguer[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav ul { display: flex; gap: 24px; }
+.nav a {
+  color: var(--texto-suave); text-decoration: none;
+  font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  transition: var(--transicao);
+}
+.nav a:hover, .nav a:focus { color: var(--malva); }
+.nav__cta { padding: 11px 22px; font-size: 13px; color: var(--preto) !important; }
+
+@media (max-width: 920px) {
+  .nav {
+    position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--grafite); border-bottom: 1px solid var(--linha);
+    max-height: 0; overflow: hidden; transition: max-height .3s ease;
+  }
+  .nav.aberto { max-height: 460px; }
+  .nav ul { flex-direction: column; gap: 0; padding: 8px 20px 0; }
+  .nav ul a { display: block; padding: 15px 0; border-bottom: 1px solid var(--linha); font-size: 16px; }
+  .nav__cta { margin: 16px 20px 22px; }
+}
+@media (min-width: 921px) { .hamburguer { display: none; } }
+
+/* ============================== HERO ============================= */
+.hero {
+  position: relative; padding: 48px 0 56px;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(181, 123, 255, .18), transparent 55%),
+    var(--preto);
+}
+.hero__grade { max-width: var(--largura); margin: 0 auto; padding: 0 20px; display: grid; gap: 38px; }
+
+.hero h1 { font-size: clamp(42px, 11vw, 88px); margin-bottom: 22px; }
+.hero .destaque { color: var(--malva); }
+.hero__frase { font-size: 18px; color: var(--texto-suave); max-width: 46ch; margin-bottom: 30px; }
+.hero__acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 38px; }
+
+.hero__numeros { display: flex; flex-wrap: wrap; gap: 30px; margin: 0; padding-top: 26px; border-top: 1px solid var(--linha); }
+.hero__numeros dt {
+  font-family: var(--fonte-num); font-size: 11px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--texto-suave); margin-bottom: 4px;
+}
+.hero__numeros dd { margin: 0; font-family: var(--fonte-titulo); font-size: 30px; font-weight: 700; color: var(--malva); }
+
+.hero__midia { position: relative; }
+.hero__tarja {
+  position: absolute; left: -8px; bottom: 26px;
+  background: var(--malva); color: var(--preto);
+  font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  padding: 9px 16px; transform: rotate(-3deg);
+}
+
+/* ====================== PLACEHOLDERS DE FOTO ===================== */
+.foto {
+  position: relative; aspect-ratio: 1 / 1;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(150deg, #4B3766 0%, #2E2440 52%, #191322 100%);
+  border: 1px solid var(--linha); border-radius: var(--r-medio);
+  overflow: hidden;
+}
+.foto__rotulo {
+  font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--malva-claro); background: rgba(20, 18, 22, .72);
+  border: 1px solid rgba(181, 123, 255, .35);
+  padding: 8px 14px; border-radius: var(--r-pilula); text-align: center;
+}
+.foto--alta { aspect-ratio: 4 / 5; }
+
+/* ============================= SEÇÕES ============================ */
+.secao { padding: 62px 0; }
+.secao--clara { background: var(--creme); color: var(--preto); }
+.secao--clara h2, .secao--clara h3 { color: var(--preto); }
+.secao--clara p { color: #55495F; }
+.secao--clara .foto { border-color: var(--linha-clara); }
+
+.titulo { margin-bottom: 38px; max-width: 640px; }
+.titulo__num {
+  display: block; font-family: var(--fonte-num); font-size: 13px;
+  letter-spacing: .16em; color: var(--malva); margin-bottom: 10px;
+}
+.titulo h2 { font-size: clamp(34px, 8vw, 60px); }
+.titulo p { color: var(--texto-suave); margin: 0; }
+.secao--clara .titulo p { color: #55495F; }
+
+/* ===================== LISTA DE SERVIÇOS ===================== */
+.lista { border-top: 1px solid var(--linha); }
+.lista__item {
+  display: grid; grid-template-columns: 1fr auto;
+  grid-template-areas: "info preco" "tempo preco";
+  gap: 2px 18px; align-items: center;
+  padding: 20px 0; border-bottom: 1px solid var(--linha);
+  transition: var(--transicao);
+}
+.lista__item:hover { background: var(--grafite); padding-left: 14px; padding-right: 14px; }
+.lista__info { grid-area: info; }
+.lista__info h3 { font-size: 22px; margin: 0 0 4px; }
+.lista__info p { margin: 0; font-size: 15px; color: var(--texto-suave); max-width: 54ch; }
+.lista__tempo {
+  grid-area: tempo; font-family: var(--fonte-num); font-size: 12px;
+  letter-spacing: .08em; color: var(--texto-suave); padding-top: 6px;
+}
+.lista__preco {
+  grid-area: preco;
+  font-family: var(--fonte-titulo); font-size: 28px; font-weight: 700;
+  color: var(--malva); white-space: nowrap;
+}
+
+.nota {
+  margin: 28px 0 0; font-family: var(--fonte-num); font-size: 13px;
+  letter-spacing: .06em; color: var(--texto-suave);
+}
+
+/* ============================= SOBRE ============================= */
+.sobre { display: grid; gap: 34px; }
+.sobre__abre { font-size: 19px; font-weight: 600; }
+
+.passos { display: grid; gap: 14px; }
+.passos li {
+  background: #fff; border: 1px solid var(--linha-clara);
+  border-left: 4px solid var(--malva);
+  border-radius: var(--r-pequeno); padding: 18px 20px;
+}
+.passos__num { font-family: var(--fonte-num); font-size: 12px; letter-spacing: .16em; color: var(--malva-forte); }
+.passos h3 { font-size: 19px; margin: 6px 0 6px; }
+.passos p { margin: 0; font-size: 15px; }
+
+.sobre__fotos { display: grid; gap: 14px; margin-top: 34px; }
+
+/* ==================== HORÁRIOS E ÁREA ==================== */
+.placar { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 34px; }
+.placar__dia {
+  background: var(--grafite); border: 1px solid var(--linha);
+  border-radius: var(--r-medio); padding: 18px 14px; text-align: center;
+}
+.placar__nome {
+  display: block; font-family: var(--fonte-num); font-size: 12px;
+  letter-spacing: .2em; color: var(--texto-suave); margin-bottom: 6px;
+}
+.placar__hora { display: block; font-family: var(--fonte-titulo); font-size: 20px; font-weight: 700; }
+.placar__dia--on { border-color: var(--malva); background: rgba(181, 123, 255, .12); }
+.placar__dia--on .placar__hora { color: var(--malva); }
+.placar__dia--off .placar__hora { color: var(--texto-suave); font-size: 15px; }
+
+.area {
+  background: var(--grafite); border: 1px solid var(--linha);
+  border-radius: var(--r-medio); padding: 26px 24px;
+}
+.area h3 { font-size: 22px; margin-bottom: 10px; }
+.area p { font-size: 15px; color: var(--texto-suave); }
+.pilulas { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.pilulas li {
+  background: rgba(181, 123, 255, .12); border: 1px solid rgba(181, 123, 255, .3);
+  color: var(--malva-claro);
+  padding: 7px 15px; border-radius: var(--r-pilula); font-size: 14px;
+}
+.area__nota { margin-bottom: 0 !important; font-size: 14px !important; }
+
+/* ============================ CONTATO ============================ */
+.contato { display: grid; gap: 26px; }
+.contato__dados h3 {
+  font-family: var(--fonte-num); font-size: 12px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--malva-forte);
+  margin: 24px 0 8px;
+}
+.contato__dados h3:first-child { margin-top: 0; }
+.contato__dados address { font-size: 18px; font-weight: 600; }
+.contato__links a, .contato__redes a { color: var(--preto); text-decoration: none; font-weight: 600; }
+.contato__links a:hover, .contato__redes a:hover { color: var(--malva-forte); }
+.contato__links li, .contato__redes li { margin-bottom: 8px; }
+.contato__redes a { display: inline-flex; align-items: center; gap: 9px; }
+
+/* Bloco reservado para o mapa. Para usar um mapa real depois, troque
+   este bloco pelo iframe do Google Maps mantendo a classe .mapa */
+.mapa {
+  position: relative; min-height: 320px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background:
+    repeating-linear-gradient(0deg, rgba(148,80,240,.10) 0 1px, transparent 1px 38px),
+    repeating-linear-gradient(90deg, rgba(148,80,240,.10) 0 1px, transparent 1px 38px),
+    #fff;
+  border: 1px solid var(--linha-clara); border-radius: var(--r-medio);
+}
+.mapa::before {
+  content: ""; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--malva-forte); box-shadow: 0 0 0 8px rgba(148, 80, 240, .18);
+}
+.mapa__rotulo { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #7A6E86; }
+.mapa__dica { font-size: 15px; color: #55495F; text-align: center; padding: 0 16px; }
+
+/* ============================= RODAPÉ ============================ */
+.rodape { background: var(--preto); border-top: 1px solid var(--linha); padding-top: 44px; }
+.rodape__interno { display: grid; gap: 22px; padding-bottom: 32px; }
+.rodape__nome { font-family: var(--fonte-titulo); font-size: 26px; font-weight: 700; text-transform: uppercase; margin: 0 0 6px; }
+.rodape__frase { font-size: 15px; color: var(--texto-suave); margin: 0; max-width: 40ch; }
+.rodape__nav { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.rodape__nav a { color: var(--texto); text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.rodape__nav a:hover { color: var(--malva); }
+
+.rodape__base {
+  border-top: 1px solid var(--linha); padding: 18px 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+}
+.rodape__base p { margin: 0; font-size: 13px; color: var(--texto-suave); }
+.rodape__base strong { color: var(--malva); }
+
+/* ====================== BOTÃO FLUTUANTE WPP ====================== */
+.zap {
+  position: fixed; right: 18px; bottom: 18px; z-index: 200;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 20px; border-radius: var(--r-pilula);
+  background: var(--zap); color: #08240F; text-decoration: none;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, .38);
+  font-size: 15px; font-weight: 800; transition: var(--transicao);
+}
+.zap svg { width: 24px; height: 24px; fill: currentColor; }
+.zap:hover { transform: translateY(-3px); background: #1EB955; }
+@media (max-width: 480px) {
+  .zap__texto { display: none; }
+  .zap { padding: 15px; }
+}
+
+/* ==================== APARIÇÃO AO ROLAR ==================== */
+.aparece { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+.aparece.visivel { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .aparece { opacity: 1; transform: none; transition: none; }
+  .botao, .lista__item { transition: none; }
+}
+
+/* ========================== RESPONSIVO =========================== */
+@media (min-width: 620px) {
+  .lista__item {
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas: "info tempo preco";
+    gap: 26px;
+  }
+  .lista__tempo { padding-top: 0; }
+  .placar { grid-template-columns: repeat(4, 1fr); }
+  .passos { grid-template-columns: repeat(2, 1fr); }
+  .sobre__fotos { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 921px) {
+  body { font-size: 17px; }
+  .secao { padding: 100px 0; }
+  .hero { padding: 76px 0 84px; }
+  .hero__grade { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 56px; }
+  .sobre { grid-template-columns: .9fr 1.1fr; gap: 54px; align-items: start; }
+  .placar { grid-template-columns: repeat(7, 1fr); gap: 12px; }
+  .contato { grid-template-columns: 1.25fr .75fr; gap: 44px; }
+  .mapa { min-height: 420px; }
+  .rodape__interno { grid-template-columns: 1.4fr 1fr; align-items: center; }
+  .rodape__nav { justify-content: flex-end; }
+  .rodape__base { flex-direction: row; justify-content: space-between; max-width: var(--largura); margin: 0 auto; }
+}
+
+/* ==========================================================================
+   AVISO DE MODELO DE EXEMPLO
+
+   Criado pelo script só quando o endereço tem ?demo=1. O visual é o da Jeff
+   Company de propósito, e não o deste modelo: tem que ficar óbvio que este
+   pedacinho não faz parte da página do cliente.
+   ========================================================================== */
+
+.aviso-modelo {
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  z-index: 300;
+  /* nunca encosta no botão flutuante do WhatsApp, que fica à direita */
+  max-width: min(330px, calc(100vw - 96px));
+  display: grid;
+  gap: 3px;
+  padding: 12px 30px 12px 14px;
+  background: #0A0B09;
+  border: 1px solid #262A20;
+  border-left: 3px solid #C7F53F;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+}
+.aviso-modelo b { color: #C7F53F; font-size: 0.79rem; }
+.aviso-modelo span { color: #8B9280; }
+.aviso-modelo a {
+  color: #E8ECE0;
+  font-weight: 700;
+  text-decoration: underline;
+  justify-self: start;
+  margin-top: 3px;
+}
+.aviso-modelo a:hover { color: #C7F53F; }
+
+.aviso-x {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  color: #8B9280;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.aviso-x:hover { color: #E8ECE0; background: #1A1D16; }

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título da aba (nome do negócio + serviço + cidade) -->
+  <title>Casa Serena | Estética avançada e beleza feminina em BH</title>
+  <!-- EDITAR: descrição que aparece no Google (até 155 caracteres) -->
+  <meta name="description" content="Estética avançada na Savassi, Belo Horizonte. Microagulhamento, radiofrequência, limpeza de pele premium e protocolo noiva. Atendimento com hora marcada.">
+  <meta name="theme-color" content="#2B211C">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="pular" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ====================================================================
+       CABEÇALHO — muda de aparência ao rolar (classe .encolhido via JS)
+       ==================================================================== -->
+  <header class="cabecalho js-cabecalho">
+    <div class="cabecalho__interno">
+      <!-- EDITAR: nome do negócio -->
+      <a class="marca" href="#inicio">
+        <span class="marca__mono" aria-hidden="true">CS</span>
+        <span class="marca__texto">
+          <strong>Casa Serena</strong>
+          <!-- EDITAR: descritor curto do negócio -->
+          <em>estética avançada</em>
+        </span>
+      </a>
+
+      <button class="hamburguer js-menu-botao" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav js-menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="#servicos">Protocolos</a></li>
+          <li><a href="#galeria">Resultados</a></li>
+          <li><a href="#sobre">A casa</a></li>
+          <li><a href="#depoimentos">Clientes</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+        <a class="botao botao--ouro nav__cta" href="https://wa.me/5531988664520" target="_blank" rel="noopener">Agendar avaliação</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="hero__brilho" aria-hidden="true"></div>
+
+      <div class="hero__grade">
+        <div class="hero__texto">
+          <p class="linha-fina">
+            <span class="linha-fina__traco" aria-hidden="true"></span>
+            <!-- EDITAR: bairro, cidade e ano de fundação -->
+            Savassi &middot; Belo Horizonte &middot; desde 2013
+          </p>
+
+          <!-- EDITAR: frase de impacto principal -->
+          <h1>
+            O cuidado que a sua pele<br>
+            <em>merecia há anos</em>
+          </h1>
+
+          <!-- EDITAR: parágrafo de apoio -->
+          <p class="hero__frase">
+            Protocolos faciais e corporais desenhados a partir de uma avaliação de
+            verdade — não de um pacote pronto. Cada sessão tem hora marcada, sala
+            reservada e acompanhamento depois do atendimento.
+          </p>
+
+          <div class="hero__acoes">
+            <!-- EDITAR: número do WhatsApp -->
+            <a class="botao botao--ouro botao--grande" href="https://wa.me/5531988664520?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Casa%20Serena." target="_blank" rel="noopener">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+              </svg>
+              Agendar avaliação gratuita
+            </a>
+            <a class="botao botao--contorno botao--grande" href="#servicos">Ver protocolos</a>
+          </div>
+        </div>
+
+        <div class="hero__midia">
+          <!-- PLACEHOLDER DE IMAGEM: instruções no topo do style.css -->
+          <div class="foto foto--hero" role="img" aria-label="Sala de atendimento da Casa Serena">
+            <span class="foto__rotulo">FOTO — sala de atendimento</span>
+          </div>
+
+          <!-- EDITAR: nota e quantidade de avaliações -->
+          <div class="cartao-nota">
+            <span class="cartao-nota__valor">4,9</span>
+            <span class="cartao-nota__estrelas" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="cartao-nota__texto">312 avaliações de clientes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         NÚMEROS / PROVA SOCIAL — contador anima ao entrar na tela
+         AVISO: números fictícios de demonstração.
+         EDITAR: substituir por dados reais do cliente antes de publicar.
+         ==================================================================== -->
+    <section class="numeros" aria-label="A casa em números">
+      <!-- O número final já vem escrito aqui dentro, e não zerado: se o
+           JavaScript não rodar, o visitante vê o valor certo em vez de "0".
+           O script anima de 0 até este valor quando a seção entra na tela.
+           EDITAR: o valor visível E o data-alvo precisam ser o mesmo número. -->
+      <div class="container numeros__grade">
+        <div class="numero js-contar" data-alvo="12" data-sufixo="">
+          <span class="numero__valor">12</span>
+          <span class="numero__rotulo">anos de casa</span>
+        </div>
+        <div class="numero js-contar" data-alvo="4800" data-sufixo="+">
+          <span class="numero__valor">4.800+</span>
+          <span class="numero__rotulo">atendimentos feitos</span>
+        </div>
+        <div class="numero js-contar" data-alvo="6" data-sufixo="">
+          <span class="numero__valor">6</span>
+          <span class="numero__rotulo">profissionais na equipe</span>
+        </div>
+        <div class="numero js-contar" data-alvo="97" data-sufixo="%">
+          <span class="numero__valor">97%</span>
+          <span class="numero__rotulo">das clientes voltam</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== SERVIÇOS ============================ -->
+    <section class="secao" id="servicos">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__sobre">Protocolos</span>
+          <h2>O que fazemos aqui</h2>
+          <p>
+            Toda cliente começa por uma avaliação gratuita. O protocolo só é montado
+            depois de olhar a sua pele de perto e entender a sua rotina.
+          </p>
+        </header>
+
+        <!-- EDITAR: nome, descrição, duração e preço de cada protocolo -->
+        <div class="protocolos">
+          <article class="protocolo">
+            <span class="protocolo__marca" aria-hidden="true"></span>
+            <h3>Limpeza de Pele Premium</h3>
+            <p>Higienização profunda, extração cuidadosa, alta frequência, máscara e proteção.</p>
+            <div class="protocolo__pe">
+              <span class="protocolo__tempo">1h40</span>
+              <span class="protocolo__preco">R$ 220</span>
+            </div>
+          </article>
+
+          <article class="protocolo protocolo--destaque">
+            <span class="protocolo__selo">Mais procurado</span>
+            <span class="protocolo__marca" aria-hidden="true"></span>
+            <h3>Microagulhamento Facial</h3>
+            <p>Estímulo de colágeno para marcas de acne, poros e linhas finas. Com ativos importados.</p>
+            <div class="protocolo__pe">
+              <span class="protocolo__tempo">1h20</span>
+              <span class="protocolo__preco">R$ 320</span>
+            </div>
+          </article>
+
+          <article class="protocolo">
+            <span class="protocolo__marca" aria-hidden="true"></span>
+            <h3>Radiofrequência Corporal</h3>
+            <p>Firmeza e textura da pele em abdômen, coxas ou braços. Sessão avulsa ou em pacote.</p>
+            <div class="protocolo__pe">
+              <span class="protocolo__tempo">1h</span>
+              <span class="protocolo__preco">R$ 280</span>
+            </div>
+          </article>
+
+          <article class="protocolo">
+            <span class="protocolo__marca" aria-hidden="true"></span>
+            <h3>Massagem Modeladora</h3>
+            <p>Manobras firmes para contorno corporal, sempre com avaliação antes da primeira sessão.</p>
+            <div class="protocolo__pe">
+              <span class="protocolo__tempo">50 min</span>
+              <span class="protocolo__preco">R$ 160</span>
+            </div>
+          </article>
+
+          <article class="protocolo">
+            <span class="protocolo__marca" aria-hidden="true"></span>
+            <h3>Drenagem Pós-operatória</h3>
+            <p>Protocolo específico para pós-cirúrgico, com liberação e acompanhamento do médico.</p>
+            <div class="protocolo__pe">
+              <span class="protocolo__tempo">1h</span>
+              <span class="protocolo__preco">R$ 180</span>
+            </div>
+          </article>
+
+          <article class="protocolo">
+            <span class="protocolo__marca" aria-hidden="true"></span>
+            <h3>Peeling Químico</h3>
+            <p>Renovação celular para manchas e melasma, com ácido escolhido conforme o seu fototipo.</p>
+            <div class="protocolo__pe">
+              <span class="protocolo__tempo">40 min</span>
+              <span class="protocolo__preco">R$ 260</span>
+            </div>
+          </article>
+
+          <article class="protocolo">
+            <span class="protocolo__marca" aria-hidden="true"></span>
+            <h3>Design com Henna</h3>
+            <p>Mapeamento facial, limpeza na pinça e coloração com henna hipoalergênica.</p>
+            <div class="protocolo__pe">
+              <span class="protocolo__tempo">45 min</span>
+              <span class="protocolo__preco">R$ 75</span>
+            </div>
+          </article>
+
+          <article class="protocolo">
+            <span class="protocolo__marca" aria-hidden="true"></span>
+            <h3>Protocolo Noiva</h3>
+            <p>Day use completo: facial, corporal, design e maquiagem. Sala reservada o dia todo.</p>
+            <div class="protocolo__pe">
+              <span class="protocolo__tempo">day use</span>
+              <span class="protocolo__preco">R$ 890</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         GALERIA COM LIGHTBOX — clique ou Enter abre a foto ampliada
+         ==================================================================== -->
+    <section class="secao secao--nude" id="galeria">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__sobre">Resultados</span>
+          <h2>Um pouco do nosso trabalho</h2>
+          <p>Toque em qualquer foto para ver ampliada. Use as setas do teclado para navegar.</p>
+        </header>
+
+        <!-- EDITAR: trocar cada placeholder por foto real e ajustar a legenda -->
+        <ul class="galeria js-galeria">
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Limpeza de pele premium — resultado após 3 sessões">
+              <span class="foto foto--quadro" aria-hidden="true">
+                <span class="foto__rotulo">FOTO — limpeza de pele</span>
+              </span>
+              <span class="galeria__legenda">Limpeza de pele premium</span>
+              <span class="sr">Ampliar foto: limpeza de pele premium, resultado após 3 sessões</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Microagulhamento — marcas de acne após 4 sessões">
+              <span class="foto foto--quadro" aria-hidden="true">
+                <span class="foto__rotulo">FOTO — microagulhamento</span>
+              </span>
+              <span class="galeria__legenda">Microagulhamento facial</span>
+              <span class="sr">Ampliar foto: microagulhamento, marcas de acne após 4 sessões</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Design de sobrancelhas com henna — antes e depois">
+              <span class="foto foto--quadro" aria-hidden="true">
+                <span class="foto__rotulo">FOTO — design com henna</span>
+              </span>
+              <span class="galeria__legenda">Design com henna</span>
+              <span class="sr">Ampliar foto: design de sobrancelhas com henna, antes e depois</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Sala de atendimento facial da Casa Serena">
+              <span class="foto foto--quadro" aria-hidden="true">
+                <span class="foto__rotulo">FOTO — sala facial</span>
+              </span>
+              <span class="galeria__legenda">Nossa sala facial</span>
+              <span class="sr">Ampliar foto: sala de atendimento facial</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Protocolo noiva — day use completo na sala reservada">
+              <span class="foto foto--quadro" aria-hidden="true">
+                <span class="foto__rotulo">FOTO — protocolo noiva</span>
+              </span>
+              <span class="galeria__legenda">Protocolo noiva</span>
+              <span class="sr">Ampliar foto: protocolo noiva, day use completo</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Recepção e sala de espera da Casa Serena">
+              <span class="foto foto--quadro" aria-hidden="true">
+                <span class="foto__rotulo">FOTO — recepção</span>
+              </span>
+              <span class="galeria__legenda">Recepção</span>
+              <span class="sr">Ampliar foto: recepção e sala de espera</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= FAIXA DE CHAMADA INTERMEDIÁRIA ================= -->
+    <section class="faixa-cta" aria-label="Agendar avaliação">
+      <div class="container faixa-cta__interno">
+        <div>
+          <!-- EDITAR: chamada intermediária -->
+          <h2>A avaliação é gratuita e leva 30 minutos</h2>
+          <p>
+            Sem compromisso de fechar pacote. Você sai sabendo o que a sua pele
+            precisa, mesmo que decida fazer em outro lugar.
+          </p>
+        </div>
+        <!-- EDITAR: número do WhatsApp -->
+        <a class="botao botao--escuro botao--grande" href="https://wa.me/5531988664520?text=Ol%C3%A1%21%20Quero%20marcar%20a%20avalia%C3%A7%C3%A3o%20gratuita." target="_blank" rel="noopener">Quero marcar minha avaliação</a>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE ============================= -->
+    <section class="secao" id="sobre">
+      <div class="container sobre">
+        <div class="sobre__midia">
+          <div class="foto foto--retrato" role="img" aria-label="Equipe da Casa Serena">
+            <span class="foto__rotulo">FOTO — a equipe</span>
+          </div>
+          <!-- EDITAR: número de destaque -->
+          <div class="sobre__selo">
+            <strong>12</strong>
+            <span>anos na Savassi</span>
+          </div>
+        </div>
+
+        <div class="sobre__texto">
+          <span class="titulo__sobre">A casa</span>
+          <!-- EDITAR: história e apresentação do negócio -->
+          <h2>Estética não é vender pacote. É acompanhar resultado.</h2>
+          <p>
+            A Casa Serena abriu em 2013 com uma decisão que na época pareceu ruim
+            para o caixa: não vender pacote fechado antes de avaliar a pele da cliente.
+            Doze anos depois, é o motivo de 97% delas voltarem.
+          </p>
+          <p>
+            Cada cliente tem uma ficha própria, com foto de acompanhamento a cada
+            sessão e registro dos ativos usados. Quando você senta na maca, a gente
+            já sabe onde parou da última vez.
+          </p>
+
+          <!-- EDITAR: quatro diferenciais do negócio -->
+          <ul class="diferenciais">
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 3 6v6c0 5.05 3.84 9.44 9 10 5.16-.56 9-4.95 9-10V6l-9-4Zm0 2.18 7 3.11V12c0 4.02-2.98 7.55-7 8.06-4.02-.51-7-4.04-7-8.06V7.29l7-3.11Zm-1.2 10.7-2.6-2.6 1.27-1.27 1.33 1.33 3.86-3.86 1.27 1.27-5.13 5.13Z"/></svg>
+              </span>
+              <div>
+                <strong>Avaliação antes de qualquer venda</strong>
+                <span>Sem pacote fechado antes de olhar a sua pele de perto.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm-.9 3v5.6l4.5 2.7.9-1.5-3.6-2.1V7h-1.8Z"/></svg>
+              </span>
+              <div>
+                <strong>Ficha com foto de acompanhamento</strong>
+                <span>Registro de cada sessão para você enxergar a evolução.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 21s-7.5-4.7-9.3-9A5.6 5.6 0 0 1 12 6.3 5.6 5.6 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9Zm0-2.5c1.9-1.3 6-4.5 7.2-7.4a3.6 3.6 0 0 0-6.3-3.2l-.9 1.1-.9-1.1A3.6 3.6 0 0 0 4.8 11c1.2 2.9 5.3 6.1 7.2 7.4Z"/></svg>
+              </span>
+              <div>
+                <strong>Sala reservada e individual</strong>
+                <span>Você não divide o espaço nem escuta o atendimento ao lado.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 1.5 14.6 8h6.9l-5.6 4 2.1 6.6L12 14.7 6 18.6 8.1 12 2.5 8h6.9L12 1.5Zm0 4.6L10.9 9.4l-3.4.1 2.7 2-1 3.3 2.8-1.8 2.8 1.8-1-3.3 2.7-2-3.4-.1L12 6.1Z"/></svg>
+              </span>
+              <div>
+                <strong>Retorno em 48 horas</strong>
+                <span>Mensagem depois da sessão para saber como a pele reagiu.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DEPOIMENTOS EM CARROSSEL
+         AVISO: depoimentos fictícios de demonstração.
+         EDITAR: substituir por depoimentos reais e autorizados antes de publicar.
+         ==================================================================== -->
+    <section class="secao secao--escura" id="depoimentos">
+      <div class="container">
+        <header class="titulo titulo--claro">
+          <span class="titulo__sobre">Clientes</span>
+          <h2>Quem passou pela nossa maca</h2>
+        </header>
+
+        <div class="carrossel js-carrossel" role="group" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+          <div class="carrossel__janela">
+            <ul class="carrossel__trilho js-trilho">
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="1 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Cheguei achando que minha melasma não tinha jeito. Em cinco meses de protocolo a diferença é tão grande que minha mãe perguntou o que eu tinha feito.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">A</span>
+                  <span><strong>Adriana Sampaio</strong><span>cliente desde 2022</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="2 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Fiz o protocolo noiva e passei o dia inteiro na sala reservada. Foi a única parte do casamento em que eu não precisei resolver nada.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">L</span>
+                  <span><strong>Luciana Bastos</strong><span>cliente desde 2024</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="3 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Já tinha ido em lugar que empurra pacote de dez sessões na primeira conversa. Aqui fizeram avaliação e me disseram que eu precisava de três. Fiquei cliente na hora.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">R</span>
+                  <span><strong>Renata Ferrão</strong><span>cliente desde 2019</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="4 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Fiz drenagem pós-operatória depois de uma cirurgia e elas conversaram direto com a minha médica. Esse cuidado eu não achei em outro lugar.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">C</span>
+                  <span><strong>Camila D'Ávila</strong><span>cliente desde 2023</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="5 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>A ficha com foto de cada sessão mudou a minha cabeça. Dá para ver a evolução de verdade, não é só sensação.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">P</span>
+                  <span><strong>Patrícia Nogueira</strong><span>cliente desde 2021</span></span>
+                </footer>
+              </li>
+            </ul>
+          </div>
+
+          <div class="carrossel__controles">
+            <button class="carrossel__seta js-anterior" type="button" aria-label="Depoimento anterior">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7-1.4-1.4Z"/></svg>
+            </button>
+            <div class="carrossel__pontos js-pontos" role="tablist" aria-label="Escolher depoimento"></div>
+            <button class="carrossel__seta js-proximo" type="button" aria-label="Próximo depoimento">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4.6 8.4 8.4-8.4 8.4-1.4-1.4 7-7-7-7 1.4-1.4Z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FAQ EM ACCORDION — abre com clique, Enter ou Espaço
+         ==================================================================== -->
+    <section class="secao secao--nude" id="duvidas">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__sobre">Dúvidas</span>
+          <h2>As perguntas que mais chegam</h2>
+        </header>
+
+        <!-- EDITAR: perguntas e respostas do negócio -->
+        <div class="faq js-faq">
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-1">
+                <span>Preciso agendar ou vocês atendem por ordem de chegada?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-1" hidden>
+              <p>
+                Só com hora marcada. Cada protocolo bloqueia a sala inteira pelo tempo da
+                sessão, então não conseguimos encaixar quem chega sem avisar. O agendamento
+                é pelo WhatsApp e a confirmação sai no dia anterior.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-2">
+                <span>A avaliação é cobrada mesmo se eu não fechar nada?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-2" hidden>
+              <p>
+                Não. A avaliação é gratuita e leva cerca de 30 minutos. Você sai com o
+                diagnóstico por escrito e a indicação do que a sua pele precisa, mesmo que
+                decida fazer o tratamento em outro lugar.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-3">
+                <span>Qual a diferença da limpeza de pele premium para a comum?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-3" hidden>
+              <p>
+                Tempo e etapas. A premium leva 1h40 e inclui alta frequência, máscara
+                específica para o seu tipo de pele e ativos importados no final. A extração
+                é feita com mais calma, o que reduz a vermelhidão no dia seguinte.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-4">
+                <span>Posso remarcar? Com quanto tempo de antecedência?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-4" hidden>
+              <p>
+                Pode, sem custo, avisando com no mínimo 24 horas. Abaixo disso a sessão é
+                considerada realizada, porque o horário fica bloqueado e não conseguimos
+                oferecer para outra cliente em cima da hora.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-5">
+                <span>Vocês têm estacionamento?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-5" hidden>
+              <p>
+                Temos convênio com o estacionamento da esquina, com valor fixo para
+                clientes da casa. É só pedir o carimbo na recepção antes de sair.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-6">
+                <span>Quais formas de pagamento vocês aceitam?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-6" hidden>
+              <p>
+                Pix, dinheiro, débito e crédito. Pacotes fechados podem ser parcelados em
+                até 4 vezes sem juros no cartão, ou em 3 vezes no Pix com datas combinadas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HORÁRIOS E ÁREA DE ATENDIMENTO ==================== -->
+    <section class="secao" id="horarios">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__sobre">Agenda</span>
+          <h2>Horários e onde atendemos</h2>
+        </header>
+
+        <div class="agenda">
+          <!-- EDITAR: dias e horários de funcionamento -->
+          <div class="painel">
+            <h3>Horário de funcionamento</h3>
+            <ul class="horarios">
+              <li><span>Segunda</span><span class="fechado">Fechado</span></li>
+              <li><span>Terça</span><span>09h &ndash; 19h</span></li>
+              <li><span>Quarta</span><span>09h &ndash; 19h</span></li>
+              <li><span>Quinta</span><span>09h &ndash; 20h</span></li>
+              <li><span>Sexta</span><span>09h &ndash; 20h</span></li>
+              <li class="destaque"><span>Sábado</span><span>08h &ndash; 17h</span></li>
+              <li><span>Domingo</span><span class="fechado">Fechado</span></li>
+            </ul>
+          </div>
+
+          <!-- EDITAR: bairros e cidades atendidos -->
+          <div class="painel">
+            <h3>Área de atendimento</h3>
+            <p>
+              O atendimento é sempre na casa, na Savassi. Recebemos clientes
+              principalmente destes bairros e cidades da região:
+            </p>
+            <ul class="pilulas">
+              <li>Savassi</li>
+              <li>Funcionários</li>
+              <li>Lourdes</li>
+              <li>Santo Agostinho</li>
+              <li>Sion</li>
+              <li>Belvedere</li>
+              <li>Nova Lima</li>
+            </ul>
+            <p class="agenda__nota">
+              Protocolo noiva e day use de grupo podem ser feitos fora do horário
+              normal, mediante reserva com 15 dias de antecedência.
+            </p>
+            <!-- EDITAR: número do WhatsApp -->
+            <a class="botao botao--ouro" href="https://wa.me/5531988664520?text=Ol%C3%A1%21%20Quero%20consultar%20hor%C3%A1rios%20dispon%C3%ADveis." target="_blank" rel="noopener">Consultar horários livres</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTATO ============================ -->
+    <section class="secao secao--nude" id="contato">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__sobre">Contato</span>
+          <h2>Como chegar até a casa</h2>
+        </header>
+
+        <div class="contato">
+          <div class="contato__dados">
+            <!-- EDITAR: endereço completo -->
+            <h3>Endereço</h3>
+            <address>
+              Rua dos Ipês Amarelos, 87 &mdash; 2º andar<br>
+              Savassi &mdash; Belo Horizonte/MG<br>
+              CEP 30140-120
+            </address>
+
+            <!-- EDITAR: referência e acesso -->
+            <h3>Chegando aqui</h3>
+            <p>
+              Casa branca de dois andares, com portão de vidro. Estacionamento
+              conveniado na esquina, com valor fixo para clientes.
+            </p>
+
+            <h3>Telefone e WhatsApp</h3>
+            <ul class="contato__links">
+              <!-- EDITAR: telefone fixo -->
+              <li><a href="tel:+553132241190">(31) 3224-1190</a></li>
+              <!-- EDITAR: WhatsApp -->
+              <li><a href="https://wa.me/5531988664520" target="_blank" rel="noopener">(31) 98866-4520 &middot; WhatsApp</a></li>
+            </ul>
+
+            <h3>Redes sociais</h3>
+            <!-- EDITAR: links reais das redes sociais -->
+            <ul class="contato__redes">
+              <li>
+                <a href="https://instagram.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 4.86a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-3.2a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+                  </svg>
+                  @casaserenaestetica
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M13.5 22v-8.2h2.8l.42-3.22H13.5V8.53c0-.93.26-1.57 1.6-1.57h1.71V4.08c-.3-.04-1.31-.13-2.5-.13-2.47 0-4.16 1.51-4.16 4.28v2.35H7.34V13.8h2.81V22h3.35Z"/>
+                  </svg>
+                  /casaserenaestetica
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- EDITAR: bloco reservado para o mapa. Para usar o mapa real, troque
+               este bloco pelo iframe do Google Maps mantendo a classe "mapa". -->
+          <div class="mapa" role="img" aria-label="Mapa da localização da Casa Serena">
+            <span class="mapa__pino" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+            </span>
+            <span class="mapa__rotulo">MAPA — espaço reservado</span>
+            <span class="mapa__dica">Rua dos Ipês Amarelos, 87 &mdash; Savassi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <div class="rodape__coluna rodape__coluna--marca">
+        <span class="marca__mono" aria-hidden="true">CS</span>
+        <!-- EDITAR: nome e frase do negócio -->
+        <p class="rodape__nome">Casa Serena</p>
+        <p class="rodape__frase">
+          Estética avançada e beleza feminina na Savassi, Belo Horizonte.
+          Atendimento com hora marcada desde 2013.
+        </p>
+      </div>
+
+      <nav class="rodape__coluna" aria-label="Menu do rodapé">
+        <h3>Navegar</h3>
+        <ul>
+          <li><a href="#servicos">Protocolos</a></li>
+          <li><a href="#galeria">Resultados</a></li>
+          <li><a href="#sobre">A casa</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div class="rodape__coluna">
+        <h3>Contato</h3>
+        <!-- EDITAR: telefone, WhatsApp e e-mail -->
+        <ul>
+          <li><a href="tel:+553132241190">(31) 3224-1190</a></li>
+          <li><a href="https://wa.me/5531988664520" target="_blank" rel="noopener">(31) 98866-4520</a></li>
+          <li><a href="mailto:contato@casaserena.com.br">contato@casaserena.com.br</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Atendimento</h3>
+        <!-- EDITAR: resumo dos horários -->
+        <ul>
+          <li>Terça a quarta &middot; 09h &ndash; 19h</li>
+          <li>Quinta a sexta &middot; 09h &ndash; 20h</li>
+          <li>Sábado &middot; 08h &ndash; 17h</li>
+          <li>Domingo e segunda &middot; fechado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape__base">
+      <!-- EDITAR: ano e nome do negócio -->
+      <p>&copy; 2026 Casa Serena. Todos os direitos reservados.</p>
+      <!-- EDITAR: crédito da sua agência -->
+      <p>Página criada e mantida por <strong>JeffDev</strong></p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+  <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+  <a class="zap" href="https://wa.me/5531988664520?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Casa%20Serena." target="_blank" rel="noopener" aria-label="Falar com a Casa Serena no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+    </svg>
+    <span class="zap__texto">Agendar</span>
+  </a>
+
+  <!-- ==================== LIGHTBOX DA GALERIA ==================== -->
+  <div class="lightbox js-lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
+    <button class="lightbox__fechar js-fechar" type="button" aria-label="Fechar foto ampliada">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4Z"/></svg>
+    </button>
+    <button class="lightbox__seta lightbox__seta--esq js-lb-anterior" type="button" aria-label="Foto anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7-1.4-1.4Z"/></svg>
+    </button>
+    <figure class="lightbox__conteudo">
+      <div class="foto foto--ampliada js-lb-foto" role="img" aria-label="Foto ampliada da galeria">
+        <span class="foto__rotulo js-lb-rotulo">FOTO</span>
+      </div>
+      <figcaption class="lightbox__legenda js-lb-legenda"></figcaption>
+    </figure>
+    <button class="lightbox__seta lightbox__seta--dir js-lb-proximo" type="button" aria-label="Próxima foto">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4.6 8.4 8.4-8.4 8.4-1.4-1.4 7-7-7-7 1.4-1.4Z"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

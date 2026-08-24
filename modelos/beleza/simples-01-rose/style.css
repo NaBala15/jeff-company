@@ -1,0 +1,426 @@
+/* ==================================================================
+   SIMPLES 01 — SUAVE / ROSÉ
+   Espaço Camélia — estética facial e corporal
+   ------------------------------------------------------------------
+   PARA TROCAR A IDENTIDADE VISUAL, EDITE APENAS O BLOCO :root ABAIXO.
+   ==================================================================
+
+   ------------------------------------------------------------------
+   COMO SUBSTITUIR OS PLACEHOLDERS DE IMAGEM POR FOTOS REAIS
+   ------------------------------------------------------------------
+   Todo bloco de foto usa a classe .foto (gradiente + rótulo de texto).
+
+   OPÇÃO A — manter a <div> e usar background-image:
+     1. Crie uma pasta "fotos" dentro da pasta deste modelo.
+     2. No HTML, acrescente uma classe própria: class="foto foto--arco foto-1"
+     3. Aqui no CSS, no fim do arquivo:
+          .foto-1 {
+            background-image: url('fotos/sala.jpg');
+            background-size: cover;
+            background-position: center;
+          }
+          .foto-1 .foto__rotulo { display: none; }
+
+   OPÇÃO B — trocar a <div> por uma <img> de verdade (melhor para o Google):
+          <img class="foto foto--arco" src="fotos/sala.jpg"
+               alt="Sala de atendimento do Espaço Camélia">
+     Apague o <span class="foto__rotulo"> e SEMPRE preencha o alt.
+     Mantenha o border-radius: as fotos deste modelo são arredondadas.
+   ------------------------------------------------------------------ */
+
+:root {
+  /* ---------- CORES ---------- */
+  --areia:        #FDF7F4;   /* fundo principal                    */
+  --areia-escura: #F6EBE5;   /* seções alternadas                  */
+  --branco:       #FFFFFF;   /* cartões                            */
+  --cafe:         #3A2E2C;   /* textos e títulos                   */
+  --cafe-suave:   #7A6764;   /* textos de apoio                    */
+  --rose:         #C4736F;   /* cor principal                      */
+  --rose-escuro:  #A85B57;   /* hover                              */
+  --rose-claro:   #F3DCD8;   /* fundos suaves                      */
+  --salvia:       #8FA58C;   /* acento secundário                  */
+  --linha:        #EADFD9;   /* bordas                             */
+  --zap:          #25D366;   /* verde do WhatsApp                  */
+
+  /* ---------- TIPOGRAFIA ---------- */
+  --fonte-titulo: Georgia, "Times New Roman", Times, serif;
+  --fonte-texto:  "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+
+  /* ---------- RAIOS ---------- */
+  --r-pequeno: 12px;
+  --r-medio:   20px;
+  --r-grande:  28px;
+  --r-pilula:  999px;
+
+  /* ---------- OUTROS ---------- */
+  --largura: 1120px;
+  --sombra:  0 14px 34px rgba(58, 46, 44, .09);
+  --sombra-forte: 0 22px 48px rgba(58, 46, 44, .15);
+  --transicao: .26s ease;
+}
+
+/* ========================== BASE / RESET ========================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--areia);
+  color: var(--cafe);
+  font-family: var(--fonte-texto);
+  font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 400; line-height: 1.15; margin: 0 0 .55em; }
+p { margin: 0 0 1em; }
+ul { list-style: none; margin: 0; padding: 0; }
+a { color: var(--rose-escuro); }
+address { font-style: normal; }
+
+.container { width: 100%; max-width: var(--largura); margin: 0 auto; padding: 0 20px; }
+
+.pular {
+  position: absolute; left: -9999px; top: 0; z-index: 999;
+  background: var(--rose); color: #fff; padding: 12px 18px; border-radius: var(--r-pequeno);
+}
+.pular:focus { left: 10px; top: 10px; }
+:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+
+.icone { width: 20px; height: 20px; fill: currentColor; flex: none; }
+
+.selo {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--rose-claro); color: var(--rose-escuro);
+  padding: 8px 18px; border-radius: var(--r-pilula);
+  font-size: 13px; font-weight: 600; margin-bottom: 20px;
+}
+
+/* ============================ BOTÕES ============================= */
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 13px 26px; border: 2px solid transparent; border-radius: var(--r-pilula);
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  cursor: pointer; transition: var(--transicao);
+}
+.botao--grande { padding: 16px 32px; font-size: 16px; }
+.botao--rose { background: var(--rose); color: #fff; box-shadow: 0 10px 24px rgba(196, 115, 111, .3); }
+.botao--rose:hover, .botao--rose:focus { background: var(--rose-escuro); transform: translateY(-2px); }
+.botao--linha { background: transparent; color: var(--cafe); border-color: var(--linha); }
+.botao--linha:hover, .botao--linha:focus { border-color: var(--rose); color: var(--rose-escuro); }
+
+/* =========================== CABEÇALHO =========================== */
+.cabecalho {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(253, 247, 244, .94);
+  border-bottom: 1px solid var(--linha);
+}
+.cabecalho__interno {
+  max-width: var(--largura); margin: 0 auto; padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+
+.marca { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--cafe); }
+.marca__flor {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%; background: var(--rose-claro); flex: none;
+}
+.marca__flor svg { width: 22px; height: 22px; fill: var(--rose-escuro); }
+.marca__texto strong { display: block; font-family: var(--fonte-titulo); font-size: 20px; font-weight: 400; }
+.marca__texto em { display: block; font-style: normal; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--cafe-suave); }
+
+.hamburguer {
+  display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+  width: 44px; height: 44px; padding: 0 11px;
+  background: var(--rose-claro); border: 0; border-radius: 50%; cursor: pointer;
+}
+.hamburguer span { display: block; width: 100%; height: 2px; border-radius: 2px; background: var(--cafe); transition: var(--transicao); }
+
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav ul { display: flex; gap: 24px; }
+.nav a { color: var(--cafe-suave); text-decoration: none; font-size: 15px; font-weight: 500; transition: var(--transicao); }
+.nav a:hover, .nav a:focus { color: var(--rose-escuro); }
+.nav__cta { padding: 11px 24px; font-size: 14px; color: #fff !important; }
+
+@media (max-width: 920px) {
+  .nav {
+    position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--branco); border-bottom: 1px solid var(--linha);
+    max-height: 0; overflow: hidden; transition: max-height .3s ease;
+    box-shadow: var(--sombra);
+  }
+  .nav.aberto { max-height: 460px; }
+  .nav ul { flex-direction: column; gap: 0; padding: 8px 20px 0; }
+  .nav ul a { display: block; padding: 15px 0; border-bottom: 1px solid var(--linha); font-size: 17px; }
+  .nav__cta { margin: 16px 20px 22px; }
+}
+@media (min-width: 921px) { .hamburguer { display: none; } }
+
+/* ============================== HERO ============================= */
+.hero {
+  max-width: var(--largura); margin: 0 auto;
+  padding: 44px 20px 0;
+  text-align: center;
+}
+.hero__texto { max-width: 720px; margin: 0 auto 44px; }
+.hero h1 { font-size: clamp(34px, 8vw, 60px); margin-bottom: 20px; }
+.hero h1 em { font-style: italic; color: var(--rose); }
+.hero__frase { font-size: 18px; color: var(--cafe-suave); max-width: 52ch; margin: 0 auto 30px; }
+.hero__acoes { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 30px; }
+
+.hero__pontos { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: center; }
+.hero__pontos li { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; color: var(--cafe-suave); }
+.hero__pontos span { color: var(--salvia); font-weight: 800; }
+
+/* ====================== PLACEHOLDERS DE FOTO ===================== */
+.foto {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(155deg, #F0D9D2 0%, #D9B5AC 48%, #B9938C 100%);
+  overflow: hidden;
+}
+.foto__rotulo {
+  font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--cafe); background: rgba(255, 255, 255, .88);
+  padding: 9px 16px; border-radius: var(--r-pilula); text-align: center;
+}
+/* O arco do hero é a assinatura visual deste modelo */
+.foto--arco {
+  aspect-ratio: 16 / 10; width: 100%;
+  border-radius: var(--r-grande) var(--r-grande) 0 0;
+  border-top-left-radius: 50% 22%;
+  border-top-right-radius: 50% 22%;
+  box-shadow: var(--sombra-forte);
+}
+.foto--retrato { aspect-ratio: 4 / 5; border-radius: var(--r-grande); box-shadow: var(--sombra); }
+
+/* ============================= SEÇÕES ============================ */
+.secao { padding: 66px 0; }
+.secao--areia { background: var(--areia-escura); }
+
+.titulo { text-align: center; max-width: 620px; margin: 0 auto 40px; }
+.titulo__sobre {
+  display: inline-block; font-size: 12px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--rose);
+  margin-bottom: 10px;
+}
+.titulo h2 { font-size: clamp(28px, 5.4vw, 42px); }
+.titulo p { color: var(--cafe-suave); margin: 0; }
+
+/* ============================= CARDS ============================= */
+.cards { display: grid; gap: 16px; }
+.card {
+  background: var(--branco); border: 1px solid var(--linha);
+  border-radius: var(--r-medio); padding: 24px 22px;
+  display: flex; flex-direction: column;
+  box-shadow: var(--sombra); transition: var(--transicao);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--sombra-forte); border-color: var(--rose-claro); }
+.card h3 { font-size: 20px; margin-bottom: 8px; }
+.card p { font-size: 15px; color: var(--cafe-suave); flex: 1; margin-bottom: 18px; }
+.card__pe {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  border-top: 1px solid var(--linha); padding-top: 14px;
+}
+.card__tempo { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--cafe-suave); }
+.card__preco {
+  font-family: var(--fonte-titulo); font-size: 22px; color: var(--rose-escuro);
+  background: var(--rose-claro); padding: 4px 14px; border-radius: var(--r-pilula);
+}
+
+/* ============================= SOBRE ============================= */
+.sobre { display: grid; gap: 38px; align-items: center; }
+.sobre__texto h2 { font-size: clamp(26px, 5vw, 38px); }
+.sobre__texto > p { color: var(--cafe-suave); }
+
+.diferenciais { display: grid; gap: 14px; margin-top: 26px; }
+.diferenciais li {
+  display: grid; grid-template-columns: 44px 1fr; gap: 2px 14px;
+  background: var(--branco); border: 1px solid var(--linha);
+  border-radius: var(--r-pequeno); padding: 16px;
+}
+.diferenciais__icone {
+  grid-row: span 2;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%; background: var(--rose-claro);
+}
+.diferenciais__icone svg { width: 22px; height: 22px; fill: var(--rose-escuro); }
+.diferenciais strong { font-size: 16px; }
+.diferenciais span:last-child { font-size: 14px; color: var(--cafe-suave); }
+
+/* ==================== HORÁRIOS E ÁREA ==================== */
+.agenda { display: grid; gap: 20px; }
+.agenda__bloco {
+  background: var(--branco); border: 1px solid var(--linha);
+  border-radius: var(--r-medio); padding: 26px 24px; box-shadow: var(--sombra);
+}
+.agenda__bloco h3 { font-size: 21px; margin-bottom: 16px; }
+.agenda__bloco p { font-size: 15px; color: var(--cafe-suave); }
+
+.horarios li {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 12px 0; border-bottom: 1px solid var(--linha);
+}
+.horarios li:last-child { border-bottom: 0; }
+.horarios li span:first-child { font-weight: 600; }
+.horarios li span:last-child { color: var(--rose-escuro); font-weight: 600; }
+.horarios .fechado { color: var(--cafe-suave) !important; font-weight: 400 !important; }
+
+.pilulas { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.pilulas li {
+  background: var(--areia-escura); border: 1px solid var(--linha);
+  padding: 7px 15px; border-radius: var(--r-pilula); font-size: 14px;
+}
+.agenda__nota { font-size: 14px !important; margin-bottom: 20px; }
+
+/* ============================ CONTATO ============================ */
+.contato { display: grid; gap: 26px; }
+.contato__dados h3 {
+  font-family: var(--fonte-texto); font-size: 12px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--rose);
+  margin: 24px 0 8px;
+}
+.contato__dados h3:first-child { margin-top: 0; }
+.contato__dados address { font-size: 18px; }
+.contato__dados p { color: var(--cafe-suave); }
+.contato__links a, .contato__redes a { color: var(--cafe); text-decoration: none; font-weight: 600; }
+.contato__links a:hover, .contato__redes a:hover { color: var(--rose-escuro); }
+.contato__links li, .contato__redes li { margin-bottom: 8px; }
+.contato__redes a { display: inline-flex; align-items: center; gap: 9px; }
+
+/* Bloco reservado para o mapa. Para usar um mapa real depois, troque
+   este bloco pelo iframe do Google Maps mantendo a classe .mapa */
+.mapa {
+  position: relative; min-height: 320px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  background:
+    repeating-linear-gradient(0deg, rgba(196,115,111,.08) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba(196,115,111,.08) 0 1px, transparent 1px 40px),
+    var(--branco);
+  border: 1px solid var(--linha); border-radius: var(--r-medio); box-shadow: var(--sombra);
+}
+.mapa__pino svg { width: 32px; height: 32px; fill: var(--rose); }
+.mapa__rotulo { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--cafe-suave); }
+.mapa__dica { font-size: 15px; color: var(--cafe-suave); text-align: center; padding: 0 16px; }
+
+/* ============================= RODAPÉ ============================ */
+.rodape { background: var(--branco); border-top: 1px solid var(--linha); padding-top: 44px; }
+.rodape__interno { display: grid; gap: 22px; padding-bottom: 32px; }
+.rodape__nome { font-family: var(--fonte-titulo); font-size: 24px; margin: 0 0 6px; }
+.rodape__frase { font-size: 15px; color: var(--cafe-suave); margin: 0; max-width: 40ch; }
+.rodape__nav { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.rodape__nav a { color: var(--cafe); text-decoration: none; font-size: 15px; font-weight: 600; }
+.rodape__nav a:hover { color: var(--rose-escuro); }
+
+.rodape__base {
+  border-top: 1px solid var(--linha); padding: 18px 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+}
+.rodape__base p { margin: 0; font-size: 13px; color: var(--cafe-suave); }
+.rodape__base strong { color: var(--rose-escuro); }
+
+/* ====================== BOTÃO FLUTUANTE WPP ====================== */
+.zap {
+  position: fixed; right: 18px; bottom: 18px; z-index: 200;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 20px; border-radius: var(--r-pilula);
+  background: var(--zap); color: #fff; text-decoration: none;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, .42);
+  font-size: 15px; font-weight: 700; transition: var(--transicao);
+}
+.zap svg { width: 24px; height: 24px; fill: currentColor; }
+.zap:hover { transform: translateY(-3px); background: #1EB955; }
+@media (max-width: 480px) {
+  .zap__texto { display: none; }
+  .zap { padding: 15px; }
+}
+
+/* ==================== APARIÇÃO AO ROLAR ==================== */
+.aparece { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.aparece.visivel { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .aparece { opacity: 1; transform: none; transition: none; }
+  .botao, .card { transition: none; }
+}
+
+/* ========================== RESPONSIVO =========================== */
+@media (min-width: 620px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .diferenciais { grid-template-columns: repeat(2, 1fr); }
+  .agenda { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 921px) {
+  body { font-size: 17px; }
+  .secao { padding: 92px 0; }
+  .hero { padding-top: 64px; }
+  .cards { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .sobre { grid-template-columns: .8fr 1.2fr; gap: 56px; }
+  .contato { grid-template-columns: .8fr 1.2fr; gap: 40px; }
+  .mapa { min-height: 420px; }
+  .rodape__interno { grid-template-columns: 1.4fr 1fr; align-items: center; }
+  .rodape__nav { justify-content: flex-end; }
+  .rodape__base { flex-direction: row; justify-content: space-between; max-width: var(--largura); margin: 0 auto; }
+}
+
+@media (min-width: 1200px) {
+  .cards { gap: 22px; }
+}
+
+/* ==========================================================================
+   AVISO DE MODELO DE EXEMPLO
+
+   Criado pelo script só quando o endereço tem ?demo=1. O visual é o da Jeff
+   Company de propósito, e não o deste modelo: tem que ficar óbvio que este
+   pedacinho não faz parte da página do cliente.
+   ========================================================================== */
+
+.aviso-modelo {
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  z-index: 300;
+  /* nunca encosta no botão flutuante do WhatsApp, que fica à direita */
+  max-width: min(330px, calc(100vw - 96px));
+  display: grid;
+  gap: 3px;
+  padding: 12px 30px 12px 14px;
+  background: #0A0B09;
+  border: 1px solid #262A20;
+  border-left: 3px solid #C7F53F;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+}
+.aviso-modelo b { color: #C7F53F; font-size: 0.79rem; }
+.aviso-modelo span { color: #8B9280; }
+.aviso-modelo a {
+  color: #E8ECE0;
+  font-weight: 700;
+  text-decoration: underline;
+  justify-self: start;
+  margin-top: 3px;
+}
+.aviso-modelo a:hover { color: #C7F53F; }
+
+.aviso-x {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  color: #8B9280;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.aviso-x:hover { color: #E8ECE0; background: #1A1D16; }

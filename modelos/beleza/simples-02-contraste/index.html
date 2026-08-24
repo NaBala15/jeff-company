@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título da aba (nome do negócio + serviço + cidade) -->
+  <title>Estúdio Malva | Nail design e manicure em Niterói</title>
+  <!-- EDITAR: descrição que aparece no Google (até 155 caracteres) -->
+  <meta name="description" content="Nail design, alongamento em fibra e esmaltação em gel em Icaraí, Niterói. Hora marcada, material esterilizado. Agende pelo WhatsApp.">
+  <meta name="theme-color" content="#141216">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="pular" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ============================ CABEÇALHO ============================ -->
+  <header class="topo">
+    <div class="topo__interno">
+      <!-- EDITAR: nome do negócio -->
+      <a class="marca" href="#inicio">
+        <span class="marca__ponto" aria-hidden="true"></span>
+        Estúdio Malva
+      </a>
+
+      <button class="hamburguer js-menu-botao" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav js-menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="#servicos">Tabela</a></li>
+          <li><a href="#sobre">O estúdio</a></li>
+          <li><a href="#horarios">Horários</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+        <a class="botao botao--malva nav__cta" href="https://wa.me/5521997153082" target="_blank" rel="noopener">Marcar horário</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="hero__grade">
+        <div class="hero__texto">
+          <p class="etiqueta">
+            <!-- EDITAR: bairro e cidade -->
+            Icaraí &middot; Niterói &middot; hora marcada
+          </p>
+          <!-- EDITAR: frase de impacto principal -->
+          <h1>
+            Unha bem feita<br>
+            <span class="destaque">dura três semanas</span>
+          </h1>
+          <!-- EDITAR: parágrafo de apoio -->
+          <p class="hero__frase">
+            Alongamento, esmaltação em gel e nail art com acabamento que não
+            descasca na primeira semana. Sem fila, com horário reservado só pra você.
+          </p>
+
+          <div class="hero__acoes">
+            <!-- EDITAR: número do WhatsApp -->
+            <a class="botao botao--malva botao--grande" href="https://wa.me/5521997153082?text=Oi%21%20Quero%20marcar%20um%20hor%C3%A1rio%20no%20Est%C3%BAdio%20Malva." target="_blank" rel="noopener">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+              </svg>
+              Marcar no WhatsApp
+            </a>
+            <a class="botao botao--fantasma botao--grande" href="#servicos">Ver a tabela</a>
+          </div>
+
+          <!-- EDITAR: números de destaque do negócio -->
+          <dl class="hero__numeros">
+            <div><dt>Desde</dt><dd>2019</dd></div>
+            <div><dt>Clientes fixas</dt><dd>180</dd></div>
+            <div><dt>Nota</dt><dd>4,9</dd></div>
+          </dl>
+        </div>
+
+        <!-- PLACEHOLDER DE IMAGEM: instruções no topo do style.css -->
+        <div class="hero__midia">
+          <div class="foto foto--alta" role="img" aria-label="Trabalho de nail art feito no Estúdio Malva">
+            <span class="foto__rotulo">FOTO — nail art em destaque</span>
+          </div>
+          <span class="hero__tarja" aria-hidden="true">Material esterilizado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== SERVIÇOS ============================ -->
+    <section class="secao" id="servicos">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__num">01</span>
+          <h2>Tabela de serviços</h2>
+          <p>Preço fechado, sem taxa escondida no fim do atendimento.</p>
+        </header>
+
+        <!-- EDITAR: nome, descrição, duração e preço de cada serviço -->
+        <ul class="lista">
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Manicure Simples</h3>
+              <p>Corte, lixa, cutícula e esmaltação comum à sua escolha.</p>
+            </div>
+            <span class="lista__tempo">45 min</span>
+            <span class="lista__preco">R$ 35</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Pedicure Completa</h3>
+              <p>Escalda-pés, esfoliação, corte, cutícula e esmaltação.</p>
+            </div>
+            <span class="lista__tempo">1h</span>
+            <span class="lista__preco">R$ 45</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Manicure + Pedicure</h3>
+              <p>O combo mais pedido, feito na mesma sessão com desconto.</p>
+            </div>
+            <span class="lista__tempo">1h30</span>
+            <span class="lista__preco">R$ 70</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Alongamento em Fibra de Vidro</h3>
+              <p>Alongamento leve e resistente, com esmaltação em gel inclusa.</p>
+            </div>
+            <span class="lista__tempo">2h30</span>
+            <span class="lista__preco">R$ 180</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Manutenção de Alongamento</h3>
+              <p>A cada 3 semanas, com preenchimento da raiz e novo acabamento.</p>
+            </div>
+            <span class="lista__tempo">1h30</span>
+            <span class="lista__preco">R$ 90</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Esmaltação em Gel</h3>
+              <p>Na unha natural, com brilho que aguenta três semanas.</p>
+            </div>
+            <span class="lista__tempo">1h</span>
+            <span class="lista__preco">R$ 60</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Blindagem de Unhas</h3>
+              <p>Para unha fraca ou que descasca. Fortalece e dá acabamento.</p>
+            </div>
+            <span class="lista__tempo">50 min</span>
+            <span class="lista__preco">R$ 55</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Nail Art</h3>
+              <p>Desenho à mão livre, francesinha colorida, pedraria ou encapsulada.</p>
+            </div>
+            <span class="lista__tempo">por unha</span>
+            <span class="lista__preco">R$ 8</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Remoção de Alongamento</h3>
+              <p>Retirada com acetona em banho, sem lixar a unha natural.</p>
+            </div>
+            <span class="lista__tempo">40 min</span>
+            <span class="lista__preco">R$ 40</span>
+          </li>
+        </ul>
+
+        <!-- EDITAR: formas de pagamento -->
+        <p class="nota">Pix, dinheiro e cartão &mdash; crédito em até 2x sem juros.</p>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE ============================= -->
+    <section class="secao secao--clara" id="sobre">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__num">02</span>
+          <h2>O estúdio</h2>
+        </header>
+
+        <div class="sobre">
+          <div class="sobre__texto">
+            <!-- EDITAR: história e apresentação do negócio -->
+            <p class="sobre__abre">
+              Comecei atendendo em casa, em 2019, com uma mesinha na sala e três
+              clientes por semana. Hoje é um estúdio com duas cadeiras, agenda cheia
+              e a mesma regra do primeiro dia: unha malfeita não sai daqui.
+            </p>
+            <p>
+              Trabalho com hora marcada porque unha boa leva tempo. Prefiro atender
+              menos gente por dia e entregar um acabamento que dura, do que empilhar
+              horário e devolver a cliente com a cutícula machucada.
+            </p>
+          </div>
+
+          <!-- EDITAR: quatro diferenciais do negócio -->
+          <ol class="passos">
+            <li>
+              <span class="passos__num" aria-hidden="true">01</span>
+              <h3>Esterilização de verdade</h3>
+              <p>Autoclave própria e alicate individual. Se preferir, pode trazer o seu.</p>
+            </li>
+            <li>
+              <span class="passos__num" aria-hidden="true">02</span>
+              <h3>Horário que começa na hora</h3>
+              <p>Só uma cliente por vez, com folga entre os atendimentos.</p>
+            </li>
+            <li>
+              <span class="passos__num" aria-hidden="true">03</span>
+              <h3>Produto profissional</h3>
+              <p>Gel e fibra de marcas registradas, sem produto vencido ou recondicionado.</p>
+            </li>
+            <li>
+              <span class="passos__num" aria-hidden="true">04</span>
+              <h3>Conserto grátis em 5 dias</h3>
+              <p>Quebrou ou descolou uma unha nesse prazo? Eu refaço sem cobrar.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="sobre__fotos">
+          <div class="foto" role="img" aria-label="Bancada de trabalho do estúdio">
+            <span class="foto__rotulo">FOTO — bancada</span>
+          </div>
+          <div class="foto" role="img" aria-label="Alongamento em fibra de vidro finalizado">
+            <span class="foto__rotulo">FOTO — alongamento</span>
+          </div>
+          <div class="foto" role="img" aria-label="Esmaltação em gel com francesinha">
+            <span class="foto__rotulo">FOTO — esmaltação em gel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HORÁRIOS E ÁREA DE ATENDIMENTO ==================== -->
+    <section class="secao" id="horarios">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__num">03</span>
+          <h2>Horários e área</h2>
+          <p>A agenda da semana costuma fechar na sexta anterior.</p>
+        </header>
+
+        <!-- EDITAR: dias e horários de funcionamento -->
+        <div class="placar">
+          <div class="placar__dia placar__dia--off">
+            <span class="placar__nome">SEG</span>
+            <span class="placar__hora">Fechado</span>
+          </div>
+          <div class="placar__dia">
+            <span class="placar__nome">TER</span>
+            <span class="placar__hora">10h &ndash; 19h</span>
+          </div>
+          <div class="placar__dia">
+            <span class="placar__nome">QUA</span>
+            <span class="placar__hora">10h &ndash; 19h</span>
+          </div>
+          <div class="placar__dia">
+            <span class="placar__nome">QUI</span>
+            <span class="placar__hora">10h &ndash; 20h</span>
+          </div>
+          <div class="placar__dia placar__dia--on">
+            <span class="placar__nome">SEX</span>
+            <span class="placar__hora">10h &ndash; 21h</span>
+          </div>
+          <div class="placar__dia placar__dia--on">
+            <span class="placar__nome">SÁB</span>
+            <span class="placar__hora">09h &ndash; 18h</span>
+          </div>
+          <div class="placar__dia placar__dia--off">
+            <span class="placar__nome">DOM</span>
+            <span class="placar__hora">Fechado</span>
+          </div>
+        </div>
+
+        <!-- EDITAR: bairros e cidades atendidos -->
+        <div class="area">
+          <h3>Onde eu atendo</h3>
+          <p>
+            O atendimento é sempre no estúdio, em Icaraí. Recebo clientes
+            principalmente destes bairros:
+          </p>
+          <ul class="pilulas">
+            <li>Icaraí</li>
+            <li>Santa Rosa</li>
+            <li>Ingá</li>
+            <li>Centro de Niterói</li>
+            <li>São Francisco</li>
+            <li>Charitas</li>
+          </ul>
+          <p class="area__nota">
+            Noiva e formanda: atendo em domicílio só nesses casos, com orçamento à parte.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTATO ============================ -->
+    <section class="secao secao--clara" id="contato">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__num">04</span>
+          <h2>Contato e endereço</h2>
+        </header>
+
+        <div class="contato">
+          <!-- EDITAR: bloco reservado para o mapa. Para usar o mapa real, troque
+               este bloco pelo iframe do Google Maps mantendo a classe "mapa". -->
+          <div class="mapa" role="img" aria-label="Mapa da localização do Estúdio Malva">
+            <span class="mapa__rotulo">MAPA — espaço reservado</span>
+            <span class="mapa__dica">Av. Marechal Câmara, 402 &mdash; sala 12, Icaraí</span>
+          </div>
+
+          <div class="contato__dados">
+            <!-- EDITAR: endereço completo -->
+            <h3>Endereço</h3>
+            <address>
+              Av. Marechal Câmara, 402 &mdash; sala 12<br>
+              Icaraí &mdash; Niterói/RJ<br>
+              CEP 24220-030
+            </address>
+
+            <!-- EDITAR: ponto de referência -->
+            <h3>Referência</h3>
+            <p>Prédio comercial em frente à praça, com portaria 24h. Peça o 12.</p>
+
+            <h3>Falar comigo</h3>
+            <ul class="contato__links">
+              <!-- EDITAR: WhatsApp -->
+              <li><a href="https://wa.me/5521997153082" target="_blank" rel="noopener">(21) 99715-3082 &middot; WhatsApp</a></li>
+              <!-- EDITAR: telefone fixo -->
+              <li><a href="tel:+552126108844">(21) 2610-8844</a></li>
+            </ul>
+
+            <h3>Redes</h3>
+            <!-- EDITAR: links reais das redes sociais -->
+            <ul class="contato__redes">
+              <li>
+                <a href="https://instagram.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 4.86a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-3.2a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+                  </svg>
+                  @estudiomalva
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M13.5 22v-8.2h2.8l.42-3.22H13.5V8.53c0-.93.26-1.57 1.6-1.57h1.71V4.08c-.3-.04-1.31-.13-2.5-.13-2.47 0-4.16 1.51-4.16 4.28v2.35H7.34V13.8h2.81V22h3.35Z"/>
+                  </svg>
+                  /estudiomalva
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <div>
+        <!-- EDITAR: nome e frase do negócio -->
+        <p class="rodape__nome">Estúdio Malva</p>
+        <p class="rodape__frase">Nail design e manicure em Icaraí, Niterói. Desde 2019.</p>
+      </div>
+
+      <nav class="rodape__nav" aria-label="Menu do rodapé">
+        <a href="#servicos">Tabela</a>
+        <a href="#sobre">O estúdio</a>
+        <a href="#horarios">Horários</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+
+    <div class="rodape__base">
+      <!-- EDITAR: ano e nome do negócio -->
+      <p>&copy; 2026 Estúdio Malva. Todos os direitos reservados.</p>
+      <!-- EDITAR: crédito da sua agência -->
+      <p>Página criada e mantida por <strong>JeffDev</strong></p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+  <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+  <a class="zap" href="https://wa.me/5521997153082?text=Oi%21%20Vim%20pelo%20site%20do%20Est%C3%BAdio%20Malva." target="_blank" rel="noopener" aria-label="Falar com o Estúdio Malva no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+    </svg>
+    <span class="zap__texto">Marcar</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -176,6 +176,59 @@ window.CONJUNTOS = [
         termos: ['arquiteto', 'arquiteta', 'arquitetura', 'design de interiores']
       }
     }
+  },
+
+  {
+    id: 'beleza',
+    nome: 'Beleza',
+
+    /* que ramos digitados caem neste conjunto */
+    termos: [
+      'cabeleireiro', 'cabeleireira', 'cabelereiro', 'cabelereira',
+      'salão', 'salao', 'salões', 'saloes', 'salão de beleza',
+      'barbearia', 'barbeiro', 'barbeira',
+      'estética', 'estetica', 'esteticista', 'estética facial',
+      'manicure', 'pedicure', 'unha', 'nail', 'nail design',
+      'depilação', 'depilacao', 'depiladora',
+      'sobrancelha', 'cílios', 'cilios', 'lash', 'micropigmentação',
+      'micropigmentacao', 'maquiagem', 'maquiadora', 'massagem',
+      'massagista', 'spa', 'podologia', 'podóloga', 'podologa',
+      'drenagem', 'limpeza de pele'
+    ],
+
+    paginas: {
+      'simples-1': {
+        titulo: 'Espaço Camélia',
+        resumo: 'Claro e acolhedor, com foto grande em arco no topo e os tratamentos em cartões.',
+        bom_para: 'Estética, massagem e depilação com hora marcada',
+        imagem: 'bel-simples-01.webp',
+        link: 'beleza/simples-01-rose/',
+        /* quando o ramo casar com um destes, este é o recomendado */
+        termos: ['estética', 'estetica', 'esteticista', 'estética facial',
+                 'depilação', 'depilacao', 'depiladora', 'massagem',
+                 'massagista', 'spa', 'drenagem', 'limpeza de pele',
+                 'podologia', 'podóloga', 'podologa']
+      },
+      'simples-2': {
+        titulo: 'Estúdio Malva',
+        resumo: 'Escuro e moderno, com título grande e a tabela de preços em lista.',
+        bom_para: 'Unha, sobrancelha e cílios, para público jovem',
+        imagem: 'bel-simples-02.webp',
+        link: 'beleza/simples-02-contraste/',
+        termos: ['manicure', 'pedicure', 'unha', 'nail', 'nail design',
+                 'sobrancelha', 'cílios', 'cilios', 'lash', 'maquiagem',
+                 'maquiadora', 'micropigmentação', 'micropigmentacao']
+      },
+      'premium': {
+        titulo: 'Casa Serena',
+        resumo: 'A página maior: galeria clicável, depoimentos em carrossel, dúvidas e números.',
+        bom_para: 'Clínica de estética e salão de ticket mais alto',
+        imagem: 'bel-premium-01.webp',
+        link: 'beleza/premium-01-luxo/',
+        termos: ['cabeleireiro', 'cabeleireira', 'cabelereiro', 'cabelereira',
+                 'salão', 'salao', 'salões', 'saloes', 'salão de beleza']
+      }
+    }
   }
 ];
 

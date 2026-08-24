@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelos de página — Beleza | Escolha o seu</title>
+  <meta name="description" content="Compare os três modelos de página para estética, manicure e beleza feminina: dois simples e um premium.">
+  <style>
+/* ==================================================================
+   COMPARATIVO — vitrine dos 3 modelos do ramo Beleza
+   Página que você mostra ao cliente para ele escolher.
+   ================================================================== */
+
+:root {
+  --fundo:       #12100F;
+  --superficie:  #1B1816;
+  --superficie-2:#241F1C;
+  --texto:       #F2ECE6;
+  --texto-suave: #A2968C;
+  --linha:       #322B27;
+  --ouro:        #C9A46A;
+  --ouro-claro:  #E4CFA6;
+  --r:           16px;
+  --largura:     1320px;
+  --fonte-titulo: Georgia, "Times New Roman", Times, serif;
+  --fonte-texto:  "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 400; line-height: 1.16; margin: 0 0 .5em; }
+p { margin: 0 0 1em; }
+ul { list-style: none; margin: 0; padding: 0; }
+:focus-visible { outline: 3px solid var(--ouro); outline-offset: 3px; }
+
+/* ============================= TOPO ============================== */
+.topo { border-bottom: 1px solid var(--linha); background: var(--superficie); }
+.topo__interno {
+  max-width: var(--largura); margin: 0 auto; padding: 16px 22px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+}
+.topo__marca { margin: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; }
+.topo__marca strong { color: var(--ouro); }
+.topo__ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--ouro); }
+.topo__dica { margin: 0; font-size: 13px; color: var(--texto-suave); }
+
+/* ============================= INTRO ============================= */
+.intro { max-width: 760px; margin: 0 auto; padding: 56px 22px 34px; text-align: center; }
+.intro h1 { font-size: clamp(30px, 5.5vw, 48px); }
+.intro p { color: var(--texto-suave); margin: 0; }
+
+/* =========================== VITRINE ============================= */
+.vitrine {
+  max-width: var(--largura); margin: 0 auto; padding: 20px 22px 60px;
+  display: grid; gap: 22px;
+}
+
+.modelo {
+  background: var(--superficie); border: 1px solid var(--linha);
+  border-radius: var(--r); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.modelo--premium { border-color: rgba(201, 164, 106, .5); box-shadow: 0 22px 50px rgba(0, 0, 0, .45); }
+
+.modelo__cabeca { padding: 22px 22px 14px; }
+.modelo__tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
+}
+.modelo__tag--simples { background: rgba(242, 236, 230, .1); color: var(--texto-suave); }
+.modelo__tag--premium { background: var(--ouro); color: #1B1512; }
+.modelo__cabeca h2 { font-size: 28px; margin-bottom: 4px; }
+.modelo__negocio { margin: 0; font-size: 13px; color: var(--texto-suave); }
+
+/* A janela de prévia: o iframe é renderizado grande (para a página cair no
+   layout de computador) e reduzido por transform.
+
+   A largura é 320% da janela e a escala é 1/3.2, então o resultado dá
+   exatamente 100% da janela em qualquer tamanho de tela. Com largura fixa
+   em pixels, a prévia ficava mais larga que a janela e cortava a coluna de
+   preços na direita — que é justamente o que o cliente quer ver. */
+.modelo__tela {
+  position: relative; overflow: hidden;
+  height: 480px; margin: 0 16px;
+  border: 1px solid var(--linha); border-radius: 10px;
+  background: #fff;
+}
+.modelo__tela iframe {
+  position: absolute; top: 0; left: 0;
+  width: 320%; height: 320%;
+  border: 0;
+  transform: scale(.3125);
+  transform-origin: 0 0;
+}
+
+.modelo__pe { padding: 18px 22px 22px; margin-top: auto; }
+.modelo__resumo { font-size: 14px; color: var(--texto-suave); }
+
+.botao {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 22px; border: 1px solid transparent; border-radius: 999px;
+  font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: .25s ease;
+}
+.botao--linha { border-color: var(--linha); color: var(--texto); }
+.botao--linha:hover { border-color: var(--ouro); color: var(--ouro); }
+.botao--ouro { background: var(--ouro); color: #1B1512; }
+.botao--ouro:hover { background: var(--ouro-claro); }
+
+/* ============================ EXTRAS ============================= */
+.extras {
+  max-width: var(--largura); margin: 0 auto; padding: 0 22px 70px;
+}
+.extras__cabeca { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+.extras__tag {
+  display: inline-block; background: var(--ouro); color: #1B1512;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 999px; margin-bottom: 14px;
+}
+.extras__cabeca h2 { font-size: clamp(26px, 4.4vw, 38px); }
+.extras__cabeca p { color: var(--texto-suave); margin: 0; }
+
+.extras__lista { display: grid; gap: 16px; }
+.extras__lista li {
+  background: var(--superficie-2); border: 1px solid var(--linha);
+  border-left: 3px solid var(--ouro);
+  border-radius: 10px; padding: 20px 22px;
+}
+.extras__num { font-size: 12px; letter-spacing: .16em; color: var(--ouro); }
+.extras__lista h3 { font-size: 19px; margin: 6px 0 6px; }
+.extras__lista p { margin: 0; font-size: 15px; color: var(--texto-suave); }
+
+.extras__nota {
+  text-align: center; margin: 36px auto 0; max-width: 560px;
+  font-size: 14px; color: var(--texto-suave);
+}
+
+/* ============================ RODAPÉ ============================= */
+.rodape {
+  border-top: 1px solid var(--linha); padding: 22px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+}
+.rodape p { margin: 0; font-size: 13px; color: var(--texto-suave); }
+.rodape strong { color: var(--ouro); }
+
+/* ========================== RESPONSIVO =========================== */
+@media (min-width: 780px) {
+  .extras__lista { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1100px) {
+  .vitrine { grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .modelo__tela { height: 560px; }
+  .extras__lista { grid-template-columns: repeat(4, 1fr); }
+  .rodape { flex-direction: row; justify-content: space-between; max-width: var(--largura); margin: 0 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao { transition: none; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="topo">
+    <div class="topo__interno">
+      <p class="topo__marca">
+        <span class="topo__ponto" aria-hidden="true"></span>
+        Modelos de página &mdash; <strong>Beleza</strong>
+      </p>
+      <p class="topo__dica">Role dentro de cada janela para ver a página inteira</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Escolha o modelo da sua página</h1>
+      <p>
+        São três páginas prontas. Todas ficam com o nome, as cores, as fotos e os
+        preços do seu negócio &mdash; o que muda é o tamanho e a organização.
+        As páginas abaixo estão preenchidas com um negócio de exemplo só para
+        você ver o formato funcionando.
+      </p>
+    </section>
+
+    <!-- ===================== OS TRÊS MODELOS ===================== -->
+    <section class="vitrine" aria-label="Os três modelos lado a lado">
+
+      <article class="modelo">
+        <header class="modelo__cabeca">
+          <span class="modelo__tag modelo__tag--simples">Simples</span>
+          <h2>Suave</h2>
+          <p class="modelo__negocio">Exemplo: Espaço Camélia &mdash; estética facial e corporal</p>
+        </header>
+
+        <div class="modelo__tela">
+          <iframe src="simples-01-rose/index.html" title="Prévia do modelo Suave — Espaço Camélia"></iframe>
+        </div>
+
+        <div class="modelo__pe">
+          <p class="modelo__resumo">
+            Acolhedor e claro, com foto grande em arco no topo e os serviços em
+            cartões. Boa escolha para quem quer passar calma e cuidado.
+          </p>
+          <a class="botao botao--linha" href="simples-01-rose/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
+        </div>
+      </article>
+
+      <article class="modelo">
+        <header class="modelo__cabeca">
+          <span class="modelo__tag modelo__tag--simples">Simples</span>
+          <h2>Contraste</h2>
+          <p class="modelo__negocio">Exemplo: Estúdio Malva &mdash; nail design e manicure</p>
+        </header>
+
+        <div class="modelo__tela">
+          <iframe src="simples-02-contraste/index.html" title="Prévia do modelo Contraste — Estúdio Malva"></iframe>
+        </div>
+
+        <div class="modelo__pe">
+          <p class="modelo__resumo">
+            Escuro e moderno, com título grande e a tabela de preços em lista.
+            Boa escolha para quem quer parecer atual e direto ao ponto.
+          </p>
+          <a class="botao botao--linha" href="simples-02-contraste/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
+        </div>
+      </article>
+
+      <article class="modelo modelo--premium">
+        <header class="modelo__cabeca">
+          <span class="modelo__tag modelo__tag--premium">Premium</span>
+          <h2>Luxo</h2>
+          <p class="modelo__negocio">Exemplo: Casa Serena &mdash; estética avançada</p>
+        </header>
+
+        <div class="modelo__tela">
+          <iframe src="premium-01-luxo/index.html" title="Prévia do modelo Luxo — Casa Serena"></iframe>
+        </div>
+
+        <div class="modelo__pe">
+          <p class="modelo__resumo">
+            A página maior, com galeria clicável, depoimentos em carrossel,
+            perguntas frequentes e animações. Para quem quer peso na primeira
+            impressão.
+          </p>
+          <a class="botao botao--ouro" href="premium-01-luxo/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ===================== O QUE O PREMIUM TEM A MAIS ===================== -->
+    <section class="extras">
+      <header class="extras__cabeca">
+        <span class="extras__tag">Premium</span>
+        <h2>O que o modelo Luxo tem a mais</h2>
+        <p>Tudo que os dois simples têm, mais sete coisas que os simples não têm.</p>
+      </header>
+
+      <ul class="extras__lista">
+        <li>
+          <span class="extras__num" aria-hidden="true">01</span>
+          <h3>Galeria de trabalhos clicável</h3>
+          <p>As fotos abrem ampliadas na tela, com setas para passar de uma para a outra.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">02</span>
+          <h3>Depoimentos em carrossel</h3>
+          <p>Os depoimentos passam com setas, bolinhas ou arrastando o dedo no celular.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">03</span>
+          <h3>Perguntas frequentes que abrem e fecham</h3>
+          <p>Responde as dúvidas que travam a decisão sem deixar a página comprida.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">04</span>
+          <h3>Números que contam sozinhos</h3>
+          <p>Anos de casa, atendimentos e nota sobem na tela quando a pessoa chega neles.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">05</span>
+          <h3>Chamada extra no meio da página</h3>
+          <p>Uma faixa de convite entre as seções, para quem não vai rolar até o fim.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">06</span>
+          <h3>Animações ao rolar e nos botões</h3>
+          <p>As seções entram suave e os botões respondem ao toque. Dá sensação de caro.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">07</span>
+          <h3>Cabeçalho que muda ao rolar</h3>
+          <p>O topo encolhe e ganha fundo quando a pessoa desce, liberando espaço de tela.</p>
+        </li>
+      </ul>
+
+      <p class="extras__nota">
+        As três páginas funcionam sem internet, abrem rápido no celular e não
+        dependem de nenhum programa de fora.
+      </p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Vitrine de modelos &mdash; ramo Beleza</p>
+    <p>Páginas criadas e mantidas por <strong>JeffDev</strong></p>
+  </footer>
+
+</body>
+</html>
