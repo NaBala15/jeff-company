@@ -210,6 +210,9 @@ textarea{resize:vertical;min-height:64px}
   </article>
 </main>
 
+<!-- Dados pessoais, fora do Git. Se não existir, o gerador segue sem eles. -->
+<script src="meus-dados.local.js"></script>
+
 <script>
 (function () {
   'use strict';
@@ -248,6 +251,11 @@ textarea{resize:vertical;min-height:64px}
   };
 
   function carregarMemoria() {
+    /* Dados pessoais (CPF, endereço, Pix) vivem em meus-dados.local.js, que
+       está no .gitignore. Se o arquivo não existir, nada quebra: os campos
+       ficam vazios e você digita uma vez, e o navegador memoriza. */
+    var locais = window.MEUS_DADOS_LOCAIS || {};
+
     var salvo = {};
     try { salvo = JSON.parse(localStorage.getItem('jc-contratos') || '{}'); }
     catch (e) { salvo = {}; }
@@ -255,6 +263,7 @@ textarea{resize:vertical;min-height:64px}
     /* o que você já corrigiu uma vez vale mais do que o padrão daqui */
     var junto = {};
     for (var k in MEUS_DADOS) junto[k] = MEUS_DADOS[k];
+    for (var l in locais) if (locais[l]) junto[l] = locais[l];
     for (var j in salvo) if (salvo[j]) junto[j] = salvo[j];
     return junto;
   }

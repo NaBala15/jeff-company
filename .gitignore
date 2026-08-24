@@ -7,3 +7,8 @@ desktop.ini
 # Editor
 .vscode/
 .idea/
+
+# Dados pessoais — NUNCA versionar.
+# O repositorio e publico: CPF, endereco de casa e chave Pix ficam so aqui
+# na maquina. Ver ferramentas/meus-dados.local.js
+*.local.js
