@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- ======================================================================
+
+     COMPARATIVO DOS MODELOS — serviços técnicos e reformas
+
+     Criado por JEFF COMPANY · JeffDev
+     Página interna da agência, para escolher o modelo com o cliente.
+     Não publique este arquivo junto com o site entregue.
+
+     ====================================================================== -->
+<head>
+<meta charset="UTF-8">
+
+<!-- Página interna ou de exemplo: fora do Google de propósito. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparativo — modelos de serviços técnicos e reformas</title>
+<meta name="author" content="Jeff Company">
+<meta name="description" content="Os três modelos de landing page para serviços técnicos e reformas, lado a lado.">
+
+<style>
+/* ==========================================================================
+   COMPARATIVO — página interna, só para você e o cliente escolherem.
+   NÃO faz parte do que é entregue. Não publique este arquivo.
+   ========================================================================== */
+
+:root {
+  --bg: #0E1013;
+  --painel: #16191E;
+  --linha: #262B33;
+  --texto: #E9ECF1;
+  --suave: #939BA8;
+  --acento: #7BD389;
+  --raio: 10px;
+  --fonte: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --mono: 'JetBrains Mono', 'Cascadia Mono', Consolas, 'Courier New', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--texto);
+  font-family: var(--fonte);
+  line-height: 1.6;
+}
+
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(14, 16, 19, 0.96);
+  border-bottom: 1px solid var(--linha);
+  padding: 16px 22px;
+}
+
+.topo-linha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1700px;
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: 1.06rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.subtitulo {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: var(--suave);
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.rotulo-controle {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--suave);
+  margin-right: 4px;
+}
+
+.btn {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  padding: 8px 14px;
+  background: var(--painel);
+  color: var(--texto);
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+.btn:hover { border-color: var(--acento); }
+.btn[aria-pressed="true"] {
+  border-color: var(--acento);
+  color: var(--acento);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.palcos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 22px;
+  max-width: 1700px;
+  margin-inline: auto;
+  align-items: start;
+}
+
+.palco {
+  background: var(--painel);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.palco-cabeca {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--linha);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.palco-cabeca h2 { font-size: 0.98rem; margin: 0; }
+.palco-cabeca p {
+  margin: 2px 0 0;
+  font-size: 0.76rem;
+  color: var(--suave);
+}
+
+.selo {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--linha);
+  color: var(--suave);
+  white-space: nowrap;
+  flex: none;
+}
+.selo-premium {
+  border-color: var(--acento);
+  color: var(--acento);
+}
+
+/* A moldura tem uma largura fixa (360, 768 ou 1440) e é reduzida por
+   transform para caber na coluna. Assim o que aparece é exatamente o que
+   aquele tamanho de tela mostraria — e não a página espremida. */
+.moldura {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.moldura iframe {
+  display: block;
+  border: 0;
+  transform-origin: top left;
+  background: #FFF;
+}
+
+.palco-pe {
+  padding: 12px 16px;
+  border-top: 1px solid var(--linha);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.palco-pe a {
+  font-size: 0.78rem;
+  color: var(--acento);
+  text-decoration: none;
+}
+.palco-pe a:hover { text-decoration: underline; }
+.palco-pe span {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--suave);
+}
+
+.aviso {
+  max-width: 1700px;
+  margin: 0 auto 26px;
+  padding: 14px 22px;
+  font-size: 0.8rem;
+  color: var(--suave);
+}
+.aviso b { color: var(--texto); }
+
+@media (max-width: 1100px) {
+  .palcos { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="topo">
+  <div class="topo-linha">
+    <div>
+      <h1>Serviços técnicos e reformas — três modelos</h1>
+      <p class="subtitulo">Página interna de comparação. Não é para publicar.</p>
+    </div>
+
+    <div class="controles">
+      <span class="rotulo-controle">Largura da tela</span>
+      <button type="button" class="btn" data-largura="360" aria-pressed="false">360 px · celular</button>
+      <button type="button" class="btn" data-largura="768" aria-pressed="false">768 px · tablet</button>
+      <button type="button" class="btn" data-largura="1440" aria-pressed="true">1440 px · desktop</button>
+      <button type="button" class="btn" id="recarregar">Recarregar os três</button>
+    </div>
+  </div>
+</div>
+
+<div class="palcos">
+
+  <div class="palco">
+    <div class="palco-cabeca">
+      <div>
+        <h2>Reforma Certa</h2>
+        <p>Industrial · amarelo de obra + grafite</p>
+      </div>
+      <span class="selo">Simples 01</span>
+    </div>
+    <div class="moldura">
+      <iframe src="simples-01-industrial/index.html"
+              title="Prévia do modelo Reforma Certa" loading="lazy"></iframe>
+    </div>
+    <div class="palco-pe">
+      <a href="simples-01-industrial/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
+      <span>simples-01-industrial</span>
+    </div>
+  </div>
+
+  <div class="palco">
+    <div class="palco-cabeca">
+      <div>
+        <h2>Pronto 24h</h2>
+        <p>Emergência · azul + laranja de alerta</p>
+      </div>
+      <span class="selo">Simples 02</span>
+    </div>
+    <div class="moldura">
+      <iframe src="simples-02-emergencia/index.html"
+              title="Prévia do modelo Pronto 24h" loading="lazy"></iframe>
+    </div>
+    <div class="palco-pe">
+      <a href="simples-02-emergencia/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
+      <span>simples-02-emergencia</span>
+    </div>
+  </div>
+
+  <div class="palco">
+    <div class="palco-cabeca">
+      <div>
+        <h2>Vertek Reformas</h2>
+        <p>Elegante · cobre + carvão, com galeria e depoimentos</p>
+      </div>
+      <span class="selo selo-premium">Premium</span>
+    </div>
+    <div class="moldura">
+      <iframe src="premium-01-elegante/index.html"
+              title="Prévia do modelo Vertek Reformas" loading="lazy"></iframe>
+    </div>
+    <div class="palco-pe">
+      <a href="premium-01-elegante/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
+      <span>premium-01-elegante</span>
+    </div>
+  </div>
+
+</div>
+
+<p class="aviso">
+  <b>Se as prévias aparecerem em branco</b>, o navegador está bloqueando a
+  leitura de arquivos locais dentro de janelas (política do Chrome para
+  <code>file://</code>). Nesse caso use os links "Abrir em tela cheia" ou rode
+  um servidor local na pasta <code>modelos/servicos-tecnicos</code>. Os três
+  modelos em si abrem normalmente com duplo clique — é só esta página de
+  comparação que precisa disso.
+</p>
+
+<script>
+/* ==========================================================================
+   Troca a largura simulada dos três ao mesmo tempo.
+
+   A conta: a janela é criada com a largura escolhida (360, 768, 1440) e
+   depois encolhida por transform até caber na coluna. A altura da moldura
+   é corrigida na mesma proporção, senão sobraria um vão preto embaixo.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var ALTURA_BASE = 1400;   /* quanto de página mostrar, em pixels reais */
+  var molduras = document.querySelectorAll('.moldura');
+  var botoes = document.querySelectorAll('.btn[data-largura]');
+  var larguraAtual = 1440;
+
+  function aplicar() {
+    for (var i = 0; i < molduras.length; i++) {
+      var moldura = molduras[i];
+      var quadro = moldura.querySelector('iframe');
+      var disponivel = moldura.clientWidth;
+      var escala = disponivel / larguraAtual;
+
+      quadro.style.width = larguraAtual + 'px';
+      quadro.style.height = ALTURA_BASE + 'px';
+      quadro.style.transform = 'scale(' + escala + ')';
+      moldura.style.height = Math.round(ALTURA_BASE * escala) + 'px';
+    }
+  }
+
+  for (var j = 0; j < botoes.length; j++) {
+    botoes[j].addEventListener('click', function () {
+      larguraAtual = parseInt(this.getAttribute('data-largura'), 10);
+      for (var k = 0; k < botoes.length; k++) {
+        botoes[k].setAttribute('aria-pressed',
+          botoes[k] === this ? 'true' : 'false');
+      }
+      aplicar();
+    });
+  }
+
+  document.getElementById('recarregar').addEventListener('click', function () {
+    var quadros = document.querySelectorAll('.moldura iframe');
+    for (var m = 0; m < quadros.length; m++) {
+      /* reatribuir o src força o recarregamento sem perder a escala */
+      quadros[m].src = quadros[m].src;
+    }
+  });
+
+  /* redimensionar a própria janela muda a largura da coluna, então a
+     escala precisa ser recalculada */
+  var espera = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(espera);
+    espera = setTimeout(aplicar, 120);
+  });
+
+  aplicar();
+})();
+</script>
+
+</body>
+</html>

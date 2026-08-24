@@ -1,0 +1,1045 @@
+/* ==========================================================================
+
+   PRONTO 24H — Simples 02 — emergência
+   Modelo de landing page para serviços técnicos e reformas
+
+   Criado por JEFF COMPANY · JeffDev
+   Criação de sites, automação de WhatsApp e Google Meu Negócio
+   WhatsApp (11) 99709-7050
+
+   Propriedade da Jeff Company. Material de trabalho da agência: pode ser
+   personalizado e entregue a quantos clientes forem necessários. O cliente
+   contrata o site pronto, não o modelo.
+
+   ========================================================================== */
+
+/* ==========================================================================
+   PRONTO 24H — modelo simples 02 "emergência"
+   Serviços técnicos e reformas
+
+   COMO TROCAR AS CORES, AS FONTES E OS ARREDONDAMENTOS
+   Está tudo no bloco :root logo abaixo. Mude ali e a página inteira muda.
+   ========================================================================== */
+
+:root {
+
+  /* ---- Cores -------------------------------------------------------- */
+  /* EDITAR: cor principal da marca (azul de confiança) */
+  --cor-marca: #0B5FD0;
+  --cor-marca-escura: #084BA6;
+  --cor-marca-clara: #E8F1FE;
+
+  /* EDITAR: cor de alerta, usada só na urgência (laranja) */
+  --cor-alerta: #FF6B00;
+  --cor-alerta-escura: #D95900;
+
+  --cor-texto: #14181F;
+  --cor-texto-suave: #5A6270;
+  --cor-texto-claro: #FFFFFF;
+
+  --cor-fundo: #FFFFFF;
+  --cor-cinza: #F4F6F9;
+  --cor-linha: #DEE3EB;
+
+  /* EDITAR: cor do botão de WhatsApp */
+  --cor-zap: #25D366;
+  --cor-zap-escura: #1EB456;
+
+  /* ---- Tipografia (pilhas nativas, nenhuma fonte baixada) ------------ */
+  --fonte-titulo: 'Trebuchet MS', 'Lucida Grande', 'Segoe UI', Verdana, sans-serif;
+  --fonte-texto: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  --ts-hero: clamp(1.95rem, 6vw, 3.5rem);
+  --ts-h2: clamp(1.55rem, 4vw, 2.4rem);
+  --ts-h3: 1.14rem;
+  --ts-texto: 1.02rem;
+  --ts-pequeno: 0.87rem;
+
+  /* ---- Espaçamento e formas ------------------------------------------ */
+  --largura: 1140px;
+  --gutter: 20px;
+  --secao-y: clamp(54px, 8vw, 96px);
+
+  /* Cantos bem redondos: é o que separa este modelo do industrial */
+  --raio: 12px;
+  --raio-g: 20px;
+  --raio-pilula: 999px;
+
+  --sombra: 0 6px 20px rgba(20, 24, 31, 0.07);
+  --sombra-forte: 0 16px 40px rgba(11, 95, 208, 0.24);
+
+  --transicao: 180ms ease;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  font-size: var(--ts-texto);
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  margin: 0 0 12px;
+}
+
+p { margin: 0 0 14px; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+ul, ol, dl, dd { margin: 0; padding: 0; }
+li { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--cor-alerta);
+  outline-offset: 3px;
+  border-radius: var(--raio);
+}
+
+.pular {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--cor-marca);
+  color: var(--cor-texto-claro);
+  padding: 12px 18px;
+  border-radius: var(--raio);
+  z-index: 200;
+}
+.pular:focus { left: 12px; top: 12px; }
+
+section[id] { scroll-margin-top: 82px; }
+
+/* ==========================================================================
+   BLOCOS RESERVADOS PARA IMAGEM
+
+   PARA TROCAR POR UMA FOTO DE VERDADE:
+     1. remova a etiqueta <span class="imagem-rotulo"> do HTML
+     2. troque a div por <img src="fotos/nome.jpg" alt="descreva a foto"
+        width="1600" height="600" loading="lazy">
+     3. ou mantenha a div e troque a linha "background" abaixo por:
+        background: url('fotos/nome.jpg') center / cover no-repeat;
+   ========================================================================== */
+
+.imagem-espaco {
+  position: relative;
+  background:
+    linear-gradient(135deg, var(--cor-marca-clara) 0%, #DCE7F7 55%, #CFE0F5 100%);
+  border: 1px solid var(--cor-linha);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.imagem-rotulo {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--cor-marca-escura);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--cor-linha);
+  padding: 8px 14px;
+  border-radius: var(--raio-pilula);
+  text-align: center;
+  max-width: 88%;
+}
+
+/* ==========================================================================
+   FAIXA DE PLANTÃO
+   ========================================================================== */
+
+.faixa-plantao {
+  background: var(--cor-alerta);
+  color: var(--cor-texto-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 8px 16px;
+  text-align: center;
+}
+.faixa-plantao p {
+  margin: 0;
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.pisca {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cor-texto-claro);
+  flex: none;
+  animation: pulsar 1.8s ease-in-out infinite;
+}
+@keyframes pulsar {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ==========================================================================
+   CABEÇALHO
+   ========================================================================== */
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-linha);
+  box-shadow: var(--sombra);
+}
+
+.cabecalho-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.marca-selo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--cor-marca);
+  color: var(--cor-texto-claro);
+  display: grid;
+  place-items: center;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex: none;
+}
+
+.marca-texto { display: block; line-height: 1.25; }
+
+.marca-nome {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.14rem;
+}
+.marca-sub {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--cor-texto-suave);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.menu a {
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  transition: color var(--transicao);
+}
+.menu a:hover,
+.menu a:focus-visible { color: var(--cor-marca); }
+
+.menu-tel {
+  background: var(--cor-marca-clara);
+  color: var(--cor-marca) !important;
+  padding: 9px 16px;
+  border-radius: var(--raio-pilula);
+}
+.menu-tel:hover { background: #D7E6FC; }
+
+.hamburguer {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: var(--cor-cinza);
+  border: 1px solid var(--cor-linha);
+  border-radius: var(--raio);
+  cursor: pointer;
+  padding: 0;
+  place-items: center;
+  gap: 5px;
+}
+.hamburguer span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--cor-texto);
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+.hamburguer[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburguer[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburguer[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ==========================================================================
+   BOTÕES
+   ========================================================================== */
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px 26px;
+  border-radius: var(--raio-pilula);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transicao), background-color var(--transicao),
+              box-shadow var(--transicao);
+}
+
+.botao-zap {
+  background: var(--cor-zap);
+  color: var(--cor-texto-claro);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.30);
+}
+.botao-zap:hover {
+  background: var(--cor-zap-escura);
+  transform: translateY(-2px);
+}
+
+.botao-ligar {
+  background: var(--cor-fundo);
+  color: var(--cor-marca);
+  border-color: var(--cor-marca);
+}
+.botao-ligar:hover {
+  background: var(--cor-marca-clara);
+  transform: translateY(-2px);
+}
+
+.icone { flex: none; }
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
+.hero {
+  background:
+    radial-gradient(1000px 420px at 50% -10%, var(--cor-marca-clara), transparent 70%),
+    var(--cor-fundo);
+}
+
+.hero-caixa {
+  text-align: center;
+  padding-block: clamp(40px, 7vw, 76px) clamp(30px, 5vw, 52px);
+  max-width: 900px;
+}
+
+.etiqueta-urgente {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF1E6;
+  color: var(--cor-alerta-escura);
+  border: 1px solid #FFD9BD;
+  border-radius: var(--raio-pilula);
+  padding: 7px 16px;
+  font-size: 0.83rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.ponto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cor-alerta);
+  flex: none;
+  animation: pulsar 1.8s ease-in-out infinite;
+}
+
+.hero h1 {
+  font-size: var(--ts-hero);
+  margin-bottom: 16px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--cor-marca);
+  /* traço laranja por baixo da parte importante, desenhado em CSS */
+  box-shadow: inset 0 -0.18em 0 rgba(255, 107, 0, 0.28);
+}
+
+.hero-sub {
+  font-size: 1.08rem;
+  color: var(--cor-texto-suave);
+  max-width: 56ch;
+  margin: 0 auto 28px;
+}
+
+.hero-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.hero-numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 660px;
+  margin-inline: auto;
+}
+.hero-numeros li {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-linha);
+  border-radius: var(--raio);
+  padding: 16px 12px;
+  box-shadow: var(--sombra);
+}
+.hero-numeros b {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 1.24rem;
+  color: var(--cor-marca);
+  line-height: 1.2;
+}
+.hero-numeros span {
+  display: block;
+  font-size: 0.79rem;
+  color: var(--cor-texto-suave);
+  margin-top: 2px;
+}
+
+.hero-faixa-foto {
+  aspect-ratio: 16 / 6;
+  border-inline: 0;
+  border-bottom: 0;
+}
+
+/* ==========================================================================
+   SEÇÕES
+   ========================================================================== */
+
+.secao { padding-block: var(--secao-y); }
+.secao-cinza { background: var(--cor-cinza); }
+.secao-azul {
+  background: var(--cor-marca);
+  color: var(--cor-texto-claro);
+}
+
+.secao-titulo {
+  font-size: var(--ts-h2);
+  text-align: center;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+.secao-sub {
+  color: var(--cor-texto-suave);
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto 38px;
+}
+.secao-azul .secao-sub { color: rgba(255, 255, 255, 0.82); }
+
+/* ==========================================================================
+   SERVIÇOS EM LINHAS
+   ========================================================================== */
+
+.lista-servicos {
+  display: grid;
+  gap: 12px;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.linha-servico {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-linha);
+  border-radius: var(--raio-g);
+  padding: 20px 22px;
+  transition: border-color var(--transicao), box-shadow var(--transicao),
+              transform var(--transicao);
+}
+.linha-servico:hover {
+  border-color: var(--cor-marca);
+  box-shadow: var(--sombra);
+  transform: translateX(4px);
+}
+
+.linha-icone {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--raio);
+  background: var(--cor-marca-clara);
+  color: var(--cor-marca);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.linha-texto {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+}
+.linha-texto strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: var(--ts-h3);
+  color: var(--cor-texto);
+  margin-bottom: 2px;
+}
+
+.linha-preco {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--cor-alerta-escura);
+  background: #FFF1E6;
+  border-radius: var(--raio-pilula);
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   COMO FUNCIONA
+   ========================================================================== */
+
+.passos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin-bottom: 44px;
+}
+
+.passos li {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: var(--raio-g);
+  padding: 24px 22px;
+}
+
+.passo-num {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--cor-alerta);
+  color: var(--cor-texto-claro);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.06rem;
+  margin-bottom: 14px;
+}
+
+.passos h3 { font-size: var(--ts-h3); }
+.passos p {
+  margin: 0;
+  font-size: 0.93rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.caixa-destaque {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(22px, 4vw, 42px);
+  align-items: center;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: var(--raio-g);
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.destaque-foto {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--raio);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: linear-gradient(135deg, #2E7BE0 0%, #1B5FC0 60%, #0B4FA8 100%);
+}
+.destaque-foto .imagem-rotulo {
+  background: rgba(8, 46, 96, 0.86);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #FFFFFF;
+}
+
+.destaque-texto h3 { font-size: 1.32rem; }
+.destaque-texto p { color: rgba(255, 255, 255, 0.84); }
+
+.lista-marcada {
+  display: grid;
+  gap: 9px;
+  margin-top: 16px;
+}
+.lista-marcada li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+.lista-marcada li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--cor-alerta);
+  /* "V" de conferido, desenhado sem imagem */
+  clip-path: polygon(18% 50%, 42% 72%, 82% 26%, 90% 36%, 42% 88%, 10% 58%);
+}
+
+/* ==========================================================================
+   HORÁRIO E ÁREA
+   ========================================================================== */
+
+.grade-horario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.cartao-horario {
+  background: var(--cor-cinza);
+  border: 1px solid var(--cor-linha);
+  border-radius: var(--raio-g);
+  padding: 28px 26px;
+}
+.secao-cinza .cartao-horario { background: var(--cor-fundo); }
+
+.cartao-horario h3 { font-size: var(--ts-h3); margin-bottom: 14px; }
+
+.horario-grande {
+  font-family: var(--fonte-titulo);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cor-marca);
+  line-height: 1;
+  margin: 0 0 4px;
+}
+.horario-nota {
+  font-size: var(--ts-pequeno);
+  color: var(--cor-texto-suave);
+  margin-bottom: 18px;
+}
+
+.tabela-horario > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid var(--cor-linha);
+}
+.tabela-horario dt {
+  color: var(--cor-texto-suave);
+  font-size: 0.94rem;
+}
+.tabela-horario dd {
+  font-weight: 700;
+  font-size: 0.94rem;
+  white-space: nowrap;
+}
+
+.lista-bairros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lista-bairros li {
+  background: var(--cor-marca-clara);
+  color: var(--cor-marca-escura);
+  border-radius: var(--raio-pilula);
+  padding: 8px 15px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.nota {
+  margin: 16px 0 0;
+  font-size: var(--ts-pequeno);
+  color: var(--cor-texto-suave);
+}
+
+/* ==========================================================================
+   CONTATO
+   ========================================================================== */
+
+.grade-contato {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(22px, 4vw, 40px);
+  align-items: start;
+}
+
+.contato-linha {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-linha);
+  border-radius: var(--raio);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  transition: border-color var(--transicao), transform var(--transicao);
+}
+a.contato-linha:hover {
+  border-color: var(--cor-marca);
+  transform: translateX(3px);
+}
+.contato-linha span:last-child {
+  display: block;
+  font-size: var(--ts-pequeno);
+  color: var(--cor-texto-suave);
+}
+.contato-linha b {
+  display: block;
+  font-size: 1rem;
+  color: var(--cor-texto);
+}
+
+.contato-ic {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--cor-marca-clara);
+  color: var(--cor-marca);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.contato-dados .botao {
+  width: 100%;
+  margin-top: 16px;
+}
+
+/* EDITAR: para colocar o mapa de verdade, apague esta div do HTML e cole no
+   lugar o <iframe> que o Google Maps fornece em Compartilhar > Incorporar um
+   mapa. Mantenha width="100%" e height="380" no iframe. */
+.mapa-espaco {
+  min-height: 360px;
+  height: 100%;
+  border: 1px solid var(--cor-linha);
+  border-radius: var(--raio-g);
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(300px 200px at 50% 50%, rgba(11, 95, 208, 0.10), transparent 70%),
+    repeating-linear-gradient(0deg, #E6EBF2 0 1px, transparent 1px 42px),
+    repeating-linear-gradient(90deg, #E6EBF2 0 1px, transparent 1px 42px),
+    var(--cor-fundo);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+
+.rodape {
+  background: var(--cor-texto);
+  color: rgba(255, 255, 255, 0.74);
+  padding-block: 40px;
+  padding-bottom: 100px;
+}
+
+.rodape-grade {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.rodape p { margin: 0; font-size: var(--ts-pequeno); max-width: 46ch; }
+
+.rodape-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.16rem !important;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px !important;
+}
+
+.rodape-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+.rodape-links a {
+  font-size: var(--ts-pequeno);
+  text-decoration: none;
+  transition: color var(--transicao);
+}
+.rodape-links a:hover { color: #FFFFFF; }
+
+.rodape-legal {
+  margin-top: 20px !important;
+  font-size: 0.79rem !important;
+  color: rgba(255, 255, 255, 0.52);
+  max-width: none !important;
+}
+
+/* ==========================================================================
+   BOTÃO FLUTUANTE DE WHATSAPP
+   ========================================================================== */
+
+.zap-flutuante {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px 12px 14px;
+  border-radius: var(--raio-pilula);
+  background: var(--cor-zap);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.36);
+  transition: transform var(--transicao), background-color var(--transicao);
+}
+.zap-flutuante:hover {
+  background: var(--cor-zap-escura);
+  transform: translateY(-2px);
+}
+.zap-texto { font-size: 0.94rem; }
+
+/* ==========================================================================
+   CRÉDITO DA AGÊNCIA no rodapé
+   ========================================================================== */
+
+.credito-agencia {
+  margin-top: 10px !important;
+  font-size: 0.79rem !important;
+  color: rgba(255, 255, 255, 0.52);
+  max-width: none !important;
+}
+.credito-agencia a {
+  color: var(--cor-alerta);
+  font-weight: 700;
+  text-decoration: none;
+}
+.credito-agencia a:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   ANIMAÇÃO DE ENTRADA
+   ========================================================================== */
+
+.anima {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+.anima.visivel { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .anima { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   TELAS MÉDIAS  (tablet — testado em 768px)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .caixa-destaque,
+  .grade-contato {
+    grid-template-columns: 1fr;
+  }
+  .destaque-foto { aspect-ratio: 16 / 9; }
+  .mapa-espaco { min-height: 300px; }
+}
+
+
+/* ==========================================================================
+   MENU SANDUÍCHE  (começa antes do resto: são 5 itens de menu, e um deles
+   é o telefone, então a linha do cabeçalho aperta já no tablet)
+   ========================================================================== */
+
+@media (max-width: 860px) {
+
+  .hamburguer { display: grid; }
+  .cabecalho-linha { position: relative; }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-linha);
+    box-shadow: var(--sombra);
+    padding: 6px var(--gutter) 16px;
+    display: none;
+  }
+  .menu.aberto { display: flex; }
+
+  .menu a {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--cor-linha);
+  }
+  .menu-tel {
+    margin-top: 12px;
+    text-align: center;
+    border-bottom: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   CELULAR  (testado em 360px)
+   ========================================================================== */
+
+@media (max-width: 720px) {
+
+  /* a faixa de plantão sai: no celular ela empurra o conteúdo para baixo e a
+     mesma informação já aparece na etiqueta do hero */
+  .faixa-plantao { display: none; }
+
+  .hero-acoes .botao { width: 100%; }
+
+  .hero-numeros {
+    grid-template-columns: 1fr;
+  }
+  .hero-numeros li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: left;
+    padding: 13px 16px;
+  }
+  .hero-numeros span { margin-top: 0; text-align: right; }
+
+  /* serviço vira duas linhas: ícone + texto em cima, preço embaixo */
+  .linha-servico {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+  .linha-icone { width: 44px; height: 44px; }
+  .linha-preco {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+  .linha-servico:hover { transform: none; }
+
+  .secao-titulo, .secao-sub { max-width: none; }
+
+  .zap-flutuante {
+    right: 14px;
+    bottom: 14px;
+    padding: 12px 18px 12px 13px;
+  }
+}
+
+/* Em telas bem estreitas o botão flutuante fica só com o ícone */
+@media (max-width: 400px) {
+  .zap-texto { display: none; }
+  .zap-flutuante {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+}
+
+/* ==========================================================================
+   AVISO DE MODELO DE EXEMPLO
+
+   Criado pelo script só quando o endereço tem ?demo=1. O visual é o da Jeff
+   Company de propósito, e não o deste modelo: tem que ficar óbvio que este
+   pedacinho não faz parte da página do cliente.
+   ========================================================================== */
+
+.aviso-modelo {
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  z-index: 300;
+  /* nunca encosta no botão flutuante do WhatsApp, que fica à direita */
+  max-width: min(330px, calc(100vw - 96px));
+  display: grid;
+  gap: 3px;
+  padding: 12px 14px;
+  background: #0A0B09;
+  border: 1px solid #262A20;
+  border-left: 3px solid #C7F53F;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+}
+.aviso-modelo b { color: #C7F53F; font-size: 0.79rem; }
+.aviso-modelo span { color: #8B9280; }
+.aviso-modelo a {
+  color: #E8ECE0;
+  font-weight: 700;
+  text-decoration: underline;
+  justify-self: start;
+  margin-top: 3px;
+}
+.aviso-modelo a:hover { color: #C7F53F; }
+
+.aviso-modelo { padding-right: 30px; }
+.aviso-x {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  color: #8B9280;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.aviso-x:hover { color: #E8ECE0; background: #1A1D16; }
