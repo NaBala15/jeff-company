@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Página interna ou de exemplo: fora do Google de propósito. -->
+<meta name="robots" content="noindex, nofollow">
 <title>Gerador de contratos — Jeff Company</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,9 +233,29 @@ textarea{resize:vertical;min-height:64px}
      dados (nome, CPF, Pix, cidade) já vêm preenchidos no próximo contrato
      — só os dados do cliente mudam.
      ------------------------------------------------------------------ */
+  /* Os dados fixos da Jeff Company, para o primeiro contrato já sair quase
+     pronto. O que você digitar por cima fica salvo e passa na frente destes.
+
+     EDITAR: falta a razão social e o endereço — e a chave Pix, que eu de
+     propósito não guardo aqui: chave Pix em arquivo de código é pedir para
+     vazar no dia em que este projeto virar repositório público. */
+  var MEUS_DADOS = {
+    'SEU CPF OU CNPJ': '58.064.996/0001-89',
+    'SEU WHATSAPP':    '(11) 99709-7050',
+    'SEU E-MAIL':      'contato@jeffcompany.com.br',
+    'SUA CIDADE/UF':   'São Paulo/SP'
+  };
+
   function carregarMemoria() {
-    try { return JSON.parse(localStorage.getItem('jc-contratos') || '{}'); }
-    catch (e) { return {}; }
+    var salvo = {};
+    try { salvo = JSON.parse(localStorage.getItem('jc-contratos') || '{}'); }
+    catch (e) { salvo = {}; }
+
+    /* o que você já corrigiu uma vez vale mais do que o padrão daqui */
+    var junto = {};
+    for (var k in MEUS_DADOS) junto[k] = MEUS_DADOS[k];
+    for (var j in salvo) if (salvo[j]) junto[j] = salvo[j];
+    return junto;
   }
   function salvarMemoria() {
     try { localStorage.setItem('jc-contratos', JSON.stringify(valores)); }
