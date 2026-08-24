@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título da aba do navegador -->
+  <title>Nobre Barber Club | Barbearia premium no Batel</title>
+  <!-- EDITAR: descrição que aparece no Google (até 155 caracteres) -->
+  <meta name="description" content="Barbearia premium no Batel, Curitiba. Corte executivo, barba tradicional e whisky de cortesia. Atendimento exclusivo com hora marcada.">
+  <meta name="theme-color" content="#08080A">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="pular-para-conteudo" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ============================ CABEÇALHO ============================ -->
+  <!-- o js-cabecalho recebe a classe .encolhido depois de 40px de rolagem -->
+  <header class="cabecalho js-cabecalho">
+    <div class="cabecalho__interno">
+      <a class="marca" href="#inicio">
+        <!-- EDITAR: iniciais / monograma da barbearia -->
+        <span class="marca__monograma" aria-hidden="true">NB</span>
+        <span class="marca__texto">
+          <!-- EDITAR: nome da barbearia -->
+          <strong>Nobre</strong>
+          <em>Barber Club</em>
+        </span>
+      </a>
+
+      <button class="menu-botao js-menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu de navegação">
+        <span class="menu-botao__barra" aria-hidden="true"></span>
+        <span class="menu-botao__barra" aria-hidden="true"></span>
+        <span class="menu-botao__barra" aria-hidden="true"></span>
+      </button>
+
+      <nav class="navegacao js-menu" id="menu-principal" aria-label="Menu principal">
+        <ul class="navegacao__lista">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#sobre">O Clube</a></li>
+          <li><a href="#depoimentos">Membros</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#horarios">Horários</a></li>
+          <li><a href="#local">Endereço</a></li>
+        </ul>
+        <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+        <a class="botao botao--dourado" href="https://wa.me/5541998887766" target="_blank" rel="noopener">Reservar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <!-- PLACEHOLDER DE IMAGEM: ver instruções no topo de style.css -->
+      <div class="hero__fundo foto" role="img" aria-label="Ambiente do Nobre Barber Club">
+        <span class="foto__rotulo">FOTO — ambiente do clube</span>
+      </div>
+
+      <div class="hero__conteudo">
+        <p class="hero__linha-fina">Curitiba &middot; Batel &middot; desde 2011</p>
+        <!-- EDITAR: nome da barbearia -->
+        <h1 class="hero__titulo">Nobre<br><span>Barber Club</span></h1>
+        <!-- EDITAR: frase de impacto -->
+        <p class="hero__frase">
+          Barbearia de hora marcada para quem trata a própria imagem como parte do trabalho.
+          Ambiente reservado, barbeiro fixo e uma dose de whisky por conta da casa.
+        </p>
+
+        <div class="hero__acoes">
+          <!-- EDITAR: número do WhatsApp -->
+          <a class="botao botao--dourado botao--grande" href="https://wa.me/5541998887766?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20um%20hor%C3%A1rio%20no%20Nobre." target="_blank" rel="noopener">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+            </svg>
+            Reservar pelo WhatsApp
+          </a>
+          <a class="botao botao--linha botao--grande" href="#servicos">Conhecer os serviços</a>
+        </div>
+      </div>
+
+      <div class="hero__rolagem" aria-hidden="true"><span></span>role para descobrir</div>
+    </section>
+
+    <!-- ========================= FAIXA DE VALOR ======================== -->
+    <section class="faixa" aria-label="Diferenciais do clube">
+      <div class="container faixa__grade">
+        <!-- EDITAR: diferenciais do negócio -->
+        <div class="faixa__item">
+          <svg class="faixa__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 2 3 6v6c0 5.05 3.84 9.44 9 10 5.16-.56 9-4.95 9-10V6l-9-4Zm0 2.18 7 3.11V12c0 4.02-2.98 7.55-7 8.06-4.02-.51-7-4.04-7-8.06V7.29l7-3.11Zm-1.2 10.7-2.6-2.6 1.27-1.27 1.33 1.33 3.86-3.86 1.27 1.27-5.13 5.13Z"/>
+          </svg>
+          <h3>Barbeiro fixo</h3>
+          <p>Você escolhe o profissional e ele é reservado só para você.</p>
+        </div>
+        <div class="faixa__item">
+          <svg class="faixa__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm-.9 3v5.6l4.5 2.7.9-1.5-3.6-2.1V7h-1.8Z"/>
+          </svg>
+          <h3>Pontualidade</h3>
+          <p>Agenda com folga entre clientes. Aqui não existe sala de espera cheia.</p>
+        </div>
+        <div class="faixa__item">
+          <svg class="faixa__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 3h14l-1.1 8.3A6 6 0 0 1 13 16.4V19h3v2H8v-2h3v-2.6a6 6 0 0 1-4.9-5.1L5 3Zm2.27 2 .8 6.03A4 4 0 0 0 12 14.5a4 4 0 0 0 3.93-3.47L16.73 5H7.27Z"/>
+          </svg>
+          <h3>Bar de cortesia</h3>
+          <p>Whisky, espresso ou água com gás enquanto você é atendido.</p>
+        </div>
+        <div class="faixa__item">
+          <svg class="faixa__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 1.5 14.6 8h6.9l-5.6 4 2.1 6.6L12 14.7 6 18.6 8.1 12 2.5 8h6.9L12 1.5Zm0 4.6L10.9 9.4l-3.4.1 2.7 2-1 3.3 2.8-1.8 2.8 1.8-1-3.3 2.7-2-3.4-.1L12 6.1Z"/>
+          </svg>
+          <h3>Nota 5,0</h3>
+          <p>Mais de 700 avaliações de membros nos últimos cinco anos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         NÚMEROS — o contador sobe quando a seção entra na tela
+
+         O número final já vem escrito aqui dentro, e não zerado: se o
+         JavaScript não rodar, o visitante vê o valor certo em vez de "0".
+         EDITAR: o valor visível E o data-alvo precisam ser o mesmo número.
+
+         AVISO: números fictícios de demonstração. Substituir por dados reais
+         do cliente antes de publicar.
+         ==================================================================== -->
+    <section class="numeros" aria-label="O clube em números">
+      <div class="container numeros__grade">
+        <div class="numero js-contar" data-alvo="15" data-sufixo="">
+          <span class="numero__valor">15</span>
+          <span class="numero__rotulo">anos de clube</span>
+        </div>
+        <div class="numero js-contar" data-alvo="9400" data-sufixo="+">
+          <span class="numero__valor">9.400+</span>
+          <span class="numero__rotulo">cortes feitos</span>
+        </div>
+        <div class="numero js-contar" data-alvo="5" data-sufixo="">
+          <span class="numero__valor">5</span>
+          <span class="numero__rotulo">barbeiros na casa</span>
+        </div>
+        <div class="numero js-contar" data-alvo="94" data-sufixo="%">
+          <span class="numero__valor">94%</span>
+          <span class="numero__rotulo">dos membros voltam</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== SERVIÇOS ============================ -->
+    <section class="secao" id="servicos">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="ornamento" aria-hidden="true">&#9670;</span>
+          <h2>Serviços do Clube</h2>
+          <p>Tudo com produto importado, toalha quente e o tempo que o serviço exige.</p>
+        </header>
+
+        <!-- EDITAR: nomes, descrições e preços dos serviços -->
+        <div class="servicos">
+          <article class="servico">
+            <div class="servico__cabeca">
+              <h3>Corte Executivo</h3>
+              <span class="servico__preco">R$ 95</span>
+            </div>
+            <p>Corte sob medida com máquina e tesoura, lavagem, finalização e escova.</p>
+          </article>
+
+          <article class="servico">
+            <div class="servico__cabeca">
+              <h3>Barba Tradicional</h3>
+              <span class="servico__preco">R$ 80</span>
+            </div>
+            <p>Toalha quente, óleo pré-barba, navalha e bálsamo pós com aroma de cedro.</p>
+          </article>
+
+          <article class="servico servico--destaque">
+            <div class="servico__cabeca">
+              <h3>Experiência Nobre</h3>
+              <span class="servico__preco">R$ 180</span>
+            </div>
+            <p>Corte executivo, barba tradicional, limpeza de pele e massagem craniana. 2h de atendimento reservado.</p>
+            <span class="servico__selo">Mais pedido</span>
+          </article>
+
+          <article class="servico">
+            <div class="servico__cabeca">
+              <h3>Limpeza de Pele Masculina</h3>
+              <span class="servico__preco">R$ 130</span>
+            </div>
+            <p>Esfoliação, extração, máscara de argila e hidratação final.</p>
+          </article>
+
+          <article class="servico">
+            <div class="servico__cabeca">
+              <h3>Camuflagem de Grisalhos</h3>
+              <span class="servico__preco">R$ 90</span>
+            </div>
+            <p>Tonalização discreta que reduz os fios brancos sem mudar o tom natural.</p>
+          </article>
+
+          <article class="servico">
+            <div class="servico__cabeca">
+              <h3>Day Use Noivo</h3>
+              <span class="servico__preco">R$ 420</span>
+            </div>
+            <p>Pacote para o noivo e até 3 padrinhos, com bar liberado e sala reservada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ GALERIA ============================ -->
+    <section class="secao secao--carvao" id="galeria">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="ornamento" aria-hidden="true">&#9670;</span>
+          <h2>Galeria</h2>
+          <p>O clube por dentro e o resultado na cadeira.</p>
+        </header>
+
+        <!-- EDITAR: trocar cada placeholder por uma foto real do cliente.
+             O lightbox lê a legenda do atributo data-legenda de cada botão —
+             se trocar a foto, troque a legenda também. -->
+        <ul class="mosaico js-galeria">
+          <li class="mosaico__a">
+            <button class="mosaico__item js-abrir" type="button" data-legenda="Salão principal do clube, com as cinco cadeiras">
+              <span class="foto" aria-hidden="true"><span class="foto__rotulo">FOTO — salão principal</span></span>
+              <span class="mosaico__legenda">Salão principal</span>
+              <span class="sr-apenas">Ampliar foto: salão principal do clube</span>
+            </button>
+          </li>
+          <li class="mosaico__b">
+            <button class="mosaico__item js-abrir" type="button" data-legenda="Corte executivo finalizado, com acabamento na navalha">
+              <span class="foto" aria-hidden="true"><span class="foto__rotulo">FOTO — corte executivo</span></span>
+              <span class="mosaico__legenda">Corte executivo</span>
+              <span class="sr-apenas">Ampliar foto: corte executivo finalizado</span>
+            </button>
+          </li>
+          <li class="mosaico__c">
+            <button class="mosaico__item js-abrir" type="button" data-legenda="Barba feita na navalha, com toalha quente">
+              <span class="foto" aria-hidden="true"><span class="foto__rotulo">FOTO — barba na navalha</span></span>
+              <span class="mosaico__legenda">Barba na navalha</span>
+              <span class="sr-apenas">Ampliar foto: barba feita na navalha</span>
+            </button>
+          </li>
+          <li class="mosaico__d">
+            <button class="mosaico__item js-abrir" type="button" data-legenda="O bar do clube, aberto durante o atendimento">
+              <span class="foto" aria-hidden="true"><span class="foto__rotulo">FOTO — bar do clube</span></span>
+              <span class="mosaico__legenda">O bar</span>
+              <span class="sr-apenas">Ampliar foto: bar do clube</span>
+            </button>
+          </li>
+          <li class="mosaico__e">
+            <button class="mosaico__item js-abrir" type="button" data-legenda="Ferramentas do barbeiro no estojo de couro">
+              <span class="foto" aria-hidden="true"><span class="foto__rotulo">FOTO — ferramentas</span></span>
+              <span class="mosaico__legenda">Ferramentas</span>
+              <span class="sr-apenas">Ampliar foto: ferramentas em estojo de couro</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= FAIXA DE CHAMADA INTERMEDIÁRIA ================= -->
+    <section class="faixa-cta" aria-label="Reservar horário">
+      <div class="container faixa-cta__interno">
+        <div>
+          <!-- EDITAR: chamada do meio da página -->
+          <h2>A primeira reserva sai com 20% de desconto</h2>
+          <p>
+            Vale para qualquer serviço da casa, uma vez por membro novo.
+            Fale com a gente e escolha o barbeiro.
+          </p>
+        </div>
+        <!-- EDITAR: número do WhatsApp -->
+        <a class="botao botao--dourado botao--grande" href="https://wa.me/5541998887766?text=Ol%C3%A1%21%20Quero%20a%20primeira%20reserva%20com%20desconto." target="_blank" rel="noopener">Reservar meu horário</a>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE ============================= -->
+    <section class="secao" id="sobre">
+      <div class="container sobre">
+        <div class="sobre__midia">
+          <div class="foto foto--moldura" role="img" aria-label="Fundadores do Nobre Barber Club">
+            <span class="foto__rotulo">FOTO — os fundadores</span>
+          </div>
+          <!-- EDITAR: número de destaque do negócio -->
+          <div class="sobre__selo">
+            <strong>15</strong>
+            <span>anos de clube</span>
+          </div>
+        </div>
+
+        <div class="sobre__texto">
+          <span class="ornamento" aria-hidden="true">&#9670;</span>
+          <!-- EDITAR: história da barbearia -->
+          <h2>Não é só uma barbearia. É um clube.</h2>
+          <p>
+            Abrimos em 2011 com uma ideia simples: dar ao homem um lugar tranquilo para cuidar
+            da própria imagem sem pressa, sem fila e sem barulho.
+          </p>
+          <p>
+            Cada membro tem ficha própria com o histórico do corte, os produtos que usa e as
+            preferências que já combinou. Quando você senta na cadeira, a gente já sabe o que fazer.
+          </p>
+
+          <!-- EDITAR: diferenciais -->
+          <ul class="lista-nobre">
+            <li>Ficha individual com histórico de cada atendimento</li>
+            <li>Produtos importados inclusos em todos os serviços</li>
+            <li>Sala reservada para atendimento de noivos e grupos</li>
+            <li>Estacionamento com manobrista de cortesia</li>
+          </ul>
+
+          <!-- EDITAR: número do WhatsApp -->
+          <a class="botao botao--dourado" href="https://wa.me/5541998887766" target="_blank" rel="noopener">Quero ser membro</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== DEPOIMENTOS ========================== -->
+    <section class="secao secao--carvao" id="depoimentos">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="ornamento" aria-hidden="true">&#9670;</span>
+          <h2>O que dizem os membros</h2>
+        </header>
+
+        <!-- AVISO: depoimentos fictícios de demonstração.
+             EDITAR: substituir por depoimentos reais e autorizados antes de
+             publicar para um cliente. Se mudar a quantidade de <li>, as
+             bolinhas se ajustam sozinhas — só atualize o aria-label "1 de 5". -->
+        <div class="carrossel js-carrossel" role="group" aria-roledescription="carrossel" aria-label="Depoimentos de membros">
+          <div class="carrossel__janela">
+            <ul class="carrossel__trilho js-trilho">
+              <li class="depoimento" role="group" aria-roledescription="slide" aria-label="1 de 5">
+                <div class="depoimento__estrelas" aria-label="Cinco de cinco estrelas">
+                  <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+                <blockquote><p>Sou membro há sete anos e nunca precisei explicar o que quero duas
+                vezes. Sento, tomo um café e saio pronto para reunião.</p></blockquote>
+                <figcaption><strong>Rodrigo Manzoli</strong><span>advogado &middot; membro desde 2019</span></figcaption>
+              </li>
+
+              <li class="depoimento" role="group" aria-roledescription="slide" aria-label="2 de 5">
+                <div class="depoimento__estrelas" aria-label="Cinco de cinco estrelas">
+                  <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+                <blockquote><p>Fiz o Day Use com meus padrinhos no dia do casamento. Trataram cada
+                detalhe com um cuidado que eu não esperava.</p></blockquote>
+                <figcaption><strong>Vitor Hollanda</strong><span>membro desde 2023</span></figcaption>
+              </li>
+
+              <li class="depoimento" role="group" aria-roledescription="slide" aria-label="3 de 5">
+                <div class="depoimento__estrelas" aria-label="Cinco de cinco estrelas">
+                  <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+                <blockquote><p>O preço é mais alto que a média do bairro e vale cada centavo. É o
+                único lugar onde eu realmente relaxo durante a semana.</p></blockquote>
+                <figcaption><strong>Eduardo Kirchner</strong><span>membro desde 2016</span></figcaption>
+              </li>
+
+              <li class="depoimento" role="group" aria-roledescription="slide" aria-label="4 de 5">
+                <div class="depoimento__estrelas" aria-label="Cinco de cinco estrelas">
+                  <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+                <blockquote><p>Trago meu filho de doze anos desde que ele começou a se importar
+                com o cabelo. Tratam ele com o mesmo respeito que tratam a mim.</p></blockquote>
+                <figcaption><strong>Fernando Sperb</strong><span>membro desde 2018</span></figcaption>
+              </li>
+
+              <li class="depoimento" role="group" aria-roledescription="slide" aria-label="5 de 5">
+                <div class="depoimento__estrelas" aria-label="Cinco de cinco estrelas">
+                  <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                </div>
+                <blockquote><p>Marquei às 18h e às 18h eu estava na cadeira. Parece pouco, mas
+                depois de anos esperando quarenta minutos em barbearia, é tudo.</p></blockquote>
+                <figcaption><strong>Marcelo Iung</strong><span>membro desde 2021</span></figcaption>
+              </li>
+            </ul>
+          </div>
+
+          <div class="carrossel__controles">
+            <button class="carrossel__seta js-anterior" type="button" aria-label="Depoimento anterior">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7-1.4-1.4Z"/></svg>
+            </button>
+            <div class="carrossel__pontos js-pontos" role="tablist" aria-label="Escolher depoimento"></div>
+            <button class="carrossel__seta js-proximo" type="button" aria-label="Próximo depoimento">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4.6 8.4 8.4-8.4 8.4-1.4-1.4 7-7-7-7 1.4-1.4Z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DÚVIDAS — accordion, abre com clique, Enter ou Espaço
+         EDITAR: perguntas e respostas do negócio. Ao duplicar um item, troque
+         o aria-controls e o id para um número novo, senão o accordion quebra.
+         ==================================================================== -->
+    <section class="secao" id="duvidas">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="ornamento" aria-hidden="true">&#9670;</span>
+          <h2>As perguntas que mais chegam</h2>
+        </header>
+
+        <div class="faq js-faq">
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-1">
+                <span>Preciso ser membro para cortar aqui?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-1" hidden>
+              <p>
+                Não. "Membro" é como chamamos quem volta sempre e tem ficha na casa, mas
+                qualquer pessoa pode reservar um horário. A ficha é criada no primeiro
+                atendimento, sem custo e sem mensalidade.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-2">
+                <span>Dá para escolher o barbeiro?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-2" hidden>
+              <p>
+                Sim, e é o que recomendamos. Ao reservar, diga com quem você quer.
+                Depois do primeiro corte a ficha guarda a preferência e a gente já
+                oferece o horário dele.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-3">
+                <span>Posso remarcar? Com quanto tempo?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-3" hidden>
+              <p>
+                Pode, sem custo, avisando com 12 horas. Abaixo disso o horário é
+                considerado usado, porque fica bloqueado e não conseguimos oferecer
+                para outro membro em cima da hora.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-4">
+                <span>O whisky do bar é cobrado à parte?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-4" hidden>
+              <p>
+                Não. Uma dose, um espresso ou uma água com gás estão inclusos em
+                qualquer serviço. A segunda dose também é por nossa conta, mas aí a
+                gente chama um carro para você.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-5">
+                <span>Vocês atendem criança?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-5" hidden>
+              <p>
+                Atendemos a partir dos 8 anos, com o mesmo tempo de cadeira de um
+                adulto. Abaixo dessa idade preferimos indicar uma casa especializada,
+                que tem estrutura para isso.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-6">
+                <span>Quais formas de pagamento vocês aceitam?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-6" hidden>
+              <p>
+                Pix, dinheiro, débito e crédito. O Day Use de noivo pode ser
+                parcelado em até 3 vezes sem juros no cartão.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== HORÁRIOS ============================ -->
+    <section class="secao" id="horarios">
+      <div class="container horarios">
+        <div class="horarios__texto">
+          <span class="ornamento" aria-hidden="true">&#9670;</span>
+          <h2>Horário de funcionamento</h2>
+          <p>
+            Atendemos exclusivamente com hora marcada. A última reserva de cada dia entra
+            uma hora antes do fechamento.
+          </p>
+          <!-- EDITAR: número do WhatsApp -->
+          <a class="botao botao--linha" href="https://wa.me/5541998887766" target="_blank" rel="noopener">Ver horários livres</a>
+        </div>
+
+        <!-- EDITAR: dias e horários de funcionamento -->
+        <ul class="horarios__lista">
+          <li><span>Segunda</span><span class="horarios__fechado">Fechado</span></li>
+          <li><span>Terça</span><span>10h &ndash; 20h</span></li>
+          <li><span>Quarta</span><span>10h &ndash; 20h</span></li>
+          <li><span>Quinta</span><span>10h &ndash; 21h</span></li>
+          <li><span>Sexta</span><span>10h &ndash; 21h</span></li>
+          <li><span>Sábado</span><span>09h &ndash; 19h</span></li>
+          <li><span>Domingo</span><span class="horarios__fechado">Fechado</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================== LOCALIZAÇÃO ========================== -->
+    <section class="secao secao--carvao" id="local">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="ornamento" aria-hidden="true">&#9670;</span>
+          <h2>Onde estamos</h2>
+        </header>
+
+        <div class="local">
+          <div class="local__dados">
+            <!-- EDITAR: endereço completo -->
+            <h3>Endereço</h3>
+            <address>
+              Alameda Doutor Carlos de Carvalho, 1420<br>
+              Batel &mdash; Curitiba/PR<br>
+              CEP 80730-200
+            </address>
+
+            <!-- EDITAR: referência e estacionamento -->
+            <h3>Chegando de carro</h3>
+            <p>Manobrista de cortesia na porta, das 10h às 21h. Entrada pela alameda lateral.</p>
+
+            <h3>Contato direto</h3>
+            <ul>
+              <!-- EDITAR: telefone e WhatsApp -->
+              <li><a href="tel:+554130451818">(41) 3045-1818</a></li>
+              <li><a href="https://wa.me/5541998887766" target="_blank" rel="noopener">(41) 99888-7766 &middot; WhatsApp</a></li>
+            </ul>
+          </div>
+
+          <!-- EDITAR: bloco reservado para o mapa -->
+          <div class="mapa" role="img" aria-label="Mapa da localização do Nobre Barber Club">
+            <span class="mapa__pino" aria-hidden="true">&#9670;</span>
+            <span class="mapa__rotulo">MAPA — espaço reservado</span>
+            <span class="mapa__dica">Al. Dr. Carlos de Carvalho, 1420 &mdash; Batel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <div class="rodape__coluna rodape__coluna--marca">
+        <span class="marca__monograma" aria-hidden="true">NB</span>
+        <!-- EDITAR: nome e frase da barbearia -->
+        <p class="rodape__nome">Nobre Barber Club</p>
+        <p class="rodape__frase">Barbearia premium no Batel, Curitiba. Somente com hora marcada.</p>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Contato</h3>
+        <!-- EDITAR: telefone, WhatsApp e e-mail -->
+        <ul>
+          <li><a href="tel:+554130451818">(41) 3045-1818</a></li>
+          <li><a href="https://wa.me/5541998887766" target="_blank" rel="noopener">(41) 99888-7766</a></li>
+          <li><a href="mailto:reservas@nobrebarber.com.br">reservas@nobrebarber.com.br</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Redes sociais</h3>
+        <!-- EDITAR: links reais das redes sociais -->
+        <ul class="rodape__redes">
+          <li>
+            <a href="https://instagram.com/" target="_blank" rel="noopener">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 4.86a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-3.2a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+              </svg>
+              @nobrebarberclub
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/" target="_blank" rel="noopener">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M13.5 22v-8.2h2.8l.42-3.22H13.5V8.53c0-.93.26-1.57 1.6-1.57h1.71V4.08c-.3-.04-1.31-.13-2.5-.13-2.47 0-4.16 1.51-4.16 4.28v2.35H7.34V13.8h2.81V22h3.35Z"/>
+              </svg>
+              /nobrebarberclub
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Funcionamento</h3>
+        <!-- EDITAR: resumo dos horários -->
+        <ul>
+          <li>Terça a quarta &middot; 10h &ndash; 20h</li>
+          <li>Quinta a sexta &middot; 10h &ndash; 21h</li>
+          <li>Sábado &middot; 09h &ndash; 19h</li>
+          <li>Domingo e segunda &middot; fechado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape__base">
+      <!-- EDITAR: ano e nome da barbearia -->
+      <p>&copy; 2026 Nobre Barber Club. Todos os direitos reservados.</p>
+      <!-- EDITAR: crédito da sua empresa -->
+      <p>Página criada e mantida por <strong>JeffDev</strong></p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+  <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+  <a class="whatsapp-flutuante" href="https://wa.me/5541998887766?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Nobre%20Barber%20Club." target="_blank" rel="noopener" aria-label="Falar com o Nobre Barber Club no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+    </svg>
+    <span class="whatsapp-flutuante__texto">Reservar</span>
+  </a>
+
+  <!-- ==================== LIGHTBOX DA GALERIA ==================== -->
+  <div class="lightbox js-lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
+    <button class="lightbox__fechar js-fechar" type="button" aria-label="Fechar foto ampliada">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4Z"/></svg>
+    </button>
+    <button class="lightbox__seta js-lb-anterior" type="button" aria-label="Foto anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7-1.4-1.4Z"/></svg>
+    </button>
+    <figure class="lightbox__conteudo">
+      <div class="foto foto--ampliada" role="img" aria-label="Foto ampliada da galeria">
+        <span class="foto__rotulo js-lb-rotulo">FOTO</span>
+      </div>
+      <figcaption class="lightbox__legenda js-lb-legenda"></figcaption>
+    </figure>
+    <button class="lightbox__seta js-lb-proximo" type="button" aria-label="Próxima foto">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4.6 8.4 8.4-8.4 8.4-1.4-1.4 7-7-7-7 1.4-1.4Z"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

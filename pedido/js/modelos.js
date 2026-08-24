@@ -184,9 +184,12 @@ window.CONJUNTOS = [
 
     /* que ramos digitados caem neste conjunto */
     termos: [
-      'cabeleireiro', 'cabeleireira', 'cabelereiro', 'cabelereira',
-      'salão', 'salao', 'salões', 'saloes', 'salão de beleza',
-      'barbearia', 'barbeiro', 'barbeira',
+      /* Saíram daqui, porque ganharam conjunto próprio com páginas do ramo:
+         barbearia/barbeiro/barbeira e cabeleireiro/salão. Como conjuntoDoRamo
+         devolve o PRIMEIRO conjunto que casa e beleza vem antes, deixar os
+         termos nos dois faria os conjuntos novos nunca aparecerem.
+
+         Beleza continua sendo estética, unha, sobrancelha, depilação e spa. */
       'estética', 'estetica', 'esteticista', 'estética facial',
       'manicure', 'pedicure', 'unha', 'nail', 'nail design',
       'depilação', 'depilacao', 'depiladora',
@@ -222,11 +225,103 @@ window.CONJUNTOS = [
       'premium': {
         titulo: 'Casa Serena',
         resumo: 'A página maior: galeria clicável, depoimentos em carrossel, dúvidas e números.',
-        bom_para: 'Clínica de estética e salão de ticket mais alto',
+        bom_para: 'Clínica de estética e casa de ticket mais alto',
         imagem: 'bel-premium-01.webp',
         link: 'beleza/premium-01-luxo/',
+        termos: ['clínica de estética', 'clinica de estetica', 'estética avançada',
+                 'estetica avancada', 'spa', 'micropigmentação', 'micropigmentacao',
+                 'drenagem', 'limpeza de pele']
+      }
+    }
+  },
+
+  {
+    id: 'barbearia',
+    nome: 'Barbearia',
+
+    /* que ramos digitados caem neste conjunto */
+    termos: [
+      'barbearia', 'barbeiro', 'barbeira', 'barber', 'barbershop',
+      'barba', 'degradê', 'degrade', 'fade', 'navalhado', 'navalha',
+      'freestyle', 'corte masculino', 'cabelo masculino'
+    ],
+
+    paginas: {
+      'simples-1': {
+        titulo: 'Corte Bruto',
+        resumo: 'Escuro e pesado, com título gigante, faixa rolante e a tabela em cartões.',
+        bom_para: 'Barbearia de rua, degradê e freestyle',
+        imagem: 'bar-simples-01.webp',
+        link: 'barbearia/simples-01-urbana/',
+        /* quando o ramo casar com um destes, este é o recomendado */
+        termos: ['degradê', 'degrade', 'fade', 'navalhado', 'freestyle', 'barbershop']
+      },
+      'simples-2': {
+        titulo: 'Barbearia Dom Aurélio',
+        resumo: 'Clássico e quente, com cardápio de preços em linha pontilhada.',
+        bom_para: 'Barbearia tradicional, de bairro, com anos de casa',
+        imagem: 'bar-simples-02.webp',
+        link: 'barbearia/simples-02-classica/',
+        termos: ['navalha', 'barba', 'barbearia tradicional', 'barbearia classica']
+      },
+      'premium': {
+        titulo: 'Nobre Barber Club',
+        resumo: 'A página maior: galeria clicável, depoimentos em carrossel, dúvidas e números.',
+        bom_para: 'Barbearia de ticket alto, com bar e hora marcada',
+        imagem: 'bar-premium-01.webp',
+        link: 'barbearia/premium-01-nobre/',
+        termos: ['barber club', 'lounge']
+      }
+    }
+
+    /* Os termos genéricos — "barbearia", "barbeiro" — ficam só aqui em cima,
+       no conjunto, e não numa vaga específica. É de propósito: a palavra
+       "barbearia" não diz se a casa é de rua ou tradicional, então nenhum
+       cartão sai marcado como recomendado e a pessoa compara os três.
+       Fingir uma recomendação que não temos base para dar seria pior. */
+  },
+
+  {
+    id: 'cabeleireiro',
+    nome: 'Cabeleireiro',
+
+    /* que ramos digitados caem neste conjunto */
+    termos: [
+      'cabeleireiro', 'cabeleireira', 'cabelereiro', 'cabelereira',
+      'salão', 'salao', 'salões', 'saloes', 'salão de beleza',
+      'cabelo', 'corte feminino', 'escova', 'coloração', 'coloracao',
+      'colorista', 'mecha', 'mechas', 'luzes', 'balayage', 'loiro',
+      'morena iluminada', 'progressiva', 'alisamento', 'hidratação capilar',
+      'hidratacao capilar', 'tratamento capilar', 'penteado', 'noiva'
+    ],
+
+    paginas: {
+      'simples-1': {
+        titulo: 'Salão Raiz',
+        resumo: 'Claro e natural, com foto grande em arco no topo e os serviços em cartões.',
+        bom_para: 'Salão de bairro, corte e cor do dia a dia',
+        imagem: 'cab-simples-01.webp',
+        link: 'cabeleireiro/simples-01-natural/',
+        /* quando o ramo casar com um destes, este é o recomendado */
         termos: ['cabeleireiro', 'cabeleireira', 'cabelereiro', 'cabelereira',
-                 'salão', 'salao', 'salões', 'saloes', 'salão de beleza']
+                 'corte feminino', 'escova', 'hidratação capilar', 'hidratacao capilar']
+      },
+      'simples-2': {
+        titulo: 'Estúdio Trama',
+        resumo: 'Escuro e moderno, com título grande e a tabela de preços em lista.',
+        bom_para: 'Estúdio de cor, loiro e público jovem',
+        imagem: 'cab-simples-02.webp',
+        link: 'cabeleireiro/simples-02-noturno/',
+        termos: ['colorista', 'mecha', 'mechas', 'luzes', 'loiro',
+                 'morena iluminada', 'coloração', 'coloracao']
+      },
+      'premium': {
+        titulo: 'Casa Anelis',
+        resumo: 'A página maior: galeria clicável, depoimentos em carrossel, dúvidas e números.',
+        bom_para: 'Salão de alto padrão, balayage e noiva',
+        imagem: 'cab-premium-01.webp',
+        link: 'cabeleireiro/premium-01-atelie/',
+        termos: ['balayage', 'noiva', 'penteado', 'progressiva', 'alisamento']
       }
     }
   }

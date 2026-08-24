@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título da aba do navegador -->
+  <title>Corte Bruto | Barbearia de rua na Zona Norte</title>
+  <!-- EDITAR: descrição que aparece no Google (até 155 caracteres) -->
+  <meta name="description" content="Barbearia de rua na Zona Norte do Rio. Degradê, navalhado, freestyle e desenho na régua. Sem frescura, sem enrolação. Chama no zap.">
+  <meta name="theme-color" content="#101010">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="pular-para-conteudo" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ======================= FAIXA ROLANTE (TOPO) ===================== -->
+  <div class="faixa-rolante" aria-hidden="true">
+    <div class="faixa-rolante__trilha">
+      <!-- EDITAR: recados curtos que ficam rodando no topo -->
+      <span>Degradê na régua</span><span>&#9679;</span>
+      <span>Sem hora marcada</span><span>&#9679;</span>
+      <span>Aberto até 21h</span><span>&#9679;</span>
+      <span>Pix na hora</span><span>&#9679;</span>
+      <span>Degradê na régua</span><span>&#9679;</span>
+      <span>Sem hora marcada</span><span>&#9679;</span>
+      <span>Aberto até 21h</span><span>&#9679;</span>
+      <span>Pix na hora</span><span>&#9679;</span>
+    </div>
+  </div>
+
+  <!-- ============================ CABEÇALHO ============================ -->
+  <header class="cabecalho">
+    <div class="cabecalho__interno">
+      <!-- EDITAR: nome da barbearia -->
+      <a class="marca" href="#inicio">
+        <span class="marca__bloco">CORTE</span>
+        <span class="marca__contorno">BRUTO</span>
+      </a>
+
+      <button class="menu-botao js-menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu de navegação">
+        <span class="menu-botao__barra" aria-hidden="true"></span>
+        <span class="menu-botao__barra" aria-hidden="true"></span>
+        <span class="menu-botao__barra" aria-hidden="true"></span>
+      </button>
+
+      <nav class="navegacao js-menu" id="menu-principal" aria-label="Menu principal">
+        <ul class="navegacao__lista">
+          <li><a href="#servicos">Tabela</a></li>
+          <li><a href="#galeria">Trampo</a></li>
+          <li><a href="#sobre">A Casa</a></li>
+          <li><a href="#depoimentos">Reviews</a></li>
+          <li><a href="#horarios">Horário</a></li>
+          <li><a href="#local">Onde é</a></li>
+        </ul>
+        <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+        <a class="botao botao--amarelo" href="https://wa.me/5521987651234" target="_blank" rel="noopener">Chama no zap</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="hero__grade">
+        <div class="hero__texto">
+          <span class="tag tag--amarela">Zona Norte &middot; Rio de Janeiro</span>
+          <!-- EDITAR: nome da barbearia / chamada principal -->
+          <h1 class="hero__titulo">
+            <span class="hero__linha">CORTE</span>
+            <span class="hero__linha hero__linha--vazada">BRUTO</span>
+          </h1>
+          <!-- EDITAR: frase de impacto -->
+          <p class="hero__frase">
+            Degradê que fecha, navalhado que dura e desenho feito na régua.
+            Sem hora marcada, sem enrolação — chegou, sentou, resolveu.
+          </p>
+
+          <div class="hero__acoes">
+            <!-- EDITAR: número do WhatsApp -->
+            <a class="botao botao--amarelo botao--grande" href="https://wa.me/5521987651234?text=E%20a%C3%AD%21%20Quero%20marcar%20um%20corte." target="_blank" rel="noopener">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+              </svg>
+              Marcar no WhatsApp
+            </a>
+            <a class="botao botao--branco botao--grande" href="#servicos">Ver a tabela</a>
+          </div>
+
+          <!-- EDITAR: números de destaque -->
+          <ul class="hero__selos">
+            <li><strong>+8 mil</strong><span>cortes feitos</span></li>
+            <li><strong>4,8</strong><span>no Google</span></li>
+            <li><strong>3</strong><span>barbeiros</span></li>
+          </ul>
+        </div>
+
+        <!-- PLACEHOLDER DE IMAGEM: ver instruções no topo de style.css -->
+        <div class="hero__midia">
+          <div class="foto foto--hero" role="img" aria-label="Degradê feito na Corte Bruto">
+            <span class="foto__rotulo">FOTO — degradê fechado</span>
+          </div>
+          <span class="hero__adesivo" aria-hidden="true">SEM HORA MARCADA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== SERVIÇOS ============================ -->
+    <section class="secao secao--amarela" id="servicos">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="tag tag--preta">01 / Tabela</span>
+          <h2>Preço na cara,<br>sem letra miúda</h2>
+        </header>
+
+        <!-- EDITAR: nomes, descrições e preços dos serviços -->
+        <div class="cards">
+          <article class="card">
+            <span class="card__numero" aria-hidden="true">01</span>
+            <h3>Degradê</h3>
+            <p>Máquina na régua, transição limpa e acabamento na navalha.</p>
+            <span class="card__preco">R$ 40</span>
+          </article>
+
+          <article class="card">
+            <span class="card__numero" aria-hidden="true">02</span>
+            <h3>Social</h3>
+            <p>Corte tradicional na tesoura pra quem precisa de visual limpo.</p>
+            <span class="card__preco">R$ 35</span>
+          </article>
+
+          <article class="card">
+            <span class="card__numero" aria-hidden="true">03</span>
+            <h3>Barba na navalha</h3>
+            <p>Toalha quente, contorno definido e loção pós pra não arder.</p>
+            <span class="card__preco">R$ 30</span>
+          </article>
+
+          <article class="card card--destaque">
+            <span class="card__numero" aria-hidden="true">04</span>
+            <h3>Combo Bruto</h3>
+            <p>Degradê + barba + sobrancelha. O pacote que todo mundo pede.</p>
+            <span class="card__preco">R$ 75</span>
+            <span class="card__fita">MAIS PEDIDO</span>
+          </article>
+
+          <article class="card">
+            <span class="card__numero" aria-hidden="true">05</span>
+            <h3>Freestyle / Desenho</h3>
+            <p>Risco, traço e desenho feito na navalha, do simples ao pesado.</p>
+            <span class="card__preco">R$ 25</span>
+          </article>
+
+          <article class="card">
+            <span class="card__numero" aria-hidden="true">06</span>
+            <h3>Platinado</h3>
+            <p>Descoloração completa com matização e tratamento pós-química.</p>
+            <span class="card__preco">R$ 120</span>
+          </article>
+        </div>
+
+        <!-- EDITAR: formas de pagamento -->
+        <p class="aviso-preco">Dinheiro, Pix e cartão &mdash; sem taxa em nenhum deles.</p>
+      </div>
+    </section>
+
+    <!-- ============================ GALERIA ============================ -->
+    <section class="secao" id="galeria">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="tag tag--amarela">02 / Trampo</span>
+          <h2>O que sai daqui</h2>
+        </header>
+
+        <!-- EDITAR: trocar cada placeholder por uma foto real do cliente -->
+        <div class="galeria">
+          <div class="foto" role="img" aria-label="Degradê alto com risco lateral">
+            <span class="foto__rotulo">FOTO — degradê alto</span>
+          </div>
+          <div class="foto" role="img" aria-label="Navalhado com desenho">
+            <span class="foto__rotulo">FOTO — navalhado</span>
+          </div>
+          <div class="foto" role="img" aria-label="Cabelo platinado">
+            <span class="foto__rotulo">FOTO — platinado</span>
+          </div>
+          <div class="foto" role="img" aria-label="Barba desenhada na navalha">
+            <span class="foto__rotulo">FOTO — barba na navalha</span>
+          </div>
+          <div class="foto" role="img" aria-label="Freestyle com desenho geométrico">
+            <span class="foto__rotulo">FOTO — freestyle</span>
+          </div>
+          <div class="foto" role="img" aria-label="Fachada da barbearia com grafite">
+            <span class="foto__rotulo">FOTO — fachada grafitada</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE ============================= -->
+    <section class="secao secao--clara" id="sobre">
+      <div class="container sobre">
+        <div class="sobre__texto">
+          <span class="tag tag--preta">03 / A Casa</span>
+          <!-- EDITAR: história da barbearia -->
+          <h2>Nasceu na garagem,<br>virou ponto do bairro</h2>
+          <p>
+            Começou em 2017 com uma cadeira na garagem do Rafa e um espelho comprado de
+            segunda mão. Hoje são três cadeiras, som ligado o dia todo e fila na porta no sábado.
+          </p>
+          <p>
+            A regra aqui sempre foi a mesma: corte bem feito, preço justo e ninguém sai da
+            cadeira sem gostar do que viu no espelho.
+          </p>
+
+          <!-- EDITAR: diferenciais -->
+          <ol class="lista-numerada">
+            <li><strong>Chegou, sentou</strong> — atendimento por ordem de chegada, sem taxa de reserva.</li>
+            <li><strong>Preço fechado</strong> — o valor da tabela é o valor que você paga.</li>
+            <li><strong>Material esterilizado</strong> — lâmina nova por cliente, sempre.</li>
+            <li><strong>Playlist na caixa</strong> — pediu, a gente coloca.</li>
+          </ol>
+        </div>
+
+        <div class="sobre__midia">
+          <div class="foto foto--alta" role="img" aria-label="Barbeiros da Corte Bruto">
+            <span class="foto__rotulo">FOTO — a equipe</span>
+          </div>
+          <div class="sobre__caixa">
+            <!-- EDITAR: ano de fundação -->
+            <strong>2017</strong>
+            <span>desde a garagem</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== DEPOIMENTOS ========================== -->
+    <section class="secao" id="depoimentos">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="tag tag--amarela">04 / Reviews</span>
+          <h2>O que a rua fala</h2>
+        </header>
+
+        <!-- EDITAR: depoimentos reais dos clientes -->
+        <div class="reviews">
+          <figure class="review">
+            <div class="review__nota" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+            <blockquote><p>Melhor degradê da Zona Norte, sem exagero. Já testei um monte
+            de lugar e sempre volto pra cá.</p></blockquote>
+            <figcaption><strong>Wesley Damião</strong><span>cliente desde 2019</span></figcaption>
+          </figure>
+
+          <figure class="review">
+            <div class="review__nota" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+            <blockquote><p>Pedi um desenho meio doido pro aniversário e o cara fez igualzinho
+            à foto. Saiu melhor que a referência.</p></blockquote>
+            <figcaption><strong>Igor Vasconcelos</strong><span>cliente desde 2022</span></figcaption>
+          </figure>
+
+          <figure class="review">
+            <div class="review__nota" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+            <blockquote><p>Levo meus dois filhos todo mês. Ambiente tranquilo, som bom e
+            preço que cabe no bolso.</p></blockquote>
+            <figcaption><strong>Anderson Ribeiro</strong><span>cliente desde 2018</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== HORÁRIOS ============================ -->
+    <section class="secao secao--clara" id="horarios">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="tag tag--preta">05 / Horário</span>
+          <h2>Quando a porta abre</h2>
+        </header>
+
+        <!-- EDITAR: dias e horários de funcionamento -->
+        <div class="placar">
+          <div class="placar__item placar__item--fechado">
+            <span class="placar__dia">SEG</span>
+            <span class="placar__hora">FECHADO</span>
+          </div>
+          <div class="placar__item">
+            <span class="placar__dia">TER</span>
+            <span class="placar__hora">10h &ndash; 20h</span>
+          </div>
+          <div class="placar__item">
+            <span class="placar__dia">QUA</span>
+            <span class="placar__hora">10h &ndash; 20h</span>
+          </div>
+          <div class="placar__item">
+            <span class="placar__dia">QUI</span>
+            <span class="placar__hora">10h &ndash; 21h</span>
+          </div>
+          <div class="placar__item">
+            <span class="placar__dia">SEX</span>
+            <span class="placar__hora">10h &ndash; 21h</span>
+          </div>
+          <div class="placar__item placar__item--destaque">
+            <span class="placar__dia">SÁB</span>
+            <span class="placar__hora">09h &ndash; 20h</span>
+          </div>
+          <div class="placar__item">
+            <span class="placar__dia">DOM</span>
+            <span class="placar__hora">09h &ndash; 14h</span>
+          </div>
+        </div>
+
+        <p class="aviso-preco aviso-preco--escuro">
+          Sábado enche cedo. Chega antes das 11h ou manda mensagem pra saber a fila.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================== LOCALIZAÇÃO ========================== -->
+    <section class="secao" id="local">
+      <div class="container">
+        <header class="titulo-secao">
+          <span class="tag tag--amarela">06 / Onde é</span>
+          <h2>Cola aqui</h2>
+        </header>
+
+        <div class="local">
+          <!-- EDITAR: bloco reservado para o mapa -->
+          <div class="mapa" role="img" aria-label="Mapa da localização da Corte Bruto">
+            <span class="mapa__rotulo">MAPA — espaço reservado</span>
+            <span class="mapa__dica">Rua Cardoso de Moraes, 331 &mdash; Bonsucesso</span>
+          </div>
+
+          <div class="local__dados">
+            <!-- EDITAR: endereço completo -->
+            <h3>Endereço</h3>
+            <address>
+              Rua Cardoso de Moraes, 331 &mdash; loja B<br>
+              Bonsucesso &mdash; Rio de Janeiro/RJ<br>
+              CEP 21032-000
+            </address>
+
+            <!-- EDITAR: ponto de referência -->
+            <h3>Referência</h3>
+            <p>Do lado da lanchonete do Zé, duas quadras depois do viaduto.</p>
+
+            <h3>Contato</h3>
+            <ul>
+              <!-- EDITAR: WhatsApp e telefone -->
+              <li><a href="https://wa.me/5521987651234" target="_blank" rel="noopener">(21) 98765-1234 &middot; WhatsApp</a></li>
+              <li><a href="tel:+552125551234">(21) 2555-1234</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="rodape">
+    <div class="rodape__faixa" aria-hidden="true">
+      <div class="faixa-rolante__trilha">
+        <!-- EDITAR: recados do rodapé -->
+        <span>Chegou, sentou, resolveu</span><span>&#9679;</span>
+        <span>Corte Bruto</span><span>&#9679;</span>
+        <span>Bonsucesso &mdash; RJ</span><span>&#9679;</span>
+        <span>Chegou, sentou, resolveu</span><span>&#9679;</span>
+        <span>Corte Bruto</span><span>&#9679;</span>
+        <span>Bonsucesso &mdash; RJ</span><span>&#9679;</span>
+      </div>
+    </div>
+
+    <div class="container rodape__interno">
+      <div class="rodape__coluna">
+        <!-- EDITAR: nome e frase da barbearia -->
+        <p class="rodape__nome">CORTE BRUTO</p>
+        <p class="rodape__frase">Barbearia de rua em Bonsucesso, Rio de Janeiro. Desde 2017.</p>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Contato</h3>
+        <!-- EDITAR: WhatsApp, telefone e e-mail -->
+        <ul>
+          <li><a href="https://wa.me/5521987651234" target="_blank" rel="noopener">(21) 98765-1234</a></li>
+          <li><a href="tel:+552125551234">(21) 2555-1234</a></li>
+          <li><a href="mailto:contato@cortebruto.com.br">contato@cortebruto.com.br</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Redes</h3>
+        <!-- EDITAR: links reais das redes sociais -->
+        <ul>
+          <li>
+            <a href="https://instagram.com/" target="_blank" rel="noopener">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 4.86a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-3.2a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+              </svg>
+              @cortebruto
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/" target="_blank" rel="noopener">
+              <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M13.5 22v-8.2h2.8l.42-3.22H13.5V8.53c0-.93.26-1.57 1.6-1.57h1.71V4.08c-.3-.04-1.31-.13-2.5-.13-2.47 0-4.16 1.51-4.16 4.28v2.35H7.34V13.8h2.81V22h3.35Z"/>
+              </svg>
+              /cortebruto
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Horário</h3>
+        <!-- EDITAR: resumo dos horários -->
+        <ul>
+          <li>Ter a qua &middot; 10h &ndash; 20h</li>
+          <li>Qui e sex &middot; 10h &ndash; 21h</li>
+          <li>Sáb &middot; 09h &ndash; 20h</li>
+          <li>Dom &middot; 09h &ndash; 14h</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape__base">
+      <!-- EDITAR: ano e nome da barbearia -->
+      <p>&copy; 2026 Corte Bruto</p>
+      <!-- EDITAR: crédito da sua empresa -->
+      <p>Página criada e mantida por <strong>JeffDev</strong></p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+  <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+  <a class="whatsapp-flutuante" href="https://wa.me/5521987651234?text=E%20a%C3%AD%21%20Vim%20pelo%20site%20da%20Corte%20Bruto." target="_blank" rel="noopener" aria-label="Falar com a Corte Bruto no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+    </svg>
+    <span class="whatsapp-flutuante__texto">Chama no zap</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

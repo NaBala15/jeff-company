@@ -195,17 +195,22 @@ function conferirPagina(ramo, modelo) {
    Arquivo ainda não commitado conta como "agora", que é o certo: ele mudou
    e o histórico ainda não sabe. */
 
+/* Devolve { tempo, sujo } ou null quando não dá para julgar.
+
+   `sujo` = tem alteração ainda não commitada. Isso importa: se a página E a
+   captura estão as duas por commitar, as duas foram mexidas agora e não há
+   nada a avisar. Comparar relógio nesse caso acusava sempre, porque o
+   segundo `Date.now()` é maior que o primeiro por alguns milissegundos. */
 function ultimaMudancaNoGit(caminhoRelativo) {
   try {
-    /* trabalho ainda não commitado ganha a data de agora */
-    var sujo = cp.execFileSync('git', ['status', '--porcelain', '--', caminhoRelativo],
-                               { cwd: RAIZ, encoding: 'utf8' }).trim();
-    if (sujo) return Date.now();
+    var pendente = cp.execFileSync('git', ['status', '--porcelain', '--', caminhoRelativo],
+                                   { cwd: RAIZ, encoding: 'utf8' }).trim();
+    if (pendente) return { tempo: Date.now(), sujo: true };
 
     var saida = cp.execFileSync('git', ['log', '-1', '--format=%ct', '--', caminhoRelativo],
                                 { cwd: RAIZ, encoding: 'utf8' }).trim();
     if (!saida) return null;              // nunca commitado e sem alteração: não dá para julgar
-    return parseInt(saida, 10) * 1000;
+    return { tempo: parseInt(saida, 10) * 1000, sujo: false };
   } catch (e) {
     return null;                          // sem git disponível: não inventa conclusão
   }
@@ -220,21 +225,26 @@ function conferirCaptura(onde, dirPagina, arquivoImagem) {
     return;
   }
 
-  var dataImg = ultimaMudancaNoGit(relImg);
-  if (dataImg === null) return;           // sem histórico confiável, não opina
+  var img_ = ultimaMudancaNoGit(relImg);
+  if (img_ === null) return;              // sem histórico confiável, não opina
 
-  var maisNova = 0, culpado = '';
+  var maisNova = 0, culpado = '', paginaSuja = false;
 
   ['index.html', 'style.css', 'script.js'].forEach(function (f) {
     var abs = path.join(dirPagina, f);
     if (!existe(abs)) return;
     var rel = path.relative(RAIZ, abs).split(path.sep).join('/');
     var d = ultimaMudancaNoGit(rel);
-    if (d !== null && d > maisNova) { maisNova = d; culpado = f; }
+    if (d !== null && d.tempo > maisNova) {
+      maisNova = d.tempo; culpado = f; paginaSuja = d.sujo;
+    }
   });
 
-  if (maisNova > dataImg) {
-    var dias = Math.round((maisNova - dataImg) / 86400000);
+  /* as duas por commitar = mexidas na mesma leva, nada a avisar */
+  if (img_.sujo && paginaSuja) return;
+
+  if (maisNova > img_.tempo) {
+    var dias = Math.round((maisNova - img_.tempo) / 86400000);
     aviso(onde, 'o ' + culpado + ' mudou depois da captura ' + arquivoImagem +
                 (dias >= 1 ? ' (' + dias + ' dia(s) de diferença)' : '') +
                 ' — se o visual mudou, gere a captura de novo');
