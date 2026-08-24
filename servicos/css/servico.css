@@ -276,6 +276,30 @@ p { text-wrap: pretty; }
 }
 .pe b { color: var(--lima); font-weight: 500; }
 
+/* ---- Celular -------------------------------------------------------------
+
+   O cabeçalho tinha marca + "Todos os serviços" + botão do WhatsApp numa
+   linha só, sem nenhum ajuste para tela estreita: em 360px a linha estourava
+   uns 40px e a página inteira rolava de lado.
+
+   O link de texto sai, e não o botão: a marca ao lado já leva para a home,
+   então ele era o único dos três que não fazia falta. O botão de WhatsApp
+   é o que a página existe para oferecer — esse fica.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 560px) {
+  .topo { gap: .6rem; padding-inline: 1rem; }
+  .topo-link { display: none; }
+  .btn-sm { padding: .5rem .8rem; font-size: .78rem; }
+  .marca-txt { font-size: .94rem; }
+}
+
+/* Rede de segurança: em tela ainda menor, o botão encolhe o texto em vez de
+   empurrar a linha para fora. */
+@media (max-width: 360px) {
+  .btn-sm { padding: .45rem .7rem; font-size: .74rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
