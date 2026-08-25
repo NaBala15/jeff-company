@@ -300,6 +300,38 @@ conjuntos.forEach(function (c) {
   });
 });
 
+/* --------------------------------------------------------------------------
+   Todo ramo pronto é alcançável pelo campo do passo 1?
+
+   O formulário oferece uma lista de atalhos (window.RAMOS_COMUNS) no campo
+   "O que você faz". Se um ramo tem as três páginas prontas mas nenhum atalho
+   aponta para ele, quem abre a lista não encontra o próprio negócio e conclui
+   que a agência não atende aquilo. As páginas existem e ninguém chega nelas.
+
+   Foi exatamente o que aconteceu com decoração: entrou no ar funcionando, mas
+   sem nenhum atalho — e só descobrimos porque o dono do site foi procurar e
+   não achou.
+   -------------------------------------------------------------------------- */
+
+var atalhos = janela.RAMOS_COMUNS || [];
+
+if (!atalhos.length) {
+  erro('modelos.js', 'window.RAMOS_COMUNS está vazio — o campo do passo 1 fica sem sugestão nenhuma');
+} else if (typeof janela.conjuntoDoRamo === 'function') {
+  conjuntos.forEach(function (c) {
+    var alcancam = atalhos.filter(function (r) {
+      var achado = janela.conjuntoDoRamo(r);
+      return achado && achado.id === c.id;
+    });
+
+    if (!alcancam.length) {
+      erro('conjunto ' + c.id,
+           'nenhum atalho de RAMOS_COMUNS chega neste ramo — as páginas existem, ' +
+           'mas quem abre a lista do passo 1 não encontra o próprio negócio');
+    }
+  });
+}
+
 if (!erros && !avisos) ok('catálogo consistente');
 
 /* 2) toda pasta de modelo no disco está registrada no catálogo? */

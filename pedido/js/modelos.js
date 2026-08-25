@@ -528,6 +528,14 @@ window.RAMOS_COMUNS = [
   'Loja de roupas', 'Pet shop', 'Floricultura', 'Mercado',
   'Advogado', 'Contador', 'Corretor de imóveis',
   'Mecânica', 'Chaveiro', 'Eletricista', 'Encanador', 'Assistência técnica',
-  'Fotógrafo', 'Tatuador', 'Reformas', 'Buffet e festas',
+  'Fotógrafo', 'Tatuador', 'Reformas',
+  'Buffet e festas', 'Decoração de festas', 'Painel de balões', 'Cenografia de eventos',
   'Academia', 'Personal trainer', 'Pilates'
 ];
+
+/* REGRA: todo ramo que tem páginas prontas em CONJUNTOS precisa de pelo menos
+   um atalho aqui. Quem abre o campo e não encontra o próprio ramo na lista
+   conclui que você não atende aquilo — foi o que aconteceu com decoração, que
+   ficou no ar por um tempo sem nenhum atalho apontando para ela.
+
+   O `node ferramentas/conferir-modelos.js` confere isso agora. */
