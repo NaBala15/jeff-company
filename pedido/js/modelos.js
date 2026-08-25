@@ -125,6 +125,12 @@ window.BASE_MODELOS = '../modelos/';
 /* Pasta das capturas usadas nos cartões. */
 window.BASE_PREVIAS = '../assets/img/modelos/';
 
+/* Versão das capturas. O navegador guarda imagem por muito tempo: se você
+   regera uma captura mantendo o mesmo nome de arquivo, quem já visitou
+   continua vendo a antiga. SUBA ESTE NÚMERO sempre que regerar qualquer
+   captura, mesmo que só uma. */
+window.VERSAO_PREVIAS = 2;
+
 window.CONJUNTOS = [
   {
     id: 'servicos-tecnicos',

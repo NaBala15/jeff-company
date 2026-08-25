@@ -184,8 +184,14 @@
      página embutida: três páginas dentro de janelas fariam o celular do
      visitante carregar quatro sites de uma vez para escolher um. */
   function previa(pagina) {
+    /* O ?v= na captura tem o mesmo motivo do ?v= dos scripts: o navegador
+       guarda imagem por muito tempo. Quando uma captura \u00e9 regerada com o
+       mesmo nome de arquivo, quem j\u00e1 visitou continuaria vendo a antiga \u2014
+       foi o que aconteceu com a do Corte Bruto. Suba window.VERSAO_PREVIAS
+       no modelos.js sempre que regerar qualquer captura. */
     return '<img class="modelo-foto" src="' +
-             window.BASE_PREVIAS + pagina.imagem + '"' +
+             window.BASE_PREVIAS + pagina.imagem +
+             '?v=' + (window.VERSAO_PREVIAS || 1) + '"' +
            ' width="640" height="480" loading="lazy" decoding="async"' +
            ' alt="Pr\u00e9via da p\u00e1gina: ' + pagina.bom_para.toLowerCase() + '">';
   }
