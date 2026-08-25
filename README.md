@@ -77,6 +77,7 @@ assets/img/cases/          capturas dos projetos (1200×750, .webp)
 demo/clinica-norvi/        projeto conceito do portfólio
 ferramentas/gerar-og.html  gerador da imagem de compartilhamento
 ferramentas/conferir-modelos.js  confere os modelos da vitrine
+ferramentas/gerar-capturas.js    regera as fotos dos cartões do passo 3
 GUIA.md                    o que falta preencher, publicação, preços, MEI
 ```
 
@@ -109,6 +110,45 @@ Sai com erro se achar problema, então dá para rodar antes de cada push.
 Existe porque cada modelo é uma cópia independente: com dois ramos dá para
 conferir no olho, com nove não dá — e a falha é silenciosa. Você conserta um
 bug num modelo, esquece dos outros, e só descobre quando um cliente reclama.
+
+---
+
+## Regerar as fotos dos cartões do passo 3
+
+```bash
+node ferramentas/gerar-capturas.js
+```
+
+Também aceita filtro, para não refazer tudo à toa:
+
+```bash
+node ferramentas/gerar-capturas.js barbearia
+```
+
+```bash
+node ferramentas/gerar-capturas.js bar-simples-01
+```
+
+Rode sempre que mexer no visual de um modelo — senão o cartão do formulário
+continua mostrando uma versão da página que não existe mais.
+
+Ele lê quais páginas existem no `pedido/js/modelos.js`, sobe um servidor
+temporário, fotografa cada uma em 1280×960, reduz para 640×480 e grava em
+`.webp`. No fim compara com a captura anterior e diz quais mudaram de verdade.
+
+**Duas coisas que ele faz e que davam errado quando era na mão:**
+
+Liga o modo de movimento reduzido no navegador. Sem isso a foto pega a página
+no meio da animação de entrada e o cartão sai quase em branco — aconteceu duas
+vezes, com o Buffet Girassol e com o Corte Bruto.
+
+Sobe o `window.VERSAO_PREVIAS` quando alguma imagem muda de verdade. Sem isso,
+regerar a captura não adianta para quem já visitou: o navegador continua
+entregando a foto velha. Se nada mudou visualmente, ele não sobe — imagem
+regravada com os mesmos pixels não precisa furar cache de ninguém.
+
+Precisa do Edge ou Chrome instalado e do Python com Pillow. Se o navegador
+estiver em outro lugar, aponte com `EDGE_BIN`.
 
 ---
 
