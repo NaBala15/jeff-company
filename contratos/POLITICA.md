@@ -128,6 +128,11 @@ mensalidade de **R$ «VALOR MENSALIDADE»**.
 
 **6.2** O **primeiro mês de manutenção é gratuito**.
 
+**6.3** Durante qualquer período gratuito, o cancelamento é **imediato e sem
+custo**, dispensado aviso prévio e não se aplicando período mínimo de
+permanência. O serviço permanece ativo até o fim do período gratuito já
+prometido.
+
 **6.3** A mensalidade destina-se à manutenção, hospedagem e permanência do
 PROJETO em funcionamento, e inclui até **2 (duas) solicitações de atualizações
 ou alterações simples por mês**, **não cumulativas** — solicitações não

@@ -41,11 +41,34 @@ esse modelo, é o atendimento: com 40 clientes, "2 alterações por mês" viram 
 pedidos chegando no seu WhatsApp. O prazo de 5 dias úteis e o pedido por escrito
 são o que transformam isso em algo administrável.
 
-**Sobre o primeiro mês grátis:** a Política dá um mês de manutenção gratuito
-depois de um site **pago**. No plano de assinatura, cobrar a primeira
-mensalidade já na publicação faz diferença — página grátis somada a mês grátis
-são 60 dias sem receber nada, e atrai quem nunca ia pagar. Por isso o item 4.3
-está escrito assim.
+**Sobre o primeiro mês grátis** *(regra decidida em 24/08/2026)*
+
+Os dois contratos dão um mês gratuito, e vale a mesma regra nos dois:
+**durante o período gratuito o cancelamento é imediato e sem custo**, sem aviso
+prévio e sem permanência mínima, e o serviço fica ativo até o fim do mês que
+foi prometido.
+
+Isso existe porque antes as regras se atropelavam: o mês era gratuito, mas o
+cancelamento exigia aviso de 30 dias. Quem cancelasse no primeiro dia saía
+devendo uma mensalidade — cortesia que vira armadilha, e o cliente só descobre
+na hora de sair, que é quando ele conta para os outros.
+
+Na **assinatura** há ainda uma **permanência mínima de 2 meses pagos** depois do
+mês gratuito (cláusula 5.2).
+
+**O risco que você assumiu, de olhos abertos:** a permanência mínima só vale
+para quem passa do mês gratuito. Quem montar a página, usar 30 dias e sair no
+dia 29 não paga nada, e você trabalhou de graça. É o preço de anunciar "mês
+grátis" de verdade em vez de fidelidade disfarçada.
+
+Se isso começar a acontecer com frequência, o remédio já está no contrato: a
+**taxa de ativação** do item 4.1, hoje zerada. Uma taxa pequena cobre o custo
+de montar a página sem tirar a limpeza da promessa.
+
+**No anúncio, as duas informações andam juntas.** O site já mostra "1º mês
+grátis — depois, permanência mínima de 2 meses" na mesma linha, no passo 2 do
+pedido e na página de serviços. Anunciar só a metade boa e revelar a outra na
+assinatura do contrato é propaganda enganosa.
 
 ---
 

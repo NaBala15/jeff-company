@@ -119,7 +119,9 @@ conteúdo publicado, nos termos da cláusula 8.
 **4.2** Mensalidade: **R$ «VALOR DA MENSALIDADE»**, com vencimento todo dia
 **«10»**.
 
-**4.3** A primeira mensalidade vence **na data da publicação** da página.
+**4.3** O **primeiro mês de assinatura é gratuito**, contado da data da
+publicação da página. A primeira mensalidade vence **30 (trinta) dias após a
+publicação**.
 
 **4.4** Meio de pagamento: **«Pix / cartão recorrente / link de pagamento»**.
 Chave Pix: **«SUA CHAVE PIX»**.
@@ -134,10 +136,15 @@ ou pelo índice que o substituir, mediante aviso com 30 dias de antecedência.
 **5.1** Este contrato vigora por prazo **indeterminado**, iniciando-se na data da
 publicação da página.
 
-**5.2** Prazo mínimo de permanência (fidelidade): **«3 meses / não há»**.
+**5.2** Encerrado o mês gratuito da cláusula 4.3, o CONTRATANTE compromete-se a
+permanecer por **2 (dois) meses de mensalidade paga** — período mínimo de
+permanência.
 
-**5.3** Havendo fidelidade, o cancelamento antecipado sujeita o CONTRATANTE ao
-pagamento das mensalidades restantes até o término do período mínimo.
+**5.3** O cancelamento antes do término desse período sujeita o CONTRATANTE ao
+pagamento das mensalidades restantes para completá-lo.
+
+**5.4** O período mínimo **não se aplica** a quem cancelar durante o mês
+gratuito, na forma da cláusula 9.2.
 
 ---
 
@@ -205,10 +212,16 @@ maior, comprometendo-se a restabelecer o serviço assim que possível.
 ## Cláusula 9 — Cancelamento
 
 **9.1** O CONTRATANTE poderá cancelar a assinatura a qualquer tempo, mediante
-aviso por escrito com **30 (trinta) dias** de antecedência, observada a
-fidelidade da cláusula 5, se houver.
+aviso por escrito com **30 (trinta) dias** de antecedência, observado o
+período mínimo da cláusula 5.
 
-**9.2** Encerrada a assinatura:
+**9.2** **Cancelamento durante o mês gratuito.** Enquanto durar o mês gratuito
+da cláusula 4.3, o cancelamento é **imediato e sem custo algum**, dispensado o
+aviso prévio do item 9.1 e não se aplicando o período mínimo da cláusula 5. A
+página **permanece no ar até o fim do mês gratuito já prometido**, e só então é
+retirada na forma do item 9.3.
+
+**9.3** Encerrada a assinatura:
 
 - a página é **retirada do ar** e o **subdomínio é desativado**;
 - o **conteúdo enviado pelo CONTRATANTE é devolvido** em até 10 dias úteis;
@@ -216,10 +229,10 @@ fidelidade da cláusula 5, se houver.
 - os arquivos são preservados por **90 (noventa) dias**, período em que o
   CONTRATANTE poderá exercer a opção da cláusula 10, e depois excluídos.
 
-**9.3** Não há devolução de mensalidades já pagas, por corresponderem a serviço
+**9.4** Não há devolução de mensalidades já pagas, por corresponderem a serviço
 efetivamente prestado no período.
 
-**9.4** O CRIADOR poderá encerrar o contrato mediante aviso de 30 dias, ou
+**9.5** O CRIADOR poderá encerrar o contrato mediante aviso de 30 dias, ou
 imediatamente nas hipóteses do item 8.2, em caso de conduta abusiva ou de quebra
 de confiança.
 

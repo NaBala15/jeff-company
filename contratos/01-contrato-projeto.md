@@ -178,6 +178,10 @@ CONTRATANTE receberá os arquivos do PROJETO para hospedagem por conta própria.
 **8.5** O cancelamento poderá ser feito a qualquer tempo, mediante aviso com
 **30 (trinta) dias** de antecedência.
 
+**8.6** Durante o mês gratuito do item 8.1, o cancelamento é **imediato e sem
+custo algum**, dispensado o aviso prévio do item 8.5. A manutenção permanece
+ativa até o fim do mês gratuito já prometido.
+
 ---
 
 ## Cláusula 9 — Direitos autorais e licença de uso
