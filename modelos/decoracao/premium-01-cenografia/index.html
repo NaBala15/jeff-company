@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título da aba (nome do estúdio + serviço + cidade) -->
+  <title>Cenário Vivo | Cenografia de casamento e eventos em Curitiba</title>
+  <!-- EDITAR: descrição que aparece no Google (até 155 caracteres) -->
+  <meta name="description" content="Cenografia e direção de arte para casamento e evento corporativo em Curitiba. Projeto 3D, iluminação cênica e mobiliário assinado. Visita técnica gratuita.">
+  <meta name="theme-color" content="#0E2A22">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="pular" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ====================================================================
+       CABEÇALHO — ganha a classe .encolhido depois de 40px de rolagem
+       ==================================================================== -->
+  <header class="cabecalho js-cabecalho">
+    <div class="cabecalho__interno">
+      <!-- EDITAR: nome do estúdio -->
+      <a class="marca" href="#inicio">
+        <span class="marca__mono" aria-hidden="true">CV</span>
+        <span class="marca__texto">
+          <strong>Cenário Vivo</strong>
+          <!-- EDITAR: descritor curto -->
+          <em>cenografia de eventos</em>
+        </span>
+      </a>
+
+      <button class="hamburguer js-menu-botao" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav js-menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria">Projetos</a></li>
+          <li><a href="#sobre">Estúdio</a></li>
+          <li><a href="#depoimentos">Clientes</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+        <a class="botao botao--latao nav__cta" href="https://wa.me/5541995380174" target="_blank" rel="noopener">Visita técnica</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="hero__fundo foto" role="img" aria-label="Ambientação de casamento assinada pelo Cenário Vivo">
+        <span class="foto__rotulo">FOTO — ambientação assinada</span>
+      </div>
+      <div class="hero__brilho" aria-hidden="true"></div>
+
+      <div class="hero__conteudo">
+        <p class="linha-fina">
+          <span class="linha-fina__traco" aria-hidden="true"></span>
+          <!-- EDITAR: cidade e ano de fundação -->
+          Curitiba &middot; Paraná &middot; desde 2010
+          <span class="linha-fina__traco" aria-hidden="true"></span>
+        </p>
+
+        <!-- EDITAR: frase de impacto -->
+        <h1>Cenário<br><span>Vivo</span></h1>
+
+        <!-- EDITAR: parágrafo de apoio -->
+        <p class="hero__frase">
+          Não montamos decoração: desenhamos o ambiente inteiro, da planta baixa
+          à última luz. Projeto em 3D aprovado antes, equipe própria na montagem
+          e direção de arte no dia do evento.
+        </p>
+
+        <div class="hero__acoes">
+          <!-- EDITAR: número do WhatsApp -->
+          <a class="botao botao--latao botao--grande" href="https://wa.me/5541995380174?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20visita%20t%C3%A9cnica%20com%20o%20Cen%C3%A1rio%20Vivo." target="_blank" rel="noopener">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+            </svg>
+            Agendar visita técnica
+          </a>
+          <a class="botao botao--linha botao--grande" href="#galeria">Ver projetos</a>
+        </div>
+      </div>
+
+      <div class="hero__rolagem" aria-hidden="true"><span></span>role para ver os projetos</div>
+    </section>
+
+    <!-- ====================================================================
+         NÚMEROS — o contador sobe quando a seção entra na tela
+
+         O número final já vem escrito aqui dentro, e não zerado: se o
+         JavaScript não rodar, o visitante vê o valor certo em vez de "0".
+         EDITAR: o valor visível E o data-alvo precisam ser o mesmo número.
+
+         AVISO: números fictícios de demonstração. Substituir por dados reais
+         do cliente antes de publicar.
+         ==================================================================== -->
+    <section class="numeros" aria-label="O estúdio em números">
+      <div class="container numeros__grade">
+        <div class="numero js-contar" data-alvo="16" data-sufixo="">
+          <span class="numero__valor">16</span>
+          <span class="numero__rotulo">anos de estúdio</span>
+        </div>
+        <div class="numero js-contar" data-alvo="620" data-sufixo="+">
+          <span class="numero__valor">620+</span>
+          <span class="numero__rotulo">eventos assinados</span>
+        </div>
+        <div class="numero js-contar" data-alvo="35" data-sufixo="">
+          <span class="numero__valor">35</span>
+          <span class="numero__rotulo">fornecedores parceiros</span>
+        </div>
+        <div class="numero js-contar" data-alvo="97" data-sufixo="%">
+          <span class="numero__valor">97%</span>
+          <span class="numero__rotulo">indicam o estúdio</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== SERVIÇOS ============================ -->
+    <section class="secao" id="servicos">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>O que fazemos</h2>
+          <p>
+            Todo projeto começa por uma visita técnica ao espaço. O orçamento sai
+            depois de medir o local e entender o que você quer contar com ele.
+          </p>
+        </header>
+
+        <!-- EDITAR: nome, descrição, detalhe e preço de cada serviço -->
+        <div class="servicos">
+          <article class="servico">
+            <span class="servico__marca" aria-hidden="true"></span>
+            <h3>Cenografia de Casamento</h3>
+            <p>Projeto completo: cerimônia, recepção, mobiliário, flores e iluminação, com direção no dia.</p>
+            <div class="servico__pe">
+              <span class="servico__detalhe">projeto fechado</span>
+              <span class="servico__preco">R$ 24.000</span>
+            </div>
+          </article>
+
+          <article class="servico servico--destaque">
+            <span class="servico__selo">Mais procurado</span>
+            <span class="servico__marca" aria-hidden="true"></span>
+            <h3>Projeto e Direção de Arte</h3>
+            <p>Planta baixa, croqui 3D, paleta, lista de peças e acompanhamento da montagem.</p>
+            <div class="servico__pe">
+              <span class="servico__detalhe">sem execução</span>
+              <span class="servico__preco">R$ 4.800</span>
+            </div>
+          </article>
+
+          <article class="servico">
+            <span class="servico__marca" aria-hidden="true"></span>
+            <h3>Cenografia de 15 Anos</h3>
+            <p>Ambientação temática com painel cenográfico, pista, lounge e mesa de destaque.</p>
+            <div class="servico__pe">
+              <span class="servico__detalhe">projeto fechado</span>
+              <span class="servico__preco">R$ 16.500</span>
+            </div>
+          </article>
+
+          <article class="servico">
+            <span class="servico__marca" aria-hidden="true"></span>
+            <h3>Ambientação Corporativa</h3>
+            <p>Lançamento, convenção ou confraternização, com identidade da marca aplicada no espaço.</p>
+            <div class="servico__pe">
+              <span class="servico__detalhe">a partir de</span>
+              <span class="servico__preco">R$ 12.000</span>
+            </div>
+          </article>
+
+          <article class="servico">
+            <span class="servico__marca" aria-hidden="true"></span>
+            <h3>Iluminação Cênica</h3>
+            <p>Projeto de luz com refletores, mapeamento e programação, executado pela nossa equipe.</p>
+            <div class="servico__pe">
+              <span class="servico__detalhe">até 400 m²</span>
+              <span class="servico__preco">R$ 6.500</span>
+            </div>
+          </article>
+
+          <article class="servico">
+            <span class="servico__marca" aria-hidden="true"></span>
+            <h3>Mobiliário Assinado</h3>
+            <p>Locação do acervo próprio: poltronas, aparadores, arandelas, tapetes e peças de autor.</p>
+            <div class="servico__pe">
+              <span class="servico__detalhe">por evento</span>
+              <span class="servico__preco">R$ 8.900</span>
+            </div>
+          </article>
+
+          <article class="servico">
+            <span class="servico__marca" aria-hidden="true"></span>
+            <h3>Flores de Estação</h3>
+            <p>Composições com flor de produtor local, definidas pela estação do seu evento.</p>
+            <div class="servico__pe">
+              <span class="servico__detalhe">conforme projeto</span>
+              <span class="servico__preco">Sob consulta</span>
+            </div>
+          </article>
+
+          <article class="servico">
+            <span class="servico__marca" aria-hidden="true"></span>
+            <h3>Visita Técnica</h3>
+            <p>Medimos o espaço, fotografamos e devolvemos um parecer com o que dá e o que não dá.</p>
+            <div class="servico__pe">
+              <span class="servico__detalhe">1 hora</span>
+              <span class="servico__preco">Gratuita</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         GALERIA COM LIGHTBOX — clique ou Enter abre a foto ampliada
+         ==================================================================== -->
+    <section class="secao secao--mata" id="galeria">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>Projetos assinados</h2>
+          <p>Toque em qualquer foto para ver ampliada. Use as setas do teclado para navegar.</p>
+        </header>
+
+        <!-- EDITAR: trocar cada placeholder por foto real e ajustar a legenda.
+             O lightbox lê o texto do atributo data-legenda de cada botão. -->
+        <ul class="galeria js-galeria">
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Cerimônia ao ar livre com estrutura de madeira e flores de estação">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — cerimônia</span></span>
+              <span class="galeria__legenda">Cerimônia ao ar livre</span>
+              <span class="sr-apenas">Ampliar foto: cerimônia ao ar livre com estrutura de madeira</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Lounge de recepção com mobiliário do acervo e iluminação quente">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — lounge</span></span>
+              <span class="galeria__legenda">Lounge de recepção</span>
+              <span class="sr-apenas">Ampliar foto: lounge de recepção com mobiliário do acervo</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Mesa dos noivos com arranjo baixo e velas em três alturas">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — mesa dos noivos</span></span>
+              <span class="galeria__legenda">Mesa dos noivos</span>
+              <span class="sr-apenas">Ampliar foto: mesa dos noivos com arranjo baixo</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Painel cenográfico de quinze anos, com recorte em madeira e luz rasante">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — painel cenográfico</span></span>
+              <span class="galeria__legenda">Painel cenográfico</span>
+              <span class="sr-apenas">Ampliar foto: painel cenográfico de quinze anos</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Ambientação corporativa com a identidade da marca aplicada ao espaço">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — corporativo</span></span>
+              <span class="galeria__legenda">Ambientação corporativa</span>
+              <span class="sr-apenas">Ampliar foto: ambientação corporativa</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Croqui 3D do projeto, aprovado antes da montagem">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — croqui 3D</span></span>
+              <span class="galeria__legenda">Croqui 3D</span>
+              <span class="sr-apenas">Ampliar foto: croqui 3D do projeto</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= FAIXA DE CHAMADA INTERMEDIÁRIA ================= -->
+    <section class="faixa-cta" aria-label="Agendar visita técnica">
+      <div class="container faixa-cta__interno">
+        <div>
+          <!-- EDITAR: chamada do meio da página -->
+          <h2>A visita técnica é gratuita e não obriga a nada</h2>
+          <p>
+            Vamos até o espaço, medimos, fotografamos e devolvemos um parecer por
+            escrito com o que é possível fazer ali — mesmo que você contrate outro estúdio.
+          </p>
+        </div>
+        <!-- EDITAR: número do WhatsApp -->
+        <a class="botao botao--claro botao--grande" href="https://wa.me/5541995380174?text=Ol%C3%A1%21%20Quero%20agendar%20a%20visita%20t%C3%A9cnica%20gratuita." target="_blank" rel="noopener">Quero agendar a visita</a>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE ============================= -->
+    <section class="secao" id="sobre">
+      <div class="container sobre">
+        <div class="sobre__midia">
+          <div class="foto foto--retrato" role="img" aria-label="Equipe do Cenário Vivo montando um projeto">
+            <span class="foto__rotulo">FOTO — a equipe</span>
+          </div>
+          <!-- EDITAR: número de destaque -->
+          <div class="sobre__selo">
+            <strong>16</strong>
+            <span>anos de estúdio</span>
+          </div>
+        </div>
+
+        <div class="sobre__texto">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <!-- EDITAR: história do estúdio -->
+          <h2>Cenografia é contar uma história com o espaço</h2>
+          <p>
+            O Cenário Vivo começou em 2010 num galpão do Rebouças, montando cenário
+            para teatro. Quando o primeiro casal pediu o mesmo cuidado para o
+            casamento, entendemos que evento também é encenação.
+          </p>
+          <p>
+            Trabalhamos com projeto aprovado antes: você vê o ambiente em 3D, com
+            a paleta e as peças definidas, e só então a gente compra qualquer coisa.
+            Nada é decidido na correria da véspera.
+          </p>
+
+          <!-- EDITAR: quatro diferenciais -->
+          <ul class="diferenciais">
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M3 3h18v18H3V3Zm2 2v14h14V5H5Zm2 2h10v2H7V7Zm0 4h10v2H7v-2Zm0 4h6v2H7v-2Z"/></svg>
+              </span>
+              <div>
+                <strong>Croqui 3D aprovado antes</strong>
+                <span>Você vê o ambiente montado antes de a gente comprar uma flor.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 3 6v6c0 5.05 3.84 9.44 9 10 5.16-.56 9-4.95 9-10V6l-9-4Zm0 2.18 7 3.11V12c0 4.02-2.98 7.55-7 8.06-4.02-.51-7-4.04-7-8.06V7.29l7-3.11Z"/></svg>
+              </span>
+              <div>
+                <strong>Acervo próprio</strong>
+                <span>Mobiliário e peças são nossos. Sem depender de locadora na véspera.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 2a7 7 0 1 1 0 14 7 7 0 0 1 0-14Zm-1 3v5l4 2.4.9-1.5-3.1-1.8V8H11Z"/></svg>
+              </span>
+              <div>
+                <strong>Direção de arte no dia</strong>
+                <span>Quem desenhou fica no evento até o último ajuste de luz.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 1.5 14.6 8h6.9l-5.6 4 2.1 6.6L12 14.7 6 18.6 8.1 12 2.5 8h6.9L12 1.5Z"/></svg>
+              </span>
+              <div>
+                <strong>Flor de produtor local</strong>
+                <span>Comprada na semana do evento, na estação certa. Nada importado fora de época.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DEPOIMENTOS EM CARROSSEL
+         AVISO: depoimentos fictícios de demonstração.
+         EDITAR: substituir por depoimentos reais e autorizados antes de
+         publicar. Se mudar a quantidade de <li>, as bolinhas se ajustam
+         sozinhas — só atualize o aria-label "1 de 5".
+         ==================================================================== -->
+    <section class="secao secao--mata" id="depoimentos">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>Quem já foi cenário</h2>
+        </header>
+
+        <div class="carrossel js-carrossel" role="group" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+          <div class="carrossel__janela">
+            <ul class="carrossel__trilho js-trilho">
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="1 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>O croqui 3D era tão fiel que quando entrei no salão tive a sensação de já conhecer o lugar. Não teve uma surpresa ruim.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">P</span>
+                  <span><strong>Priscila e Denis</strong><span>casaram em abril de 2025</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="2 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Contratei só o projeto e executei com a minha equipe. Entregaram planta, lista de peças e até onde ligar cada refletor. Valeu cada centavo.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">G</span>
+                  <span><strong>Gustavo Merlin</strong><span>produtor de eventos</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="3 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Fizeram o lançamento da nossa coleção e conseguiram traduzir a marca em espaço. Os convidados fotografaram tudo sem a gente pedir.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">A</span>
+                  <span><strong>Aline Wosniack</strong><span>marketing, cliente corporativa</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="4 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>A luz mudou tudo. Eu não sabia que iluminação fazia tanta diferença até ver a mesma sala antes e depois da equipe deles passar.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">R</span>
+                  <span><strong>Renan e Fabiana</strong><span>casaram em novembro de 2024</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="5 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Na visita técnica eles me disseram que a minha ideia não caberia no espaço, e me mostraram por quê. Preferi a honestidade a ouvir um sim.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">L</span>
+                  <span><strong>Larissa Bueno</strong><span>quinze anos da filha, 2025</span></span>
+                </footer>
+              </li>
+            </ul>
+          </div>
+
+          <div class="carrossel__controles">
+            <button class="carrossel__seta js-anterior" type="button" aria-label="Depoimento anterior">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7-1.4-1.4Z"/></svg>
+            </button>
+            <div class="carrossel__pontos js-pontos" role="tablist" aria-label="Escolher depoimento"></div>
+            <button class="carrossel__seta js-proximo" type="button" aria-label="Próximo depoimento">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4.6 8.4 8.4-8.4 8.4-1.4-1.4 7-7-7-7 1.4-1.4Z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DÚVIDAS — accordion, abre com clique, Enter ou Espaço
+         EDITAR: perguntas e respostas. Ao duplicar um item, troque o
+         aria-controls e o id para um número novo, senão o accordion quebra.
+         ==================================================================== -->
+    <section class="secao" id="duvidas">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>As perguntas que mais chegam</h2>
+        </header>
+
+        <div class="faq js-faq">
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-1">
+                <span>Com quanto tempo preciso contratar?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-1" hidden>
+              <p>
+                Para casamento, de seis a doze meses — o projeto leva cerca de 45 dias
+                entre visita, croqui e aprovação. Corporativo aceitamos com 30 dias,
+                dependendo do porte. Abaixo disso, só se a agenda estiver aberta.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-2">
+                <span>Posso contratar só o projeto, sem a execução?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-2" hidden>
+              <p>
+                Pode, e não é raro. Você recebe planta baixa, croqui 3D, paleta, lista
+                de peças com fornecedor sugerido e o mapa de iluminação. A execução fica
+                com a sua equipe ou com quem você contratar.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-3">
+                <span>As flores estão incluídas no valor?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-3" hidden>
+              <p>
+                No pacote de cenografia completa, sim, com flor de estação. Espécie fora
+                de época ou importada entra como custo à parte, e a gente avisa isso na
+                aprovação do croqui — nunca depois.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-4">
+                <span>Vocês trabalham em qualquer espaço?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-4" hidden>
+              <p>
+                Trabalhamos em casa de festas, sítio, praia, galpão e igreja. A visita
+                técnica existe justamente para dizer se o espaço aguenta o que você
+                imaginou — peso de estrutura, ponto de energia e acesso para o caminhão.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-5">
+                <span>Quem monta e desmonta?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-5" hidden>
+              <p>
+                Nossa equipe, sempre. Montagem começa no dia anterior quando o espaço
+                libera, e a desmontagem é na madrugada seguinte ou na manhã seguinte,
+                conforme o contrato do local. Isso já está no valor.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-6">
+                <span>Como é o pagamento?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-6" hidden>
+              <p>
+                40% na assinatura, 30% na aprovação do croqui e 30% até dez dias antes
+                do evento. Pix ou cartão, sem juros. O valor da visita técnica não existe,
+                e o do projeto é abatido se você fechar a execução conosco.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HORÁRIOS E ÁREA DE ATENDIMENTO ==================== -->
+    <section class="secao secao--mata" id="horarios">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>Agenda e atendimento</h2>
+        </header>
+
+        <div class="agenda">
+          <!-- EDITAR: dias e horários -->
+          <div class="painel">
+            <h3>Estúdio e reuniões</h3>
+            <ul class="horarios">
+              <li><span>Segunda a quinta</span><span>09h &ndash; 18h</span></li>
+              <li><span>Sexta</span><span>09h &ndash; 16h</span></li>
+              <li class="destaque"><span>Sábado</span><span>Só visita técnica</span></li>
+              <li><span>Domingo</span><span class="fechado">Só montagem</span></li>
+            </ul>
+            <h3 class="painel__sub">Montagem de eventos</h3>
+            <ul class="horarios">
+              <li><span>Qualquer dia</span><span>conforme o contrato do espaço</span></li>
+              <li><span>Desmontagem</span><span>madrugada ou manhã seguinte</span></li>
+            </ul>
+          </div>
+
+          <!-- EDITAR: cidades atendidas -->
+          <div class="painel">
+            <h3>Onde atendemos</h3>
+            <p>
+              O estúdio e o acervo ficam no Rebouças. Atendemos sem custo de
+              deslocamento nestas cidades:
+            </p>
+            <ul class="pilulas">
+              <li>Curitiba</li>
+              <li>São José dos Pinhais</li>
+              <li>Pinhais</li>
+              <li>Colombo</li>
+              <li>Araucária</li>
+              <li>Campo Largo</li>
+              <li>Quatro Barras</li>
+              <li>Morretes</li>
+            </ul>
+            <p class="painel__nota">
+              Litoral e serra a partir de 120 km entram com deslocamento e hospedagem
+              da equipe, sempre fechados no orçamento antes da assinatura.
+            </p>
+            <!-- EDITAR: número do WhatsApp -->
+            <a class="botao botao--latao" href="https://wa.me/5541995380174?text=Ol%C3%A1%21%20Quero%20consultar%20datas%20dispon%C3%ADveis." target="_blank" rel="noopener">Consultar datas livres</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTATO ============================ -->
+    <section class="secao" id="contato">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>Venha conhecer o acervo</h2>
+        </header>
+
+        <div class="contato">
+          <div class="contato__dados">
+            <!-- EDITAR: endereço completo -->
+            <h3>Endereço</h3>
+            <address>
+              Rua Itupava, 1340 &mdash; galpão B<br>
+              Rebouças &mdash; Curitiba/PR<br>
+              CEP 80040-000
+            </address>
+
+            <!-- EDITAR: referência e acesso -->
+            <h3>Chegando aqui</h3>
+            <p>
+              Galpão de tijolo aparente com portão vermelho, no fim da rua sem saída.
+              Estacionamento interno para visitas, com hora marcada.
+            </p>
+
+            <h3>Falar com a gente</h3>
+            <ul class="contato__links">
+              <!-- EDITAR: WhatsApp -->
+              <li><a href="https://wa.me/5541995380174" target="_blank" rel="noopener">(41) 99538-0174 &middot; WhatsApp</a></li>
+              <!-- EDITAR: telefone fixo -->
+              <li><a href="tel:+554130827519">(41) 3082-7519</a></li>
+              <!-- EDITAR: e-mail -->
+              <li><a href="mailto:projetos@cenariovivo.com.br">projetos@cenariovivo.com.br</a></li>
+            </ul>
+
+            <h3>Redes sociais</h3>
+            <!-- EDITAR: links reais das redes sociais -->
+            <ul class="contato__redes">
+              <li>
+                <a href="https://instagram.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 4.86a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-3.2a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+                  </svg>
+                  @cenariovivo
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M13.5 22v-8.2h2.8l.42-3.22H13.5V8.53c0-.93.26-1.57 1.6-1.57h1.71V4.08c-.3-.04-1.31-.13-2.5-.13-2.47 0-4.16 1.51-4.16 4.28v2.35H7.34V13.8h2.81V22h3.35Z"/>
+                  </svg>
+                  /cenariovivo
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- EDITAR: bloco reservado para o mapa. Para usar o mapa real, troque
+               este bloco pelo iframe do Google Maps mantendo a classe "mapa". -->
+          <div class="mapa" role="img" aria-label="Mapa da localização do Cenário Vivo">
+            <span class="mapa__pino" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+            </span>
+            <span class="mapa__rotulo">MAPA — espaço reservado</span>
+            <span class="mapa__dica">Rua Itupava, 1340 &mdash; Rebouças, Curitiba</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <div class="rodape__coluna rodape__coluna--marca">
+        <span class="marca__mono" aria-hidden="true">CV</span>
+        <!-- EDITAR: nome e frase do estúdio -->
+        <p class="rodape__nome">Cenário Vivo</p>
+        <p class="rodape__frase">
+          Cenografia e direção de arte para eventos em Curitiba e região.
+          Projeto aprovado antes, equipe própria na montagem.
+        </p>
+      </div>
+
+      <nav class="rodape__coluna" aria-label="Menu do rodapé">
+        <h3>Navegar</h3>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria">Projetos</a></li>
+          <li><a href="#sobre">Estúdio</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div class="rodape__coluna">
+        <h3>Contato</h3>
+        <!-- EDITAR: telefone, WhatsApp e e-mail -->
+        <ul>
+          <li><a href="tel:+554130827519">(41) 3082-7519</a></li>
+          <li><a href="https://wa.me/5541995380174" target="_blank" rel="noopener">(41) 99538-0174</a></li>
+          <li><a href="mailto:projetos@cenariovivo.com.br">projetos@cenariovivo.com.br</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Estúdio</h3>
+        <!-- EDITAR: resumo dos horários -->
+        <ul>
+          <li>Segunda a quinta &middot; 09h &ndash; 18h</li>
+          <li>Sexta &middot; 09h &ndash; 16h</li>
+          <li>Visitas com hora marcada</li>
+          <li>Visita técnica gratuita</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape__base">
+      <!-- EDITAR: ano e nome do estúdio -->
+      <p>&copy; 2026 Cenário Vivo. Todos os direitos reservados.</p>
+      <!-- EDITAR: crédito da sua agência -->
+      <p>Página criada e mantida por <strong>JeffDev</strong></p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+  <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+  <a class="zap" href="https://wa.me/5541995380174?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Cen%C3%A1rio%20Vivo." target="_blank" rel="noopener" aria-label="Falar com o Cenário Vivo no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+    </svg>
+    <span class="zap__texto">Falar</span>
+  </a>
+
+  <!-- ==================== LIGHTBOX DA GALERIA ==================== -->
+  <div class="lightbox js-lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
+    <button class="lightbox__fechar js-fechar" type="button" aria-label="Fechar foto ampliada">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4Z"/></svg>
+    </button>
+    <button class="lightbox__seta js-lb-anterior" type="button" aria-label="Foto anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7-1.4-1.4Z"/></svg>
+    </button>
+    <figure class="lightbox__conteudo">
+      <div class="foto foto--ampliada" role="img" aria-label="Foto ampliada da galeria">
+        <span class="foto__rotulo js-lb-rotulo">FOTO</span>
+      </div>
+      <figcaption class="lightbox__legenda js-lb-legenda"></figcaption>
+    </figure>
+    <button class="lightbox__seta js-lb-proximo" type="button" aria-label="Próxima foto">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4.6 8.4 8.4-8.4 8.4-1.4-1.4 7-7-7-7 1.4-1.4Z"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -281,6 +281,115 @@ window.CONJUNTOS = [
        Fingir uma recomendação que não temos base para dar seria pior. */
   },
 
+  /* ATENÇÃO À ORDEM: decoração vem ANTES de buffet de propósito.
+     O conjunto buffet captura "festa", "festas", "eventos", "casamento" e
+     "aniversário" — quem faz DECORAÇÃO de festa cairia lá e receberia
+     páginas de cardápio e salão, que não é o que ela vende. Aqui os termos
+     são específicos de decoração (balão, painel, cenografia, decoradora),
+     e "decoração de festas" é a expressão inteira. */
+  {
+    id: 'decoracao',
+    nome: 'Decoração de festas',
+
+    /* que ramos digitados caem neste conjunto */
+    termos: [
+      'decoração', 'decoracao', 'decoradora', 'decorador',
+      'decoração de festa', 'decoracao de festa',
+      'decoração de festas', 'decoracao de festas',
+      'decoração de eventos', 'decoracao de eventos',
+      'balão', 'balao', 'balões', 'baloes', 'painel de balões',
+      'painel de baloes', 'arco de balões', 'arco de baloes',
+      'cenografia', 'cenográfico', 'cenografico', 'cenógrafo', 'cenografo',
+      'ambientação', 'ambientacao', 'mesa do bolo', 'mesa versa',
+      'direção de arte', 'direcao de arte', 'croqui'
+    ],
+
+    paginas: {
+      'simples-1': {
+        titulo: 'Ateliê Confete',
+        resumo: 'Claro e lúdico, com colagem de fotos no topo e os pacotes em cartões coloridos.',
+        bom_para: 'Decoração de festa infantil, com montagem inclusa',
+        imagem: 'dec-simples-01.webp',
+        link: 'decoracao/simples-01-ludico/',
+        /* quando o ramo casar com um destes, este é o recomendado */
+        termos: ['balão', 'balao', 'balões', 'baloes', 'painel de balões',
+                 'painel de baloes', 'arco de balões', 'arco de baloes',
+                 'mesa do bolo']
+      },
+      'simples-2': {
+        titulo: 'Estúdio Laço',
+        resumo: 'Minimalista e arejado, com a tabela de serviços em filetes e muito respiro.',
+        bom_para: 'Decoração de casamento e quinze anos, estilo clean',
+        imagem: 'dec-simples-02.webp',
+        link: 'decoracao/simples-02-minimal/',
+        termos: ['decoradora', 'decorador', 'decoração de festa',
+                 'decoracao de festa', 'mesa versa']
+      },
+      'premium': {
+        titulo: 'Cenário Vivo',
+        resumo: 'A página maior: galeria clicável, depoimentos em carrossel, dúvidas e números.',
+        bom_para: 'Cenografia e direção de arte, projeto de alto padrão',
+        imagem: 'dec-premium-01.webp',
+        link: 'decoracao/premium-01-cenografia/',
+        termos: ['cenografia', 'cenográfico', 'cenografico', 'cenógrafo',
+                 'cenografo', 'ambientação', 'ambientacao',
+                 'direção de arte', 'direcao de arte', 'croqui']
+      }
+    }
+  },
+
+  /* ATENÇÃO À ORDEM: buffet vem ANTES de cabeleireiro de propósito.
+     conjuntoDoRamo devolve o primeiro conjunto que casa, e quem escreve
+     "salão de festas" casaria com o termo "salão" do cabeleireiro se ele
+     viesse primeiro — e receberia modelos de salão de cabelo. Aqui o termo
+     é a expressão inteira "salão de festas", que só casa com o texto certo. */
+  {
+    id: 'buffet',
+    nome: 'Buffet e festas',
+
+    /* que ramos digitados caem neste conjunto */
+    termos: [
+      'buffet', 'bufê', 'bufe', 'festa', 'festas', 'casa de festas',
+      'salão de festas', 'salao de festas', 'espaço de eventos',
+      'espaco de eventos', 'evento', 'eventos', 'cerimonial',
+      'aniversário', 'aniversario', 'casamento', 'formatura',
+      'confraternização', 'confraternizacao', 'coffee break',
+      'quinze anos', '15 anos', 'debutante', 'recreação', 'recreacao',
+      'salgado', 'salgados', 'docinho', 'docinhos', 'kit festa'
+    ],
+
+    paginas: {
+      'simples-1': {
+        titulo: 'Buffet Girassol',
+        resumo: 'Claro e alegre, com confete no topo e os pacotes em cartões coloridos.',
+        bom_para: 'Festa infantil, com salão próprio e recreação',
+        imagem: 'buf-simples-01.webp',
+        link: 'buffet/simples-01-festivo/',
+        /* quando o ramo casar com um destes, este é o recomendado */
+        termos: ['aniversário', 'aniversario', 'festa infantil', 'recreação',
+                 'recreacao', 'kit festa', 'salgado', 'salgados', 'docinho', 'docinhos']
+      },
+      'simples-2': {
+        titulo: 'Casa Aurora Eventos',
+        resumo: 'Sóbrio e serifado, com hero dividido e os serviços em lista com preço.',
+        bom_para: 'Casamento, quinze anos e formatura',
+        imagem: 'buf-simples-02.webp',
+        link: 'buffet/simples-02-elegante/',
+        termos: ['formatura', 'confraternização', 'confraternizacao',
+                 'coffee break', 'quinze anos', '15 anos', 'debutante']
+      },
+      'premium': {
+        titulo: 'Espaço Vinhedo',
+        resumo: 'A página maior: galeria clicável, depoimentos em carrossel, dúvidas e números.',
+        bom_para: 'Casa de festas de alto padrão, com jardim e cerimonial',
+        imagem: 'buf-premium-01.webp',
+        link: 'buffet/premium-01-salao/',
+        termos: ['casa de festas', 'salão de festas', 'salao de festas',
+                 'espaço de eventos', 'espaco de eventos', 'cerimonial', 'casamento']
+      }
+    }
+  },
+
   {
     id: 'cabeleireiro',
     nome: 'Cabeleireiro',

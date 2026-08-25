@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título da aba (nome do buffet + serviço + cidade) -->
+  <title>Casa Aurora Eventos | Buffet de casamento em Juiz de Fora</title>
+  <!-- EDITAR: descrição que aparece no Google (até 155 caracteres) -->
+  <meta name="description" content="Buffet de casamento, 15 anos e formatura no Alto dos Passos, Juiz de Fora. Cardápio assinado e degustação gratuita para casais. Peça o orçamento.">
+  <meta name="theme-color" content="#5C7457">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="pular" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ============================ CABEÇALHO ============================ -->
+  <header class="cabecalho">
+    <div class="cabecalho__interno">
+      <!-- EDITAR: nome do buffet -->
+      <a class="marca" href="#inicio">
+        <span class="marca__nome">Casa Aurora</span>
+        <!-- EDITAR: descritor curto -->
+        <span class="marca__linha">Eventos &middot; desde 2009</span>
+      </a>
+
+      <button class="hamburguer js-menu-botao" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav js-menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">A casa</a></li>
+          <li><a href="#agenda">Agenda</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+        <a class="botao botao--verde nav__cta" href="https://wa.me/5532988142077" target="_blank" rel="noopener">Orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <!-- PLACEHOLDER DE IMAGEM: instruções no topo do style.css -->
+      <div class="foto foto--hero" role="img" aria-label="Mesa posta para um casamento na Casa Aurora">
+        <span class="foto__rotulo">FOTO — mesa posta</span>
+      </div>
+
+      <div class="hero__texto">
+        <p class="linha-fina">
+          <span class="linha-fina__traco" aria-hidden="true"></span>
+          <!-- EDITAR: bairro e cidade -->
+          Alto dos Passos &middot; Juiz de Fora
+        </p>
+
+        <!-- EDITAR: frase de impacto -->
+        <h1>O seu dia merece<br><em>uma casa inteira</em></h1>
+
+        <!-- EDITAR: parágrafo de apoio -->
+        <p class="hero__frase">
+          Casamento, quinze anos e formatura em um casarão de 1930 restaurado, com
+          jardim, salão climatizado e cozinha à vista. Um evento por dia, sempre.
+        </p>
+
+        <div class="hero__acoes">
+          <!-- EDITAR: número do WhatsApp -->
+          <a class="botao botao--verde botao--grande" href="https://wa.me/5532988142077?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20na%20Casa%20Aurora." target="_blank" rel="noopener">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+            </svg>
+            Pedir orçamento
+          </a>
+          <a class="botao botao--contorno botao--grande" href="#servicos">Ver serviços</a>
+        </div>
+
+        <!-- EDITAR: números do negócio -->
+        <dl class="hero__numeros">
+          <div><dt>Desde</dt><dd>2009</dd></div>
+          <div><dt>Capacidade</dt><dd>180</dd></div>
+          <div><dt>Eventos por dia</dt><dd>1</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- =========================== SERVIÇOS ============================ -->
+    <section class="secao" id="servicos">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__num">01</span>
+          <h2>Serviços e valores</h2>
+          <p>Valores de referência para 2026. O orçamento final sai depois da visita, com o cardápio escolhido.</p>
+        </header>
+
+        <!-- EDITAR: nome, descrição, detalhe e preço de cada serviço -->
+        <ul class="lista">
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Casamento Completo</h3>
+              <p>Cerimônia no jardim, salão, buffet completo, bebidas, equipe e decoração de mesa.</p>
+            </div>
+            <span class="lista__detalhe">100 convidados</span>
+            <span class="lista__preco">R$ 18.900</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Mini Wedding</h3>
+              <p>O mesmo cuidado em formato menor, no salão de inverno com lareira.</p>
+            </div>
+            <span class="lista__detalhe">40 convidados</span>
+            <span class="lista__preco">R$ 9.500</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Festa de 15 Anos</h3>
+              <p>Salão, buffet, bebidas, equipe, pista de dança e camarim para a debutante.</p>
+            </div>
+            <span class="lista__detalhe">80 convidados</span>
+            <span class="lista__preco">R$ 14.200</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Formatura</h3>
+              <p>Jantar servido à francesa, com brinde de espumante e espaço para a solenidade.</p>
+            </div>
+            <span class="lista__detalhe">por pessoa</span>
+            <span class="lista__preco">R$ 185</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Almoço Executivo</h3>
+              <p>Entrada, prato principal, sobremesa e café, servidos no salão ou no jardim.</p>
+            </div>
+            <span class="lista__detalhe">por pessoa</span>
+            <span class="lista__preco">R$ 72</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Coffee Break Corporativo</h3>
+              <p>Salgados assados, bolos, frutas, café, chá e sucos, com reposição durante o evento.</p>
+            </div>
+            <span class="lista__detalhe">por pessoa</span>
+            <span class="lista__preco">R$ 48</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Open Bar com Bartender</h3>
+              <p>Dois bartenders, carta de cinco drinques autorais, cerveja, vinho e não alcoólicos.</p>
+            </div>
+            <span class="lista__detalhe">5 horas</span>
+            <span class="lista__preco">R$ 2.400</span>
+          </li>
+
+          <li class="lista__item">
+            <div class="lista__info">
+              <h3>Degustação para Casais</h3>
+              <p>Prova do cardápio para os noivos e mais dois convidados, com hora marcada.</p>
+            </div>
+            <span class="lista__detalhe">4 pessoas</span>
+            <span class="lista__preco">Gratuita</span>
+          </li>
+        </ul>
+
+        <!-- EDITAR: condições de pagamento -->
+        <p class="nota">
+          Reserva de data com 30% de entrada. O restante é dividido até o mês do evento,
+          sem juros, em Pix ou cartão.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE ============================= -->
+    <section class="secao secao--verde" id="sobre">
+      <div class="container sobre">
+        <div class="sobre__texto">
+          <span class="titulo__num titulo__num--claro">02</span>
+          <!-- EDITAR: história da casa -->
+          <h2>Um casarão de 1930, restaurado para receber</h2>
+          <p>
+            A Casa Aurora era a residência da família Bittencourt. Em 2009 ela foi
+            restaurada telha por telha e virou casa de eventos, mantendo o piso de
+            tacos, as janelas de madeira e o jardim de trás.
+          </p>
+          <p>
+            Fazemos um evento por dia. Nunca dois. O casal chega de manhã, monta com
+            calma e a casa é dele até o último convidado ir embora.
+          </p>
+
+          <!-- EDITAR: quatro diferenciais -->
+          <ol class="passos">
+            <li>
+              <span class="passos__num" aria-hidden="true">01</span>
+              <h3>Um evento por dia</h3>
+              <p>A casa inteira é sua, do café da manhã até a última música.</p>
+            </li>
+            <li>
+              <span class="passos__num" aria-hidden="true">02</span>
+              <h3>Cozinha à vista</h3>
+              <p>Tudo feito aqui, na hora. O convidado vê o prato sair da chapa.</p>
+            </li>
+            <li>
+              <span class="passos__num" aria-hidden="true">03</span>
+              <h3>Degustação antes de fechar</h3>
+              <p>Você prova o cardápio inteiro antes de assinar qualquer contrato.</p>
+            </li>
+            <li>
+              <span class="passos__num" aria-hidden="true">04</span>
+              <h3>Plano B para chuva</h3>
+              <p>O jardim tem cobertura retrátil. Cerimônia ao ar livre não vira problema.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="sobre__fotos">
+          <div class="foto" role="img" aria-label="Fachada do casarão da Casa Aurora">
+            <span class="foto__rotulo">FOTO — fachada</span>
+          </div>
+          <div class="foto" role="img" aria-label="Jardim com cobertura retrátil">
+            <span class="foto__rotulo">FOTO — jardim</span>
+          </div>
+          <div class="foto" role="img" aria-label="Salão climatizado montado para jantar">
+            <span class="foto__rotulo">FOTO — salão montado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HORÁRIOS E ÁREA DE ATENDIMENTO ==================== -->
+    <section class="secao" id="agenda">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__num">03</span>
+          <h2>Agenda e atendimento</h2>
+          <p>Datas de sábado costumam fechar com oito meses de antecedência.</p>
+        </header>
+
+        <div class="agenda">
+          <!-- EDITAR: dias e horários -->
+          <div class="painel">
+            <h3>Quando recebemos evento</h3>
+            <ul class="horarios">
+              <li><span>Segunda a quarta</span><span>Corporativo, sob consulta</span></li>
+              <li><span>Quinta</span><span>18h &ndash; 00h</span></li>
+              <li><span>Sexta</span><span>18h &ndash; 02h</span></li>
+              <li class="destaque"><span>Sábado</span><span>11h &ndash; 02h</span></li>
+              <li><span>Domingo</span><span>11h &ndash; 22h</span></li>
+            </ul>
+            <h3 class="painel__sub">Visitas e degustação</h3>
+            <ul class="horarios">
+              <li><span>Terça a sexta</span><span>10h &ndash; 18h</span></li>
+              <li><span>Sábado</span><span>10h &ndash; 13h</span></li>
+              <li><span>Domingo e segunda</span><span class="fechado">Fechado</span></li>
+            </ul>
+          </div>
+
+          <!-- EDITAR: cidades atendidas -->
+          <div class="painel">
+            <h3>Onde atendemos</h3>
+            <p>
+              Os eventos acontecem na casa, no Alto dos Passos. Para buffet fora,
+              atendemos com equipe própria nestas cidades:
+            </p>
+            <ul class="pilulas">
+              <li>Juiz de Fora</li>
+              <li>Matias Barbosa</li>
+              <li>Chácara</li>
+              <li>Bicas</li>
+              <li>Lima Duarte</li>
+              <li>Santos Dumont</li>
+              <li>Além Paraíba</li>
+            </ul>
+            <p class="painel__nota">
+              Buffet fora da casa tem custo de deslocamento por quilômetro, fechado
+              no orçamento. Acima de 80 km, avaliamos caso a caso.
+            </p>
+            <!-- EDITAR: número do WhatsApp -->
+            <a class="botao botao--verde" href="https://wa.me/5532988142077?text=Ol%C3%A1%21%20Quero%20marcar%20uma%20visita%20na%20Casa%20Aurora." target="_blank" rel="noopener">Marcar uma visita</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTATO ============================ -->
+    <section class="secao secao--marfim" id="contato">
+      <div class="container">
+        <header class="titulo">
+          <span class="titulo__num">04</span>
+          <h2>Como chegar</h2>
+        </header>
+
+        <div class="contato">
+          <!-- EDITAR: bloco reservado para o mapa. Para usar o mapa real, troque
+               este bloco pelo iframe do Google Maps mantendo a classe "mapa". -->
+          <div class="mapa" role="img" aria-label="Mapa da localização da Casa Aurora">
+            <span class="mapa__rotulo">MAPA — espaço reservado</span>
+            <span class="mapa__dica">Rua dos Ipês, 720 &mdash; Alto dos Passos</span>
+          </div>
+
+          <div class="contato__dados">
+            <!-- EDITAR: endereço completo -->
+            <h3>Endereço</h3>
+            <address>
+              Rua dos Ipês, 720<br>
+              Alto dos Passos &mdash; Juiz de Fora/MG<br>
+              CEP 36026-370
+            </address>
+
+            <!-- EDITAR: referência e estacionamento -->
+            <h3>Chegando aqui</h3>
+            <p>
+              Casarão amarelo de esquina, com portão de ferro e ipê na calçada.
+              Estacionamento próprio para 40 carros, com manobrista nos eventos.
+            </p>
+
+            <h3>Falar com a gente</h3>
+            <ul class="contato__links">
+              <!-- EDITAR: WhatsApp -->
+              <li><a href="https://wa.me/5532988142077" target="_blank" rel="noopener">(32) 98814-2077 &middot; WhatsApp</a></li>
+              <!-- EDITAR: telefone fixo -->
+              <li><a href="tel:+553232154488">(32) 3215-4488</a></li>
+              <!-- EDITAR: e-mail -->
+              <li><a href="mailto:contato@casaauroraeventos.com.br">contato@casaauroraeventos.com.br</a></li>
+            </ul>
+
+            <h3>Redes sociais</h3>
+            <!-- EDITAR: links reais das redes sociais -->
+            <ul class="contato__redes">
+              <li>
+                <a href="https://instagram.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 4.86a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-3.2a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+                  </svg>
+                  @casaauroraeventos
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M13.5 22v-8.2h2.8l.42-3.22H13.5V8.53c0-.93.26-1.57 1.6-1.57h1.71V4.08c-.3-.04-1.31-.13-2.5-.13-2.47 0-4.16 1.51-4.16 4.28v2.35H7.34V13.8h2.81V22h3.35Z"/>
+                  </svg>
+                  /casaauroraeventos
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <div>
+        <!-- EDITAR: nome e frase da casa -->
+        <p class="rodape__nome">Casa Aurora Eventos</p>
+        <p class="rodape__frase">Casamento, quinze anos e formatura no Alto dos Passos, Juiz de Fora.</p>
+      </div>
+
+      <nav class="rodape__nav" aria-label="Menu do rodapé">
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">A casa</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+
+    <div class="rodape__base">
+      <!-- EDITAR: ano e nome da casa -->
+      <p>&copy; 2026 Casa Aurora Eventos. Todos os direitos reservados.</p>
+      <!-- EDITAR: crédito da sua agência -->
+      <p>Página criada e mantida por <strong>JeffDev</strong></p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+  <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+  <a class="zap" href="https://wa.me/5532988142077?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Casa%20Aurora." target="_blank" rel="noopener" aria-label="Falar com a Casa Aurora no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+    </svg>
+    <span class="zap__texto">Orçamento</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

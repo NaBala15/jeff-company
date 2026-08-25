@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título da aba (nome do espaço + serviço + cidade) -->
+  <title>Espaço Vinhedo | Casa de festas e casamento em Valinhos</title>
+  <!-- EDITAR: descrição que aparece no Google (até 155 caracteres) -->
+  <meta name="description" content="Casa de festas de alto padrão em Valinhos. Casamento no jardim, quinze anos e evento corporativo, com gastronomia assinada e um evento por dia.">
+  <meta name="theme-color" content="#1C1418">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="pular" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ====================================================================
+       CABEÇALHO — ganha a classe .encolhido depois de 40px de rolagem
+       ==================================================================== -->
+  <header class="cabecalho js-cabecalho">
+    <div class="cabecalho__interno">
+      <!-- EDITAR: nome do espaço -->
+      <a class="marca" href="#inicio">
+        <span class="marca__mono" aria-hidden="true">EV</span>
+        <span class="marca__texto">
+          <strong>Espaço Vinhedo</strong>
+          <!-- EDITAR: descritor curto -->
+          <em>casa de festas</em>
+        </span>
+      </a>
+
+      <button class="hamburguer js-menu-botao" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav js-menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="#servicos">Celebrações</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#sobre">A casa</a></li>
+          <li><a href="#depoimentos">Clientes</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#contato">Visitar</a></li>
+        </ul>
+        <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+        <a class="botao botao--vinho nav__cta" href="https://wa.me/5519991457082" target="_blank" rel="noopener">Agendar visita</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="hero__fundo foto" role="img" aria-label="Jardim do Espaço Vinhedo montado para cerimônia">
+        <span class="foto__rotulo">FOTO — jardim na cerimônia</span>
+      </div>
+      <div class="hero__brilho" aria-hidden="true"></div>
+
+      <div class="hero__conteudo">
+        <p class="linha-fina">
+          <span class="linha-fina__traco" aria-hidden="true"></span>
+          <!-- EDITAR: cidade e ano de fundação -->
+          Valinhos &middot; São Paulo &middot; desde 2004
+          <span class="linha-fina__traco" aria-hidden="true"></span>
+        </p>
+
+        <!-- EDITAR: frase de impacto -->
+        <h1>Espaço<br><span>Vinhedo</span></h1>
+
+        <!-- EDITAR: parágrafo de apoio -->
+        <p class="hero__frase">
+          Oito mil metros de jardim, um casarão de pedra e um evento por dia.
+          Aqui a sua festa não divide a casa, não divide a equipe e não divide a
+          atenção de ninguém.
+        </p>
+
+        <div class="hero__acoes">
+          <!-- EDITAR: número do WhatsApp -->
+          <a class="botao botao--vinho botao--grande" href="https://wa.me/5519991457082?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20visita%20ao%20Espa%C3%A7o%20Vinhedo." target="_blank" rel="noopener">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+            </svg>
+            Agendar visita guiada
+          </a>
+          <a class="botao botao--linha botao--grande" href="#servicos">Ver celebrações</a>
+        </div>
+      </div>
+
+      <div class="hero__rolagem" aria-hidden="true"><span></span>role para conhecer</div>
+    </section>
+
+    <!-- ====================================================================
+         NÚMEROS — o contador sobe quando a seção entra na tela
+
+         O número final já vem escrito aqui dentro, e não zerado: se o
+         JavaScript não rodar, o visitante vê o valor certo em vez de "0".
+         EDITAR: o valor visível E o data-alvo precisam ser o mesmo número.
+
+         AVISO: números fictícios de demonstração. Substituir por dados reais
+         do cliente antes de publicar.
+         ==================================================================== -->
+    <section class="numeros" aria-label="A casa em números">
+      <div class="container numeros__grade">
+        <div class="numero js-contar" data-alvo="22" data-sufixo="">
+          <span class="numero__valor">22</span>
+          <span class="numero__rotulo">anos de casa</span>
+        </div>
+        <div class="numero js-contar" data-alvo="1400" data-sufixo="+">
+          <span class="numero__valor">1.400+</span>
+          <span class="numero__rotulo">festas realizadas</span>
+        </div>
+        <div class="numero js-contar" data-alvo="300" data-sufixo="">
+          <span class="numero__valor">300</span>
+          <span class="numero__rotulo">convidados sentados</span>
+        </div>
+        <div class="numero js-contar" data-alvo="98" data-sufixo="%">
+          <span class="numero__valor">98%</span>
+          <span class="numero__rotulo">indicam a casa</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== SERVIÇOS ============================ -->
+    <section class="secao" id="servicos">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>Celebrações</h2>
+          <p>
+            Todo orçamento começa por uma visita guiada com degustação. O valor
+            fecha depois de você conhecer a casa e provar o cardápio.
+          </p>
+        </header>
+
+        <!-- EDITAR: nome, descrição, detalhe e preço de cada celebração -->
+        <div class="celebracoes">
+          <article class="celebracao">
+            <span class="celebracao__marca" aria-hidden="true"></span>
+            <h3>Casamento Completo</h3>
+            <p>Cerimônia no jardim, recepção no salão de pedra, buffet assinado, bebidas e equipe.</p>
+            <div class="celebracao__pe">
+              <span class="celebracao__detalhe">150 convidados</span>
+              <span class="celebracao__preco">R$ 42.000</span>
+            </div>
+          </article>
+
+          <article class="celebracao celebracao--destaque">
+            <span class="celebracao__selo">Mais procurado</span>
+            <span class="celebracao__marca" aria-hidden="true"></span>
+            <h3>Cerimônia no Jardim</h3>
+            <p>Só a cerimônia, com altar sob os ipês, cadeiras, som e uma hora de fotos no parque.</p>
+            <div class="celebracao__pe">
+              <span class="celebracao__detalhe">até 150 pessoas</span>
+              <span class="celebracao__preco">R$ 8.900</span>
+            </div>
+          </article>
+
+          <article class="celebracao">
+            <span class="celebracao__marca" aria-hidden="true"></span>
+            <h3>Festa de 15 Anos</h3>
+            <p>Salão, buffet, bebidas, pista, camarim da debutante e sala reservada para a família.</p>
+            <div class="celebracao__pe">
+              <span class="celebracao__detalhe">120 convidados</span>
+              <span class="celebracao__preco">R$ 28.500</span>
+            </div>
+          </article>
+
+          <article class="celebracao">
+            <span class="celebracao__marca" aria-hidden="true"></span>
+            <h3>Evento Corporativo</h3>
+            <p>Confraternização, convenção ou lançamento, com projeção, som e almoço servido.</p>
+            <div class="celebracao__pe">
+              <span class="celebracao__detalhe">por pessoa</span>
+              <span class="celebracao__preco">R$ 195</span>
+            </div>
+          </article>
+
+          <article class="celebracao">
+            <span class="celebracao__marca" aria-hidden="true"></span>
+            <h3>Open Bar Premium</h3>
+            <p>Três bartenders, carta autoral de oito drinques, espumante, vinhos e destilados.</p>
+            <div class="celebracao__pe">
+              <span class="celebracao__detalhe">6 horas</span>
+              <span class="celebracao__preco">R$ 6.400</span>
+            </div>
+          </article>
+
+          <article class="celebracao">
+            <span class="celebracao__marca" aria-hidden="true"></span>
+            <h3>Day Use da Noiva</h3>
+            <p>Suíte da casa liberada desde as 8h, com café da manhã e espaço para a equipe.</p>
+            <div class="celebracao__pe">
+              <span class="celebracao__detalhe">dia inteiro</span>
+              <span class="celebracao__preco">R$ 2.800</span>
+            </div>
+          </article>
+
+          <article class="celebracao">
+            <span class="celebracao__marca" aria-hidden="true"></span>
+            <h3>Locação do Espaço</h3>
+            <p>Só a casa e o jardim, com mesas, cadeiras, som e cozinha liberada ao seu buffet.</p>
+            <div class="celebracao__pe">
+              <span class="celebracao__detalhe">8 horas</span>
+              <span class="celebracao__preco">R$ 12.000</span>
+            </div>
+          </article>
+
+          <article class="celebracao">
+            <span class="celebracao__marca" aria-hidden="true"></span>
+            <h3>Visita e Degustação</h3>
+            <p>Passeio guiado pela casa e prova do cardápio para o casal e mais dois convidados.</p>
+            <div class="celebracao__pe">
+              <span class="celebracao__detalhe">4 pessoas</span>
+              <span class="celebracao__preco">Gratuita</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         GALERIA COM LIGHTBOX — clique ou Enter abre a foto ampliada
+         ==================================================================== -->
+    <section class="secao secao--vinho-escuro" id="galeria">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>A casa por dentro</h2>
+          <p>Toque em qualquer foto para ver ampliada. Use as setas do teclado para navegar.</p>
+        </header>
+
+        <!-- EDITAR: trocar cada placeholder por foto real e ajustar a legenda.
+             O lightbox lê o texto do atributo data-legenda de cada botão. -->
+        <ul class="galeria js-galeria">
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Altar montado sob os ipês, no fim da tarde">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — altar no jardim</span></span>
+              <span class="galeria__legenda">Altar no jardim</span>
+              <span class="sr-apenas">Ampliar foto: altar montado sob os ipês</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Salão de pedra montado para 150 convidados">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — salão de pedra</span></span>
+              <span class="galeria__legenda">Salão de pedra</span>
+              <span class="sr-apenas">Ampliar foto: salão de pedra montado</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Mesa dos noivos com arranjo alto e velas">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — mesa dos noivos</span></span>
+              <span class="galeria__legenda">Mesa dos noivos</span>
+              <span class="sr-apenas">Ampliar foto: mesa dos noivos</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Suíte da noiva, com espelho de corpo inteiro e luz natural">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — suíte da noiva</span></span>
+              <span class="galeria__legenda">Suíte da noiva</span>
+              <span class="sr-apenas">Ampliar foto: suíte da noiva</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Bar central de madeira, montado para o open bar">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — bar central</span></span>
+              <span class="galeria__legenda">Bar central</span>
+              <span class="sr-apenas">Ampliar foto: bar central de madeira</span>
+            </button>
+          </li>
+          <li>
+            <button class="galeria__item js-abrir" type="button" data-legenda="Cozinha à vista durante o serviço do jantar">
+              <span class="foto foto--quadro" aria-hidden="true"><span class="foto__rotulo">FOTO — cozinha à vista</span></span>
+              <span class="galeria__legenda">Cozinha à vista</span>
+              <span class="sr-apenas">Ampliar foto: cozinha à vista</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= FAIXA DE CHAMADA INTERMEDIÁRIA ================= -->
+    <section class="faixa-cta" aria-label="Agendar visita">
+      <div class="container faixa-cta__interno">
+        <div>
+          <!-- EDITAR: chamada do meio da página -->
+          <h2>A visita é gratuita e leva uma hora</h2>
+          <p>
+            Você conhece a casa, prova o cardápio e sai com o orçamento por escrito.
+            Sem compromisso de fechar nada no mesmo dia.
+          </p>
+        </div>
+        <!-- EDITAR: número do WhatsApp -->
+        <a class="botao botao--claro botao--grande" href="https://wa.me/5519991457082?text=Ol%C3%A1%21%20Quero%20agendar%20a%20visita%20gratuita." target="_blank" rel="noopener">Quero agendar minha visita</a>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE ============================= -->
+    <section class="secao" id="sobre">
+      <div class="container sobre">
+        <div class="sobre__midia">
+          <div class="foto foto--retrato" role="img" aria-label="Casarão de pedra do Espaço Vinhedo">
+            <span class="foto__rotulo">FOTO — o casarão</span>
+          </div>
+          <!-- EDITAR: número de destaque -->
+          <div class="sobre__selo">
+            <strong>1</strong>
+            <span>festa por dia</span>
+          </div>
+        </div>
+
+        <div class="sobre__texto">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <!-- EDITAR: história da casa -->
+          <h2>Uma casa que recebe uma festa por dia. Só uma.</h2>
+          <p>
+            O Espaço Vinhedo nasceu em 2004 no que era um sítio de família, entre
+            parreiras que ainda estão de pé. O casarão de pedra foi reformado sem
+            perder as paredes originais, e o jardim virou o lugar da cerimônia.
+          </p>
+          <p>
+            Nunca fizemos duas festas no mesmo dia, e não vamos fazer. A equipe é
+            uma só, a cozinha é uma só, e as duas são inteiramente suas do primeiro
+            ao último convidado.
+          </p>
+
+          <!-- EDITAR: quatro diferenciais -->
+          <ul class="diferenciais">
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 3 6v6c0 5.05 3.84 9.44 9 10 5.16-.56 9-4.95 9-10V6l-9-4Zm0 2.18 7 3.11V12c0 4.02-2.98 7.55-7 8.06-4.02-.51-7-4.04-7-8.06V7.29l7-3.11Zm-1.2 10.7-2.6-2.6 1.27-1.27 1.33 1.33 3.86-3.86 1.27 1.27-5.13 5.13Z"/></svg>
+              </span>
+              <div>
+                <strong>Uma festa por dia</strong>
+                <span>A casa e a equipe são suas do café da manhã à última música.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M5 3h14l-1.1 8.3A6 6 0 0 1 13 16.4V19h3v2H8v-2h3v-2.6a6 6 0 0 1-4.9-5.1L5 3Zm2.27 2 .8 6.03A4 4 0 0 0 12 14.5a4 4 0 0 0 3.93-3.47L16.73 5H7.27Z"/></svg>
+              </span>
+              <div>
+                <strong>Cozinha própria e à vista</strong>
+                <span>Nada terceirizado. O convidado vê o prato sair da chapa.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 2a7 7 0 1 1 0 14 7 7 0 0 1 0-14Zm-1 3v5l4 2.4.9-1.5-3.1-1.8V8H11Z"/></svg>
+              </span>
+              <div>
+                <strong>Plano B para chuva</strong>
+                <span>O jardim tem tenda estruturada montada em 40 minutos.</span>
+              </div>
+            </li>
+            <li>
+              <span class="diferenciais__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 1.5 14.6 8h6.9l-5.6 4 2.1 6.6L12 14.7 6 18.6 8.1 12 2.5 8h6.9L12 1.5Zm0 4.6L10.9 9.4l-3.4.1 2.7 2-1 3.3 2.8-1.8 2.8 1.8-1-3.3 2.7-2-3.4-.1L12 6.1Z"/></svg>
+              </span>
+              <div>
+                <strong>Cerimonial incluso</strong>
+                <span>Uma cerimonialista da casa acompanha do contrato ao dia da festa.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DEPOIMENTOS EM CARROSSEL
+         AVISO: depoimentos fictícios de demonstração.
+         EDITAR: substituir por depoimentos reais e autorizados antes de
+         publicar. Se mudar a quantidade de <li>, as bolinhas se ajustam
+         sozinhas — só atualize o aria-label "1 de 5".
+         ==================================================================== -->
+    <section class="secao secao--vinho-escuro" id="depoimentos">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>Quem casou aqui</h2>
+        </header>
+
+        <div class="carrossel js-carrossel" role="group" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+          <div class="carrossel__janela">
+            <ul class="carrossel__trilho js-trilho">
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="1 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Choveu o dia inteiro no nosso casamento. A tenda subiu em quarenta minutos e ninguém percebeu que havia um plano B. Foi perfeito assim mesmo.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">M</span>
+                  <span><strong>Mariana e Otávio</strong><span>casaram em março de 2025</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="2 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Visitamos sete espaços. Foi o único em que a degustação veio antes do contrato, e o único em que o preço do orçamento foi o preço final.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">R</span>
+                  <span><strong>Rafaela e Bruno</strong><span>casaram em outubro de 2024</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="3 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Fiz os quinze anos da minha filha e três meses depois a confraternização da empresa. A mesma equipe, o mesmo cuidado nos dois.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">S</span>
+                  <span><strong>Silvana Toledo</strong><span>cliente desde 2023</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="4 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>A cerimonialista da casa resolveu coisas que eu nem soube que aconteceram. Só fiquei sabendo semanas depois, rindo.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">C</span>
+                  <span><strong>Camila e Ingrid</strong><span>casaram em junho de 2025</span></span>
+                </footer>
+              </li>
+
+              <li class="depo" role="group" aria-roledescription="slide" aria-label="5 de 5">
+                <span class="depo__estrelas" aria-label="Cinco de cinco estrelas"><span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></span>
+                <blockquote><p>Minha avó tem 88 anos e cadeira de rodas. Levaram ela até o altar por um caminho plano que já existia. Ninguém precisou improvisar nada.</p></blockquote>
+                <footer class="depo__pessoa">
+                  <span class="depo__avatar" aria-hidden="true">T</span>
+                  <span><strong>Thiago e Letícia</strong><span>casaram em dezembro de 2024</span></span>
+                </footer>
+              </li>
+            </ul>
+          </div>
+
+          <div class="carrossel__controles">
+            <button class="carrossel__seta js-anterior" type="button" aria-label="Depoimento anterior">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7-1.4-1.4Z"/></svg>
+            </button>
+            <div class="carrossel__pontos js-pontos" role="tablist" aria-label="Escolher depoimento"></div>
+            <button class="carrossel__seta js-proximo" type="button" aria-label="Próximo depoimento">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4.6 8.4 8.4-8.4 8.4-1.4-1.4 7-7-7-7 1.4-1.4Z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DÚVIDAS — accordion, abre com clique, Enter ou Espaço
+         EDITAR: perguntas e respostas. Ao duplicar um item, troque o
+         aria-controls e o id para um número novo, senão o accordion quebra.
+         ==================================================================== -->
+    <section class="secao" id="duvidas">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>As perguntas que mais chegam</h2>
+        </header>
+
+        <div class="faq js-faq">
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-1">
+                <span>Com quanto tempo preciso reservar a data?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-1" hidden>
+              <p>
+                Sábado de abril a novembro costuma fechar com doze meses. Fora dessa
+                janela, seis meses resolvem. A data só é bloqueada com o contrato
+                assinado e o sinal pago — proposta enviada não reserva nada.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-2">
+                <span>O que está incluso no valor do casamento?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-2" hidden>
+              <p>
+                Espaço, cerimônia no jardim, buffet completo, bebidas não alcoólicas,
+                equipe de salão e cozinha, mesas, cadeiras, louça, som ambiente e
+                cerimonial. Não entram: decoração floral, fotografia, banda e open bar,
+                que orçamos à parte ou você contrata com quem preferir.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-3">
+                <span>Posso trazer meu próprio buffet?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-3" hidden>
+              <p>
+                Pode, no pacote de locação do espaço. A cozinha industrial fica liberada
+                e cobramos uma taxa de uso de R$ 1.200 para cobrir gás, energia e limpeza.
+                Nos outros pacotes, a gastronomia é nossa.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-4">
+                <span>E se chover no dia da cerimônia?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-4" hidden>
+              <p>
+                Temos tenda estruturada de 200 m² guardada aqui, montada pela nossa
+                equipe em cerca de 40 minutos. Não é cobrada à parte e a decisão é
+                tomada até três horas antes da cerimônia, com você.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-5">
+                <span>Vocês atendem restrição alimentar?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-5" hidden>
+              <p>
+                Sim, sem custo extra: sem glúten, sem lactose, vegetariano e vegano.
+                Precisamos da lista com 15 dias de antecedência, e os pratos saem
+                identificados, servidos direto para o convidado.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button class="faq__pergunta js-faq-botao" type="button" aria-expanded="false" aria-controls="faq-6">
+                <span>Como funciona o cancelamento?</span>
+                <span class="faq__mais" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__resposta" id="faq-6" hidden>
+              <p>
+                Até 180 dias antes, devolvemos 70% do que foi pago. Entre 180 e 90 dias,
+                50%. Abaixo de 90 dias não há devolução, mas a data pode ser transferida
+                uma vez, dentro de doze meses, sem custo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HORÁRIOS E ÁREA DE ATENDIMENTO ==================== -->
+    <section class="secao secao--vinho-escuro" id="horarios">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>Agenda e atendimento</h2>
+        </header>
+
+        <div class="agenda">
+          <!-- EDITAR: dias e horários -->
+          <div class="painel">
+            <h3>Quando recebemos festa</h3>
+            <ul class="horarios">
+              <li><span>Segunda e terça</span><span class="fechado">Manutenção</span></li>
+              <li><span>Quarta e quinta</span><span>Corporativo</span></li>
+              <li><span>Sexta</span><span>17h &ndash; 02h</span></li>
+              <li class="destaque"><span>Sábado</span><span>11h &ndash; 03h</span></li>
+              <li><span>Domingo</span><span>11h &ndash; 23h</span></li>
+            </ul>
+            <h3 class="painel__sub">Visitas guiadas</h3>
+            <ul class="horarios">
+              <li><span>Quarta a sexta</span><span>10h &ndash; 17h</span></li>
+              <li><span>Sábado</span><span>09h &ndash; 12h</span></li>
+              <li><span>Domingo</span><span class="fechado">Só com festa marcada</span></li>
+            </ul>
+          </div>
+
+          <!-- EDITAR: cidades atendidas -->
+          <div class="painel">
+            <h3>De onde vêm nossos casais</h3>
+            <p>
+              As festas acontecem aqui, na estrada do Vinhedo. Recebemos casais
+              principalmente destas cidades:
+            </p>
+            <ul class="pilulas">
+              <li>Valinhos</li>
+              <li>Vinhedo</li>
+              <li>Campinas</li>
+              <li>Itatiba</li>
+              <li>Louveira</li>
+              <li>Jundiaí</li>
+              <li>Indaiatuba</li>
+              <li>Bragança Paulista</li>
+            </ul>
+            <p class="painel__nota">
+              Para convidados de fora, temos parceria com duas pousadas a 6 km,
+              com desconto e transporte no dia da festa.
+            </p>
+            <!-- EDITAR: número do WhatsApp -->
+            <a class="botao botao--vinho" href="https://wa.me/5519991457082?text=Ol%C3%A1%21%20Quero%20consultar%20datas%20dispon%C3%ADveis." target="_blank" rel="noopener">Consultar datas livres</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTATO ============================ -->
+    <section class="secao" id="contato">
+      <div class="container">
+        <header class="titulo">
+          <span class="ornamento" aria-hidden="true">&#10022;</span>
+          <h2>Venha conhecer a casa</h2>
+        </header>
+
+        <div class="contato">
+          <div class="contato__dados">
+            <!-- EDITAR: endereço completo -->
+            <h3>Endereço</h3>
+            <address>
+              Estrada do Vinhedo, km 4,5 &mdash; s/n<br>
+              Bairro Santa Cruz &mdash; Valinhos/SP<br>
+              CEP 13273-400
+            </address>
+
+            <!-- EDITAR: referência e acesso -->
+            <h3>Chegando aqui</h3>
+            <p>
+              Portão de pedra com placa de ferro, 4,5 km depois do trevo da rodovia.
+              Estacionamento próprio para 90 carros, com manobrista nos eventos.
+            </p>
+
+            <h3>Falar com a gente</h3>
+            <ul class="contato__links">
+              <!-- EDITAR: WhatsApp -->
+              <li><a href="https://wa.me/5519991457082" target="_blank" rel="noopener">(19) 99145-7082 &middot; WhatsApp</a></li>
+              <!-- EDITAR: telefone fixo -->
+              <li><a href="tel:+551938719640">(19) 3871-9640</a></li>
+              <!-- EDITAR: e-mail -->
+              <li><a href="mailto:eventos@espacovinhedo.com.br">eventos@espacovinhedo.com.br</a></li>
+            </ul>
+
+            <h3>Redes sociais</h3>
+            <!-- EDITAR: links reais das redes sociais -->
+            <ul class="contato__redes">
+              <li>
+                <a href="https://instagram.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 4.86a4.94 4.94 0 1 1 0 9.88 4.94 4.94 0 0 1 0-9.88Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-3.2a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+                  </svg>
+                  @espacovinhedo
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com/" target="_blank" rel="noopener">
+                  <svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M13.5 22v-8.2h2.8l.42-3.22H13.5V8.53c0-.93.26-1.57 1.6-1.57h1.71V4.08c-.3-.04-1.31-.13-2.5-.13-2.47 0-4.16 1.51-4.16 4.28v2.35H7.34V13.8h2.81V22h3.35Z"/>
+                  </svg>
+                  /espacovinhedo
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- EDITAR: bloco reservado para o mapa. Para usar o mapa real, troque
+               este bloco pelo iframe do Google Maps mantendo a classe "mapa". -->
+          <div class="mapa" role="img" aria-label="Mapa da localização do Espaço Vinhedo">
+            <span class="mapa__pino" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+            </span>
+            <span class="mapa__rotulo">MAPA — espaço reservado</span>
+            <span class="mapa__dica">Estrada do Vinhedo, km 4,5 &mdash; Valinhos/SP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <div class="rodape__coluna rodape__coluna--marca">
+        <span class="marca__mono" aria-hidden="true">EV</span>
+        <!-- EDITAR: nome e frase da casa -->
+        <p class="rodape__nome">Espaço Vinhedo</p>
+        <p class="rodape__frase">
+          Casa de festas de alto padrão em Valinhos, São Paulo.
+          Uma celebração por dia desde 2004.
+        </p>
+      </div>
+
+      <nav class="rodape__coluna" aria-label="Menu do rodapé">
+        <h3>Navegar</h3>
+        <ul>
+          <li><a href="#servicos">Celebrações</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#sobre">A casa</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div class="rodape__coluna">
+        <h3>Contato</h3>
+        <!-- EDITAR: telefone, WhatsApp e e-mail -->
+        <ul>
+          <li><a href="tel:+551938719640">(19) 3871-9640</a></li>
+          <li><a href="https://wa.me/5519991457082" target="_blank" rel="noopener">(19) 99145-7082</a></li>
+          <li><a href="mailto:eventos@espacovinhedo.com.br">eventos@espacovinhedo.com.br</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3>Visitas</h3>
+        <!-- EDITAR: resumo dos horários de visita -->
+        <ul>
+          <li>Quarta a sexta &middot; 10h &ndash; 17h</li>
+          <li>Sábado &middot; 09h &ndash; 12h</li>
+          <li>Sempre com hora marcada</li>
+          <li>Degustação inclusa</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape__base">
+      <!-- EDITAR: ano e nome da casa -->
+      <p>&copy; 2026 Espaço Vinhedo. Todos os direitos reservados.</p>
+      <!-- EDITAR: crédito da sua agência -->
+      <p>Página criada e mantida por <strong>JeffDev</strong></p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+  <!-- EDITAR: número do WhatsApp no formato https://wa.me/55DDDNUMERO -->
+  <a class="zap" href="https://wa.me/5519991457082?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Espa%C3%A7o%20Vinhedo." target="_blank" rel="noopener" aria-label="Falar com o Espaço Vinhedo no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 12.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/>
+    </svg>
+    <span class="zap__texto">Visita</span>
+  </a>
+
+  <!-- ==================== LIGHTBOX DA GALERIA ==================== -->
+  <div class="lightbox js-lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
+    <button class="lightbox__fechar js-fechar" type="button" aria-label="Fechar foto ampliada">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4Z"/></svg>
+    </button>
+    <button class="lightbox__seta js-lb-anterior" type="button" aria-label="Foto anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6 7 13l8.4 8.4 1.4-1.4L9.8 13l7-7-1.4-1.4Z"/></svg>
+    </button>
+    <figure class="lightbox__conteudo">
+      <div class="foto foto--ampliada" role="img" aria-label="Foto ampliada da galeria">
+        <span class="foto__rotulo js-lb-rotulo">FOTO</span>
+      </div>
+      <figcaption class="lightbox__legenda js-lb-legenda"></figcaption>
+    </figure>
+    <button class="lightbox__seta js-lb-proximo" type="button" aria-label="Próxima foto">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8.6 4.6 8.4 8.4-8.4 8.4-1.4-1.4 7-7-7-7 1.4-1.4Z"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
