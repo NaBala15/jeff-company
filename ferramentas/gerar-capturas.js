@@ -217,6 +217,32 @@ console.log('');
 
 var temporaria = fs.mkdtempSync(path.join(os.tmpdir(), 'capturas-'));
 
+/* O navegador headless costuma deixar processo para trás depois de gravar a
+   foto. Rodando 18 capturas, sobram 18 processos abertos na máquina.
+
+   Matamos só os que NÓS abrimos, reconhecidos pelo caminho do perfil
+   descartável desta execução, que é único. O Edge que você tiver aberto para
+   navegar não é tocado. */
+function encerrarNavegadores() {
+  if (process.platform !== 'win32') { return; }
+
+  try {
+    cp.execFileSync('powershell', ['-NoProfile', '-Command',
+      "Get-CimInstance Win32_Process -Filter \"Name='msedge.exe' or Name='chrome.exe'\" | " +
+      "Where-Object { $_.CommandLine -like '*" + path.basename(temporaria) + "*' } | " +
+      "ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
+    ], { stdio: 'ignore', timeout: 30000 });
+  } catch (e) { /* se não der, não vale travar a ferramenta por isso */ }
+}
+
+/* Apaga a pasta temporária inteira, inclusive o perfil do navegador que fica
+   dentro dela — por isso recursivo. */
+function limparTemporaria() {
+  try {
+    fs.rmSync(temporaria, { recursive: true, force: true });
+  } catch (e) { /* o sistema limpa depois */ }
+}
+
 /* Fotografa uma página. Precisa ser ASSÍNCRONO: o servidor que entrega as
    páginas roda neste mesmo processo, e uma chamada síncrona travaria o
    Node inteiro — o navegador pediria a página e ninguém responderia, até
@@ -283,6 +309,8 @@ subirServidor(function (servidor, porta) {
     console.log('');
     console.log('  ✖ Nenhuma captura foi gerada. O navegador não conseguiu abrir as páginas.');
     console.log('');
+    encerrarNavegadores();
+    limparTemporaria();
     process.exit(1);
   }
 
@@ -321,6 +349,8 @@ subirServidor(function (servidor, porta) {
     console.log('');
     console.log('  ✖ Falhou ao converter para .webp: ' + e.message);
     console.log('');
+    encerrarNavegadores();
+    limparTemporaria();
     process.exit(1);
   }
 
@@ -381,11 +411,8 @@ subirServidor(function (servidor, porta) {
     console.log('  △ Não consegui fotografar: ' + falhas.join(', '));
   }
 
-  /* limpa os arquivos temporários */
-  try {
-    fs.readdirSync(temporaria).forEach(function (f) { fs.unlinkSync(path.join(temporaria, f)); });
-    fs.rmdirSync(temporaria);
-  } catch (e) { /* se não der, o sistema limpa depois */ }
+  encerrarNavegadores();
+  limparTemporaria();
 
   console.log('');
   console.log('Confira o resultado com:  node ferramentas/conferir-modelos.js');
@@ -398,6 +425,8 @@ subirServidor(function (servidor, porta) {
     console.log('');
     console.log('  ✖ Erro inesperado: ' + e.message);
     console.log('');
+    encerrarNavegadores();
+    limparTemporaria();
     process.exit(1);
   });
 });
