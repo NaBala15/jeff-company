@@ -208,6 +208,31 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 .extras__nota { text-align: center; margin: 36px auto 0; max-width: 620px; font-size: 14px; color: var(--faint); }
 
+/* ===================== MODO PASSO 3 DO PEDIDO =====================
+   Ligado pelo script quando o endereco tem ?pedido=1. Fora disso, esta
+   pagina e a vitrine que voce abre com o cliente, e nada disto aparece. */
+
+.passo-barra {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--surface); border-bottom: 1px solid var(--line-soft);
+  padding: 12px 22px; text-align: center;
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--lime);
+}
+.passo-barra a { color: var(--muted); text-decoration: none; margin-left: 14px; }
+.passo-barra a:hover { color: var(--text); }
+
+.escolher {
+  display: block; width: 100%; margin-bottom: 10px;
+  padding: 14px 22px; border: 0; border-radius: 999px;
+  background: var(--lime); color: var(--ink);
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+  letter-spacing: .03em; cursor: pointer;
+  transition: .2s ease;
+}
+.escolher:hover { background: #D8FF6B; transform: translateY(-2px); }
+.modelo__pe .botao { width: 100%; }
+
 /* ============================ CHAMADA ============================ */
 .chamada {
   max-width: var(--largura); margin: 0 auto; padding: 0 22px 70px; text-align: center;
@@ -249,6 +274,12 @@ ul { list-style: none; margin: 0; padding: 0; }
 </head>
 <body>
 
+  <!-- Barra do passo 3. Some quando a página é aberta fora do formulário. -->
+  <p class="passo-barra" id="passo-barra" hidden>
+    Passo 3 de 5 &mdash; escolha o seu modelo
+    <a href="../../pedido/#passo-2">voltar ao formulário</a>
+  </p>
+
   <header class="topo">
     <div class="topo__interno">
       <p class="topo__marca">
@@ -289,6 +320,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
         <div class="modelo__pe">
           <p class="modelo__resumo">Claro e alegre, com confete no topo e os pacotes em cartões coloridos. Boa escolha para festa infantil, com preço por número de convidados.</p>
+          <button type="button" class="escolher" data-vaga="simples-1" hidden>Escolher este modelo</button>
           <a class="botao botao--linha" href="simples-01-festivo/index.html?demo=1" target="_blank" rel="noopener nofollow">Abrir em tela cheia</a>
         </div>
       </article>
@@ -307,6 +339,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
         <div class="modelo__pe">
           <p class="modelo__resumo">Sóbrio e serifado, com hero dividido e os serviços em lista com preço. Boa escolha para casamento, quinze anos e formatura.</p>
+          <button type="button" class="escolher" data-vaga="simples-2" hidden>Escolher este modelo</button>
           <a class="botao botao--linha" href="simples-02-elegante/index.html?demo=1" target="_blank" rel="noopener nofollow">Abrir em tela cheia</a>
         </div>
       </article>
@@ -325,6 +358,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 
         <div class="modelo__pe">
           <p class="modelo__resumo">A página maior, com galeria clicável, depoimentos em carrossel, perguntas frequentes e animações. Para quem quer peso na primeira impressão.</p>
+          <button type="button" class="escolher" data-vaga="premium" hidden>Escolher este modelo</button>
           <a class="botao botao--lima" href="premium-01-salao/index.html?demo=1" target="_blank" rel="noopener nofollow">Abrir em tela cheia</a>
         </div>
       </article>
@@ -408,6 +442,37 @@ ul { list-style: none; margin: 0; padding: 0; }
     <p>Vitrine de modelos &mdash; ramo Buffet e festas</p>
     <p>Páginas criadas e mantidas por <strong>Jeff Company</strong></p>
   </footer>
+
+<script>
+/* ==================================================================
+   MODO PASSO 3
+
+   Esta página tem dois usos. Aberta direto, é a vitrine que o Jefferson
+   mostra ao cliente e termina no botão de WhatsApp. Aberta pelo
+   formulário (com ?pedido=1), ela É o passo 3: cada cartão ganha o botão
+   de escolher, que devolve a pessoa para o passo 4 com a escolha feita.
+
+   Sem o parâmetro nada disto acontece — os botões nascem com hidden.
+   ================================================================== */
+(function () {
+  'use strict';
+  if (location.search.indexOf('pedido=1') === -1) return;
+
+  document.getElementById('passo-barra').hidden = false;
+
+  /* a chamada de WhatsApp do fim não faz sentido no meio de um pedido */
+  var chamada = document.querySelector('.chamada');
+  if (chamada) chamada.hidden = true;
+
+  var botoes = document.querySelectorAll('.escolher');
+  for (var i = 0; i < botoes.length; i++) {
+    botoes[i].hidden = false;
+    botoes[i].addEventListener('click', function () {
+      location.href = '../../pedido/?modelo=' + this.dataset.vaga + '#passo-4';
+    });
+  }
+})();
+</script>
 
 </body>
 </html>

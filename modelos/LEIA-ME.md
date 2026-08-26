@@ -76,13 +76,26 @@ já existe em outro** antes de publicar.
 
 ## Onde isso aparece para o cliente
 
-No **passo 3 de `/pedido/`**: quando o ramo digitado casa com um conjunto, os
-cartões trocam a miniatura desenhada pela captura da página real e surge o
-botão *"Ver os três lado a lado, em tamanho grande"*, que abre o comparativo
-daquele ramo.
+**O comparativo É o passo 3 do `/pedido/`.** Quando o ramo digitado tem
+conjunto, o "Continuar" do passo 2 leva a pessoa para cá — na mesma aba, como
+um passo de verdade. Cada cartão ganha o botão *"Escolher este modelo"*, que
+devolve para o passo 4 com a escolha já feita.
 
-Ramo sem conjunto continua com as miniaturas desenhadas e um aviso de que as
-páginas do ramo estão sendo finalizadas — nunca a página de outro ramo.
+O que o formulário já tinha preenchido fica guardado no navegador (chave
+`jc-pedido`) e volta sozinho. A memória é apagada quando o pedido é enviado,
+para o próximo visitante do mesmo aparelho não abrir o formulário com os dados
+de outra pessoa.
+
+A página tem **dois usos, e sabe em qual está**:
+
+| Aberta | Como se comporta |
+|---|---|
+| Com `?pedido=1` | Barra "Passo 3 de 5", botões de escolher, sem a chamada de WhatsApp |
+| Direto, sem parâmetro | Vitrine de venda: sem os botões, terminando no WhatsApp |
+
+Ramo sem conjunto não tem comparativo para onde mandar, então o passo 3
+continua sendo os cartões desenhados dentro do formulário, com o aviso de que
+as páginas daquele ramo estão sendo finalizadas — nunca a página de outro ramo.
 
 ---
 

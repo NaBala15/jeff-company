@@ -30,6 +30,63 @@
     materiais: []
   };
 
+  /* ---------------------------------------------------------------------
+     Memória do formulário
+
+     O passo 3 leva a pessoa para outra página (o comparativo do ramo). Sem
+     guardar nada, ela voltaria com o formulário em branco e desistiria — e
+     com razão. Então tudo que foi digitado fica no navegador dela, some
+     quando o pedido é enviado, e nunca sai do aparelho.
+     --------------------------------------------------------------------- */
+
+  var CHAVE = 'jc-pedido';
+
+  function salvarEstado() {
+    try {
+      var campos = {};
+      document.querySelectorAll('.passo input, .passo textarea, .passo select')
+        .forEach(function (c) {
+          if (!c.id && !c.name) return;
+          campos[c.id || c.name] = c.type === 'checkbox' ? c.checked : c.value;
+        });
+      localStorage.setItem(CHAVE, JSON.stringify({ pedido: pedido, campos: campos }));
+    } catch (e) { /* navegador sem armazenamento: segue sem memória */ }
+  }
+
+  function restaurarEstado() {
+    var dados;
+    try { dados = JSON.parse(localStorage.getItem(CHAVE) || 'null'); }
+    catch (e) { return false; }
+    if (!dados) return false;
+
+    if (dados.pedido) {
+      pedido.plano = dados.pedido.plano || '';
+      pedido.modelo = dados.pedido.modelo || '';
+      pedido.materiais = dados.pedido.materiais || [];
+    }
+    Object.keys(dados.campos || {}).forEach(function (id) {
+      var c = document.getElementById(id) ||
+              document.querySelector('[name="' + id + '"]');
+      if (!c) return;
+      if (c.type === 'checkbox') c.checked = dados.campos[id];
+      else c.value = dados.campos[id];
+    });
+
+    /* o cartão de plano precisa voltar marcado, senão a pessoa acha que perdeu */
+    if (pedido.plano) {
+      var b = document.querySelector('.plano[data-plano="' + pedido.plano + '"]');
+      if (b) {
+        document.querySelectorAll('.plano').forEach(function (o) { o.classList.remove('is-on'); });
+        b.classList.add('is-on');
+      }
+    }
+    return true;
+  }
+
+  function esquecerEstado() {
+    try { localStorage.removeItem(CHAVE); } catch (e) {}
+  }
+
   var elProgresso = document.getElementById('progresso');
   var elProgressoI = document.getElementById('progresso-i');
   var elProgressoTxt = document.getElementById('progresso-txt');
@@ -43,6 +100,22 @@
     if (n === 3 && pedido.plano === 'personalizada') n = 4;
 
     if (n === 2 && !validarPasso1()) return;
+
+    /* O passo 3 é o comparativo do ramo, e não uma tela aqui dentro: lá as
+       três páginas aparecem inteiras, com preço e com o que o premium tem a
+       mais. Cartão pequeno não decide R$ 50 contra R$ 60.
+
+       Só vale quando o ramo tem páginas prontas. Sem conjunto não há
+       comparativo para onde mandar, e aí o passo 3 continua sendo os
+       cartões desenhados aqui. */
+    if (n === 3) {
+      var conjunto = window.conjuntoDoRamo(campoRamo.value);
+      if (conjunto) {
+        salvarEstado();
+        location.href = window.BASE_MODELOS + conjunto.id + '/comparativo.html?pedido=1';
+        return;
+      }
+    }
 
     document.querySelectorAll('.passo').forEach(function (s) {
       s.classList.toggle('is-on', Number(s.dataset.passo) === n);
@@ -289,20 +362,6 @@
       alvo.appendChild(caixa);
     });
 
-    /* Vitrine dos três lado a lado, em tamanho grande.
-
-       O cartão daqui é pequeno demais para decidir R$ 50 contra R$ 60. O
-       comparativo mostra as três páginas inteiras, com preço e com a lista
-       do que o premium tem a mais — é a página que fecha a escolha. */
-    var verTodos = document.getElementById('ver-comparativo');
-    if (verTodos) {
-      verTodos.hidden = !conjunto;
-      if (conjunto) {
-        verTodos.querySelector('a').href =
-          window.BASE_MODELOS + conjunto.id + '/comparativo.html';
-      }
-    }
-
     /* Aviso honesto para quem é de um ramo que ainda não tem página pronta:
        o desenho mostra o formato, não a página final. */
     var aviso = document.getElementById('modelo-aviso');
@@ -417,8 +476,13 @@
       ? 'Você deixou ' + vazios + ' item(ns) em branco — tudo bem, a gente completa na conversa.'
       : 'Está tudo preenchido. Depois de enviar, mande o logo e as fotos na mesma conversa.';
 
-    document.getElementById('btn-enviar').href =
-      'https://wa.me/' + SEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem());
+    var enviar = document.getElementById('btn-enviar');
+    enviar.href = 'https://wa.me/' + SEU_WHATSAPP + '?text=' + encodeURIComponent(mensagem());
+
+    /* Pedido enviado, memória apagada. Sem isso, o próximo visitante do mesmo
+       aparelho — numa lan house, no celular emprestado — abriria o formulário
+       com os dados de outra pessoa. */
+    enviar.addEventListener('click', esquecerEstado, { once: true });
   }
 
   function mensagem() {
@@ -502,6 +566,20 @@
      O valor entra por .value, nunca por innerHTML — endereço é coisa que
      qualquer um escreve, e não vira HTML aqui dentro.
      --------------------------------------------------------------------- */
+  /* Voltando do comparativo com um modelo escolhido. Restaura o que estava
+     preenchido, marca a vaga e pula direto para o passo 4 — refazer o passo 3
+     seria mandar a pessoa escolher duas vezes. */
+  var modeloEscolhido = (location.search.match(/[?&]modelo=([a-z0-9-]+)/) || [])[1];
+  if (modeloEscolhido) {
+    restaurarEstado();
+    pedido.modelo = modeloEscolhido;
+    if (!pedido.plano) pedido.plano = 'assinatura';
+    montarModelos();
+    irPara(4);
+    atualizarProgresso();
+    return;
+  }
+
   var ramoDoLink = (location.search.match(/[?&]ramo=([^&]*)/) || [])[1];
   if (ramoDoLink) {
     campoRamo.value = decodeURIComponent(ramoDoLink.replace(/\+/g, ' ')).slice(0, 60);
