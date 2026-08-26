@@ -289,6 +289,20 @@
       alvo.appendChild(caixa);
     });
 
+    /* Vitrine dos três lado a lado, em tamanho grande.
+
+       O cartão daqui é pequeno demais para decidir R$ 50 contra R$ 60. O
+       comparativo mostra as três páginas inteiras, com preço e com a lista
+       do que o premium tem a mais — é a página que fecha a escolha. */
+    var verTodos = document.getElementById('ver-comparativo');
+    if (verTodos) {
+      verTodos.hidden = !conjunto;
+      if (conjunto) {
+        verTodos.querySelector('a').href =
+          window.BASE_MODELOS + conjunto.id + '/comparativo.html';
+      }
+    }
+
     /* Aviso honesto para quem é de um ramo que ainda não tem página pronta:
        o desenho mostra o formato, não a página final. */
     var aviso = document.getElementById('modelo-aviso');

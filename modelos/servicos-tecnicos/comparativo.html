@@ -1,363 +1,413 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<!-- ======================================================================
-
-     COMPARATIVO DOS MODELOS — serviços técnicos e reformas
-
-     Criado por JEFF COMPANY · JeffDev
-     Página interna da agência, para escolher o modelo com o cliente.
-     Não publique este arquivo junto com o site entregue.
-
-     ====================================================================== -->
 <head>
 <meta charset="UTF-8">
 
-<!-- Página interna ou de exemplo: fora do Google de propósito. -->
+<!-- Página de venda, aberta com o cliente. Fora do Google de propósito:
+     as páginas em prévia são de negócios fictícios. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comparativo — modelos de serviços técnicos e reformas</title>
+<title>Modelos de página — Serviços técnicos e reformas | Escolha o seu</title>
+<meta name="description" content="Compare os três modelos de página para reforma, manutenção e assistência técnica: dois simples e um premium.">
 <meta name="author" content="Jeff Company">
-<meta name="description" content="Os três modelos de landing page para serviços técnicos e reformas, lado a lado.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+<!-- As fontes do site. Sem internet, cai nas do sistema e a página continua
+     legível — as páginas em prévia, essas, funcionam 100% offline. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-/* ==========================================================================
-   COMPARATIVO — página interna, só para você e o cliente escolherem.
-   NÃO faz parte do que é entregue. Não publique este arquivo.
-   ========================================================================== */
+/* ==================================================================
+   COMPARATIVO DE MODELOS — Jeff Company
+
+   Vitrine que você abre com o cliente para ele escolher a página.
+   Mesma estrutura em todos os ramos; muda só o conteúdo.
+
+   As cores são as do site (css/variables.css). Se mudar lá, mude aqui:
+   esta página é autônoma de propósito, para abrir sem depender do resto.
+   ================================================================== */
 
 :root {
-  --bg: #0E1013;
-  --painel: #16191E;
-  --linha: #262B33;
-  --texto: #E9ECF1;
-  --suave: #939BA8;
-  --acento: #7BD389;
-  --raio: 10px;
-  --fonte: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-  --mono: 'JetBrains Mono', 'Cascadia Mono', Consolas, 'Courier New', monospace;
+  --bg:          #0A0B09;
+  --surface:     #12140F;
+  --surface-2:   #191C15;
+  --line:        #262A20;
+  --line-soft:   rgba(199, 245, 63, .14);
+  --text:        #E8ECE0;
+  --muted:       #8B9280;
+  --faint:       #5C6154;
+  --lime:        #C7F53F;
+  --lime-dim:    #96BC2E;
+  --lime-glow:   rgba(199, 245, 63, .22);
+  --ink:         #0A0B09;
+  --r:           16px;
+  --largura:     1320px;
+  --font-display: 'Archivo', system-ui, 'Segoe UI', sans-serif;
+  --font-body:    'Inter', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 }
 
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--texto);
-  font-family: var(--fonte);
-  line-height: 1.6;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-.topo {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(14, 16, 19, 0.96);
-  border-bottom: 1px solid var(--linha);
-  padding: 16px 22px;
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 500; line-height: 1.14; margin: 0 0 .5em;
+}
+p { margin: 0 0 1em; }
+ul { list-style: none; margin: 0; padding: 0; }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+
+/* ============================= TOPO ============================== */
+.topo { border-bottom: 1px solid var(--line); background: var(--surface); }
+.topo__interno {
+  max-width: var(--largura); margin: 0 auto; padding: 16px 22px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+}
+.topo__marca {
+  margin: 0; display: inline-flex; align-items: center; gap: 10px;
+  font-size: 15px; font-family: var(--font-mono);
+}
+.topo__marca strong { color: var(--lime); font-weight: 500; }
+.topo__ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--lime); }
+.topo__dica { margin: 0; font-size: 13px; color: var(--muted); }
+
+/* ============================= INTRO ============================= */
+.intro { max-width: 760px; margin: 0 auto; padding: 56px 22px 34px; text-align: center; }
+.intro h1 { font-size: clamp(30px, 5.5vw, 48px); }
+.intro p { color: var(--muted); margin: 0; }
+
+/* ---- a faixa de condições: o que o cliente precisa saber para decidir ---- */
+.condicoes {
+  max-width: var(--largura); margin: 0 auto 8px; padding: 0 22px;
+  display: grid; gap: 10px;
+}
+.condicoes li {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; align-items: baseline; gap: 10px;
+}
+.condicoes b {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--lime); white-space: nowrap;
+}
+.condicoes span { font-size: 14px; color: var(--muted); }
+
+/* =========================== VITRINE ============================= */
+.vitrine {
+  max-width: var(--largura); margin: 0 auto; padding: 20px 22px 60px;
+  display: grid; gap: 22px;
 }
 
-.topo-linha {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  max-width: 1700px;
-  margin-inline: auto;
+.modelo {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.modelo--premium {
+  border-color: var(--lime-glow);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .5), 0 0 0 1px var(--line-soft) inset;
 }
 
-h1 {
-  font-size: 1.06rem;
-  margin: 0;
-  letter-spacing: -0.01em;
+.modelo__cabeca { padding: 22px 22px 14px; }
+.modelo__tag {
+  display: inline-block; font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
 }
-.subtitulo {
-  margin: 2px 0 0;
-  font-size: 0.8rem;
-  color: var(--suave);
-}
+.modelo__tag--simples { background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.modelo__tag--premium { background: var(--lime); color: var(--ink); }
+.modelo__cabeca h2 { font-size: 28px; margin-bottom: 4px; }
+.modelo__negocio { margin: 0 0 14px; font-size: 13px; color: var(--faint); }
 
-.controles {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
+.modelo__preco {
+  margin: 0; display: flex; align-items: baseline; gap: 8px;
+  font-family: var(--font-mono);
 }
+.modelo__preco b { font-size: 24px; color: var(--text); font-weight: 500; }
+.modelo--premium .modelo__preco b { color: var(--lime); }
+.modelo__preco span { font-size: 12px; color: var(--faint); }
 
-.rotulo-controle {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--suave);
-  margin-right: 4px;
-}
+/* A janela de prévia: o iframe é renderizado grande (para a página cair no
+   layout de computador) e reduzido por transform.
 
-.btn {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  padding: 8px 14px;
-  background: var(--painel);
-  color: var(--texto);
-  border: 1px solid var(--linha);
-  border-radius: 999px;
-  cursor: pointer;
-  transition: border-color 150ms ease, color 150ms ease;
+   A largura é 320% da janela e a escala é 1/3.2, então o resultado dá
+   exatamente 100% da janela em qualquer tamanho de tela. Com largura fixa
+   em pixels, a prévia ficava mais larga que a janela e cortava a coluna da
+   direita — que é justamente o que o cliente quer ver. */
+.modelo__tela {
+  position: relative; overflow: hidden;
+  height: 480px; margin: 0 16px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: #fff;
 }
-.btn:hover { border-color: var(--acento); }
-.btn[aria-pressed="true"] {
-  border-color: var(--acento);
-  color: var(--acento);
-}
-.btn:focus-visible {
-  outline: 2px solid var(--acento);
-  outline-offset: 2px;
-}
-
-.palcos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  padding: 22px;
-  max-width: 1700px;
-  margin-inline: auto;
-  align-items: start;
-}
-
-.palco {
-  background: var(--painel);
-  border: 1px solid var(--linha);
-  border-radius: var(--raio);
-  overflow: hidden;
-}
-
-.palco-cabeca {
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--linha);
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-.palco-cabeca h2 { font-size: 0.98rem; margin: 0; }
-.palco-cabeca p {
-  margin: 2px 0 0;
-  font-size: 0.76rem;
-  color: var(--suave);
-}
-
-.selo {
-  font-family: var(--mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 9px;
-  border-radius: 999px;
-  border: 1px solid var(--linha);
-  color: var(--suave);
-  white-space: nowrap;
-  flex: none;
-}
-.selo-premium {
-  border-color: var(--acento);
-  color: var(--acento);
-}
-
-/* A moldura tem uma largura fixa (360, 768 ou 1440) e é reduzida por
-   transform para caber na coluna. Assim o que aparece é exatamente o que
-   aquele tamanho de tela mostraria — e não a página espremida. */
-.moldura {
-  position: relative;
-  overflow: hidden;
-  background: #000;
-}
-
-.moldura iframe {
-  display: block;
+.modelo__tela iframe {
+  position: absolute; top: 0; left: 0;
+  width: 320%; height: 320%;
   border: 0;
-  transform-origin: top left;
-  background: #FFF;
+  transform: scale(.3125);
+  transform-origin: 0 0;
 }
 
-.palco-pe {
-  padding: 12px 16px;
-  border-top: 1px solid var(--linha);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+.modelo__pe { padding: 18px 22px 22px; margin-top: auto; }
+.modelo__resumo { font-size: 14px; color: var(--muted); }
+
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 22px; border: 1px solid transparent; border-radius: 999px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+  letter-spacing: .02em; text-decoration: none;
+  transition: .25s ease;
 }
-.palco-pe a {
-  font-size: 0.78rem;
-  color: var(--acento);
-  text-decoration: none;
+.botao--linha { border-color: var(--line); color: var(--text); }
+.botao--linha:hover { border-color: var(--lime); color: var(--lime); }
+.botao--lima { background: var(--lime); color: var(--ink); }
+.botao--lima:hover { background: #D8FF6B; }
+
+/* ============================ EXTRAS ============================= */
+.extras { max-width: var(--largura); margin: 0 auto; padding: 0 22px 70px; }
+.extras__cabeca { text-align: center; max-width: 680px; margin: 0 auto 40px; }
+.extras__tag {
+  display: inline-block; background: var(--lime); color: var(--ink);
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 999px; margin-bottom: 14px;
 }
-.palco-pe a:hover { text-decoration: underline; }
-.palco-pe span {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  color: var(--suave);
+.extras__cabeca h2 { font-size: clamp(26px, 4.4vw, 38px); }
+.extras__cabeca p { color: var(--muted); margin: 0; }
+
+/* a frase que explica o preço — é o que faz o cliente entender o premium */
+.extras__porque {
+  max-width: 680px; margin: 18px auto 0; padding: 16px 20px;
+  background: var(--surface); border: 1px solid var(--line-soft);
+  border-radius: 12px; font-size: 15px; color: var(--muted);
+}
+.extras__porque strong { color: var(--text); font-weight: 600; }
+
+.extras__lista { display: grid; gap: 16px; }
+.extras__lista li {
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-left: 3px solid var(--lime);
+  border-radius: 10px; padding: 20px 22px;
+}
+.extras__num { font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--lime); }
+.extras__lista h3 { font-size: 19px; margin: 6px 0 6px; }
+.extras__lista p { margin: 0; font-size: 15px; color: var(--muted); }
+
+.extras__nota { text-align: center; margin: 36px auto 0; max-width: 620px; font-size: 14px; color: var(--faint); }
+
+/* ============================ CHAMADA ============================ */
+.chamada {
+  max-width: var(--largura); margin: 0 auto; padding: 0 22px 70px; text-align: center;
+}
+.chamada__caixa {
+  background: var(--surface); border: 1px solid var(--line-soft);
+  border-radius: var(--r); padding: 40px 24px;
+}
+.chamada h2 { font-size: clamp(24px, 3.6vw, 32px); }
+.chamada p { color: var(--muted); max-width: 520px; margin: 0 auto 22px; }
+
+/* ============================ RODAPÉ ============================= */
+.rodape {
+  border-top: 1px solid var(--line); padding: 22px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+}
+.rodape p { margin: 0; font-size: 13px; color: var(--faint); font-family: var(--font-mono); }
+.rodape strong { color: var(--lime); font-weight: 500; }
+
+/* ========================== RESPONSIVO =========================== */
+@media (min-width: 700px) {
+  .condicoes { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 780px) {
+  .extras__lista { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px) {
+  .vitrine { grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .modelo__tela { height: 560px; }
+  .extras__lista { grid-template-columns: repeat(4, 1fr); }
+  .condicoes { grid-template-columns: repeat(4, 1fr); }
+  .rodape { flex-direction: row; justify-content: space-between; max-width: var(--largura); margin: 0 auto; }
 }
 
-.aviso {
-  max-width: 1700px;
-  margin: 0 auto 26px;
-  padding: 14px 22px;
-  font-size: 0.8rem;
-  color: var(--suave);
-}
-.aviso b { color: var(--texto); }
-
-@media (max-width: 1100px) {
-  .palcos { grid-template-columns: 1fr; }
+@media (prefers-reduced-motion: reduce) {
+  .botao { transition: none; }
 }
 </style>
 </head>
 <body>
 
-<div class="topo">
-  <div class="topo-linha">
-    <div>
-      <h1>Serviços técnicos e reformas — três modelos</h1>
-      <p class="subtitulo">Página interna de comparação. Não é para publicar.</p>
+  <header class="topo">
+    <div class="topo__interno">
+      <p class="topo__marca">
+        <span class="topo__ponto" aria-hidden="true"></span>
+        Modelos de página &mdash; <strong>Serviços técnicos e reformas</strong>
+      </p>
+      <p class="topo__dica">Role dentro de cada janela para ver a página inteira</p>
     </div>
+  </header>
 
-    <div class="controles">
-      <span class="rotulo-controle">Largura da tela</span>
-      <button type="button" class="btn" data-largura="360" aria-pressed="false">360 px · celular</button>
-      <button type="button" class="btn" data-largura="768" aria-pressed="false">768 px · tablet</button>
-      <button type="button" class="btn" data-largura="1440" aria-pressed="true">1440 px · desktop</button>
-      <button type="button" class="btn" id="recarregar">Recarregar os três</button>
-    </div>
-  </div>
-</div>
+  <main>
+    <section class="intro">
+      <h1>Escolha o modelo da sua página</h1>
+      <p>São três páginas prontas. Todas ficam com o nome, as cores, as fotos e os preços do seu negócio &mdash; o que muda é o tamanho e a organização. As páginas abaixo estão preenchidas com um negócio de exemplo só para você ver o formato funcionando.</p>
+    </section>
 
-<div class="palcos">
+    <ul class="condicoes" aria-label="Condições do plano">
+      <li><b>R$ 50/mês</b><span>nos dois modelos simples</span></li>
+      <li><b>R$ 60/mês</b><span>no premium — R$ 10 pela página maior</span></li>
+      <li><b>1º mês grátis</b><span>depois, permanência mínima de 2 meses</span></li>
+      <li><b>Tudo incluso</b><span>endereço, hospedagem e 2 alterações por mês</span></li>
+    </ul>
 
-  <div class="palco">
-    <div class="palco-cabeca">
-      <div>
-        <h2>Reforma Certa</h2>
-        <p>Industrial · amarelo de obra + grafite</p>
+    <!-- ===================== OS TRÊS MODELOS ===================== -->
+    <section class="vitrine" aria-label="Os três modelos lado a lado">
+
+      <article class="modelo">
+        <header class="modelo__cabeca">
+          <span class="modelo__tag modelo__tag--simples">Simples</span>
+          <h2>Reforma Certa</h2>
+          <p class="modelo__negocio">Exemplo: Reforma Certa &mdash; reforma e pintura residencial</p>
+          <p class="modelo__preco"><b>R$ 50</b><span>por mês</span></p>
+        </header>
+
+        <div class="modelo__tela">
+          <iframe src="simples-01-industrial/index.html" title="Prévia do modelo Reforma Certa" loading="lazy"></iframe>
+        </div>
+
+        <div class="modelo__pe">
+          <p class="modelo__resumo">Visual de obra, com título forte e os serviços em grade com preço. Boa escolha para quem vende obra planejada e orçamento fechado.</p>
+          <a class="botao botao--linha" href="simples-01-industrial/index.html?demo=1" target="_blank" rel="noopener nofollow">Abrir em tela cheia</a>
+        </div>
+      </article>
+
+      <article class="modelo">
+        <header class="modelo__cabeca">
+          <span class="modelo__tag modelo__tag--simples">Simples</span>
+          <h2>Pronto 24h</h2>
+          <p class="modelo__negocio">Exemplo: Pronto 24h &mdash; encanador e eletricista de plantão</p>
+          <p class="modelo__preco"><b>R$ 50</b><span>por mês</span></p>
+        </header>
+
+        <div class="modelo__tela">
+          <iframe src="simples-02-emergencia/index.html" title="Prévia do modelo Pronto 24h" loading="lazy"></iframe>
+        </div>
+
+        <div class="modelo__pe">
+          <p class="modelo__resumo">Claro e direto, com plantão em destaque e o botão de ligar sempre à mão. Boa escolha para quem é chamado na urgência.</p>
+          <a class="botao botao--linha" href="simples-02-emergencia/index.html?demo=1" target="_blank" rel="noopener nofollow">Abrir em tela cheia</a>
+        </div>
+      </article>
+
+      <article class="modelo modelo--premium">
+        <header class="modelo__cabeca">
+          <span class="modelo__tag modelo__tag--premium">Premium</span>
+          <h2>Vertek</h2>
+          <p class="modelo__negocio">Exemplo: Vertek &mdash; reforma de alto padrão</p>
+          <p class="modelo__preco"><b>R$ 60</b><span>por mês</span></p>
+        </header>
+
+        <div class="modelo__tela">
+          <iframe src="premium-01-elegante/index.html" title="Prévia do modelo Vertek" loading="lazy"></iframe>
+        </div>
+
+        <div class="modelo__pe">
+          <p class="modelo__resumo">A página maior, com galeria de obras clicável, depoimentos em carrossel, dúvidas frequentes e animações. Para quem vende pelo acabamento.</p>
+          <a class="botao botao--lima" href="premium-01-elegante/index.html?demo=1" target="_blank" rel="noopener nofollow">Abrir em tela cheia</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ============== O QUE O PREMIUM TEM A MAIS ============== -->
+    <section class="extras">
+      <header class="extras__cabeca">
+        <span class="extras__tag">Premium</span>
+        <h2>O que o modelo Vertek tem a mais</h2>
+        <p>Tudo que os dois simples têm, mais sete coisas que os simples não têm.</p>
+
+        <p class="extras__porque">
+          <strong>Por que custa R$ 10 a mais.</strong> Não é outro desenho: é a mesma
+          página com mais seções e mais partes que se movem. Galeria, depoimentos e
+          dúvidas são justamente o que convence quem ainda não te conhece — por isso
+          ela costuma valer a pena para quem vende pelo trabalho que mostra.
+        </p>
+      </header>
+
+      <ul class="extras__lista">
+        <li>
+          <span class="extras__num" aria-hidden="true">01</span>
+          <h3>Galeria de trabalhos clicável</h3>
+          <p>As fotos abrem ampliadas na tela, com setas para passar de uma para a outra.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">02</span>
+          <h3>Depoimentos em carrossel</h3>
+          <p>Os depoimentos passam com setas, bolinhas ou arrastando o dedo no celular.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">03</span>
+          <h3>Perguntas frequentes que abrem e fecham</h3>
+          <p>Responde as dúvidas que travam a decisão sem deixar a página comprida.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">04</span>
+          <h3>Números que contam sozinhos</h3>
+          <p>Anos de casa, obras entregues e prazo sobem na tela quando a pessoa chega neles.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">05</span>
+          <h3>Chamada extra no meio da página</h3>
+          <p>Uma faixa de convite entre as seções, para quem não vai rolar até o fim.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">06</span>
+          <h3>Animações ao rolar e nos botões</h3>
+          <p>As seções entram suave e os botões respondem ao toque. Dá sensação de caro.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">07</span>
+          <h3>Cabeçalho que muda ao rolar</h3>
+          <p>O topo encolhe e ganha fundo quando a pessoa desce, liberando espaço de tela.</p>
+        </li>
+      </ul>
+
+      <p class="extras__nota">
+        As três páginas abrem rápido no celular, funcionam sem internet e não
+        dependem de nenhum programa de fora. Você pode trocar de modelo depois,
+        sem custo.
+      </p>
+    </section>
+
+    <!-- ===================== CHAMADA ===================== -->
+    <section class="chamada">
+      <div class="chamada__caixa">
+        <h2>Escolheu?</h2>
+        <p>
+          Me diga qual dos três você preferiu e eu monto a sua com o seu nome,
+          suas cores e suas fotos. Na maioria dos casos, no mesmo dia.
+        </p>
+        <a class="botao botao--lima" href="https://wa.me/5511997097050?text=Ol%C3%A1%21%20Vi%20os%20modelos%20de%20p%C3%A1gina%20e%20quero%20come%C3%A7ar." target="_blank" rel="noopener">Falar no WhatsApp</a>
       </div>
-      <span class="selo">Simples 01</span>
-    </div>
-    <div class="moldura">
-      <iframe src="simples-01-industrial/index.html"
-              title="Prévia do modelo Reforma Certa" loading="lazy"></iframe>
-    </div>
-    <div class="palco-pe">
-      <a href="simples-01-industrial/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
-      <span>simples-01-industrial</span>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <div class="palco">
-    <div class="palco-cabeca">
-      <div>
-        <h2>Pronto 24h</h2>
-        <p>Emergência · azul + laranja de alerta</p>
-      </div>
-      <span class="selo">Simples 02</span>
-    </div>
-    <div class="moldura">
-      <iframe src="simples-02-emergencia/index.html"
-              title="Prévia do modelo Pronto 24h" loading="lazy"></iframe>
-    </div>
-    <div class="palco-pe">
-      <a href="simples-02-emergencia/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
-      <span>simples-02-emergencia</span>
-    </div>
-  </div>
-
-  <div class="palco">
-    <div class="palco-cabeca">
-      <div>
-        <h2>Vertek Reformas</h2>
-        <p>Elegante · cobre + carvão, com galeria e depoimentos</p>
-      </div>
-      <span class="selo selo-premium">Premium</span>
-    </div>
-    <div class="moldura">
-      <iframe src="premium-01-elegante/index.html"
-              title="Prévia do modelo Vertek Reformas" loading="lazy"></iframe>
-    </div>
-    <div class="palco-pe">
-      <a href="premium-01-elegante/index.html" target="_blank" rel="noopener">Abrir em tela cheia</a>
-      <span>premium-01-elegante</span>
-    </div>
-  </div>
-
-</div>
-
-<p class="aviso">
-  <b>Se as prévias aparecerem em branco</b>, o navegador está bloqueando a
-  leitura de arquivos locais dentro de janelas (política do Chrome para
-  <code>file://</code>). Nesse caso use os links "Abrir em tela cheia" ou rode
-  um servidor local na pasta <code>modelos/servicos-tecnicos</code>. Os três
-  modelos em si abrem normalmente com duplo clique — é só esta página de
-  comparação que precisa disso.
-</p>
-
-<script>
-/* ==========================================================================
-   Troca a largura simulada dos três ao mesmo tempo.
-
-   A conta: a janela é criada com a largura escolhida (360, 768, 1440) e
-   depois encolhida por transform até caber na coluna. A altura da moldura
-   é corrigida na mesma proporção, senão sobraria um vão preto embaixo.
-   ========================================================================== */
-(function () {
-  'use strict';
-
-  var ALTURA_BASE = 1400;   /* quanto de página mostrar, em pixels reais */
-  var molduras = document.querySelectorAll('.moldura');
-  var botoes = document.querySelectorAll('.btn[data-largura]');
-  var larguraAtual = 1440;
-
-  function aplicar() {
-    for (var i = 0; i < molduras.length; i++) {
-      var moldura = molduras[i];
-      var quadro = moldura.querySelector('iframe');
-      var disponivel = moldura.clientWidth;
-      var escala = disponivel / larguraAtual;
-
-      quadro.style.width = larguraAtual + 'px';
-      quadro.style.height = ALTURA_BASE + 'px';
-      quadro.style.transform = 'scale(' + escala + ')';
-      moldura.style.height = Math.round(ALTURA_BASE * escala) + 'px';
-    }
-  }
-
-  for (var j = 0; j < botoes.length; j++) {
-    botoes[j].addEventListener('click', function () {
-      larguraAtual = parseInt(this.getAttribute('data-largura'), 10);
-      for (var k = 0; k < botoes.length; k++) {
-        botoes[k].setAttribute('aria-pressed',
-          botoes[k] === this ? 'true' : 'false');
-      }
-      aplicar();
-    });
-  }
-
-  document.getElementById('recarregar').addEventListener('click', function () {
-    var quadros = document.querySelectorAll('.moldura iframe');
-    for (var m = 0; m < quadros.length; m++) {
-      /* reatribuir o src força o recarregamento sem perder a escala */
-      quadros[m].src = quadros[m].src;
-    }
-  });
-
-  /* redimensionar a própria janela muda a largura da coluna, então a
-     escala precisa ser recalculada */
-  var espera = null;
-  window.addEventListener('resize', function () {
-    clearTimeout(espera);
-    espera = setTimeout(aplicar, 120);
-  });
-
-  aplicar();
-})();
-</script>
+  <footer class="rodape">
+    <p>Vitrine de modelos &mdash; ramo Serviços técnicos e reformas</p>
+    <p>Páginas criadas e mantidas por <strong>Jeff Company</strong></p>
+  </footer>
 
 </body>
 </html>
