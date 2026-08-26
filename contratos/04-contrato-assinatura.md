@@ -107,7 +107,27 @@ aceita deste plano.
   **R$ «VALOR DA CONFIGURACAO DE DOMINIO»**;
 - o domínio permanece com o CONTRATANTE mesmo que a assinatura seja encerrada.
 
-**3.6** Para fins de faturamento e comunicação, o CRIADOR não é responsável pelo
+**3.6** **Domínio gerenciado pelo CRIADOR (opcional).** Em alternativa ao item
+3.5, o CONTRATANTE poderá optar por que o CRIADOR providencie e mantenha o
+domínio, hipótese em que:
+
+- o domínio será igualmente registrado **em nome e sob titularidade do
+  CONTRATANTE**, com seu CPF ou CNPJ, figurando o CRIADOR apenas como contato
+  técnico e de cobrança;
+- o CRIADOR arca com o custo anual de registro e o dilui na mensalidade,
+  mediante **acréscimo de R$ 5,00 (cinco reais) por mês**;
+- o acréscimo incide **a partir da primeira mensalidade devida**, não sendo
+  cobrado durante o mês gratuito da cláusula 4.3;
+- a configuração técnica está **incluída**, não se aplicando a cobrança única
+  prevista no item 3.5;
+- o registro é efetuado após a confirmação do primeiro pagamento;
+- encerrada a assinatura, o domínio **permanece com o CONTRATANTE** até o fim do
+  período já pago ao órgão registrador. O CRIADOR transferirá o controle
+  administrativo e **não efetuará a renovação seguinte**, cabendo ao CONTRATANTE
+  decidir sobre ela;
+- não há devolução proporcional do acréscimo já pago.
+
+**3.7** Para fins de faturamento e comunicação, o CRIADOR não é responsável pelo
 conteúdo publicado, nos termos da cláusula 8.
 
 ---
@@ -126,8 +146,13 @@ publicação**.
 **4.4** Meio de pagamento: **«Pix / cartão recorrente / link de pagamento»**.
 Chave Pix: **«SUA CHAVE PIX»**.
 
-**4.5** A mensalidade poderá ser reajustada anualmente pelo **IPCA** acumulado,
-ou pelo índice que o substituir, mediante aviso com 30 dias de antecedência.
+**4.5** Optando o CONTRATANTE pelo domínio gerenciado do item 3.6, a mensalidade
+sofre acréscimo de **R$ 5,00**, a partir da primeira mensalidade devida.
+
+**4.6** A mensalidade poderá ser reajustada anualmente pelo **IPCA** acumulado,
+ou pelo índice que o substituir, mediante aviso com 30 dias de antecedência. O
+acréscimo do item 4.5 acompanha a variação do preço cobrado pelo órgão
+registrador, mediante o mesmo aviso prévio.
 
 ---
 
@@ -253,7 +278,9 @@ de uso perpétua, irrevogável e não exclusiva** da página, recebendo os arqui
 para hospedagem por conta própria.
 
 **10.4** A aquisição da página **não inclui** o subdomínio, que permanece com o
-CRIADOR. O CONTRATANTE deverá registrar domínio próprio, nos termos do item 3.5.
+CRIADOR. O CONTRATANTE deverá registrar domínio próprio, nos termos do item 3.5 —
+ou, já tendo o domínio gerenciado do item 3.6, permanecerá com ele na forma
+prevista naquele item.
 
 > **Por que esta cláusula existe:** ela dá ao cliente uma saída digna em vez de
 > perder tudo, e transforma um cancelamento em uma venda. É a diferença entre um

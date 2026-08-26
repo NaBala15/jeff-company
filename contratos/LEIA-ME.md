@@ -158,3 +158,53 @@ Quando o contratante é pessoa física ou microempresa consumidora final, aplica
 também o Código de Defesa do Consumidor, que limita cláusulas muito desfavoráveis
 a ele. Foi por isso que a retenção no cancelamento ficou escalonada por etapa, em
 vez de reter tudo sempre.
+
+---
+
+## Domínio gerenciado — a conta por trás do item 3.6
+
+*(decidido em 24/08/2026)*
+
+É uma **opção**, não o padrão. O cliente que quiser `seunegocio.com.br` sem
+lidar com registro.br paga **R$ 5/mês a mais** e você cuida de tudo.
+
+| | |
+|---|---|
+| Você recebe | R$ 5 × 12 = **R$ 60/ano** |
+| Você paga ao registro.br | **R$ 40/ano** |
+| Sobra | **R$ 20/ano por cliente** |
+
+**O ganho não é a margem, são os R$ 20.** É fechar mais venda: dono de negócio
+pequeno que precisa criar conta no registro.br, entender boleto e lembrar de
+renovar é cliente que trava no meio do caminho.
+
+### O domínio nunca fica no seu nome
+
+Pagar e ser dono são coisas diferentes. O registro.br separa titular de contato
+de cobrança, então:
+
+- **titular:** o cliente, com o CPF/CNPJ dele
+- **contato técnico e de cobrança:** você
+
+Isso mantém a regra de ouro do `GUIA.md`. Cliente preso a você por causa do
+endereço vira ex-cliente que fala mal.
+
+### A exposição que sobra
+
+O acréscimo só começa depois do mês grátis, e o registro só sai depois do
+primeiro pagamento confirmado — as duas coisas estão escritas no item 3.6.
+Mesmo assim, um cliente que cumpra só a permanência mínima paga **R$ 10** de
+domínio, e você gastou R$ 40.
+
+**Perda máxima por cliente: R$ 30.** É pequena e controlável enquanto são
+poucos. Se começar a acontecer com frequência, duas saídas, nesta ordem:
+
+1. registrar o domínio só depois da permanência mínima cumprida — nos 3
+   primeiros meses a página roda no subdomínio, que a cláusula 3 já prevê;
+2. cobrar a taxa de ativação do item 4.1, hoje zerada.
+
+### Na hora de vender
+
+O `MATERIAIS.md` traz a pergunta com os **três caminhos** de endereço, e o
+passo 2 do pedido anuncia a opção. Não venda como "domínio grátis": é domínio
+incluso na mensalidade, e a diferença aparece no dia em que ele cancelar.

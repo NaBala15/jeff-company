@@ -84,8 +84,14 @@ gente troca.
 
 - [ ] Já tem site? Qual o endereço?
 - [ ] Já tem domínio próprio? Está em nome de quem?
-- [ ] Quer **domínio próprio** (`seunegocio.com.br`, cerca de R$ 40/ano por sua
-      conta) ou o **endereço incluso** (`seunegocio.jeffcompany.com.br`)?
+- [ ] Qual endereço ele quer? São três caminhos:
+      &middot; **incluso**, sem custo: `seunegocio.jeffcompany.com.br`
+      &middot; **domínio próprio por conta dele**: `seunegocio.com.br`, ~R$ 40/ano
+        pagos por ele no registro.br, mais a configuração
+      &middot; **domínio gerenciado**: `seunegocio.com.br` com você pagando e
+        cuidando, por **+R$ 5/mês** na mensalidade. Sem desembolso e sem
+        burocracia para ele. Começa a ser cobrado só depois do mês grátis
+      *(nos três casos o domínio fica no CPF/CNPJ dele — nunca no seu)*
 - [ ] Já tem perfil no Google Meu Negócio? Manda o link
 
 ---
