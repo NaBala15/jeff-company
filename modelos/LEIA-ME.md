@@ -32,6 +32,27 @@ O padrão tem, nesta ordem:
 6. **Chamada final** para o WhatsApp
 7. **Rodapé**
 
+### Prévia do link
+
+Toda página de modelo e todo comparativo têm um **`preview.jpg` de 1200×630** na
+própria pasta, mais as tags Open Graph apontando para ele. É o que aparece
+quando o endereço é colado numa conversa do WhatsApp.
+
+Duas restrições mandam no formato, e nenhuma das duas é opinião:
+
+- **URL absoluta.** Caminho relativo o WhatsApp ignora, e o link vai pelado.
+- **JPG, não WebP.** O WhatsApp não lê WebP de forma confiável na prévia.
+
+A imagem é uma captura de 1200×630 do topo da própria página — cabeçalho mais
+hero, que é a parte que vende. As tags **não carregam nada** ao abrir a página:
+os modelos continuam funcionando 100% offline.
+
+**Ao entregar para um cliente**, o `og:url` e o `og:image` têm que virar o
+domínio dele e o `preview.jpg` tem que ser recapturado da página personalizada.
+Senão o cliente manda o link do site dele e aparece a página de exemplo de
+outro negócio. O bloco no HTML está marcado com `EDITAR AO ENTREGAR`, e a
+checklist de cada ramo cobra isso.
+
 ### Detalhes que não devem mudar
 
 - **Paleta da Jeff Company**: preto `#0A0B09` e lima `#C7F53F`. As páginas de
@@ -46,6 +67,8 @@ O padrão tem, nesta ordem:
   prévias são de negócios fictícios.
 - **Os links das prévias levam `?demo=1`**, que liga o aviso de exemplo dentro
   da página do modelo.
+- **`preview.jpg` de 1200×630 em toda pasta**, com as tags Open Graph
+  apontando para ele em endereço absoluto.
 
 ---
 
@@ -53,13 +76,15 @@ O padrão tem, nesta ordem:
 
 1. Gere as três páginas em `modelos/<ramo>/`
 2. Capture cada uma em 1280×960, reduza para 640×480 e salve em
-   `assets/img/modelos/` como `.webp`
-3. **Copie o `comparativo.html` de qualquer ramo existente** e troque: título,
+   `assets/img/modelos/` como `.webp` — são as miniaturas do formulário
+3. Capture cada uma em **1200×630** e salve como **`preview.jpg`** dentro da
+   própria pasta da página, mais uma do comparativo em `modelos/<ramo>/`
+4. **Copie o `comparativo.html` de qualquer ramo existente** e troque: título,
    descrição, nome do ramo no topo e no rodapé, os três blocos `<article>`
    (nome, negócio de exemplo, pasta e resumo) e o nome do premium no
    `<h2>O que o modelo … tem a mais</h2>`. A faixa de condições e a lista das
    sete diferenças ficam como estão.
-4. Registre o conjunto em `pedido/js/modelos.js`, dentro de `window.CONJUNTOS`
+5. Registre o conjunto em `pedido/js/modelos.js`, dentro de `window.CONJUNTOS`
 
 ### Cuidado com a ordem dos ramos no registro
 

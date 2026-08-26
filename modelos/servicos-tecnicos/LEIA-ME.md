@@ -147,6 +147,20 @@ Abra o `index.html` com duplo clique e confira a lista do próximo tópico.
 
 ## Checklist antes de publicar
 
+**Prévia do link (o que aparece no WhatsApp)**
+- [ ] O `og:url` e o `og:image` apontam para o **domínio do cliente**, e não
+      para jeffcompany.com.br — procure por `EDITAR AO ENTREGAR` no HTML
+- [ ] O `preview.jpg` foi **recapturado da página já personalizada**. O que vem
+      na pasta é do negócio de exemplo; se ficar, o cliente manda o link dele e
+      aparece a página de outro
+- [ ] Testado: cole o endereço numa conversa do WhatsApp com você mesmo e veja
+      se a imagem e o título aparecem
+
+> Para recapturar: abra a página no computador, deixe a janela em **1200×630**
+> e tire um print do topo. Salve como `preview.jpg` na pasta da página. O
+> WhatsApp guarda a prévia em cache por algumas horas — se não atualizar na
+> hora, é isso, não é erro.
+
 Marque um por um. Leva dez minutos e evita o cliente descobrindo o erro antes
 de você.
 
