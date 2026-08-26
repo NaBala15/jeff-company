@@ -148,7 +148,7 @@ apenas a configuração técnica.
 
 **7.3** O custo anual de renovação do domínio, atualmente na ordem de
 R$ «40,00», é de responsabilidade do CONTRATANTE e não está incluído no valor
-da cláusula 5.
+da cláusula 5, salvo na hipótese do item 7.6.
 
 **7.4** A hospedagem do PROJETO será prestada em **«Cloudflare Pages / outro»** e
 está incluída na mensalidade de manutenção da cláusula 8. Encerrada a
@@ -158,6 +158,27 @@ conta própria, ou (b) contratar apenas a hospedagem, em valor a ser informado.
 **7.5** O CRIADOR não responde por indisponibilidades causadas por falha dos
 serviços de hospedagem, do registrador de domínio, por ataques de terceiros ou
 por caso fortuito e força maior.
+
+**7.6** **Domínio gerenciado pelo CRIADOR (opcional).** Em alternativa ao item
+7.3, e **desde que contratada a manutenção mensal da cláusula 8**, o CONTRATANTE
+poderá optar por que o CRIADOR providencie e mantenha o domínio, hipótese em
+que:
+
+- a **titularidade permanece do CONTRATANTE**, na forma do item 7.2, figurando o
+  CRIADOR apenas como contato técnico e de cobrança;
+- o CRIADOR arca com o custo anual de registro e o dilui na mensalidade de
+  manutenção, mediante **acréscimo de R$ 5,00 (cinco reais) por mês**;
+- o acréscimo incide **a partir da primeira mensalidade devida**, não sendo
+  cobrado durante o mês gratuito do item 8.1;
+- o registro é efetuado após a confirmação do primeiro pagamento;
+- **encerrada a manutenção, cessa também o domínio gerenciado**: o domínio
+  permanece com o CONTRATANTE até o fim do período já pago ao órgão
+  registrador, com transferência do controle administrativo, e o CRIADOR **não
+  efetuará a renovação seguinte**;
+- não há devolução proporcional do acréscimo já pago.
+
+**7.7** Não contratada a manutenção, ou encerrada ela, o custo do domínio volta
+a ser do CONTRATANTE na forma do item 7.3.
 
 ---
 
@@ -170,7 +191,8 @@ mediante mensalidade de **R$ «50,00»**, com vencimento todo dia **«10»**.
 
 **8.3** A mensalidade cobre hospedagem, permanência do PROJETO em funcionamento e
 até **2 (duas) alterações simples por mês, não cumulativas**, conforme a
-cláusula 7 da Política.
+cláusula 7 da Política. Optando o CONTRATANTE pelo domínio gerenciado do item
+7.6, a mensalidade sofre acréscimo de **R$ 5,00**.
 
 **8.4** A contratação da manutenção é **facultativa**. Não havendo contratação, o
 CONTRATANTE receberá os arquivos do PROJETO para hospedagem por conta própria.

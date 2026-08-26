@@ -165,8 +165,14 @@ vez de reter tudo sempre.
 
 *(decidido em 24/08/2026)*
 
-É uma **opção**, não o padrão. O cliente que quiser `seunegocio.com.br` sem
+É uma **opção**, não o padrão, e existe nos **dois contratos**: item 3.6 da
+assinatura e item 7.6 do projeto. O cliente que quiser `seunegocio.com.br` sem
 lidar com registro.br paga **R$ 5/mês a mais** e você cuida de tudo.
+
+**No contrato de projeto há uma amarra a mais:** a opção depende de o cliente
+ter contratado a **manutenção mensal** da cláusula 8. Sem ela não existe
+mensalidade onde diluir os R$ 5. Se a manutenção acabar, o domínio gerenciado
+acaba junto e o custo volta a ser dele (item 7.7).
 
 | | |
 |---|---|

@@ -223,6 +223,8 @@ desenvolver identidade própria para o PROJETO.
 titularidade do CONTRATANTE**, com seu CPF ou CNPJ, sendo dele a propriedade do
 endereço. Ao CRIADOR cabe apenas a configuração técnica.
 
+O CRIADOR poderá arcar com o custo do registro e diluí-lo na mensalidade, mediante acréscimo ajustado em contrato. Ainda nessa hipótese, **a titularidade é sempre do CONTRATANTE** — o CRIADOR figura apenas como contato técnico e de cobrança, e o domínio o acompanha caso o serviço seja encerrado.
+
 **11.2** O custo anual de renovação do domínio é de responsabilidade do
 CONTRATANTE e **não está incluído** nos valores deste contrato.
 
