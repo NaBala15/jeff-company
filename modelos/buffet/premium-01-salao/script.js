@@ -203,10 +203,23 @@
     function mostrar(indice) {
       atual = (indice + itensGaleria.length) % itensGaleria.length;
       var item = itensGaleria[atual];
-      var rotuloOriginal = item.querySelector('.foto__rotulo');
-
-      lbRotulo.textContent = rotuloOriginal ? rotuloOriginal.textContent : 'FOTO';
-      lbLegenda.textContent = item.dataset.legenda || '';
+      /* Antes o lightbox mostrava o TEXTO do rótulo, porque não havia foto.
+         Agora há: ele copia a imagem do item clicado. */
+      var imgOriginal = item.querySelector('img');
+      var lbImg = lightbox.querySelector('.js-lb-img');
+      if (lbImg && imgOriginal) {
+        lbImg.src = imgOriginal.getAttribute('src');
+        lbImg.alt = imgOriginal.getAttribute('alt') || '';
+        lbImg.hidden = false;
+      }
+      /* lbRotulo só existia enquanto o lightbox mostrava texto no lugar da
+         foto. Agora pode não existir — e sem esta guarda a função quebrava
+         aqui e a janela nunca chegava a abrir. */
+      if (lbRotulo) {
+        var rotuloOriginal = item.querySelector('.foto__rotulo');
+        lbRotulo.textContent = rotuloOriginal ? rotuloOriginal.textContent : '';
+      }
+      if (lbLegenda) lbLegenda.textContent = item.dataset.legenda || '';
     }
 
     function abrir(indice) {
