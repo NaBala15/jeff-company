@@ -12,3 +12,7 @@ desktop.ini
 # O repositorio e publico: CPF, endereco de casa e chave Pix ficam so aqui
 # na maquina. Ver ferramentas/meus-dados.local.js
 *.local.js
+
+# Arquivos de trabalho da geracao de imagens (mapa dos espacos de foto).
+# Sao regerados quando preciso; nao ha porque versionar.
+.fotos*.json
