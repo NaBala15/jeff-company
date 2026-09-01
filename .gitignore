@@ -16,3 +16,7 @@ desktop.ini
 # Arquivos de trabalho da geracao de imagens (mapa dos espacos de foto).
 # Sao regerados quando preciso; nao ha porque versionar.
 .fotos*.json
+
+# Cache do Python, das ferramentas de geracao de imagem.
+__pycache__/
+*.pyc

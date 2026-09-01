@@ -129,7 +129,7 @@ window.BASE_PREVIAS = '../assets/img/modelos/';
    regera uma captura mantendo o mesmo nome de arquivo, quem já visitou
    continua vendo a antiga. SUBA ESTE NÚMERO sempre que regerar qualquer
    captura, mesmo que só uma. */
-window.VERSAO_PREVIAS = 2;
+window.VERSAO_PREVIAS = 3;
 
 window.CONJUNTOS = [
   {
@@ -439,6 +439,76 @@ window.CONJUNTOS = [
         termos: ['balayage', 'noiva', 'penteado', 'progressiva', 'alisamento']
       }
     }
+  },
+
+  {
+    id: 'institucional',
+    nome: 'Institucional',
+
+    /* Este conjunto não é um ofício, é um FORMATO: escritório, consultório,
+       clínica — quem precisa vender confiança antes de vender o serviço.
+
+       Todos estes termos estavam só em SUGESTOES, apontando para a vaga
+       `premium`. Agora têm páginas de verdade, então viraram conjunto.
+
+       CUIDADO: 'arquiteto', 'arquiteta' e 'design de interiores' ficam em
+       servicos-tecnicos, que vem antes na lista. NÃO repita aqui: como
+       conjuntoDoRamo devolve o PRIMEIRO conjunto que casa, o termo repetido
+       simplesmente nunca chegaria neste. */
+    termos: [
+      'advogado', 'advogada', 'advocacia', 'escritório de advocacia',
+      'jurídico', 'juridico', 'despachante',
+      'contador', 'contadora', 'contabilidade', 'escritório de contabilidade',
+      'contábil', 'contabil',
+      'corretor', 'corretora', 'imobiliária', 'imobiliaria', 'imóveis', 'imoveis',
+      'seguro', 'seguros', 'consultoria', 'consultor', 'consultora',
+      'engenheiro', 'engenheira', 'engenharia', 'financeiro',
+      'psicólogo', 'psicologo', 'psicóloga', 'psicologa', 'psicologia',
+      'terapeuta', 'terapia', 'psicanalista', 'psiquiatra',
+      'dentista', 'odonto', 'odontologia', 'clínica', 'clinica',
+      'consultório', 'consultorio', 'médico', 'medico', 'médica', 'medica',
+      'veterinário', 'veterinario', 'veterinária', 'veterinaria',
+      'nutricionista', 'fonoaudióloga', 'fonoaudiologa'
+    ],
+
+    paginas: {
+      'simples-1': {
+        titulo: 'Sóbrio',
+        resumo: 'Áreas de atuação em cartões e um passo a passo de como funciona o atendimento.',
+        bom_para: 'Escritório que precisa passar segurança',
+        imagem: 'inst-simples-01.webp',
+        link: 'institucional/simples-01-juridico/',
+        /* quando o ramo casar com um destes, este é o recomendado */
+        termos: ['advogado', 'advogada', 'advocacia', 'jurídico', 'juridico',
+                 'despachante', 'corretor', 'corretora', 'imobiliária',
+                 'imobiliaria', 'imóveis', 'imoveis', 'seguro', 'seguros',
+                 'consultoria', 'consultor', 'consultora', 'engenheiro',
+                 'engenheira', 'engenharia', 'financeiro']
+      },
+      'simples-2': {
+        titulo: 'Acolhedor',
+        resumo: 'Equipe em destaque, fotos do espaço e uma seção de dúvidas.',
+        bom_para: 'Quem atende pessoa em momento delicado',
+        imagem: 'inst-simples-02.webp',
+        link: 'institucional/simples-02-cuidado/',
+        termos: ['psicólogo', 'psicologo', 'psicóloga', 'psicologa',
+                 'psicologia', 'terapeuta', 'terapia', 'psicanalista',
+                 'psiquiatra', 'nutricionista', 'fonoaudióloga',
+                 'fonoaudiologa', 'veterinário', 'veterinario',
+                 'veterinária', 'veterinaria']
+      },
+      'premium': {
+        titulo: 'Institucional Completo',
+        resumo: 'A página maior: linha do tempo, serviços com preço, equipe, depoimentos, números e dúvidas.',
+        bom_para: 'Escritório ou clínica com equipe e vários serviços',
+        imagem: 'inst-premium-01.webp',
+        link: 'institucional/premium-01-contabil/',
+        termos: ['contador', 'contadora', 'contabilidade', 'contábil',
+                 'contabil', 'dentista', 'odonto', 'odontologia', 'clínica',
+                 'clinica', 'consultório', 'consultorio', 'médico', 'medico',
+                 'médica', 'medica']
+      }
+    }
   }
 ];
 
@@ -525,6 +595,54 @@ window.sugerirModelo = function (ramo) {
   return null;
 };
 
+
+/* ==========================================================================
+   QUEM PODE QUERER CATÁLOGO COM PEDIDO
+
+   Ramos que vendem PRODUTO. Só para eles a pergunta do catálogo aparece no
+   passo 1 — perguntar isso para um dentista só confunde.
+
+   ATENÇÃO AO QUE A PERGUNTA SIGNIFICA. O modelo Simples 2, de R$ 50, já traz
+   lista de produtos com preço e botão de pedido. O que ele NÃO tem é
+   carrinho que soma e mensagem de WhatsApp montada sozinha — isso é sob
+   medida. Se a pergunta não separar as duas coisas, a gente empurra
+   orçamento para quem se resolvia na assinatura.
+   ========================================================================== */
+
+window.RAMOS_CATALOGO = [
+  /* comida */
+  'restaurante', 'pizzaria', 'pizza', 'lanchonete', 'hamburgueria', 'burger',
+  'padaria', 'confeitaria', 'doceria', 'bolo', 'doce', 'doces', 'salgado',
+  'salgados', 'açaí', 'acai', 'sorveteria', 'cafeteria', 'café', 'cafe',
+  'marmita', 'marmitaria', 'marmitex', 'delivery', 'comida', 'espetinho',
+  'churrasco', 'pastelaria', 'esfiha', 'temaki', 'sushi', 'japonês', 'japones',
+  'congelado', 'congelados', 'bar', 'adega', 'distribuidora de bebidas',
+
+  /* varejo */
+  'loja', 'roupa', 'roupas', 'boutique', 'moda', 'calçado', 'calcado',
+  'sapato', 'papelaria', 'pet shop', 'petshop', 'floricultura', 'flores',
+  'mercado', 'mercearia', 'minimercado', 'hortifruti', 'quitanda', 'açougue',
+  'acougue', 'peixaria', 'comércio', 'comercio', 'presente', 'presentes',
+  'artesanato', 'semijoia', 'semijoias', 'bijuteria', 'cosmético',
+  'cosméticos', 'cosmetico', 'cosmeticos', 'perfumaria', 'suplemento',
+  'suplementos', 'distribuidora', 'atacado', 'material de construção',
+  'autopeças', 'autopecas', 'informática', 'celular', 'assistência de celular'
+];
+
+/* Este ramo vende produto? */
+window.pedeCatalogo = function (ramo) {
+  var texto = String(ramo || '').toLowerCase().trim();
+  if (!texto) return false;
+
+  for (var i = 0; i < window.RAMOS_CATALOGO.length; i++) {
+    if (contemPalavra(texto, window.RAMOS_CATALOGO[i])) return true;
+  }
+  return false;
+};
+
+/* Onde mora o exemplo de catálogo pronto que a pessoa vê no passo 3. */
+window.EXEMPLO_CATALOGO = '../exemplos/catalogo/index.html';
+
 /* Ramos oferecidos como atalho no campo — os mais comuns no comércio de
    bairro, que é quem esta assinatura atende. */
 window.RAMOS_COMUNS = [
@@ -532,7 +650,8 @@ window.RAMOS_COMUNS = [
   'Dentista', 'Clínica', 'Psicólogo', 'Nutricionista', 'Fisioterapia',
   'Restaurante', 'Pizzaria', 'Lanchonete', 'Padaria', 'Confeitaria', 'Açaí',
   'Loja de roupas', 'Pet shop', 'Floricultura', 'Mercado',
-  'Advogado', 'Contador', 'Corretor de imóveis',
+  'Advogado', 'Contador', 'Corretor de imóveis', 'Consultoria',
+  'Engenharia', 'Veterinário', 'Despachante',
   'Mecânica', 'Chaveiro', 'Eletricista', 'Encanador', 'Assistência técnica',
   'Fotógrafo', 'Tatuador', 'Reformas',
   'Buffet e festas', 'Decoração de festas', 'Painel de balões', 'Cenografia de eventos',

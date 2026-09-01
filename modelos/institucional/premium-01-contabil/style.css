@@ -1,0 +1,429 @@
+/* ==========================================================================
+
+   MARINO CONTABILIDADE — institucional · Premium
+   Modelo da JEFF COMPANY · JeffDev
+
+   COMO TROCAR AS CORES E AS FONTES
+   Está tudo no :root. Mude ali e a página inteira muda junto.
+
+   ========================================================================== */
+
+:root {
+  /* EDITAR: cores do escritório */
+  --marinho:      #132A3A;
+  --marinho-2:    #1B3A50;
+  --marinho-3:    #24506C;
+  --ambar:        #C8933F;
+  --ambar-claro:  #E4B968;
+
+  --papel:        #FBFAF8;
+  --papel-2:      #F2EFE9;
+  --branco:       #FFFFFF;
+  --linha:        #E2DCD2;
+  --linha-escura: rgba(255, 255, 255, .14);
+
+  --tinta:        #1A1E22;
+  --tinta-suave:  #59616B;
+  --claro:        #EDF1F4;
+  --claro-suave:  #9FB0BD;
+
+  --zap:          #25D366;
+
+  --titulo: 'Georgia', 'Times New Roman', serif;
+  --corpo:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  --r: 10px;
+  --largura: 1180px;
+  --gap: clamp(56px, 8vw, 96px);
+  --ease: 200ms ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--corpo);
+  font-size: 1.02rem;
+  line-height: 1.68;
+}
+
+h1, h2, h3 {
+  font-family: var(--titulo);
+  font-weight: 400;
+  line-height: 1.16;
+  margin: 0 0 .5em;
+}
+p { margin: 0 0 1em; }
+ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
+li { list-style: none; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--ambar);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.faixa {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: 22px;
+}
+
+.pular {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--marinho); color: var(--claro); padding: 12px 18px;
+}
+.pular:focus { left: 12px; top: 12px; }
+
+/* O cabeçalho é fixo, então a âncora precisa parar antes da seção */
+section[id] { scroll-margin-top: 78px; }
+
+/* ==========================================================================
+   BLOCOS DE FOTO
+   Cada bloco cinza é o lugar de uma foto. Para trocar por foto real:
+   apague o <span class="foto__rotulo"> e ponha dentro
+   <img src="fotos/nome.jpg" alt="descreva" width="..." height="..." loading="lazy">
+   ========================================================================== */
+
+.foto {
+  position: relative;
+  background:
+    linear-gradient(135deg, var(--papel-2) 0%, #E7E1D7 60%, #DED7CB 100%);
+  border: 1px solid var(--linha);
+  border-radius: var(--r);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.foto--alta { aspect-ratio: 3 / 4; }
+.foto--quad { aspect-ratio: 1 / 1; }
+.foto--peq  { aspect-ratio: 1 / 1; }
+
+.foto > img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
+
+.foto__rotulo {
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--tinta-suave);
+  background: rgba(255, 255, 255, .88);
+  border: 1px solid var(--linha);
+  padding: 8px 14px; border-radius: 999px;
+  text-align: center; max-width: 86%;
+}
+
+/* ==========================================================================
+   CABEÇALHO
+   ========================================================================== */
+
+.topo {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--marinho);
+  border-bottom: 3px solid var(--ambar);
+}
+.topo .faixa {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; min-height: 72px;
+}
+
+.marca { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--claro); }
+.marca-selo {
+  width: 40px; height: 40px; border-radius: 6px; flex: none;
+  background: var(--ambar); color: var(--marinho);
+  display: grid; place-items: center;
+  font-family: var(--titulo); font-size: .95rem;
+}
+.marca-txt { font-family: var(--titulo); font-size: 1.12rem; letter-spacing: .01em; }
+.marca-txt b { color: var(--ambar-claro); font-weight: 400; }
+
+.menu { display: flex; gap: 24px; }
+.menu a {
+  font-size: .93rem; color: var(--claro-suave); text-decoration: none;
+  padding: 6px 0; border-bottom: 2px solid transparent;
+  transition: color var(--ease), border-color var(--ease);
+}
+.menu a:hover, .menu a:focus-visible { color: var(--ambar-claro); border-bottom-color: var(--ambar); }
+
+.hamburguer {
+  display: none; width: 44px; height: 44px; padding: 0;
+  background: none; border: 1px solid var(--linha-escura); border-radius: 6px;
+  cursor: pointer; place-items: center; gap: 5px;
+}
+.hamburguer span { display: block; width: 20px; height: 2px; background: var(--claro); transition: transform var(--ease), opacity var(--ease); }
+.hamburguer[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburguer[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburguer[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ==========================================================================
+   BOTÕES
+   ========================================================================== */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 14px 26px; border-radius: 999px;
+  font-size: .95rem; font-weight: 600; text-decoration: none;
+  border: 1.5px solid transparent; cursor: pointer;
+  transition: transform var(--ease), background-color var(--ease), color var(--ease);
+}
+.btn-p { background: var(--ambar); color: var(--marinho); }
+.btn-p:hover { background: var(--ambar-claro); transform: translateY(-2px); }
+.btn-l { border-color: currentColor; }
+.btn-l:hover { background: rgba(200, 147, 63, .12); transform: translateY(-2px); }
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
+.hero { background: var(--marinho); color: var(--claro); }
+.hero-grade {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  gap: clamp(28px, 5vw, 60px); align-items: center;
+  padding-block: clamp(48px, 7vw, 84px);
+}
+.hero h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); margin-bottom: 18px; }
+.hero h1 em { font-style: italic; color: var(--ambar-claro); }
+.hero-sub { color: var(--claro-suave); max-width: 48ch; margin-bottom: 26px; }
+
+.olho {
+  font-size: .74rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ambar); margin-bottom: 10px;
+}
+.secao-clara .olho, .secao .olho { color: #A2761F; }
+.hero .olho, .secao-escura .olho { color: var(--ambar); }
+
+.acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+
+.selos { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: .86rem; color: var(--claro-suave); }
+.selos li { display: flex; align-items: center; gap: 7px; }
+.selos li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--ambar); flex: none; }
+
+.hero-foto { aspect-ratio: 4 / 5; border-color: var(--linha-escura); background: linear-gradient(135deg, #1D3F57, #16334733); }
+.hero-foto .foto__rotulo { background: rgba(19, 42, 58, .86); border-color: var(--linha-escura); color: var(--claro-suave); }
+
+/* ==========================================================================
+   SEÇÕES
+   ========================================================================== */
+
+.secao { padding-block: var(--gap); }
+.secao-clara { background: var(--papel-2); }
+.secao-escura { background: var(--marinho); color: var(--claro); }
+.secao-escura .lead, .secao-escura dd { color: var(--claro-suave); }
+
+.secao h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); max-width: 22ch; }
+.lead { color: var(--tinta-suave); max-width: 58ch; margin-bottom: 34px; }
+
+.duas {
+  display: grid; grid-template-columns: .9fr 1.1fr;
+  gap: clamp(28px, 5vw, 58px); align-items: center;
+}
+
+.sobre-fotos { position: relative; padding-bottom: 54px; padding-right: 44px; }
+.sobre-fotos .foto--peq {
+  position: absolute; right: 0; bottom: 0; width: 52%;
+  border: 6px solid var(--papel-2);
+}
+
+.marcos { display: grid; gap: 10px; margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--linha); }
+.marcos li { display: flex; gap: 14px; font-size: .95rem; color: var(--tinta-suave); }
+.marcos b { color: var(--ambar); font-family: var(--titulo); min-width: 52px; }
+
+/* ==========================================================================
+   GRADES
+   ========================================================================== */
+
+.grade-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+
+.cartao {
+  background: var(--branco); border: 1px solid var(--linha);
+  border-top: 3px solid var(--ambar); border-radius: var(--r);
+  padding: 26px 24px; display: flex; flex-direction: column;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.cartao:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(19, 42, 58, .10); }
+.cartao h3 { font-size: 1.18rem; }
+.cartao p { color: var(--tinta-suave); font-size: .96rem; }
+.preco {
+  margin: auto 0 0 !important; padding-top: 14px;
+  border-top: 1px dashed var(--linha);
+  font-family: var(--titulo); font-size: 1.1rem; color: var(--tinta) !important;
+}
+
+.equipe .pessoa { background: var(--branco); border: 1px solid var(--linha); border-radius: var(--r); padding: 18px; }
+.equipe .foto { margin-bottom: 16px; }
+.equipe h3 { font-size: 1.12rem; margin-bottom: 2px; }
+.cargo { font-size: .8rem; color: #A2761F; font-weight: 600; margin-bottom: 8px; }
+.equipe p:last-child { color: var(--tinta-suave); font-size: .93rem; margin: 0; }
+
+.depo {
+  background: var(--papel-2); border: 1px solid var(--linha);
+  border-left: 3px solid var(--ambar); border-radius: var(--r); padding: 24px;
+}
+.depo p { font-family: var(--titulo); font-size: 1.04rem; line-height: 1.55; }
+.depo footer { font-size: .84rem; color: var(--tinta-suave); }
+
+.numeros {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px; margin-top: 34px; padding-top: 30px; border-top: 1px solid var(--linha);
+  text-align: center;
+}
+.numeros b { display: block; font-family: var(--titulo); font-size: 2.1rem; color: var(--ambar); line-height: 1; }
+.numeros span { display: block; margin-top: 6px; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; color: var(--tinta-suave); }
+
+/* ==========================================================================
+   CONTATO
+   ========================================================================== */
+
+.contato { margin-bottom: 26px; }
+.contato > div { padding: 14px 0; border-bottom: 1px solid var(--linha-escura); }
+.contato dt { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ambar); margin-bottom: 3px; }
+.contato dd { margin: 0; }
+.contato a { text-decoration: none; }
+.contato a:hover { color: var(--ambar-claro); }
+
+.mapa {
+  min-height: 360px; height: 100%; border-radius: var(--r);
+  border: 1px solid var(--linha-escura);
+  display: grid; place-items: center;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 44px),
+    var(--marinho-2);
+}
+.mapa .foto__rotulo { background: rgba(19,42,58,.86); border-color: var(--linha-escura); color: var(--claro-suave); }
+
+/* ==========================================================================
+   RODAPÉ E BOTÃO FLUTUANTE
+   ========================================================================== */
+
+.rodape { background: var(--marinho-2); color: var(--claro-suave); padding-block: 34px 92px; }
+.rodape p { margin: 0 0 4px; font-size: .87rem; }
+.rodape b { color: var(--claro); }
+.legal { margin-top: 12px !important; font-size: .79rem !important; color: #7C8B98; }
+
+.zap {
+  position: fixed; right: 18px; bottom: 18px; z-index: 120;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--zap); color: #fff;
+  display: grid; place-items: center;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .28);
+  transition: transform var(--ease);
+}
+.zap:hover { transform: scale(1.07); }
+
+/* ==========================================================================
+   ENTRADA AO ROLAR
+   ========================================================================== */
+
+.anima { opacity: 0; transform: translateY(20px); transition: opacity 520ms ease, transform 520ms ease; }
+.anima.visivel { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .anima { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   TELAS MENORES
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .hero-grade, .duas { grid-template-columns: 1fr; }
+  .hero-foto { aspect-ratio: 16 / 10; }
+  .sobre-fotos { padding: 0; }
+  .sobre-fotos .foto--peq { display: none; }
+  .foto--alta { aspect-ratio: 16 / 10; }
+  .mapa { min-height: 300px; }
+}
+
+@media (max-width: 760px) {
+  .hamburguer { display: grid; }
+  .topo .faixa { position: relative; }
+  .menu {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0;
+    background: var(--marinho); border-bottom: 3px solid var(--ambar);
+    padding: 6px 22px 16px; display: none;
+  }
+  .menu.aberto { display: flex; }
+  .menu a { padding: 13px 0; border-bottom: 1px solid var(--linha-escura); }
+  .acoes .btn { width: 100%; }
+  .secao h2 { max-width: none; }
+}
+
+/* ==========================================================================
+   CHAMADA DO MEIO — só no Premium
+   ========================================================================== */
+
+.chamada-meio { background: var(--marinho-3); color: var(--claro); padding-block: 44px; }
+.chamada-grade {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 26px; align-items: center;
+}
+.chamada-meio h2 { font-size: clamp(1.4rem, 2.8vw, 2rem); margin-bottom: 6px; max-width: 24ch; }
+.chamada-meio p { color: var(--claro-suave); margin: 0; max-width: 56ch; font-size: .96rem; }
+.chamada-meio .btn { flex: none; }
+
+@media (max-width: 760px) {
+  .chamada-grade { grid-template-columns: 1fr; }
+  .chamada-meio .btn { width: 100%; }
+}
+
+/* ==========================================================================
+   DÚVIDAS — só no Premium
+   ========================================================================== */
+
+.duvidas { max-width: 800px; }
+.duvidas details { border-bottom: 1px solid var(--linha); }
+.duvidas summary {
+  cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative;
+  font-family: var(--titulo); font-size: 1.1rem;
+}
+.duvidas summary::-webkit-details-marker { display: none; }
+.duvidas summary::after {
+  content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+  color: var(--ambar); font-size: 1.5rem; line-height: 1;
+}
+.duvidas details[open] summary::after { content: "\2212"; }
+.duvidas p { color: var(--tinta-suave); padding-bottom: 18px; margin: 0; max-width: 68ch; }
+
+/* ==========================================================================
+   CRÉDITO DA AGÊNCIA E TARJA DE DEMONSTRAÇÃO
+
+   A tarja só é criada quando o endereço tem ?demo=1 — na página entregue
+   ao cliente ela não existe.
+   ========================================================================== */
+
+.credito-agencia { margin-top: 10px !important; font-size: .78rem !important; color: #7C8B98; }
+.credito-agencia a { color: var(--ambar-claro); text-decoration: none; }
+.credito-agencia a:hover { text-decoration: underline; }
+
+.aviso-modelo {
+  position: fixed; left: 14px; bottom: 14px; z-index: 130;
+  max-width: 300px;
+  background: var(--marinho); color: var(--claro);
+  border: 1px solid var(--ambar);
+  border-radius: var(--r);
+  padding: 14px 34px 14px 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+  font-size: .82rem; line-height: 1.5;
+}
+.aviso-modelo b { display: block; color: var(--ambar); margin-bottom: 4px; }
+.aviso-modelo span { display: block; color: var(--claro-suave); }
+.aviso-modelo a { display: inline-block; margin-top: 8px; color: var(--ambar-claro); font-weight: 600; }
+.aviso-x {
+  position: absolute; top: 6px; right: 8px;
+  width: 26px; height: 26px; padding: 0; cursor: pointer;
+  background: none; border: 0; color: var(--claro-suave); font-size: 1.2rem; line-height: 1;
+}
+.aviso-x:hover { color: var(--claro); }
+
+@media (max-width: 560px) {
+  .aviso-modelo { left: 10px; right: 76px; bottom: 10px; max-width: none; }
+}

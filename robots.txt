@@ -13,6 +13,10 @@ Disallow: /demo/
 # inventados. Indexados, apareceriam no Google como empresas de verdade.
 Disallow: /modelos/
 
+# paginas de exemplo dos tipos de site (contabilidade e marmitaria) --
+# negocios ficticios, pelo mesmo motivo dos modelos
+Disallow: /exemplos/
+
 # ferramentas internas (gerador de contrato e de imagem de compartilhamento)
 Disallow: /ferramentas/
 

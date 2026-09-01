@@ -27,6 +27,8 @@
   var pedido = {
     plano: '',
     modelo: '',
+    /* '' enquanto não perguntamos, 'sim' ou 'nao' depois de responder */
+    catalogo: '',
     materiais: []
   };
 
@@ -62,6 +64,7 @@
     if (dados.pedido) {
       pedido.plano = dados.pedido.plano || '';
       pedido.modelo = dados.pedido.modelo || '';
+      pedido.catalogo = dados.pedido.catalogo || '';
       pedido.materiais = dados.pedido.materiais || [];
     }
     Object.keys(dados.campos || {}).forEach(function (id) {
@@ -71,6 +74,9 @@
       if (c.type === 'checkbox') c.checked = dados.campos[id];
       else c.value = dados.campos[id];
     });
+
+    /* a pergunta do catálogo também volta como estava */
+    if (pedido.catalogo) marcarCatalogo(pedido.catalogo);
 
     /* o cartão de plano precisa voltar marcado, senão a pessoa acha que perdeu */
     if (pedido.plano) {
@@ -96,10 +102,23 @@
      --------------------------------------------------------------------- */
 
   function irPara(n) {
+    if (n === 2 && !validarPasso1()) return;
+
+    /* Catálogo com carrinho: o passo 3 não é escolha de modelo, porque não
+       há modelo pronto que faça isso. É a página de exemplo, aberta inteira,
+       para a pessoa mexer antes de pedir orçamento.
+
+       Vem ANTES do desvio da personalizada logo abaixo: quem pede catálogo
+       está sempre na personalizada, e se a ordem fosse a outra o exemplo
+       nunca apareceria. */
+    if (n === 3 && pedido.catalogo === 'sim') {
+      salvarEstado();
+      location.href = window.EXEMPLO_CATALOGO + '?pedido=1';
+      return;
+    }
+
     /* quem escolheu página personalizada não passa pela escolha de modelo */
     if (n === 3 && pedido.plano === 'personalizada') n = 4;
-
-    if (n === 2 && !validarPasso1()) return;
 
     /* O passo 3 é o comparativo do ramo, e não uma tela aqui dentro: lá as
        três páginas aparecem inteiras, com preço e com o que o premium tem a
@@ -182,11 +201,95 @@
   var dicaRamo = document.getElementById('dica-ramo');
 
   campoRamo.addEventListener('input', function () {
+    mostrarPerguntaCatalogo();
+
     var id = window.sugerirModelo(campoRamo.value);
     if (!id) { dicaRamo.textContent = ''; return; }
     var m = acharModelo(id);
     dicaRamo.textContent = 'Para esse ramo, o modelo "' + m.nome + '" costuma funcionar melhor.';
   });
+
+  /* ---------------------------------------------------------------------
+     Pergunta do catálogo
+
+     Só para quem vende produto. Aparece embaixo do campo do ramo, no passo
+     1, e decide dois desvios adiante: o plano marcado no passo 2 e o que o
+     passo 3 mostra.
+     --------------------------------------------------------------------- */
+
+  var caixaCatalogo = document.getElementById('quer-catalogo');
+  var notaCatalogo = document.getElementById('nota-catalogo');
+
+  function mostrarPerguntaCatalogo() {
+    if (!caixaCatalogo) return;
+    var cabe = window.pedeCatalogo(campoRamo.value);
+
+    caixaCatalogo.hidden = !cabe;
+
+    /* Mudou de pizzaria para dentista: a resposta antiga não vale mais e
+       não pode continuar guiando o passo 2. */
+    if (!cabe && pedido.catalogo) {
+      pedido.catalogo = '';
+      marcarCatalogo('');
+      aplicarCatalogo();
+    }
+  }
+
+  function marcarCatalogo(valor) {
+    var ops = document.querySelectorAll('.catalogo-op');
+    for (var i = 0; i < ops.length; i++) {
+      ops[i].classList.toggle('is-on', ops[i].dataset.catalogo === valor);
+    }
+  }
+
+  /* O passo 2 muda de cara conforme a resposta. */
+  function aplicarCatalogo() {
+    var pronta = document.querySelector('.plano[data-plano="assinatura"]');
+    var medida = document.querySelector('.plano[data-plano="personalizada"]');
+    if (!pronta || !medida) return;
+
+    var comCarrinho = pedido.catalogo === 'sim';
+
+    if (notaCatalogo) notaCatalogo.hidden = !comCarrinho;
+
+    /* A página pronta continua visível, só apagada: sumir com a opção mais
+       barata faria a pessoa achar que ela deixou de existir. */
+    pronta.classList.toggle('is-off', comCarrinho);
+    pronta.disabled = comCarrinho;
+
+    if (comCarrinho) {
+      pedido.plano = 'personalizada';
+      pronta.classList.remove('is-on');
+      medida.classList.add('is-on');
+      montarModelos();
+    }
+  }
+
+  if (caixaCatalogo) {
+    caixaCatalogo.addEventListener('click', function (e) {
+      var b = e.target.closest('.catalogo-op');
+      if (!b) return;
+
+      pedido.catalogo = b.dataset.catalogo;
+      marcarCatalogo(pedido.catalogo);
+      aplicarCatalogo();
+    });
+  }
+
+  /* "mudar de ideia", no aviso do passo 2: volta ao passo 1 com a pergunta
+     limpa, em vez de deixar a pessoa presa na personalizada. */
+  var voltarCatalogo = document.getElementById('voltar-catalogo');
+  if (voltarCatalogo) {
+    voltarCatalogo.addEventListener('click', function (e) {
+      e.preventDefault();
+      pedido.catalogo = '';
+      pedido.plano = '';
+      marcarCatalogo('');
+      aplicarCatalogo();
+      document.querySelectorAll('.plano').forEach(function (o) { o.classList.remove('is-on'); });
+      irPara(1);
+    });
+  }
 
   /* máscara leve de telefone: ajuda a digitar, não impede nada */
   document.getElementById('c-whats').addEventListener('input', function (e) {
@@ -202,6 +305,9 @@
 
   document.querySelectorAll('.plano').forEach(function (b) {
     b.addEventListener('click', function () {
+      /* página pronta bloqueada por causa do catálogo com carrinho */
+      if (b.classList.contains('is-off')) return;
+
       document.querySelectorAll('.plano').forEach(function (o) { o.classList.remove('is-on'); });
       b.classList.add('is-on');
       pedido.plano = b.dataset.plano;
@@ -438,6 +544,11 @@
       ['Tipo de página',  pedido.plano === 'assinatura' ? 'Página pronta — assinatura de R$ ' + mensalidade() + '/mês'
                         : pedido.plano === 'personalizada' ? 'Página personalizada — orçamento'
                         : ''],
+      /* Só entra quando a pergunta foi feita. Para um dentista a linha
+         "Catálogo: não" só poluiria a mensagem. */
+      ['Catálogo com pedido', pedido.catalogo === 'sim' ? 'SIM — com carrinho, sob medida'
+                            : pedido.catalogo === 'nao' ? 'não — lista de produtos basta'
+                            : ''],
       ['Modelo escolhido', nomeDoModeloEscolhido(m)],
       ['Serviços',        valor('c-servicos')],
       ['Horário',         valor('c-horario')],
@@ -569,6 +680,20 @@
   /* Voltando do comparativo com um modelo escolhido. Restaura o que estava
      preenchido, marca a vaga e pula direto para o passo 4 — refazer o passo 3
      seria mandar a pessoa escolher duas vezes. */
+  /* Voltando da página de exemplo do catálogo. Não há modelo para escolher
+     ali — só uma página para conhecer —, então a volta cai direto no passo 4. */
+  if (/[?&]catalogo=1/.test(location.search)) {
+    restaurarEstado();
+    pedido.catalogo = 'sim';
+    pedido.plano = 'personalizada';
+    marcarCatalogo('sim');
+    aplicarCatalogo();
+    mostrarPerguntaCatalogo();
+    irPara(4);
+    atualizarProgresso();
+    return;
+  }
+
   var modeloEscolhido = (location.search.match(/[?&]modelo=([a-z0-9-]+)/) || [])[1];
   if (modeloEscolhido) {
     restaurarEstado();
@@ -584,6 +709,7 @@
   if (ramoDoLink) {
     campoRamo.value = decodeURIComponent(ramoDoLink.replace(/\+/g, ' ')).slice(0, 60);
     campoRamo.dispatchEvent(new Event('input', { bubbles: true }));
+    mostrarPerguntaCatalogo();
   }
 
   var pedidoDeInicio = (location.hash.match(/^#passo-([0-5])$/) || [])[1];

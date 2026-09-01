@@ -221,6 +221,81 @@ h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
 
 .dica { font-size: .78rem; color: var(--lima); min-height: 1.1em; }
 
+/* ---- Pergunta do catálogo ------------------------------------------------
+
+   Nasce escondida e só aparece para quem vende produto. As duas opções têm
+   o mesmo peso visual de propósito: "não precisa" é resposta legítima e a
+   mais barata, e desenhar ela menor seria empurrar orçamento.
+   ------------------------------------------------------------------------- */
+
+.catalogo {
+  margin-top: 1.6rem; padding: 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--line-lima);
+  border-radius: var(--r-lg);
+}
+.catalogo[hidden] { display: none; }
+
+.catalogo-rot {
+  font-family: var(--mono); font-size: .7rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--lima); margin: 0 0 .3rem;
+}
+.catalogo h3 {
+  font-family: var(--display); font-variation-settings: 'wdth' 108;
+  font-weight: 600; font-size: 1.2rem; margin: 0 0 1rem;
+}
+
+.catalogo-opcoes {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: .8rem;
+}
+
+.catalogo-op {
+  text-align: left; cursor: pointer;
+  display: flex; flex-direction: column; gap: .4rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.1rem 1.2rem;
+  transition: border-color .2s var(--ease), background-color .2s var(--ease);
+}
+.catalogo-op:hover { border-color: var(--line-lima); }
+.catalogo-op.is-on { border-color: var(--lima); background: var(--surface-3); }
+
+.catalogo-op strong {
+  font-family: var(--display); font-variation-settings: 'wdth' 108;
+  font-weight: 600; font-size: 1.02rem;
+}
+.catalogo-op span { font-size: .84rem; color: var(--muted); line-height: 1.5; }
+.catalogo-preco {
+  margin-top: auto; padding-top: .5rem;
+  font-family: var(--mono); font-size: .74rem; font-weight: 400;
+  color: var(--faint);
+}
+.catalogo-op.is-on .catalogo-preco { color: var(--lima); }
+
+/* ---- Aviso no passo 2 ---------------------------------------------------- */
+
+.nota-catalogo {
+  margin: 1.4rem 0 0; padding: .9rem 1.1rem;
+  background: var(--surface); border: 1px solid var(--line-lima);
+  border-radius: var(--r);
+  font-size: .88rem; color: var(--muted);
+}
+.nota-catalogo[hidden] { display: none; }
+.nota-catalogo b { color: var(--text); }
+.nota-catalogo a {
+  font-family: var(--mono); font-size: .76rem;
+  color: var(--lima); margin-left: .5rem; white-space: nowrap;
+}
+
+/* Quando o catálogo com carrinho foi pedido, a página pronta não serve.
+   Fica visível e legível, mas apagada e sem clique — esconder faria a
+   pessoa achar que a opção barata sumiu do site. */
+.plano.is-off { opacity: .42; cursor: not-allowed; }
+.plano.is-off:hover { border-color: var(--line); }
+
 /* ---- Planos -------------------------------------------------------------- */
 
 .planos {

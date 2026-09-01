@@ -12,14 +12,17 @@ página que você abre com o cliente para ele escolher.
 | Cabeleireiro | `cabeleireiro/` | Natural | Noturno | Ateliê |
 | Decoração de festas | `decoracao/` | Lúdico | Minimal | Cenografia |
 | Serviços técnicos | `servicos-tecnicos/` | Reforma Certa | Pronto 24h | Vertek |
+| Institucional | `institucional/` | Sóbrio | Acolhedor | Institucional Completo |
+
+**Institucional é a exceção da tabela:** não é um ofício, é um formato — escritório, consultório, clínica. Tem regra própria (conselho profissional proíbe preço e depoimento em algumas profissões). Leia o `institucional/LEIA-ME.md` antes de mexer nele.
 
 ---
 
 ## O comparativo é padronizado
 
-Os seis `comparativo.html` são **iguais em estrutura, tamanho e estilo**. Só
+Os sete `comparativo.html` são **iguais em estrutura, tamanho e estilo**. Só
 muda o conteúdo. Isso é de propósito: o cliente que vê dois ramos diferentes
-reconhece a mesma página, e você não mantém seis leiautes.
+reconhece a mesma página, e você não mantém sete leiautes.
 
 O padrão tem, nesta ordem:
 

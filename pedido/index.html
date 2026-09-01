@@ -119,6 +119,33 @@
       </label>
     </div>
 
+    <!-- ================================================================
+         PERGUNTA DO CATÁLOGO
+
+         Só aparece para quem vende produto — pizzaria, padaria, loja. O
+         script mostra e esconde conforme o ramo digitado; nasce escondida.
+         ================================================================ -->
+    <div class="catalogo" id="quer-catalogo" hidden>
+      <p class="catalogo-rot">Você vende produto. Falta decidir uma coisa:</p>
+      <h3>Quer catálogo com pedido?</h3>
+
+      <div class="catalogo-opcoes">
+        <button class="catalogo-op" type="button" data-catalogo="nao">
+          <strong>Não precisa</strong>
+          <span>A lista dos seus produtos com foto e preço já vem na página
+                pronta, com botão de pedir no WhatsApp.</span>
+          <b class="catalogo-preco">a partir de R$ 50/mês</b>
+        </button>
+
+        <button class="catalogo-op" type="button" data-catalogo="sim">
+          <strong>Sim, com carrinho</strong>
+          <span>O cliente escolhe os itens, o site soma o pedido e manda a
+                mensagem pronta no seu WhatsApp. Isso é feito sob medida.</span>
+          <b class="catalogo-preco">orçamento a combinar</b>
+        </button>
+      </div>
+    </div>
+
     <div class="acoes">
       <button class="btn btn-v" type="button" data-ir="0">Voltar</button>
       <button class="btn btn-p" type="button" data-ir="2">Continuar</button>
@@ -132,6 +159,13 @@
     <span class="eyebrow">Passo 2 de 5</span>
     <h2>Que tipo de página você quer?</h2>
     <p class="lead">Dá para trocar de ideia depois. Isso só me ajuda a te orientar melhor.</p>
+
+    <!-- Aparece só para quem pediu catálogo com carrinho no passo 1. -->
+    <p class="nota-catalogo" id="nota-catalogo" hidden>
+      Você pediu <b>catálogo com carrinho</b>. Isso não cabe no modelo pronto,
+      então o caminho é a página personalizada — já deixei marcada.
+      <a href="#" id="voltar-catalogo">mudar de ideia</a>
+    </p>
 
     <div class="planos">
       <button class="plano" type="button" data-plano="assinatura">

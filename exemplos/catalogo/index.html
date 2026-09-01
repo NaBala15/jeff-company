@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- ======================================================================
+
+     COZINHA DA VILA
+     Exemplo do tipo CATÁLOGO COM PEDIDO
+
+     Criado por JEFF COMPANY · JeffDev
+     Serve à seção "Que tipo de página o seu negócio precisa", em
+     /servicos/sites/. Cada seção tem um id `bloco-*`: é por eles que a
+     explicação ao lado rola até a parte certa da página.
+
+     O catálogo não é escrito no HTML: está em `produtos.js`, para o dono do
+     negócio mexer em um arquivo só, sem encostar no leiaute.
+
+     ====================================================================== -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cozinha da Vila | Comida caseira e marmitas em Sorocaba</title>
+<meta name="description" content="Marmitas, pratos caseiros e doces feitos no dia. Monte o pedido pelo site e receba em casa. Entrega em Sorocaba de segunda a sábado.">
+<meta name="author" content="Jeff Company">
+<meta name="theme-color" content="#B4361F">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ======================================================================
+     ATENCAO — DADOS FICTICIOS
+
+     Cozinha da Vila nao existe. Nome, pratos, precos, endereco, telefone e
+     depoimentos sao inventados, para o exemplo ficar apresentavel. Antes de
+     usar como base para um cliente, troque tudo que estiver marcado com
+     "EDITAR:", e o catalogo inteiro em `produtos.js`.
+     ====================================================================== -->
+
+<!-- Barra do passo 3 do pedido. Some quando a página é aberta fora do
+     formulário — nasce com hidden e só o script a mostra. -->
+<div class="passo-barra" id="passo-barra" hidden>
+  <span class="passo-barra__txt">
+    <b>Passo 3 de 5</b>
+    Este é um catálogo pronto, funcionando. Pode mexer: some itens e veja o
+    pedido montar sozinho. <i>Cozinha da Vila não existe — é exemplo.</i>
+  </span>
+  <a class="passo-barra__voltar" id="passo-voltar" href="../../pedido/?catalogo=1#passo-4">
+    Voltar e continuar o pedido
+  </a>
+</div>
+
+<a class="pular" href="#bloco-cardapio">Pular para o cardápio</a>
+
+<header class="topo">
+  <div class="faixa">
+    <!-- EDITAR: nome do negócio -->
+    <a class="marca" href="#bloco-topo">
+      <span class="marca-selo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8.1 2v7.2a2.4 2.4 0 0 1-1.6 2.3V22H4.9v-10.5A2.4 2.4 0 0 1 3.3 9.2V2h1.3v6.6h1.1V2h1.3v6.6h1.1V2h1Zm7.4 0c2.6 0 4.6 2.7 4.6 6.3 0 2.9-1.3 5.2-3.1 5.9V22h-1.6V2h.1Z"/></svg>
+      </span>
+      <span class="marca-txt">Cozinha <b>da Vila</b></span>
+    </a>
+
+    <nav class="menu" id="menu" aria-label="Navegação principal">
+      <a href="#bloco-cardapio">Cardápio</a>
+      <a href="#bloco-pedido">Meu pedido</a>
+      <a href="#bloco-entrega">Entrega</a>
+      <a href="#bloco-duvidas">Dúvidas</a>
+    </nav>
+
+    <button class="hamburguer" id="hamburguer" type="button"
+            aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= 01 · TOPO ================= -->
+  <section class="hero" id="bloco-topo">
+    <div class="faixa hero-grade">
+      <div>
+        <p class="olho">Sorocaba · segunda a sábado</p>
+        <!-- EDITAR: frase principal -->
+        <h1>Comida de casa, feita <em>no dia</em>, entregue quentinha</h1>
+        <p class="hero-sub">
+          Marmitas, pratos executivos e doces. Você monta o pedido aqui e ele
+          chega pronto no WhatsApp — sem cadastro, sem aplicativo, sem taxa
+          de plataforma.
+        </p>
+        <div class="acoes">
+          <a class="btn btn-p" href="#bloco-cardapio">Ver o cardápio</a>
+          <!-- EDITAR: link do WhatsApp — https://wa.me/55DDDNUMERO -->
+          <a class="btn btn-l" href="https://wa.me/5515998877665" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+        <ul class="selos">
+          <li>Entrega em até 50 min</li>
+          <li>Pix, cartão e dinheiro</li>
+          <li>Pedido mínimo R$ 25</li>
+        </ul>
+      </div>
+
+      <div class="hero-foto foto">
+        <img src="fotos/hero-marmita.webp" alt="Marmita de comida caseira montada" width="1000" height="750" loading="eager" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 · CATEGORIAS ================= -->
+  <section class="secao secao-clara faixa-categorias" id="bloco-categorias">
+    <div class="faixa">
+      <p class="olho">Escolha por tipo</p>
+      <h2>Categorias</h2>
+      <p class="lead">
+        O botão filtra o cardápio na hora, sem recarregar a página. É o que
+        um catálogo tem e uma landing page não: jeito de achar o que se quer.
+      </p>
+
+      <!-- Preenchido por script.js a partir de produtos.js -->
+      <div class="categorias" id="categorias" role="tablist" aria-label="Categorias do cardápio"></div>
+    </div>
+  </section>
+
+  <!-- ================= 03 · CARDÁPIO ================= -->
+  <section class="secao" id="bloco-cardapio">
+    <div class="faixa">
+      <p class="olho">O que tem hoje</p>
+      <h2>Cardápio</h2>
+      <p class="lead">
+        Cada item tem foto, descrição e preço. O botão soma no pedido, ali
+        embaixo. <!-- EDITAR: em produtos.js -->
+      </p>
+
+      <div class="grade-produtos" id="produtos"></div>
+
+      <p class="vazio" id="vazio" hidden>Nada nesta categoria por enquanto.</p>
+    </div>
+  </section>
+
+  <!-- ================= 04 · PEDIDO ================= -->
+  <section class="secao secao-clara" id="bloco-pedido">
+    <div class="faixa duas">
+      <div>
+        <p class="olho">Confira antes de mandar</p>
+        <h2>Seu pedido</h2>
+        <p class="lead">
+          O que você escolheu fica guardado no seu próprio celular. Se sair e
+          voltar, o pedido continua aqui.
+        </p>
+
+        <div class="carrinho" id="carrinho">
+          <p class="carrinho-vazio" id="carrinho-vazio">
+            Nada escolhido ainda. Vá ao <a href="#bloco-cardapio">cardápio</a>
+            e toque em “Adicionar”.
+          </p>
+          <ul class="itens" id="itens"></ul>
+
+          <div class="totais" id="totais" hidden>
+            <div><span>Itens</span><b id="t-itens">R$ 0,00</b></div>
+            <div><span>Entrega</span><b id="t-entrega">R$ 8,00</b></div>
+            <div class="total"><span>Total</span><b id="t-total">R$ 0,00</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="envio">
+        <h3>Para onde vai</h3>
+        <p class="ajuda">Estes dados entram na mensagem do WhatsApp. Nada é salvo em servidor nenhum.</p>
+
+        <label for="c-nome">Seu nome</label>
+        <input id="c-nome" type="text" autocomplete="name" placeholder="Como te chamamos">
+
+        <label for="c-endereco">Endereço com número</label>
+        <input id="c-endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro e ponto de referência">
+
+        <label for="c-pagamento">Pagamento</label>
+        <select id="c-pagamento">
+          <option>Pix</option>
+          <option>Cartão na entrega</option>
+          <option>Dinheiro</option>
+        </select>
+
+        <label for="c-obs">Observação <span>(opcional)</span></label>
+        <textarea id="c-obs" rows="2" placeholder="Sem cebola, troco para R$ 50…"></textarea>
+
+        <button class="btn btn-zap" id="enviar" type="button">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.4-5.3-4.7-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l1 2.3c.1.2.1.4 0 .6l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2.2 1c.3.1.4.2.5.3.1.2.1.6 0 1.3Z"/></svg>
+          Enviar pedido no WhatsApp
+        </button>
+        <p class="ajuda" id="aviso" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 · ENTREGA ================= -->
+  <section class="secao" id="bloco-entrega">
+    <div class="faixa">
+      <p class="olho">Como chega</p>
+      <h2>Entrega e pagamento</h2>
+
+      <!-- EDITAR: bairros, horários, taxas e formas de pagamento -->
+      <div class="grade-3">
+        <article class="cartao">
+          <h3>Onde entregamos</h3>
+          <p>Vila Haro, Centro, Além Ponte, Santa Rosália e Jardim Vergueiro. Fora dessa área, combinamos no WhatsApp.</p>
+          <p class="destaque">Taxa única de R$ 8</p>
+        </article>
+        <article class="cartao">
+          <h3>Horário</h3>
+          <p>Segunda a sexta das 10h30 às 14h30 e das 18h às 21h. Sábado só no almoço, das 11h às 15h.</p>
+          <p class="destaque">Domingo fechado</p>
+        </article>
+        <article class="cartao">
+          <h3>Pagamento</h3>
+          <p>Pix na hora de confirmar, cartão na entrega ou dinheiro. Peça o troco na observação do pedido.</p>
+          <p class="destaque">Pedido mínimo R$ 25</p>
+        </article>
+      </div>
+
+      <div class="tirinha">
+        <div class="foto foto--larga">
+          <img src="fotos/cozinha.webp" alt="Cozinha em funcionamento" width="1000" height="565" loading="lazy" decoding="async">
+        </div>
+        <div class="foto foto--larga">
+          <img src="fotos/entrega.webp" alt="Entregador saindo com as marmitas" width="1000" height="565" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 · DÚVIDAS ================= -->
+  <section class="secao secao-escura" id="bloco-duvidas">
+    <div class="faixa">
+      <p class="olho">Antes de perguntar</p>
+      <h2>Dúvidas</h2>
+
+      <!-- EDITAR: as perguntas que o cliente realmente faz no WhatsApp -->
+      <div class="duvidas">
+        <details>
+          <summary>Precisa fazer cadastro?</summary>
+          <p>Não. Você escolhe os pratos, escreve nome e endereço e o pedido vai pronto para o nosso WhatsApp. Nenhum dado fica guardado em servidor.</p>
+        </details>
+        <details>
+          <summary>Dá para encomendar para outro dia?</summary>
+          <p>Dá. Monte o pedido normalmente e escreva o dia na observação. Encomenda de mais de 10 marmitas pedimos com um dia de antecedência.</p>
+        </details>
+        <details>
+          <summary>Tem opção sem carne?</summary>
+          <p>Todo dia tem pelo menos um prato vegetariano, marcado no cardápio. Se precisar de restrição específica, escreva na observação.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo demora?</summary>
+          <p>Entre 35 e 50 minutos dentro da área de entrega. Em dia de chuva costuma passar disso — avisamos no WhatsApp.</p>
+        </details>
+        <details>
+          <summary>Vocês fazem para empresa?</summary>
+          <p>Fazemos. Atendemos escritórios da região com marmita diária e valor fechado no mês. Chame no WhatsApp que a gente monta o orçamento.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="faixa">
+    <!-- EDITAR: endereço e telefone -->
+    <p><b>Cozinha da Vila</b> · Rua dos Bem-te-vis, 88 — Vila Haro, Sorocaba / SP</p>
+    <p><a href="tel:+5515998877665">(15) 99887-7665</a></p>
+    <p class="legal">© <span id="ano">2026</span> · Página de exemplo criada por Jeff Company</p>
+  </div>
+</footer>
+
+<!-- Barra do pedido: fica colada embaixo quando há algo escolhido -->
+<div class="barra" id="barra" hidden>
+  <div class="barra-txt"><b id="b-qtd">0 itens</b><span id="b-total">R$ 0,00</span></div>
+  <a class="btn btn-p" href="#bloco-pedido">Ver o pedido</a>
+</div>
+
+<script src="produtos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
