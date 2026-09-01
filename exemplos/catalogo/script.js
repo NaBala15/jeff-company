@@ -366,18 +366,34 @@
     setTimeout(function () { alvo.style.boxShadow = ''; }, 1600);
   });
 
-  /* ------------------------------------------------- modo passo 3 do pedido
+  /* ==================================================================
+     AVISO DE EXEMPLO
 
-     Com ?pedido=1 esta página é o passo 3 de quem pediu catálogo com
-     carrinho no formulário: aparece a barra com o caminho de volta, e o
-     resto do CSS cuida de não empilhar dois cabeçalhos grudentos. */
+     Só aparece com ?demo=1 — que é como a vitrine linka para cá no botão
+     "abrir em tela cheia". Aberta assim, sozinha numa guia, a página não
+     tem nenhuma moldura dizendo que é exemplo, e os preços e o endereço
+     seriam lidos como de um negócio de verdade.
+     ================================================================== */
 
-  if (location.search.indexOf('pedido=1') !== -1) {
-    var barra = document.getElementById('passo-barra');
-    if (barra) {
-      barra.hidden = false;
-      document.body.classList.add('com-barra');
-    }
+  if (location.search.indexOf('demo=1') !== -1) {
+    var aviso = document.createElement('aside');
+    aviso.className = 'aviso-modelo';
+    aviso.innerHTML =
+      '<b>Exemplo</b>' +
+      '<span>A Cozinha da Vila não existe. Nome, pratos, preços, endereço e ' +
+      'telefone são inventados — o que vale aqui é o formato. Pode mexer no ' +
+      'cardápio à vontade.</span>' +
+      '<a href="https://wa.me/5511997097050" target="_blank" rel="noopener">' +
+      'Falar com a Jeff Company</a>' +
+      '<button type="button" class="aviso-x" aria-label="Fechar aviso">&times;</button>';
+
+    /* fechável porque é um quadro fixo: parado num canto, mais cedo ou mais
+       tarde ele cobre um botão que a pessoa quis clicar */
+    aviso.querySelector('.aviso-x').addEventListener('click', function () {
+      aviso.remove();
+    });
+
+    document.body.appendChild(aviso);
   }
 
   /* ----------------------------------------------------------- arranque */

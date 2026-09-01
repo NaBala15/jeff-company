@@ -380,53 +380,34 @@ section[id] { scroll-margin-top: 76px; }
 }
 
 /* ==========================================================================
-   BARRA DO PASSO 3 DO PEDIDO
+   TARJA DE EXEMPLO
 
-   Ligada pelo script quando o endereço tem ?pedido=1. Fora disso a página é
-   só o exemplo de catálogo, e nada disto aparece.
-
-   Fica ACIMA do cabeçalho grudento da página, e por isso o cabeçalho ganha
-   um deslocamento igual à altura dela — senão um cobre o outro.
+   Só é criada quando o endereço tem ?demo=1 — na página entregue a um
+   cliente ela não existe.
    ========================================================================== */
 
-.passo-barra {
-  position: sticky; top: 0; z-index: 140;
-  background: #0A0B09; color: #E8ECE0;
-  border-bottom: 1px solid rgba(199, 245, 63, .3);
-  padding: 11px 18px;
-  display: flex; flex-wrap: wrap; align-items: center;
-  justify-content: center; gap: 8px 18px;
-  font-size: .82rem; line-height: 1.45; text-align: center;
+.aviso-modelo {
+  position: fixed; left: 14px; bottom: 14px; z-index: 130;
+  max-width: 300px;
+  background: var(--tomate); color: var(--claro);
+  border: 1px solid var(--mostarda);
+  border-radius: var(--r);
+  padding: 14px 34px 14px 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .32);
+  font-size: .82rem; line-height: 1.5;
 }
-.passo-barra[hidden] { display: none; }
-
-.passo-barra__txt { color: #8B9280; }
-.passo-barra__txt b {
-  color: #C7F53F; font-weight: 500;
-  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
-  margin-right: 8px;
+.aviso-modelo b { display: block; color: var(--mostarda); margin-bottom: 4px; }
+.aviso-modelo span { display: block; color: var(--claro-suave); }
+.aviso-modelo a { display: inline-block; margin-top: 8px; color: var(--mostarda); font-weight: 700; }
+.aviso-x {
+  position: absolute; top: 6px; right: 8px;
+  width: 26px; height: 26px; padding: 0; cursor: pointer;
+  background: none; border: 0; color: var(--claro-suave); font-size: 1.2rem; line-height: 1;
 }
-.passo-barra__txt i { color: #5C6154; font-style: normal; }
+.aviso-x:hover { color: var(--claro); }
 
-.passo-barra__voltar {
-  flex: none; text-decoration: none;
-  background: #C7F53F; color: #0A0B09;
-  border-radius: 999px; padding: 9px 20px;
-  font-size: .82rem; font-weight: 700;
-  transition: background-color var(--ease), transform var(--ease);
-}
-.passo-barra__voltar:hover { background: #D8FF6B; transform: translateY(-1px); }
-
-/* Dois cabeçalhos grudentos empilhados brigam por espaço e, no celular,
-   comem meia tela. Com a barra do pedido presente, o cabeçalho da página
-   deixa de ser grudento — o caminho de volta importa mais que o menu.
-
-   Tentei antes medir a barra e descer o cabeçalho pela altura medida. Era
-   frágil à toa: a altura muda quando o texto quebra, e bastou uma medida
-   feita na hora errada para o cabeçalho descer 346px. */
-body.com-barra .topo { position: static; }
-body.com-barra section[id] { scroll-margin-top: 130px; }
-
-@media (max-width: 640px) {
-  .passo-barra { font-size: .76rem; padding: 9px 14px; }
+/* a barra do pedido ocupa o topo; a tarja sobe um pouco para não brigar
+   com o botão flutuante do WhatsApp no canto */
+@media (max-width: 560px) {
+  .aviso-modelo { left: 10px; right: 76px; bottom: 10px; max-width: none; }
 }

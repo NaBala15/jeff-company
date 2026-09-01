@@ -640,8 +640,15 @@ window.pedeCatalogo = function (ramo) {
   return false;
 };
 
-/* Onde mora o exemplo de catálogo pronto que a pessoa vê no passo 3. */
-window.EXEMPLO_CATALOGO = '../exemplos/catalogo/index.html';
+/* A vitrine dos exemplos de catálogo, que é o passo 3 de quem pediu
+   catálogo com carrinho.
+
+   Aponta para a VITRINE e não para a página de exemplo em si: cair dentro
+   da Cozinha da Vila deixava a pessoa perdida no meio de um cardápio, sem
+   moldura e sem saber que ainda estava num pedido. Na vitrine ela vê a
+   página numa janela, abre em tela cheia se quiser, e tem o botão de
+   seguir sempre à vista. E é onde entram os próximos exemplos. */
+window.EXEMPLO_CATALOGO = '../exemplos/comparativo.html';
 
 /* Ramos oferecidos como atalho no campo — os mais comuns no comércio de
    bairro, que é quem esta assinatura atende. */

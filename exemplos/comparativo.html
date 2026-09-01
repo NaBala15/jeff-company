@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+
+<!-- Página de venda, aberta com o cliente. Fora do Google de propósito:
+     as páginas em prévia são de negócios fictícios. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo com pedido | Veja um exemplo funcionando</title>
+<meta name="description" content="Exemplo de catálogo com pedido pelo WhatsApp: o cliente escolhe os itens, o site soma e manda a mensagem pronta.">
+<!-- ======================================================================
+     PRÉVIA DO LINK (WhatsApp, Instagram, Facebook)
+
+     É a imagem e o texto que aparecem quando este endereço é colado numa
+     conversa. Sem isto, o link vai pelado e ninguém clica.
+
+     EDITAR AO ENTREGAR PARA UM CLIENTE: o endereço abaixo aponta para o
+     site da Jeff Company. No site do cliente ele tem que virar o domínio
+     DELE, e o preview.jpg tem que ser recapturado da página já
+     personalizada — senão o WhatsApp mostra a página de exemplo.
+     ====================================================================== -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Catálogo com pedido | Veja um exemplo funcionando">
+<meta property="og:description" content="Exemplo de catálogo com pedido pelo WhatsApp: o cliente escolhe os itens, o site soma e manda a mensagem pronta.">
+<meta property="og:url" content="https://jeffcompany.com.br/exemplos/comparativo.html">
+<meta property="og:image" content="https://jeffcompany.com.br/exemplos/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="author" content="Jeff Company">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<!-- As fontes do site. Sem internet, cai nas do sistema e a página continua
+     legível — as páginas em prévia, essas, funcionam 100% offline. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ==================================================================
+   VITRINE DOS EXEMPLOS DE CATÁLOGO — Jeff Company
+
+   Mesma estrutura dos comparativos de ramo, de propósito: quem já viu um
+   reconhece este. A diferença é o que se faz aqui — não há três modelos
+   para comparar, há um formato para conhecer antes de pedir orçamento.
+
+   Hoje mora aqui um exemplo. A grade é auto-fit centralizada justamente
+   para caber o segundo e o terceiro sem tocar no CSS.
+
+   As cores são as do site (css/variables.css). Se mudar lá, mude aqui:
+   esta página é autônoma de propósito, para abrir sem depender do resto.
+   ================================================================== */
+
+:root {
+  --bg:          #0A0B09;
+  --surface:     #12140F;
+  --surface-2:   #191C15;
+  --line:        #262A20;
+  --line-soft:   rgba(199, 245, 63, .14);
+  --text:        #E8ECE0;
+  --muted:       #8B9280;
+  --faint:       #5C6154;
+  --lime:        #C7F53F;
+  --lime-dim:    #96BC2E;
+  --lime-glow:   rgba(199, 245, 63, .22);
+  --ink:         #0A0B09;
+  --r:           16px;
+  --largura:     1320px;
+  --font-display: 'Archivo', system-ui, 'Segoe UI', sans-serif;
+  --font-body:    'Inter', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 112;
+  font-weight: 500; line-height: 1.14; margin: 0 0 .5em;
+}
+p { margin: 0 0 1em; }
+ul { list-style: none; margin: 0; padding: 0; }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+
+/* ============================= TOPO ============================== */
+.topo { border-bottom: 1px solid var(--line); background: var(--surface); }
+.topo__interno {
+  max-width: var(--largura); margin: 0 auto; padding: 16px 22px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+}
+.topo__marca {
+  margin: 0; display: inline-flex; align-items: center; gap: 10px;
+  font-size: 15px; font-family: var(--font-mono);
+}
+.topo__marca strong { color: var(--lime); font-weight: 500; }
+.topo__ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--lime); }
+.topo__dica { margin: 0; font-size: 13px; color: var(--muted); }
+
+/* ============================= INTRO ============================= */
+.intro { max-width: 760px; margin: 0 auto; padding: 56px 22px 34px; text-align: center; }
+.intro h1 { font-size: clamp(30px, 5.5vw, 48px); }
+.intro p { color: var(--muted); margin: 0; }
+
+/* ---- a faixa de condições: o que o cliente precisa saber para decidir ---- */
+.condicoes {
+  max-width: var(--largura); margin: 0 auto 8px; padding: 0 22px;
+  display: grid; gap: 10px;
+}
+.condicoes li {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; align-items: baseline; gap: 10px;
+}
+.condicoes b {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--lime); white-space: nowrap;
+}
+.condicoes span { font-size: 14px; color: var(--muted); }
+
+/* =========================== VITRINE ============================= */
+/* auto-fit centralizado, e não três colunas fixas: hoje há um exemplo só.
+   Com `repeat(3, 1fr)` ele ficaria espremido num terço da tela, com dois
+   buracos ao lado. Assim um exemplo fica no meio, e quando entrar o
+   segundo e o terceiro a grade se arruma sozinha, sem tocar no CSS. */
+.vitrine {
+  max-width: var(--largura); margin: 0 auto; padding: 20px 22px 60px;
+  display: grid; gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 520px));
+  justify-content: center;
+}
+
+.modelo {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.modelo--premium {
+  border-color: var(--lime-glow);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, .5), 0 0 0 1px var(--line-soft) inset;
+}
+
+.modelo__cabeca { padding: 22px 22px 14px; }
+.modelo__tag {
+  display: inline-block; font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
+}
+.modelo__tag--simples { background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.modelo__tag--premium { background: var(--lime); color: var(--ink); }
+.modelo__tag--exemplo { background: var(--surface-2); color: var(--lime); border: 1px solid var(--line-soft); }
+.modelo__cabeca h2 { font-size: 28px; margin-bottom: 4px; }
+.modelo__negocio { margin: 0 0 14px; font-size: 13px; color: var(--faint); }
+
+.modelo__preco {
+  margin: 0; display: flex; align-items: baseline; gap: 8px;
+  font-family: var(--font-mono);
+}
+.modelo__preco b { font-size: 24px; color: var(--text); font-weight: 500; }
+.modelo--premium .modelo__preco b { color: var(--lime); }
+.modelo__preco span { font-size: 12px; color: var(--faint); }
+
+/* A janela de prévia: o iframe é renderizado grande (para a página cair no
+   layout de computador) e reduzido por transform.
+
+   A largura é 320% da janela e a escala é 1/3.2, então o resultado dá
+   exatamente 100% da janela em qualquer tamanho de tela. Com largura fixa
+   em pixels, a prévia ficava mais larga que a janela e cortava a coluna da
+   direita — que é justamente o que o cliente quer ver. */
+.modelo__tela {
+  position: relative; overflow: hidden;
+  height: 480px; margin: 0 16px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: #fff;
+}
+.modelo__tela iframe {
+  position: absolute; top: 0; left: 0;
+  width: 320%; height: 320%;
+  border: 0;
+  transform: scale(.3125);
+  transform-origin: 0 0;
+}
+
+.modelo__pe { padding: 18px 22px 22px; margin-top: auto; }
+.modelo__resumo { font-size: 14px; color: var(--muted); }
+
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 22px; border: 1px solid transparent; border-radius: 999px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+  letter-spacing: .02em; text-decoration: none;
+  transition: .25s ease;
+}
+.botao--linha { border-color: var(--line); color: var(--text); }
+.botao--linha:hover { border-color: var(--lime); color: var(--lime); }
+.botao--lima { background: var(--lime); color: var(--ink); }
+.botao--lima:hover { background: #D8FF6B; }
+
+/* ============================ EXTRAS ============================= */
+.extras { max-width: var(--largura); margin: 0 auto; padding: 0 22px 70px; }
+.extras__cabeca { text-align: center; max-width: 680px; margin: 0 auto 40px; }
+.extras__tag {
+  display: inline-block; background: var(--lime); color: var(--ink);
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 999px; margin-bottom: 14px;
+}
+.extras__cabeca h2 { font-size: clamp(26px, 4.4vw, 38px); }
+.extras__cabeca p { color: var(--muted); margin: 0; }
+
+/* a frase que explica o preço — é o que faz o cliente entender o premium */
+.extras__porque {
+  max-width: 680px; margin: 18px auto 0; padding: 16px 20px;
+  background: var(--surface); border: 1px solid var(--line-soft);
+  border-radius: 12px; font-size: 15px; color: var(--muted);
+}
+.extras__porque strong { color: var(--text); font-weight: 600; }
+
+.extras__lista { display: grid; gap: 16px; }
+.extras__lista li {
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-left: 3px solid var(--lime);
+  border-radius: 10px; padding: 20px 22px;
+}
+.extras__num { font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--lime); }
+.extras__lista h3 { font-size: 19px; margin: 6px 0 6px; }
+.extras__lista p { margin: 0; font-size: 15px; color: var(--muted); }
+
+.extras__nota { text-align: center; margin: 36px auto 0; max-width: 620px; font-size: 14px; color: var(--faint); }
+
+/* ===================== MODO PASSO 3 DO PEDIDO =====================
+   Ligado pelo script quando o endereco tem ?pedido=1. Fora disso, esta
+   pagina e a vitrine que voce abre com o cliente, e nada disto aparece. */
+
+.passo-barra {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--surface); border-bottom: 1px solid var(--line-soft);
+  padding: 12px 22px; text-align: center;
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--lime);
+}
+.passo-barra a { color: var(--muted); text-decoration: none; margin-left: 14px; }
+.passo-barra a:hover { color: var(--text); }
+
+.seguir {
+  display: block; width: 100%; margin-bottom: 10px;
+  padding: 14px 22px; border: 0; border-radius: 999px;
+  background: var(--lime); color: var(--ink);
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+  letter-spacing: .03em; cursor: pointer;
+  transition: .2s ease;
+}
+.seguir:hover { background: #D8FF6B; transform: translateY(-2px); }
+/* O `display: block` acima vence o `hidden` que vem do HTML — sem esta
+   linha o botão aparece também na vitrine aberta direto com o cliente,
+   que é justamente quando ele não deve existir. */
+.seguir[hidden] { display: none; }
+.modelo__pe .botao { width: 100%; }
+.modelo__pe .botao + .botao { margin-top: 10px; }
+
+/* ============================ CHAMADA ============================ */
+.chamada {
+  max-width: var(--largura); margin: 0 auto; padding: 0 22px 70px; text-align: center;
+}
+.chamada__caixa {
+  background: var(--surface); border: 1px solid var(--line-soft);
+  border-radius: var(--r); padding: 40px 24px;
+}
+.chamada h2 { font-size: clamp(24px, 3.6vw, 32px); }
+.chamada p { color: var(--muted); max-width: 520px; margin: 0 auto 22px; }
+
+/* ============================ RODAPÉ ============================= */
+.rodape {
+  border-top: 1px solid var(--line); padding: 22px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+}
+.rodape p { margin: 0; font-size: 13px; color: var(--faint); font-family: var(--font-mono); }
+.rodape strong { color: var(--lime); font-weight: 500; }
+
+/* ========================== RESPONSIVO =========================== */
+@media (min-width: 700px) {
+  .condicoes { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 780px) {
+  .extras__lista { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px) {
+  .vitrine { gap: 26px; }
+  .modelo__tela { height: 560px; }
+  .extras__lista { grid-template-columns: repeat(4, 1fr); }
+  .condicoes { grid-template-columns: repeat(4, 1fr); }
+  .rodape { flex-direction: row; justify-content: space-between; max-width: var(--largura); margin: 0 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao { transition: none; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Barra do passo 3. Some quando a página é aberta fora do formulário. -->
+  <p class="passo-barra" id="passo-barra" hidden>
+    Passo 3 de 5 &mdash; conheça o formato
+    <a href="../pedido/#passo-2">voltar ao formulário</a>
+  </p>
+
+  <header class="topo">
+    <div class="topo__interno">
+      <p class="topo__marca">
+        <span class="topo__ponto" aria-hidden="true"></span>
+        Catálogo com pedido &mdash; <strong>exemplo</strong>
+      </p>
+      <p class="topo__dica">Role dentro da janela &mdash; ou abra em tela cheia e mexa à vontade</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Um catálogo com pedido, funcionando</h1>
+      <p>Esta é uma página de verdade, com o catálogo montado. Role dentro da janela para conhecer, ou abra em tela cheia e mexa à vontade: some itens e veja o pedido se montar sozinho. O negócio é inventado — o que você está vendo é o formato.</p>
+    </section>
+
+    <ul class="condicoes" aria-label="Condições do catálogo com pedido">
+      <li><b>Sob medida</b><span>catálogo com carrinho não cabe no modelo pronto</span></li>
+      <li><b>Orçamento em 24h</b><span>por escrito, depois de entender o seu catálogo</span></li>
+      <li><b>Sem mensalidade obrigatória</b><span>a página é sua</span></li>
+      <li><b>1 a 2 semanas</b><span>conforme o tamanho do catálogo</span></li>
+    </ul>
+
+    <!-- ===================== OS TRÊS MODELOS ===================== -->
+    <section class="vitrine" aria-label="Exemplo de catálogo com pedido">
+
+      <article class="modelo modelo--premium">
+        <header class="modelo__cabeca">
+          <span class="modelo__tag modelo__tag--exemplo">Exemplo</span>
+          <h2>Cozinha da Vila</h2>
+          <p class="modelo__negocio">Marmitaria &mdash; cardápio, carrinho e pedido no WhatsApp</p>
+          <p class="modelo__preco"><b>Sob medida</b><span>orçamento a combinar</span></p>
+        </header>
+
+        <div class="modelo__tela">
+          <iframe src="catalogo/index.html" title="Prévia do catálogo com pedido" loading="lazy"></iframe>
+        </div>
+
+        <div class="modelo__pe">
+          <p class="modelo__resumo">Cardápio com foto e preço, filtro por categoria, carrinho que soma sozinho e um botão que monta a mensagem do pedido pronta no WhatsApp. Funciona como loja, sem a complicação de pagamento online.</p>
+          <button type="button" class="seguir" hidden>Ir para o próximo passo</button>
+          <!-- contorno e nao preenchido: com o formulário aberto, o botão que
+               manda seguir é o principal, e dois botões cheios competiriam. -->
+          <a class="botao botao--linha" href="catalogo/index.html?demo=1" target="_blank" rel="noopener nofollow">Abrir em tela cheia</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ============== O QUE O PREMIUM TEM A MAIS ============== -->
+    <section class="extras">
+      <header class="extras__cabeca">
+        <span class="extras__tag">Sob medida</span>
+        <h2>O que um catálogo com pedido faz</h2>
+        <p>Sete coisas que a lista de produtos da página pronta não faz.</p>
+
+        <p class="extras__porque">
+          <strong>Por que isto é sob medida.</strong> A página pronta de R$ 50 já
+          mostra os seus produtos com foto, preço e botão de pedir — e para muita
+          gente isso basta. O que ela não faz é somar o pedido e montar a
+          mensagem: isso é programação feita para o seu cardápio, com as suas
+          categorias, a sua taxa de entrega e o seu pedido mínimo.
+        </p>
+      </header>
+
+      <ul class="extras__lista">
+        <li>
+          <span class="extras__num" aria-hidden="true">01</span>
+          <h3>Carrinho que soma sozinho</h3>
+          <p>O cliente toca em "adicionar" e o total vai sendo somado, com a taxa de entrega junto.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">02</span>
+          <h3>Mensagem de pedido pronta</h3>
+          <p>Chega no seu WhatsApp com itens, quantidades, total, endereço e forma de pagamento.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">03</span>
+          <h3>Filtro por categoria</h3>
+          <p>Marmitas, pratos, porções, doces. Filtra na hora, sem recarregar a página.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">04</span>
+          <h3>Pedido guardado no aparelho</h3>
+          <p>A pessoa sai, volta depois e o que ela escolheu continua lá.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">05</span>
+          <h3>Pedido mínimo respeitado</h3>
+          <p>Abaixo do mínimo, o site avisa quanto falta em vez de deixar o pedido sair errado.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">06</span>
+          <h3>Cardápio num arquivo só</h3>
+          <p>Você muda preço, tira item do ar ou marca novidade sem encostar no leiaute.</p>
+        </li>
+        <li>
+          <span class="extras__num" aria-hidden="true">07</span>
+          <h3>Sem taxa de plataforma</h3>
+          <p>O pedido vai direto para você. Não há aplicativo no meio cobrando percentual.</p>
+        </li>
+      </ul>
+
+      <p class="extras__nota">
+        A página abre rápido no celular e não depende de nenhum programa de fora.
+        Nada do que o cliente digita sai do aparelho dele: o pedido vira uma
+        mensagem de WhatsApp, e só.
+      </p>
+    </section>
+
+    <!-- ===================== CHAMADA ===================== -->
+    <section class="chamada">
+      <div class="chamada__caixa">
+        <h2>É isso que você procura?</h2>
+        <p>
+          Me conte o que você vende e como funciona a sua entrega. Eu volto com
+          o orçamento por escrito em até 24 horas.
+        </p>
+        <a class="botao botao--lima" href="https://wa.me/5511997097050?text=Ol%C3%A1%21%20Vi%20os%20modelos%20de%20p%C3%A1gina%20e%20quero%20come%C3%A7ar." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Exemplo de catálogo com pedido</p>
+    <p>Páginas criadas e mantidas por <strong>Jeff Company</strong></p>
+  </footer>
+
+<script>
+/* ==================================================================
+   MODO PASSO 3
+
+   Esta página tem dois usos. Aberta direto, é a vitrine que o Jefferson
+   mostra ao cliente e termina no botão de WhatsApp. Aberta pelo
+   formulário (com ?pedido=1), ela É o passo 3 de quem pediu catálogo com
+   carrinho: aparece a barra do passo e o botão de seguir.
+
+   Aqui não há escolha a devolver — há um formato para conhecer. Por isso
+   o botão é "ir para o próximo passo" e não "escolher este modelo".
+
+   Sem o parâmetro nada disto acontece — os botões nascem com hidden.
+   ================================================================== */
+(function () {
+  'use strict';
+  if (location.search.indexOf('pedido=1') === -1) return;
+
+  document.getElementById('passo-barra').hidden = false;
+
+  /* a chamada de WhatsApp do fim não faz sentido no meio de um pedido */
+  var chamada = document.querySelector('.chamada');
+  if (chamada) chamada.hidden = true;
+
+  var botoes = document.querySelectorAll('.seguir');
+  for (var i = 0; i < botoes.length; i++) {
+    botoes[i].hidden = false;
+    botoes[i].addEventListener('click', function () {
+      location.href = '../pedido/?catalogo=1#passo-4';
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

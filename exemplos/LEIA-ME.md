@@ -46,18 +46,40 @@ Quem digita um ramo que vende produto (pizzaria, padaria, loja) ganha no
 passo 1 a pergunta **"quer catálogo com pedido?"**. Respondendo que sim:
 
 1. o passo 2 marca **Página personalizada** e apaga a página pronta;
-2. o passo 3 abre esta página com `?pedido=1`;
-3. aparece a barra preta no topo, com o caminho de volta para
-   `../../pedido/?catalogo=1#passo-4`.
+2. o passo 3 abre **`comparativo.html?pedido=1`** — a vitrine, não a página
+   de exemplo;
+3. lá aparece a barra do passo, o botão **"Ir para o próximo passo"** (que
+   volta para `../pedido/?catalogo=1#passo-4`) e o **"Abrir em tela cheia"**,
+   que abre a Cozinha da Vila em outra guia com `?demo=1`.
 
 O que a pessoa preencheu fica guardado no aparelho dela (`jc-pedido`) e volta
 sozinho. A resposta do catálogo entra na mensagem de WhatsApp que chega para
 você.
 
-Aberta sem `?pedido=1`, a barra não existe e a página é só o exemplo.
+**Por que a vitrine e não a página direto.** Antes o passo 3 caía dentro da
+Cozinha da Vila. A pessoa se via no meio de um cardápio, sem moldura, sem
+saber que ainda estava num pedido e sem caminho claro para seguir. Na
+vitrine ela vê a página numa janela menor, rola por dentro, abre inteira se
+quiser — e o botão de seguir fica sempre à vista.
+
+Aberta sem `?pedido=1`, a vitrine é a página de venda que você abre com o
+cliente e termina no botão de WhatsApp.
 
 Quem responde "não precisa" segue o caminho normal: página pronta de R$ 50 ou
 personalizada, como sempre foi.
+
+---
+
+## A vitrine cresce sozinha
+
+`comparativo.html` usa o mesmo formato dos comparativos de ramo — de
+propósito, para quem já viu um reconhecer este.
+
+A diferença: não há três modelos para comparar, há **exemplos de um
+formato**. Hoje há um. A grade é `auto-fit` centralizada justamente por
+isso: quando entrar o segundo exemplo de catálogo (uma loja de roupas, uma
+padaria), basta copiar o bloco `<article class="modelo">` e apontar o
+`iframe` para a pasta nova. **O CSS não precisa mudar.**
 
 ---
 
