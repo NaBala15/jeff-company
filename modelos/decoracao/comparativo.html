@@ -252,6 +252,10 @@ ul { list-style: none; margin: 0; padding: 0; }
   transition: .2s ease;
 }
 .escolher:hover { background: #D8FF6B; transform: translateY(-2px); }
+/* O `display: block` acima vence o `hidden` que vem do HTML — sem esta
+   linha o botão de escolher aparece também na vitrine aberta direto com o
+   cliente, que é justamente quando ele não deve existir. */
+.escolher[hidden] { display: none; }
 .modelo__pe .botao { width: 100%; }
 
 /* ============================ CHAMADA ============================ */
