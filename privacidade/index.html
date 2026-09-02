@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- ======================================================================
+
+     POLÍTICA DE PRIVACIDADE — Jeff Company
+
+     Não confundir com contratos/POLITICA.md, que é o documento comercial
+     anexado aos contratos. Esta aqui é a da LGPD, e existe porque o site
+     coleta dado pessoal: o formulário da home manda nome, WhatsApp e
+     mensagem para o Formspree.
+
+     REGRA DE OURO PARA MANTER: cada frase daqui descreve algo que o site
+     REALMENTE faz. Se um dia entrar analytics, pixel, chat ou qualquer
+     script de terceiro, a seção "O que sai do seu navegador" tem que ser
+     atualizada no mesmo dia. Política que descreve um site que não existe
+     é pior que política nenhuma.
+
+     ====================================================================== -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de privacidade | Jeff Company</title>
+<meta name="description" content="O que a Jeff Company coleta, por que, com quem compartilha e como você pede para apagar. Em português, sem juridiquês.">
+
+<link rel="canonical" href="https://jeffcompany.com.br/privacidade/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Jeff Company">
+<meta property="og:title" content="Política de privacidade | Jeff Company">
+<meta property="og:description" content="O que a Jeff Company coleta, por que, com quem compartilha e como você pede para apagar.">
+<meta property="og:url" content="https://jeffcompany.com.br/privacidade/">
+<meta property="og:image" content="https://jeffcompany.com.br/assets/img/og-jeff-company.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#0A0B09">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../servicos/css/servico.css?v=3">
+<style>
+/* ==========================================================================
+   Documento longo, para ler — e não uma página de venda.
+
+   Coluna estreita e entrelinha folgada: o texto é o produto aqui. As tabelas
+   rolam sozinhas no celular, senão estouram a largura da tela.
+   ========================================================================== */
+
+.doc { max-width: 760px; margin: 0 auto; padding: 0 22px; }
+
+.doc h2 {
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  margin: 2.75rem 0 .85rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+.doc h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 1.5rem; }
+.doc h3 { font-size: 1.02rem; margin: 1.75rem 0 .5rem; color: var(--lima); }
+.doc p, .doc li { color: var(--muted); line-height: 1.75; }
+.doc strong { color: var(--text); font-weight: 600; }
+
+.doc ul { margin: 0 0 1rem; padding-left: 1.15rem; }
+.doc li { margin-bottom: .45rem; }
+
+.doc-data {
+  font-family: var(--mono); font-size: .74rem;
+  letter-spacing: .06em; color: var(--faint);
+  margin-bottom: 2rem;
+}
+
+/* a tabela do que sai do navegador */
+.rolagem { overflow-x: auto; margin: 1.25rem 0 1.5rem; }
+.doc table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .88rem; }
+.doc th, .doc td {
+  text-align: left; vertical-align: top;
+  padding: .75rem .9rem;
+  border-bottom: 1px solid var(--line);
+}
+.doc th {
+  font-family: var(--mono); font-size: .7rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--faint); font-weight: 400;
+}
+.doc td { color: var(--muted); }
+.doc td:first-child { color: var(--text); white-space: nowrap; }
+
+/* o quadro do resumo, no topo */
+.resumo {
+  background: var(--surface); border: 1px solid var(--line-lima);
+  border-radius: var(--r-lg); padding: 1.4rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.resumo p:last-child { margin-bottom: 0; }
+.resumo strong { color: var(--lima); }
+
+/* os direitos, em lista de cartões */
+.direitos { display: grid; gap: .7rem; margin: 1.25rem 0 1.5rem; }
+.direito {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r); padding: .95rem 1.15rem;
+}
+.direito b { display: block; color: var(--text); margin-bottom: .15rem; font-size: .95rem; }
+.direito span { font-size: .88rem; color: var(--muted); }
+
+.doc-contato {
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 1.5rem;
+  margin: 2rem 0 1rem;
+}
+.doc-contato a { color: var(--lima); }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <a class="marca" href="../index.html">
+    <span class="marca-ico" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="marca-txt">Jeff<b>Company</b></span>
+  </a>
+  <div class="topo-acoes">
+    <a class="topo-link" href="../index.html#servicos">Todos os serviços</a>
+    <a class="btn btn-p btn-sm" href="https://wa.me/5511997097050" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <span class="eyebrow">Documento · LGPD</span>
+    <h1>Política de <em>privacidade</em></h1>
+  </section>
+
+  <div class="doc">
+
+    <p class="doc-data">Versão 1 · vigente a partir de 1º de setembro de 2026</p>
+
+    <div class="resumo">
+      <p><strong>O resumo honesto:</strong> este site não usa cookie, não tem
+      analytics, não tem pixel de rede social e não rastreia ninguém.</p>
+      <p>Ele coleta dado só quando <strong>você preenche o formulário</strong> —
+      e aí coleta o que você mesmo digitou, para eu te responder. Nada é
+      vendido, nada é usado para publicidade.</p>
+      <p>O que está escrito abaixo é o detalhe disso. Se algum dia o site
+      mudar, esta página muda no mesmo dia.</p>
+    </div>
+
+    <h2>Quem é o responsável</h2>
+    <p>
+      <strong>58.064.996 JEFFERSON LIMA DE MELO</strong> — Jeff Company,
+      empresário individual inscrito no CNPJ sob o nº 58.064.996/0001-89, com
+      sede em Carapicuíba/SP.
+    </p>
+    <p>
+      Para qualquer assunto desta política, inclusive pedidos de exclusão:
+      <a href="mailto:contato@jeffcompany.com.br">contato@jeffcompany.com.br</a>.
+    </p>
+
+    <h2>O que eu coleto, e só quando</h2>
+
+    <h3>Quando você preenche o formulário de contato</h3>
+    <p>Os campos são estes, e não há campo escondido:</p>
+    <ul>
+      <li><strong>Seu nome</strong> — para eu saber como te chamar;</li>
+      <li><strong>Seu WhatsApp</strong> — para eu te responder;</li>
+      <li><strong>Nome do negócio</strong> — para eu entender o seu caso;</li>
+      <li><strong>Sua mensagem</strong> — o que você escrever ali.</li>
+    </ul>
+    <p>
+      <strong>Base legal:</strong> execução de procedimentos preliminares a
+      contrato, a seu pedido (LGPD, art. 7º, V). Você me procurou; eu preciso
+      desses dados para responder.
+    </p>
+
+    <h3>Quando você monta um pedido em /pedido/</h3>
+    <p>
+      O formulário do pedido é diferente: ele <strong>não envia nada
+      sozinho</strong>. O que você digita fica guardado no seu próprio
+      aparelho, no navegador, para você não perder o preenchimento se sair e
+      voltar. Ao clicar em enviar, o conteúdo vira <strong>uma mensagem de
+      WhatsApp que você mesmo despacha</strong> — e a memória do aparelho é
+      apagada nesse momento.
+    </p>
+    <p>
+      Ou seja: enquanto você não apertar enviar, esses dados nunca saíram do
+      seu celular, e eu nunca os vi.
+    </p>
+
+    <h3>Quando você me chama no WhatsApp</h3>
+    <p>
+      A conversa acontece dentro do WhatsApp, que é da Meta e tem privacidade
+      própria. Eu vejo o que você me manda, como qualquer pessoa com quem você
+      conversa por lá.
+    </p>
+
+    <h2>O que sai do seu navegador</h2>
+    <p>
+      Todo site carrega coisas de fora, e quem serve esses arquivos enxerga o
+      endereço de IP de quem pediu. Esta é a lista inteira do que este site
+      carrega — não há outros:
+    </p>
+
+    <div class="rolagem">
+      <table>
+        <thead>
+          <tr><th>Quem</th><th>Para quê</th><th>O que ele vê</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google Fonts</td>
+            <td>As fontes do site</td>
+            <td>Seu IP e o navegador, ao baixar a fonte</td>
+          </tr>
+          <tr>
+            <td>Formspree</td>
+            <td>Receber e me entregar o formulário</td>
+            <td>O que você digitou, e só se você enviar</td>
+          </tr>
+          <tr>
+            <td>Hospedagem</td>
+            <td>Servir as páginas</td>
+            <td>Registros técnicos de acesso, como qualquer servidor</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      <strong>Não há</strong> Google Analytics, Meta Pixel, Google Ads, chat de
+      terceiro, mapa de calor nem cookie de rastreio. Por isso este site também
+      não tem aquele aviso de cookies: não haveria o que consentir.
+    </p>
+
+    <h2>Por quanto tempo eu guardo</h2>
+    <ul>
+      <li><strong>Contato que não virou cliente:</strong> apago em até 12 meses.</li>
+      <li><strong>Contato que virou cliente:</strong> guardo enquanto durar o
+      serviço e, depois, pelo prazo em que a lei me obriga a manter registro
+      fiscal e contratual.</li>
+      <li><strong>Conversa de WhatsApp:</strong> fica no aparelho, sujeita às
+      regras do próprio aplicativo.</li>
+    </ul>
+
+    <h2>Com quem eu compartilho</h2>
+    <p>
+      <strong>Com ninguém, para fins comerciais.</strong> Eu não vendo, não
+      troco e não cedo lista de contato. Os únicos terceiros envolvidos são os
+      da tabela acima, e cada um só enxerga o que precisa para funcionar.
+    </p>
+    <p>
+      Formspree e Google são empresas de fora do Brasil, então esse tráfego
+      cruza a fronteira. A LGPD permite (art. 33), e é o mesmo caminho de
+      praticamente qualquer site brasileiro pequeno.
+    </p>
+
+    <h2>Os seus direitos</h2>
+    <p>
+      A LGPD te dá direitos sobre os seus dados, e exercer qualquer um deles é
+      de graça. Escreva para
+      <a href="mailto:contato@jeffcompany.com.br">contato@jeffcompany.com.br</a>
+      e eu respondo em <strong>até 15 dias</strong>.
+    </p>
+
+    <div class="direitos">
+      <div class="direito"><b>Saber o que eu tenho</b><span>Peça e eu te mando tudo que guardo sobre você.</span></div>
+      <div class="direito"><b>Corrigir</b><span>Dado errado ou desatualizado, eu acerto.</span></div>
+      <div class="direito"><b>Apagar</b><span>Peça e eu apago, salvo o que a lei me obriga a manter.</span></div>
+      <div class="direito"><b>Levar embora</b><span>Peça e eu te entrego os dados num formato que dá para usar em outro lugar.</span></div>
+      <div class="direito"><b>Revogar o consentimento</b><span>Mudou de ideia depois de me procurar? Só falar.</span></div>
+      <div class="direito"><b>Reclamar</b><span>Se eu não resolver, você pode acionar a ANPD.</span></div>
+    </div>
+
+    <p>
+      Só te peço uma coisa: <strong>escreva do mesmo e-mail ou do mesmo WhatsApp
+      pelo qual falamos</strong>. É como eu confirmo que é você, e não alguém
+      pedindo os seus dados.
+    </p>
+
+    <h2>Segurança, sem promessa que eu não posso cumprir</h2>
+    <p>
+      Tudo trafega em conexão segura (HTTPS) e o acesso aos contatos é meu, com
+      senha e verificação em duas etapas. Ainda assim, <strong>nenhum sistema é
+      100% seguro</strong>, e quem promete isso está mentindo. Se acontecer
+      algum incidente com risco relevante para você, eu aviso você e a ANPD,
+      como manda a lei.
+    </p>
+
+    <h2>Menores de idade</h2>
+    <p>
+      Este site é dirigido a quem tem negócio, e não a crianças. Não coleto
+      dados de menores de propósito. Se isso acontecer por engano, me avise que
+      eu apago.
+    </p>
+
+    <h2>Mudanças nesta política</h2>
+    <p>
+      Se o site mudar, esta página muda junto, com nova data no topo. Alterações
+      relevantes eu aviso a quem já é cliente.
+    </p>
+
+    <div class="doc-contato">
+      <p><strong>Dúvida sobre privacidade, ou quer apagar seus dados?</strong></p>
+      <p>
+        <a href="mailto:contato@jeffcompany.com.br">contato@jeffcompany.com.br</a>
+        · <a href="https://wa.me/5511997097050" target="_blank" rel="noopener">(11) 99709-7050</a>
+      </p>
+      <p style="margin-bottom:0">Jeff Company · CNPJ 58.064.996/0001-89</p>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="pe">
+  <span>© <span id="ano">2026</span> Jeff Company</span>
+  <span>Desenvolvido por <b>JeffDev</b> ✦</span>
+</footer>
+
+<script>
+  /* só o ano do rodapé — a página não precisa de mais nada */
+  document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

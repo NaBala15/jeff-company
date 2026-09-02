@@ -292,3 +292,29 @@
   .nav, .hdr-cta { display: none; }
   .burger { display: flex; margin-left: auto; }
 }
+
+
+/* ==========================================================================
+   AVISO DE PRIVACIDADE JUNTO DO FORMULÁRIO
+
+   Fica logo abaixo do botão de enviar: é o momento em que a pessoa entrega
+   o dado. Discreto, mas legível — aviso que ninguém consegue ler não cumpre
+   a função dele.
+   ========================================================================== */
+
+.form-privacidade {
+  margin: .75rem 0 0;
+  font-size: .78rem;
+  line-height: 1.55;
+  color: var(--faint);
+}
+.form-privacidade a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.form-privacidade a:hover { color: var(--lima); }
+
+/* o link de privacidade no rodapé da home */
+.rodape-base a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.rodape-base a:hover { color: var(--lima); }

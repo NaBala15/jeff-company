@@ -304,3 +304,11 @@ p { text-wrap: pretty; }
   * { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+
+/* ==========================================================================
+   LINK DE PRIVACIDADE NO RODAPÉ
+   ========================================================================== */
+
+.pe a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.pe a:hover { color: var(--lima); }
