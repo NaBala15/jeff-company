@@ -1,6 +1,6 @@
 # POLÍTICA E REGRAS PARA CRIAÇÃO DE SITES E PÁGINAS
 
-**Jeff Company** — versão 2 · vigente a partir de «DATA»
+**Jeff Company** — versão 2 · vigente a partir de 1º de setembro de 2026
 
 Este documento estabelece as condições, regras e responsabilidades referentes à
 contratação de serviços de criação, desenvolvimento, manutenção e publicação de
@@ -123,8 +123,10 @@ não enviam e falhas equivalentes.
 
 ## 6. Manutenção e permanência do site
 
-**6.1** Após o primeiro mês, o CONTRATANTE poderá manter o PROJETO ativo mediante
-mensalidade de **R$ «VALOR MENSALIDADE»**.
+**6.1** Após o primeiro mês, o CONTRATANTE poderá manter o PROJETO ativo
+mediante a mensalidade prevista no contrato firmado entre as partes. O valor, o
+dia de vencimento e eventuais acréscimos — como o do domínio gerenciado —
+constam daquele instrumento, e prevalecem sobre qualquer número citado aqui.
 
 **6.2** O **primeiro mês de manutenção é gratuito**.
 
@@ -392,7 +394,7 @@ novação nem renúncia ao direito de exigi-la posteriormente.
 **22.3** Esta política poderá ser atualizada. Contratos já firmados permanecem
 regidos pela versão vigente à data da assinatura.
 
-**22.4** Fica eleito o foro da comarca de **«SUA CIDADE/UF»** para dirimir
+**22.4** Fica eleito o foro da comarca de **Carapicuíba/SP** para dirimir
 controvérsias, com renúncia a qualquer outro.
 
 ---
@@ -409,4 +411,4 @@ responsabilidades e condições que lhe são atribuídas.
 
 ---
 
-*Jeff Company · «SEU E-MAIL» · «SEU WHATSAPP»*
+*Jeff Company · CNPJ 58.064.996/0001-89 · contato@jeffcompany.com.br · (11) 99709-7050*
