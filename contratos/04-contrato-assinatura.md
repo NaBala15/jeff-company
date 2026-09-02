@@ -15,7 +15,7 @@ Contrato nº «000/2026»
 
 **CONTRATADO — Jeff Company**
 **58.064.996 JEFFERSON LIMA DE MELO**, empresário individual inscrito no CNPJ sob
-o nº 58.064.996/0001-89, com sede em «SEU ENDEREÇO COMPLETO»,
+o nº 58.064.996/0001-89, com sede em «SUA CIDADE/UF»,
 e-mail «SEU E-MAIL», telefone «SEU WHATSAPP», doravante denominado **CRIADOR**.
 
 **CONTRATANTE**
