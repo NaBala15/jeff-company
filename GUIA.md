@@ -189,25 +189,40 @@ cookie, e cookie de medição obriga aviso de consentimento — aquela tarja que
 todo mundo fecha sem ler. A da Cloudflare não usa cookie nenhum, então não
 precisa de aviso. Dá menos detalhe, e é de graça sem limite de visitas.
 
+### O caminho curto (o seu, porque o site está no Cloudflare)
+
 1. Painel da Cloudflare → **Analytics & Logs** → **Web Analytics**
 2. **Add a site** → `jeffcompany.com.br`
-3. Ele mostra um trecho com `data-cf-beacon='{"token": "abc123..."}'`.
-   Copie **só o valor do token**
-4. Abra `js/analytics.js` e cole na linha `var TOKEN = '';`
-5. Publique. Os números aparecem em algumas horas
+3. Escolha **Automatic setup** e confirme
 
-⚠ **No mesmo dia, atualize `/privacidade/`.** Ela hoje afirma por escrito que o
-site **não tem** analytics. Quando tiver, aquela frase vira mentira. O que
-muda: a tabela "O que sai do seu navegador" ganha uma linha, e o quadro do
-resumo e o parágrafo do "não há Google Analytics…" precisam ser reescritos.
+Pronto. Nenhum arquivo para editar, nenhum token para colar: a Cloudflare
+injeta a medição na saída, e ela passa a valer para o site inteiro —
+inclusive os comparativos de modelo, que o caminho manual não alcança.
 
-**Enquanto o token estiver vazio, nada é carregado** — o arquivo termina na
-primeira linha e nenhuma visita é medida. Seus próprios testes em `localhost`
-também não contam, senão o número deixaria de significar algo.
+### O caminho manual (só se o automático não aparecer)
 
-A medição **não entra nas páginas de modelo**, de propósito: cada pasta de
-modelo vira o site de um cliente, e o script viajaria junto — as visitas do
-cliente cairiam na sua conta.
+Existe `js/analytics.js`, já ligado nas 7 páginas públicas. Copie o token que
+o painel mostrar em `data-cf-beacon='{"token": "abc123..."}'` e cole na linha
+`var TOKEN = '';`. Enquanto o token estiver vazio, nada é carregado.
+
+> ⚠ **Nunca os dois ao mesmo tempo.** Com o automático ligado E o token
+> preenchido, a medição carrega duas vezes e cada visita conta em dobro. Se
+> for pelo automático, apague o `js/analytics.js` e as linhas que o chamam.
+
+### E o que muda na política de privacidade
+
+⚠ **No mesmo dia em que ligar, atualize `/privacidade/`.** Ela hoje afirma por
+escrito que o site **não tem** analytics. Quando tiver, aquela frase vira
+mentira. O que muda: a tabela "O que sai do seu navegador" ganha uma linha, e
+o quadro do resumo e o parágrafo do "não há Google Analytics…" precisam ser
+reescritos.
+
+Seus próprios testes em `localhost` não contam em nenhum dos dois caminhos.
+
+A medição **não deve entrar nas pastas de modelo que você entregar ao
+cliente**: cada pasta vira o site dele, e o script viajaria junto — as visitas
+do cliente cairiam na sua conta. Isso não é problema no automático, porque ele
+vale só para `jeffcompany.com.br`.
 
 ---
 
