@@ -57,6 +57,19 @@ que você quer usar para SEMPRE. Trocar de conta depois dá trabalho.
 "Jeff Company — Criação de Sites em São Paulo" para aparecer mais. Isso se
 chama *keyword stuffing* no nome e é motivo de suspensão. O nome é o nome.
 
+> ⚠️ **Este aviso já falhou uma vez.** O perfil da Jeff Company foi criado
+> como *"Jeff Company - Presença Digital"*. O apêndice é pequeno e parece
+> inofensivo, e é assim que ele passa.
+>
+> O risco não é o Google achar sozinho: é **concorrente denunciar** — e isso
+> costuma acontecer justamente quando o perfil começa a aparecer bem. Perder
+> o perfil depois de juntar avaliações dói muito mais do que ajustar no
+> primeiro dia.
+>
+> A exceção: se o complemento estiver no cartão, no contrato e na fachada,
+> aí ele é parte do nome real e pode ficar. O critério é esse, e não o que
+> soa melhor na busca.
+
 ### Endereço
 
 Quando perguntar se você quer adicionar um local que os clientes podem
@@ -170,6 +183,40 @@ não existe etiqueta de "conceito", então quem vê assume que é cliente seu.
 Falta uma: **você trabalhando**, tirada com o celular. Prestador de serviço
 vende confiança, e rosto vende mais que captura de tela.
 
+**Cuidado com a capa.** É tentador usar um banner bonito, cheio de frase de
+efeito — foi o que acabou na capa do perfil da Jeff Company. O Google rejeita
+imagens muito textuais, e mesmo quando aceita elas rendem menos que uma foto
+de verdade: quem está rolando o Maps vê banner de anúncio e passa reto.
+
+### Atributos — o campo que engana
+
+No fim da edição do perfil o Google oferece **atributos**, e entre eles um
+grupo de **identidade do negócio**:
+
+- Se identifica como empresa de mulheres empreendedoras
+- Se identifica como empresa de pessoas negras
+- Se identifica como empresa LGBTQ+
+- Se identifica como empresa de veteranos
+
+São opções para dar visibilidade a esses grupos, e **aparecem em destaque no
+perfil público**, logo abaixo do telefone. Só marque o que for verdade sobre
+você.
+
+> ⚠️ **Aconteceu aqui, no perfil da própria Jeff Company.** Ele saiu no ar
+> exibindo *"Se identifica como uma empresa de empreendedoras"* — o rótulo de
+> empresa liderada por mulheres — marcado sem querer no cadastro.
+>
+> **Onde desmarcar:** Perfil da Empresa → *Editar perfil* → *Mais* →
+> *Atributos* → grupo de identidade.
+>
+> Não é preciosismo: é uma declaração que o Google leva a sério, existe para
+> dar visibilidade a negócios de mulheres, e um perfil que a reivindica sem
+> ser pode ser denunciado e suspenso.
+
+Os **outros** atributos — "atende on-line", "orçamento gratuito", "aceita
+Pix" — esses vale marcar todos que forem verdade. Eles entram nos filtros de
+busca do Maps.
+
 ### Horário
 
 Ponha o horário em que você **realmente responde**. Horário mentido gera
@@ -194,6 +241,28 @@ suspende, e você perde tudo que construiu.
 
 **Responda todas**, inclusive as ruins. Resposta educada em avaliação ruim
 convence mais quem lê do que dez elogios.
+
+---
+
+## Confira depois de publicar
+
+Abra o perfil **numa janela anônima**, deslogado. É assim que o cliente vê —
+e logado o Google mostra coisas que o público não vê, o que esconde erro.
+
+- [ ] **Nome** exatamente o nome do negócio, sem apêndice de palavra-chave
+- [ ] **Nenhum atributo de identidade** marcado sem ser verdade
+- [ ] **Telefone e site** corretos e clicáveis
+- [ ] **Endereço residencial não aparece** (só a área de atendimento)
+- [ ] **Capa é foto**, e não banner cheio de texto
+- [ ] **Horário** é o horário em que você realmente responde
+- [ ] **Descrição e serviços** preenchidos
+
+As três primeiras foram justamente as que passaram batido no perfil da própria
+Jeff Company. Não porque o guia não avisava — o aviso do nome estava escrito
+no Passo 1 — mas porque no meio do cadastro ninguém volta para conferir.
+
+**No perfil de cliente isso custa mais caro:** quem vai levar a bronca da
+suspensão é você, que configurou.
 
 ---
 
