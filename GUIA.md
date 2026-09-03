@@ -180,49 +180,43 @@ Para receber de verdade:
 
 ## Parte 5b — Saber quantas pessoas entram no site
 
-Sem isso você não sabe se a página de serviço que levou um dia para escrever
-foi lida por dez pessoas ou por nenhuma — e não descobre em que passo do
-pedido a pessoa desiste.
+✅ **Ligado em 02/09/2026.** Cloudflare Web Analytics, no **automatic setup** —
+ligado pelo painel, sem script no código.
 
-**Cloudflare Web Analytics**, e não Google Analytics. Motivo: a do Google grava
-cookie, e cookie de medição obriga aviso de consentimento — aquela tarja que
-todo mundo fecha sem ler. A da Cloudflare não usa cookie nenhum, então não
-precisa de aviso. Dá menos detalhe, e é de graça sem limite de visitas.
+Onde ver: painel da Cloudflare → **Analytics & Logs** → **Web Analytics**.
+Os números aparecem algumas horas depois de ligar.
 
-### O caminho curto (o seu, porque o site está no Cloudflare)
+**Por que essa e não o Google Analytics.** A do Google grava cookie, e cookie
+de medição obriga aviso de consentimento — aquela tarja que todo mundo fecha
+sem ler. A da Cloudflare não usa cookie, não guarda nada no aparelho do
+visitante e não segue ninguém entre sites. Dá menos detalhe, e é de graça sem
+limite de visitas.
 
-1. Painel da Cloudflare → **Analytics & Logs** → **Web Analytics**
-2. **Add a site** → `jeffcompany.com.br`
-3. Escolha **Automatic setup** e confirme
+**O que ela responde:** quantas pessoas entram, em que páginas, de onde vieram,
+celular ou computador. Serve para você saber se vale continuar escrevendo
+página de serviço, e para descobrir em que passo do pedido a pessoa desiste.
 
-Pronto. Nenhum arquivo para editar, nenhum token para colar: a Cloudflare
-injeta a medição na saída, e ela passa a valer para o site inteiro —
-inclusive os comparativos de modelo, que o caminho manual não alcança.
+### Por que não há nenhum arquivo de analytics no projeto
 
-### O caminho manual (só se o automático não aparecer)
+Porque o automatic setup injeta a medição na saída da Cloudflare, e não no
+código. Vantagem: vale para o site inteiro, inclusive os comparativos de
+modelo. Desvantagem: **não dá para saber que ela existe lendo o repositório** —
+por isso está escrito aqui e na página de privacidade.
 
-Existe `js/analytics.js`, já ligado nas 7 páginas públicas. Copie o token que
-o painel mostrar em `data-cf-beacon='{"token": "abc123..."}'` e cole na linha
-`var TOKEN = '';`. Enquanto o token estiver vazio, nada é carregado.
+Existiu por algumas horas um `js/analytics.js`, para o caso de o automático não
+aparecer. Foi apagado ao ligar o automático: com os dois, cada visita contaria
+em dobro.
 
-> ⚠ **Nunca os dois ao mesmo tempo.** Com o automático ligado E o token
-> preenchido, a medição carrega duas vezes e cada visita conta em dobro. Se
-> for pelo automático, apague o `js/analytics.js` e as linhas que o chamam.
+### O que já foi ajustado junto
 
-### E o que muda na política de privacidade
+A `/privacidade/` afirmava por escrito que o site não tinha analytics. Foi
+atualizada no mesmo dia: a tabela "O que sai do seu navegador" ganhou a linha
+da Cloudflare Web Analytics, com a base legal (legítimo interesse) e a
+explicação de que ela não grava cookie — que é o motivo de o site continuar
+sem aviso de cookies.
 
-⚠ **No mesmo dia em que ligar, atualize `/privacidade/`.** Ela hoje afirma por
-escrito que o site **não tem** analytics. Quando tiver, aquela frase vira
-mentira. O que muda: a tabela "O que sai do seu navegador" ganha uma linha, e
-o quadro do resumo e o parágrafo do "não há Google Analytics…" precisam ser
-reescritos.
-
-Seus próprios testes em `localhost` não contam em nenhum dos dois caminhos.
-
-A medição **não deve entrar nas pastas de modelo que você entregar ao
-cliente**: cada pasta vira o site dele, e o script viajaria junto — as visitas
-do cliente cairiam na sua conta. Isso não é problema no automático, porque ele
-vale só para `jeffcompany.com.br`.
+**Se um dia entrar qualquer outro script de terceiro** (pixel, chat, mapa de
+calor), a mesma tabela muda no mesmo dia.
 
 ---
 

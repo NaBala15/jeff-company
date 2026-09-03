@@ -10,10 +10,15 @@
      mensagem para o Formspree.
 
      REGRA DE OURO PARA MANTER: cada frase daqui descreve algo que o site
-     REALMENTE faz. Se um dia entrar analytics, pixel, chat ou qualquer
-     script de terceiro, a seção "O que sai do seu navegador" tem que ser
-     atualizada no mesmo dia. Política que descreve um site que não existe
-     é pior que política nenhuma.
+     REALMENTE faz. Se um dia entrar pixel, chat ou qualquer script de
+     terceiro, a seção "O que sai do seu navegador" tem que ser atualizada
+     no mesmo dia. Política que descreve um site que não existe é pior que
+     política nenhuma.
+
+     Em 02/09/2026 entrou o Cloudflare Web Analytics, ligado pelo painel da
+     Cloudflare (automatic setup) e não por script no código — por isso ele
+     não aparece em lugar nenhum destes arquivos. Está na tabela mesmo
+     assim, porque quem visita não tem como saber disso.
 
      ====================================================================== -->
 <head>
@@ -136,14 +141,17 @@
 
   <div class="doc">
 
-    <p class="doc-data">Versão 1 · vigente a partir de 1º de setembro de 2026</p>
+    <p class="doc-data">Versão 1 · vigente a partir de 2 de setembro de 2026</p>
 
     <div class="resumo">
-      <p><strong>O resumo honesto:</strong> este site não usa cookie, não tem
-      analytics, não tem pixel de rede social e não rastreia ninguém.</p>
-      <p>Ele coleta dado só quando <strong>você preenche o formulário</strong> —
-      e aí coleta o que você mesmo digitou, para eu te responder. Nada é
-      vendido, nada é usado para publicidade.</p>
+      <p><strong>O resumo honesto:</strong> este site não usa cookie, não
+      grava nada no seu aparelho e não segue você entre sites.</p>
+      <p>Eu conto <strong>quantas pessoas entram e em que páginas</strong>, com
+      uma ferramenta que não sabe quem você é — é um número, não uma ficha
+      sobre você.</p>
+      <p>Dado seu, mesmo, só quando <strong>você preenche o formulário</strong>
+      — e aí é o que você mesmo digitou, para eu te responder. Nada é vendido,
+      nada é usado para publicidade.</p>
       <p>O que está escrito abaixo é o detalhe disso. Se algum dia o site
       mudar, esta página muda no mesmo dia.</p>
     </div>
@@ -220,9 +228,14 @@
             <td>O que você digitou, e só se você enviar</td>
           </tr>
           <tr>
-            <td>Hospedagem</td>
-            <td>Servir as páginas</td>
+            <td>Cloudflare</td>
+            <td>Hospedar e servir as páginas</td>
             <td>Registros técnicos de acesso, como qualquer servidor</td>
+          </tr>
+          <tr>
+            <td>Cloudflare&nbsp;Web&nbsp;Analytics</td>
+            <td>Contar visitas</td>
+            <td>Página aberta, país, tipo de aparelho e de onde você veio — sem cookie e sem identificar você</td>
           </tr>
         </tbody>
       </table>
@@ -230,8 +243,20 @@
 
     <p>
       <strong>Não há</strong> Google Analytics, Meta Pixel, Google Ads, chat de
-      terceiro, mapa de calor nem cookie de rastreio. Por isso este site também
-      não tem aquele aviso de cookies: não haveria o que consentir.
+      terceiro, mapa de calor nem cookie de rastreio.
+    </p>
+    <p>
+      A contagem de visitas que eu uso é a da Cloudflare, e ela é diferente do
+      Google Analytics em algo que importa: <strong>não grava cookie, não
+      guarda nada no seu navegador e não te acompanha em outros sites</strong>.
+      Ela me diz que <em>alguém</em> abriu a página de manutenção pelo celular,
+      e nunca que <em>você</em> abriu. É por isso que este site continua sem
+      aquele aviso de cookies — não haveria o que consentir.
+    </p>
+    <p>
+      <strong>Base legal:</strong> legítimo interesse (LGPD, art. 7º, IX) —
+      saber quais páginas são lidas para decidir o que melhorar. Como o dado é
+      agregado e não identifica ninguém, não há como isso te prejudicar.
     </p>
 
     <h2>Por quanto tempo eu guardo</h2>
@@ -242,6 +267,9 @@
       fiscal e contratual.</li>
       <li><strong>Conversa de WhatsApp:</strong> fica no aparelho, sujeita às
       regras do próprio aplicativo.</li>
+      <li><strong>Contagem de visitas:</strong> são números somados, sem nada
+      que aponte para uma pessoa. Ficam no painel da Cloudflare pelo prazo que
+      ela mantém.</li>
     </ul>
 
     <h2>Com quem eu compartilho</h2>
@@ -323,8 +351,5 @@
   /* só o ano do rodapé — a página não precisa de mais nada */
   document.getElementById('ano').textContent = new Date().getFullYear();
 </script>
-<!-- Medição de visitas. Só faz alguma coisa depois que o token
-     estiver preenchido em js/analytics.js. -->
-<script src="../js/analytics.js?v=1" defer></script>
 </body>
 </html>
