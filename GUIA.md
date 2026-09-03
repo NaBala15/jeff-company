@@ -287,6 +287,46 @@ Estas são faixas praticadas no mercado brasileiro para quem está começando
 | Automação de WhatsApp | R$ 500 – R$ 1.500 | R$ 2.000+ |
 | Manutenção mensal | R$ 100 – R$ 300/mês | R$ 400 – R$ 800/mês |
 
+### Quanto cobrar para o cliente da assinatura COMPRAR a página
+
+A cláusula 10 do contrato de assinatura deixa o cliente comprar a página a
+qualquer momento e ficar com ela para sempre, encerrando a mensalidade. O
+`«VALOR DE AQUISICAO»` é preenchido por cliente, no gerador.
+
+**Faixa: 10 a 12 mensalidades.** Na base de R$ 50, isso dá **R$ 500 a R$ 600**.
+No modelo Premium de R$ 60, **R$ 600 a R$ 720**.
+
+Por que essa faixa, e não outra:
+
+- **Abaixo de 10 mensalidades**, sai barato demais. O cliente compra no
+  primeiro mês, você recebe uma vez e perde a receita recorrente — que é
+  justamente o que sustenta o mês em que você não fecha venda nova.
+- **Acima de 12**, ninguém compra. A cláusula vira enfeite no contrato, e você
+  perde a saída digna que ela existe para dar.
+
+**Lembre do desconto da 10.2:** metade de tudo que ele já pagou de mensalidade
+é abatida. Com aquisição de R$ 600, a conta anda assim:
+
+| Ele compra no… | Já pagou | Abate 50% | Ele paga |
+|---|---|---|---|
+| 1º mês | R$ 50 | R$ 25 | R$ 575 |
+| 6º mês | R$ 300 | R$ 150 | R$ 450 |
+| 12º mês | R$ 600 | R$ 300 | R$ 300 |
+| 24º mês | R$ 1.200 | R$ 600 | **R$ 0** |
+
+A partir do 24º mês o desconto zera o preço e **para ali** — é o que a frase
+"limitado ao próprio valor de aquisição" garante. Sem ela, a conta ficaria
+negativa e, lido ao pé da letra, você deveria dinheiro ao cliente.
+
+Dois anos pagando e a página vira dele de graça é justo: ele já te pagou
+R$ 1.200 por uma página que você vende a R$ 600.
+
+**O que a compra NÃO leva** (item 10.4): o subdomínio continua seu. Ele precisa
+registrar domínio próprio. Sem isso, você hospedaria de graça e para sempre o
+site de alguém que parou de pagar.
+
+---
+
 **Cinco regras que valem mais que a tabela:**
 
 1. **50% na aprovação, 50% na entrega.** Sem exceção, nem para amigo. Quem não
