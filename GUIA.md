@@ -178,6 +178,39 @@ Para receber de verdade:
 
 ---
 
+## Parte 5b — Saber quantas pessoas entram no site
+
+Sem isso você não sabe se a página de serviço que levou um dia para escrever
+foi lida por dez pessoas ou por nenhuma — e não descobre em que passo do
+pedido a pessoa desiste.
+
+**Cloudflare Web Analytics**, e não Google Analytics. Motivo: a do Google grava
+cookie, e cookie de medição obriga aviso de consentimento — aquela tarja que
+todo mundo fecha sem ler. A da Cloudflare não usa cookie nenhum, então não
+precisa de aviso. Dá menos detalhe, e é de graça sem limite de visitas.
+
+1. Painel da Cloudflare → **Analytics & Logs** → **Web Analytics**
+2. **Add a site** → `jeffcompany.com.br`
+3. Ele mostra um trecho com `data-cf-beacon='{"token": "abc123..."}'`.
+   Copie **só o valor do token**
+4. Abra `js/analytics.js` e cole na linha `var TOKEN = '';`
+5. Publique. Os números aparecem em algumas horas
+
+⚠ **No mesmo dia, atualize `/privacidade/`.** Ela hoje afirma por escrito que o
+site **não tem** analytics. Quando tiver, aquela frase vira mentira. O que
+muda: a tabela "O que sai do seu navegador" ganha uma linha, e o quadro do
+resumo e o parágrafo do "não há Google Analytics…" precisam ser reescritos.
+
+**Enquanto o token estiver vazio, nada é carregado** — o arquivo termina na
+primeira linha e nenhuma visita é medida. Seus próprios testes em `localhost`
+também não contam, senão o número deixaria de significar algo.
+
+A medição **não entra nas páginas de modelo**, de propósito: cada pasta de
+modelo vira o site de um cliente, e o script viajaria junto — as visitas do
+cliente cairiam na sua conta.
+
+---
+
 ## Parte 6 — MEI: o CNPJ da Jeff Company
 
 Você **pode** trabalhar como pessoa física, mas sem CNPJ você não emite nota
